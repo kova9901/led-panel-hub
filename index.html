@@ -9,6 +9,11 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
+    <!-- UNDER CONSTRUCTION BANNER -->
+    <div class="bg-amber-500 text-slate-950 px-4 py-2 text-center text-xs sm:text-sm font-bold tracking-wide uppercase">
+        🚀 Site under construction – Upgrading our B2B platform for the European market!
+    </div>
+
     <!-- HEADER / NAVIGATION -->
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -161,7 +166,7 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION (LED PANELS IN ACTION / SPORTS & STADIUMS) -->
+    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 bg-slate-900/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -173,7 +178,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1: Stadium / Sports Match -->
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 flex flex-col justify-between aspect-video md:aspect-[4/3]">
                     <div>
                         <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g1-tag">Stadiums & Sports</span>
@@ -181,8 +185,6 @@
                     </div>
                     <p class="text-sm text-slate-400 g1-desc">High durability and brightness designed for professional sports venues and perimeter advertising.</p>
                 </div>
-
-                <!-- Card 2: Massive Stadium / Night Event -->
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 flex flex-col justify-between aspect-video md:aspect-[4/3]">
                     <div>
                         <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest g2-tag">Mega Events</span>
@@ -190,8 +192,6 @@
                     </div>
                     <p class="text-sm text-slate-400 g2-desc">Engineered to perform seamlessly under direct sunlight and challenging outdoor weather conditions.</p>
                 </div>
-
-                <!-- Card 3: Concert / Indoor Arena LED Wall -->
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 flex flex-col justify-between aspect-video md:aspect-[4/3]">
                     <div>
                         <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g3-tag">Concerts & Shows</span>
@@ -203,7 +203,7 @@
         </div>
     </section>
 
-    <!-- CONTACT & INQUIRY FORM (Formspree: mbgjvqvp) -->
+    <!-- CONTACT & INQUIRY FORM -->
     <section id="contact" class="py-24 max-w-3xl mx-auto px-6">
         <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
             <div class="text-center mb-10">
@@ -238,10 +238,9 @@
                     </div>
                 </div>
 
-                <!-- POLJE ZA DATUM -->
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-date">Event / Start Date</label>
-                    <input type="date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition color-scheme-dark">
+                    <input type="date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                 </div>
 
                 <div>
@@ -268,300 +267,131 @@
     <script>
         const translations = {
             en: {
-                "nav-about": "About Us",
-                "nav-services": "Services",
-                "nav-process": "How It Works",
-                "nav-gallery": "Gallery",
-                "nav-partners": "For Partners",
-                "btn-quote": "Get a Quote",
-                "badge-top": "European B2B LED Brokerage Network",
-                "hero-title": "High-Performance LED Display",
-                "hero-title-grad": "Rental & Purchase Solutions",
-                "hero-desc": "Connecting event organizers, businesses, and venues with top-tier verified LED suppliers across Europe. Seamless matchmaking, guaranteed quality, zero hassle.",
-                "btn-how": "How It Works",
-                "banner-text": "Covering Central & Southern Europe:",
-                "about-title": "We Bridge the Gap Between Demand and Top-Tier Equipment",
+                "nav-about": "About Us", "nav-services": "Services", "nav-process": "How It Works", "nav-gallery": "Gallery", "nav-partners": "For Partners",
+                "btn-quote": "Get a Quote", "badge-top": "European B2B LED Brokerage Network", "hero-title": "High-Performance LED Display",
+                "hero-title-gradient": "Rental & Purchase Solutions", "hero-desc": "Connecting event organizers, businesses, and venues with top-tier verified LED suppliers across Europe. Seamless matchmaking, guaranteed quality, zero hassle.",
+                "btn-how": "How It Works", "banner-text": "Covering Central & Southern Europe:", "about-title": "We Bridge the Gap Between Demand and Top-Tier Equipment",
                 "about-desc1": "LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation.",
                 "about-desc2": "We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.",
-                "card1-title": "⚡ Fast Match",
-                "card1-desc": "We match your project requirements with the right local or regional equipment provider instantly.",
-                "card2-title": "🌐 Pan-European",
-                "card2-desc": "Targeting high-demand markets across Central and Southern Europe with localized campaigns.",
-                "services-main-title": "Our Core Offerings",
-                "services-main-desc": "Customized LED display deployments tailored for your business needs.",
-                "s1-title": "Event Rental Solutions",
-                "s1-desc": "Professional modular LED walls for concerts, corporate conferences, trade shows, festivals, and sports events. Complete setup and technical support handled by trusted regional partners.",
-                "s1-link": "Short & long-term rentals available →",
-                "s2-title": "Permanent Purchases",
+                "card1-title": "⚡ Fast Match", "card1-desc": "We match your project requirements with the right local or regional equipment provider instantly.",
+                "card2-title": "🌐 Pan-European", "card2-desc": "Targeting high-demand markets across Central and Southern Europe with localized campaigns.",
+                "services-main-title": "Our Core Offerings", "services-main-desc": "Customized LED display deployments tailored for your business needs.",
+                "s1-title": "Event Rental Solutions", "s1-desc": "Professional modular LED walls for concerts, corporate conferences, trade shows, festivals, and sports events. Complete setup and technical support handled by trusted regional partners.",
+                "s1-link": "Short & long-term rentals available →", "s2-title": "Permanent Purchases",
                 "s2-desc": "Direct procurement assistance for indoor and outdoor commercial LED displays, digital billboards, retail screens, and architectural video walls sourced from top-tier manufacturers.",
-                "s2-link": "Custom sizing & B2B wholesale →",
-                "process-main-title": "How It Works",
-                "process-main-desc": "A streamlined process designed for speed and reliability.",
-                "p1-title": "Submit Your Request",
-                "p1-desc": "Tell us your project scope, whether you need a short-term rental or a permanent display purchase.",
-                "p2-title": "Instant Matchmaking",
-                "p2-desc": "We route your specific inquiry directly to a verified, high-performance execution partner in your target region.",
-                "p3-title": "Seamless Execution",
-                "p3-desc": "Our trusted partner handles delivery, setup, and service, ensuring a smooth and successful project completion.",
-                "gallery-badge": "Visual Showcase",
-                "gallery-title": "LED Displays in Action",
-                "gallery-desc": "From vibrant stadium sports matches to massive arena stages, see how our verified hardware performs in real-world environments.",
-                "g1-tag": "Stadiums & Sports",
-                "g1-title": "Arena Perimeters & Scoreboards",
-                "g1-desc": "High durability and brightness designed for professional sports venues and perimeter advertising.",
-                "g2-tag": "Mega Events",
-                "g2-title": "High-Brightness Outdoor Displays",
-                "g2-desc": "Engineered to perform seamlessly under direct sunlight and challenging outdoor weather conditions.",
-                "g3-tag": "Concerts & Shows",
-                "g3-title": "Modular Stage Video Backdrops",
-                "g3-desc": "Lightweight modular panels allowing fast rigging and stunning visual backdrops for live performances.",
-                "form-title": "Submit Your Inquiry",
-                "form-desc": "Looking for an LED screen or want to become a partner? Drop us a message.",
-                "field-name": "Your Name / Company",
-                "field-email": "Email Address",
-                "field-type": "Inquiry Type",
-                "opt-rental": "LED Display Rental",
-                "opt-purchase": "LED Display Purchase",
-                "opt-partner": "Supplier / Partner Collaboration",
-                "field-loc": "Target Country / Region",
-                "field-date": "Event / Start Date",
-                "field-msg": "Project Details / Message",
-                "ph-loc": "e.g. Slovenia, Croatia, Austria...",
-                "ph-msg": "Describe your screen requirements, event dates, or proposal...",
-                "btn-submit": "Send Inquiry",
-                "footer-sub": "International B2B Lead Generation & Brokerage"
+                "s2-link": "Custom sizing & B2B wholesale →", "process-main-title": "How It Works", "process-main-desc": "A streamlined process designed for speed and reliability.",
+                "p1-title": "Submit Your Request", "p1-desc": "Tell us your project scope, whether you need a short-term rental or a permanent display purchase.",
+                "p2-title": "Instant Matchmaking", "p2-desc": "We route your specific inquiry directly to a verified, high-performance execution partner in your target region.",
+                "p3-title": "Seamless Execution", "p3-desc": "Our trusted partner handles delivery, setup, and service, ensuring a smooth and successful project completion.",
+                "gallery-badge": "Visual Showcase", "gallery-title": "LED Displays in Action", "gallery-desc": "From vibrant stadium sports matches to massive arena stages, see how our verified hardware performs in real-world environments.",
+                "g1-tag": "Stadiums & Sports", "g1-title": "Arena Perimeters & Scoreboards", "g1-desc": "High durability and brightness designed for professional sports venues and perimeter advertising.",
+                "g2-tag": "Mega Events", "g2-title": "High-Brightness Outdoor Displays", "g2-desc": "Engineered to perform seamlessly under direct sunlight and challenging outdoor weather conditions.",
+                "g3-tag": "Concerts & Shows", "g3-title": "Modular Stage Video Backdrops", "g3-desc": "Lightweight modular panels allowing fast rigging and stunning visual backdrops for live performances.",
+                "form-title": "Submit Your Inquiry", "form-desc": "Looking for an LED screen or want to become a partner? Drop us a message.",
+                "field-name": "Your Name / Company", "field-email": "Email Address", "field-type": "Inquiry Type",
+                "opt-rental": "LED Display Rental", "opt-purchase": "LED Display Purchase", "opt-partner": "Supplier / Partner Collaboration",
+                "field-loc": "Target Country / Region", "field-date": "Event / Start Date", "field-msg": "Project Details / Message",
+                "btn-submit": "Send Inquiry", "footer-sub": "International B2B Lead Generation & Brokerage"
             },
             si: {
-                "nav-about": "O Nas",
-                "nav-services": "Storitve",
-                "nav-process": "Kako Deluje",
-                "nav-gallery": "Galerija",
-                "nav-partners": "Za Partnerje",
-                "btn-quote": "Oddajte Povpraševanje",
-                "badge-top": "Evropska B2B LED Posrednička Mreža",
-                "hero-title": "Visokozmogljivi LED Zasloni",
-                "hero-title-grad": "Najem in Nakup Rešitev",
-                "hero-desc": "Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji po Evropi. Brezhibno posredovanje, zagotovljena kakovost.",
-                "btn-how": "Kako Deluje",
-                "banner-text": "Pokrivamo Srednjo in Južno Evropo:",
-                "about-title": "Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo",
+                "nav-about": "O Nas", "nav-services": "Storitve", "nav-process": "Kako Deluje", "nav-gallery": "Galerija", "nav-partners": "Za Partnerje",
+                "btn-quote": "Oddajte Povpraševanje", "badge-top": "Evropska B2B LED Posrednička Mreža", "hero-title": "Visokozmogljivi LED Zasloni",
+                "hero-title-gradient": "Najem in Nakup Rešitev", "hero-desc": "Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji po Evropi. Brezhibno posredovanje, zagotovljena kakovost.",
+                "btn-how": "Kako Deluje", "banner-text": "Pokrivamo Srednjo in Južno Evropo:", "about-title": "Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo",
                 "about-desc1": "LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing.",
                 "about-desc2": "Preverjena povpraševanja strank posredujemo neposredno zanesljivim tehničnim partnerjem po Evropi, kar zagotavlja hitro izvedbo in zanesljive posle.",
-                "card1-title": "⚡ Hitro Usklajevanje",
-                "card1-desc": "Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.",
-                "card2-title": "🌐 Vseevropsko",
-                "card2-desc": "Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.",
-                "services-main-title": "Naše Storitve",
-                "services-main-desc": "Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.",
-                "s1-title": "Najem za Dogodke",
-                "s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni partnerji.",
-                "s1-link": "Možnost kratkoročnega in dolgoročnega najema →",
-                "s2-title": "Trajni Nakup",
+                "card1-title": "⚡ Hitro Usklajevanje", "card1-desc": "Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.",
+                "card2-title": "🌐 Vseevropsko", "card2-desc": "Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.",
+                "services-main-title": "Naše Storitve", "services-main-desc": "Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.",
+                "s1-title": "Najem za Dogodke", "s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni partnerji.",
+                "s1-link": "Možnost kratkoročnega in dolgoročnega najema →", "s2-title": "Trajni Nakup",
                 "s2-desc": "Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb.",
-                "s2-link": "Prilagojene dimenzije in B2B veleprodaja →",
-                "process-main-title": "Kako Deluje",
-                "process-main-desc": "Enostaven in hiter postopek, zasnovan za zanesljivost.",
-                "p1-title": "Pošljite Povpraševanje",
-                "p1-desc": "Sporočite nam obseg vašega projekta – ali potrebujete kratkoročni najem ali trajni nakup zaslona.",
-                "p2-title": "Takojšnje Spajanje",
-                "p2-desc": "Vaše povpraševanje usmerimo neposredno k preverjenemu izvajalskemu partnerju v vaši regiji.",
-                "p3-title": "Brezhibna Izvedba",
-                "p3-desc": "Naš zanesljiv partner poskrbi za dostavo, montažo in podporo ter zagotovi uspešen zaključek projekta.",
-                "gallery-badge": "Vizualna Predstavitev",
-                "gallery-title": "LED Zasloni v Akciji",
-                "gallery-desc": "Od dinamičnih športnih stadionov do velikih koncertnih odrov – preverite, kako naši LED sistemi izstopajo v praksi.",
-                "g1-tag": "Stadioni in Šport",
-                "g1-title": "Obodni LED zasloni in Semaforji",
-                "g1-desc": "Visoka trpežnost in svetilnost, zasnovani za profesionalna športna prizorišča in obodno oglaševanje.",
-                "g2-tag": "Veliki Dogodki",
-                "g2-title": "Zunanji Zasloni Visoke Svetilnosti",
-                "g2-desc": "Zasnovano za nemoteno delovanje ob neposredni sončni svetlobi in v zahtevnih zunanjih vremenskih razmerah.",
-                "g3-tag": "Koncerti in Nastopi",
-                "g3-title": "Modularna Odrska Ozadja",
-                "g3-desc": "Lahki modularni elementi, ki omogočajo hitro postavljanje in osupljiva vizualna ozadja za nastope v živo.",
-                "form-title": "Oddajte Povpraševanje",
-                "form-desc": "Iščete LED zaslon ali želite postati partner? Pišite nam.",
-                "field-name": "Vaše Ime / Podjetje",
-                "field-email": "E-poštni Naslov",
-                "field-type": "Vrsta Povpraševanja",
-                "opt-rental": "Najem LED Zaslona",
-                "opt-purchase": "Nakup LED Zaslona",
-                "opt-partner": "Sodelovanje z Dobaviteljem / Partnerjem",
-                "field-loc": "Ciljna Država / Regija",
-                "field-date": "Datum Dogodka / Začetka",
-                "field-msg": "Podrobnosti Projekta / Sporočilo",
-                "ph-loc": "npr. Slovenija, Hrvaška, Avstrija...",
-                "ph-msg": "Opišite vaše potrebe glede zaslona, datume dogodka ali predlog...",
-                "btn-submit": "Pošlji Povpraševanje",
-                "footer-sub": "Mednarodna B2B Lead Generacija in Posredovanje"
+                "s2-link": "Prilagojene dimenzije in B2B veleprodaja →", "process-main-title": "Kako Deluje", "process-main-desc": "Enostaven in hiter postopek, zasnovan za zanesljivost.",
+                "p1-title": "Pošljite Povpraševanje", "p1-desc": "Sporočite nam obseg vašega projekta – ali potrebujete kratkoročni najem ali trajni nakup zaslona.",
+                "p2-title": "Takojšnje Spajanje", "p2-desc": "Vaše povpraševanje usmerimo neposredno k preverjenemu izvajalskemu partnerju v vaši regiji.",
+                "p3-title": "Brezhibna Izvedba", "p3-desc": "Naš zanesljiv partner poskrbi za dostavo, montažo in podporo ter zagotovi uspešen zaključek projekta.",
+                "gallery-badge": "Vizualna Predstavitev", "gallery-title": "LED Zasloni v Akciji", "gallery-desc": "Od dinamičnih športnih stadionov do velikih koncertnih odrov – preverite, kako naši LED sistemi izstopajo v praksi.",
+                "g1-tag": "Stadioni in Šport", "g1-title": "Obodni LED zasloni in Semaforji", "g1-desc": "Visoka trpežnost in svetilnost, zasnovani za profesionalna športna prizorišča in obodno oglaševanje.",
+                "g2-tag": "Veliki Dogodki", "g2-title": "Zunanji Zasloni Visoke Svetilnosti", "g2-desc": "Zasnovano za nemoteno delovanje ob neposredni sončni svetlobi in v zahtevnih zunanjih vremenskih razmerah.",
+                "g3-tag": "Koncerti in Nastopi", "g3-title": "Modularna Odrska Ozadja", "g3-desc": "Lahki modularni elementi, ki omogočajo hitro postavljanje in osupljiva vizualna ozadja za nastope v živo.",
+                "form-title": "Oddajte Povpraševanje", "form-desc": "Iščete LED zaslon ali želite postati partner? Pišite nam.",
+                "field-name": "Vaše Ime / Podjetje", "field-email": "E-poštni Naslov", "field-type": "Vrsta Povpraševanja",
+                "opt-rental": "Najem LED Zaslona", "opt-purchase": "Nakup LED Zaslona", "opt-partner": "Sodelovanje z Dobaviteljem / Partnerjem",
+                "field-loc": "Ciljna Država / Regija", "field-date": "Datum Dogodka / Začetka", "field-msg": "Podrobnosti Projekta / Sporočilo",
+                "btn-submit": "Pošlji Povpraševanje", "footer-sub": "Mednarodna B2B Lead Generacija in Posredovanje"
             },
             hr: {
-                "nav-about": "O Nama",
-                "nav-services": "Usluge",
-                "nav-process": "Kako Radi",
-                "nav-gallery": "Galerija",
-                "nav-partners": "Za Partnere",
-                "btn-quote": "Zatražite Ponudu",
-                "badge-top": "Europska B2B LED Posrednička Mreža",
-                "hero-title": "Vrhunska LED Rješenja",
-                "hero-title-grad": "Najam i Kupnja Zaslona",
-                "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem Europe. Brzo spajanje, zajamčena kvaliteta, bez komplikacija.",
-                "btn-how": "Kako Radi",
-                "banner-text": "Pokrivamo Središnju i Južnu Europu:",
-                "about-title": "Spajamo Potrebe Kupaca i Vrhunsku Opremu",
+                "nav-about": "O Nama", "nav-services": "Usluge", "nav-process": "Kako Radi", "nav-gallery": "Galerija", "nav-partners": "Za Partnere",
+                "btn-quote": "Zatražite Ponudu", "badge-top": "Europska B2B LED Posrednička Mreža", "hero-title": "Vrhunska LED Rješenja",
+                "hero-title-gradient": "Najam i Kupnja Zaslona", "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem Europe. Brzo spajanje, zajamčena kvaliteta, bez komplikacija.",
+                "btn-how": "Kako Radi", "banner-text": "Pokrivamo Središnju i Južnu Europu:", "about-title": "Spajamo Potrebe Kupaca i Vrhunsku Opremu",
                 "about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma. Umjesto upravljanja logistikom, fokusiramo se na ciljani digitalni marketing.",
                 "about-desc2": "Provjerene upite klijenata prosljeđujemo izravno pouzdanim tehničkim partnerima diljem Europe, osiguravajući brzu realizaciju i sigurne poslove.",
-                "card1-title": "⚡ Brzo Spajanje",
-                "card1-desc": "Trenutno usklađujemo zahtjeve vašeg projekta s pravim lokalnim ili regionalnim dobavljačem.",
-                "card2-title": "🌐 Paneuropski",
-                "card2-desc": "Ciljanje tržišta s visokom potražnjom diljem Središnje i Južne Europe putem lokaliziranih kampanja.",
-                "services-main-title": "Naše Usluge",
-                "services-main-desc": "Prilagođene instalacije LED zaslona za vaše poslovne potrebe.",
-                "s1-title": "Najam za Događaje",
-                "s1-desc": "Profesionalni modularni LED zidovi za koncerte, konferencije, sajmove, festivale i sportske događaje. Kompletnu postavu vode pouzdani partneri.",
-                "s1-link": "Dostupan kratkoročni i dugoročni najam →",
-                "s2-title": "Trajna Kupnja",
+                "card1-title": "⚡ Brzo Spajanje", "card1-desc": "Trenutno usklađujemo zahtjeve vašeg projekta s pravim lokalnim ili regionalnim dobavljačem.",
+                "card2-title": "🌐 Paneuropski", "card2-desc": "Ciljanje tržišta s visokom potražnjom diljem Središnje i Južne Europe putem lokaliziranih kampanja.",
+                "services-main-title": "Naše Usluge", "services-main-desc": "Prilagođene instalacije LED zaslona za vaše poslovne potrebe.",
+                "s1-title": "Najam za Događaje", "s1-desc": "Profesionalni modularni LED zidovi za koncerte, konferencije, sajmove, festivale i sportske događaje. Kompletnu postavu vode pouzdani partneri.",
+                "s1-link": "Dostupan kratkoročni i dugoročni najam →", "s2-title": "Trajna Kupnja",
                 "s2-desc": "Izravna pomoć pri nabavi unutarnjih i vanjskih komercijalnih LED zaslona, digitalnih panoa i arhitektonskih video zidova.",
-                "s2-link": "Prilagođene dimenzije i B2B veleprodaja →",
-                "process-main-title": "Kako Radi",
-                "process-main-desc": "Pojednostavljen proces osmišljen za brzinu i pouzdanost.",
-                "p1-title": "Pošaljite Upit",
-                "p1-desc": "Recite nam opseg vašeg projekta, bilo da trebate kratkoročni najam ili trajnu kupnju zaslona.",
-                "p2-title": "Trenutno Usklađivanje",
-                "p2-desc": "Vaš specifični upit usmjeravamo izravno provjerenom partneru u vašoj ciljanoj regiji.",
-                "p3-title": "Glatka Realizacija",
-                "p3-desc": "Naš pouzdani partner preuzima dostavu, postavu i servis za uspješan završetak projekta.",
-                "gallery-badge": "Vizualni Prikaz",
-                "gallery-title": "LED Zasloni u Akciji",
-                "gallery-desc": "Od napetih sportskih terena do velikih stadionskih i koncertnih arena – pogledajte kako naši LED sustavi izgledaju u akciji.",
-                "g1-tag": "Stadioni i Sport",
-                "g1-title": "Perimetarski LED Zasloni i Semafori",
-                "g1-desc": "Visoka izdržljivost i svjetlina dizajnirani za profesionalne sportske terene i perimetarsko oglašavanje.",
-                "g2-tag": "Veliki Događaji",
-                "g2-title": "Vanjski Ekrani Visoke Svjetline",
-                "g2-desc": "Dizajnirano za besprijekoran rad na izravnoj sunčevoj svjetlosti i u zahtjevnim vanjskim vremenskim uvjetima.",
-                "g3-tag": "Koncerti i Predstave",
-                "g3-title": "Modularna Pozadina za Pozornice",
-                "g3-desc": "Lagani modularni paneli koji omogućuju brzu montažu i zapanjujuće vizualne pozadine za nastupe uživo.",
-                "form-title": "Zatražite Ponudu",
-                "form-desc": "Trebate LED zaslon ili želite postati partner? Pošaljite nam poruku.",
-                "field-name": "Vaše Ime / Tvrtka",
-                "field-email": "E-mail Adresa",
-                "field-type": "Vrsta Upita",
-                "opt-rental": "Najam LED Zaslona",
-                "opt-purchase": "Kupnja LED Zaslona",
-                "opt-partner": "Suradnja s Dobavljačem / Partnerom",
-                "field-loc": "Ciljana Država / Regija",
-                "field-date": "Datum Događaja / Početka",
-                "field-msg": "Detalji Projekta / Poruka",
-                "ph-loc": "npr. Hrvatska, Slovenija, Austrija...",
-                "ph-msg": "Opišite vaše potrebe za zaslonom, datume događaja ili prijedlog...",
-                "btn-submit": "Pošaljite Upit",
-                "footer-sub": "Međunarodna B2B Lead Generacija i Posredovanje"
+                "s2-link": "Prilagođene dimenzije i B2B veleprodaja →", "process-main-title": "Kako Radi", "process-main-desc": "Pojednostavljen proces osmišljen za brzinu i pouzdanost.",
+                "p1-title": "Pošaljite Upit", "p1-desc": "Recite nam opseg vašeg projekta, bilo da trebate kratkoročni najam ili trajnu kupnju zaslona.",
+                "p2-title": "Trenutno Usklađivanje", "p2-desc": "Vaš upit usmjeravamo izravno provjerenom partneru u vašoj regiji.",
+                "p3-title": "Besprijekorna Izvedba", "p3-desc": "Naš pouzdani partner brine se za dostavu, montažu i podršku osiguravajući uspješan završetak projekta.",
+                "gallery-badge": "Vizualni Prikaz", "gallery-title": "LED Zasloni u Akciji", "gallery-desc": "Od živopisnih sportskih stadionâ do masivnih pozornica, pogledajte kako naš provjereni hardver radi u praksi.",
+                "g1-tag": "Stadioni i Sport", "g1-title": "Perimetri i Semafori", "g1-desc": "Visoka izdržljivost i svjetlina dizajnirana za profesionalne sportske prostore.",
+                "g2-tag": "Veliki Događaji", "g2-title": "Vanjski Zasloni Visoke Svjetline", "g2-desc": "Dizajnirani za besprijekoran rad pod izravnom sunčevom svjetlošću i u teškim uvjetima.",
+                "g3-tag": "Koncerti i Show", "g3-title": "Modularne Pozadine za Pozornicu", "g3-desc": "Lagani modularni paneli koji omogućuju brzu montažu i zadivljujuće vizualne pozadine.",
+                "form-title": "Pošaljite Svoj Upit", "form-desc": "Tražite LED zaslon ili želite postati partner? Pošaljite nam poruku.",
+                "field-name": "Vaše Ime / Tvrtka", "field-email": "E-mail Adresa", "field-type": "Vrsta Upita",
+                "opt-rental": "Najam LED Zaslona", "opt-purchase": "Kupnja LED Zaslona", "opt-partner": "Suradnja s Dobavljačem / Partnerom",
+                "field-loc": "Ciljana Država / Regija", "field-date": "Datum Događaja / Početka", "field-msg": "Detalji Projekta / Poruka",
+                "btn-submit": "Pošaljite Upit", "footer-sub": "Međunarodna B2B Generiranje Potencijalnih Klijenata i Posredovanje"
             },
             de: {
-                "nav-about": "Über Uns",
-                "nav-services": "Leistungen",
-                "nav-process": "Wie Es Funktioniert",
-                "nav-gallery": "Galerie",
-                "nav-partners": "Für Partner",
-                "btn-quote": "Angebot Anfordern",
-                "badge-top": "Europäisches B2B-LED-Vermittlungsnetzwerk",
-                "hero-title": "Leistungsstarke LED-Displays",
-                "hero-title-grad": "Miet- & Kauf-Lösungen",
-                "hero-desc": "Wir verbinden Veranstalter, Unternehmen und Locations mit erstklassigen, verifizierten LED-Lieferanten in ganz Europa. Reibungslose Vermittlung, garantierte Qualität.",
-                "btn-how": "Wie Es Funktioniert",
-                "banner-text": "Abdeckung von Zentral- & Südeuropa:",
-                "about-title": "Wir schließen die Lücke zwischen Nachfrage und Spitzentechnik",
-                "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform. Statt schwerer Logistik konzentrieren wir uns rein auf zielgerichtetes Online-Marketing.",
-                "about-desc2": "Wir leiten verifizierte Kundenanfragen direkt an zuverlässige, technische Partner in ganz Europa weiter – für schnelle Abwicklung und konstante Projekte.",
-                "card1-title": "⚡ Schneller Match",
-                "card1-desc": "Wir stimmen Ihre Projektanforderungen sofort mit dem passenden lokalen oder regionalen Anbieter ab.",
-                "card2-title": "🌐 Pan-Europäisch",
-                "card2-desc": "Ansprache margenstarker Märkte in Zentral- und Südeuropa durch lokalisierte Kampagnen.",
-                "services-main-title": "Unsere Kernleistungen",
-                "services-main-desc": "Maßgeschneiderte LED-Display-Lösungen für Ihre Geschäftsanforderungen.",
-                "s1-title": "Event-Mietlösungen",
-                "s1-desc": "Professionelle modulare LED-Wände für Konzerte, Konferenzen, Messen, Festivals und Sportveranstaltungen. Kompletter Aufbau durch regionale Partner.",
-                "s1-link": "Kurz- & langfristige Miete verfügbar →",
-                "s2-title": "Fester Kauf",
-                "s2-desc": "Direkte Beschaffungshilfe für kommerzielle Indoor- und Outdoor-LED-Displays, digitale Werbetafeln und architektonische Videowände.",
-                "s2-link": "Individuelle Größen & Großhandel →",
-                "process-main-title": "Wie Es Funktioniert",
-                "process-main-desc": "Ein optimierter Prozess für maximale Geschwindigkeit und Zuverlässigkeit.",
-                "p1-title": "Anfrage Senden",
-                "p1-desc": "Teilen Sie uns Ihren Projektumfang mit – ob Kurzzeitmiete oder fester Displaykauf.",
-                "p2-title": "Sofortige Vermittlung",
-                "p2-desc": "Wir leiten Ihre Anfrage direkt an einen verifizierten Leistungspartner in Ihrer Zielregion weiter.",
-                "p3-title": "Reibungslose Umsetzung",
-                "p3-desc": "Unser vertrauenswürdiger Partner übernimmt Lieferung, Aufbau und Service vor Ort.",
-                "gallery-badge": "Visuelle Einblicke",
-                "gallery-title": "LED-Displays im Einsatz",
-                "gallery-desc": "Von packenden Sportstadien bis hin zu großen Bühnenshows – erleben Sie unsere verifizierte LED-Technik in realen Umgebungen.",
-                "g1-tag": "Stadien & Sport",
-                "g1-title": "Sportstätten-LEDs & Anzeigetafeln",
-                "g1-desc": "Hohe Langlebigkeit und Helligkeit, entwickelt für professionelle Sportstätten und Bandenwerbung.",
-                "g2-tag": "Großveranstaltungen",
-                "g2-title": "Helle Outdoor-Bildschirme",
-                "g2-desc": "Entwickelt für den reibungslosen Betrieb bei direkter Sonneneinstrahlung und schwierigen Wetterbedingungen im Freien.",
-                "g3-tag": "Konzerte & Shows",
-                "g3-title": "Modulare Bühnen-Videowände",
-                "g3-desc": "Leichte modulare Paneele, die ein schnelles Rigging und atemberaubende visuelle Hintergründe für Live-Auftritte ermöglichen.",
-                "form-title": "Angebot Anfordern",
-                "form-desc": "Suchen Sie ein LED-Display oder möchten Partner werden? Schreiben Sie uns.",
-                "field-name": "Ihr Name / Unternehmen",
-                "field-email": "E-Mail-Adresse",
-                "field-type": "Anfrageart",
-                "opt-rental": "LED-Display Miete",
-                "opt-purchase": "LED-Display Kauf",
-                "opt-partner": "Lieferanten- / Partnerkooperation",
-                "field-loc": "Zielland / Region",
-                "field-date": "Veranstaltungs- / Startdatum",
-                "field-msg": "Projektdetails / Nachricht",
-                "ph-loc": "z.B. Österreich, Deutschland, Slowenien...",
-                "ph-msg": "Beschreiben Sie Ihre Anforderungen, Veranstaltungsdaten oder Vorschlag...",
-                "btn-submit": "Anfrage Senden",
-                "footer-sub": "Internationale B2B-Leadgenerierung & Vermittlung"
+                "nav-about": "Über Uns", "nav-services": "Dienstleistungen", "nav-process": "Wie es Funktioniert", "nav-gallery": "Galerie", "nav-partners": "Für Partner",
+                "btn-quote": "Angebot Anfordern", "badge-top": "Europäisches B2B LED Makler-Netzwerk", "hero-title": "Leistungsstarke LED Displays",
+                "hero-title-gradient": "Vermietung & Kauf Lösungen", "hero-desc": "Wir verbinden Veranstalter, Unternehmen und Locations mit erstklassigen, verifizierten LED-Lieferanten in ganz Europa.",
+                "btn-how": "Wie es Funktioniert", "banner-text": "Abdeckung in Mittel- & Südeuropa:", "about-title": "Wir Schließen die Lücke Zwischen Bedarf und Top-Equipment",
+                "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform mit Fokus auf zielgerichtetes Online-Marketing.",
+                "about-desc2": "Wir leiten verifizierte Kundenanfragen direkt an zuverlässige technische Partner in ganz Europa weiter.",
+                "card1-title": "⚡ Schneller Match", "card1-desc": "Wir bringen Ihre Projektanforderungen sofort mit dem passenden regionalen Anbieter zusammen.",
+                "card2-title": "🌐 Pan-Europäisch", "card2-desc": "Ansprache margenstarker Märkte in Mittel- und Südeuropa durch lokalisierte Kampagnen.",
+                "services-main-title": "Unsere Kernleistungen", "services-main-desc": "Maßgeschneiderte LED-Display-Lösungen für Ihre Geschäftsanforderungen.",
+                "s1-title": "Event-Mietlösungen", "s1-desc": "Professionelle modulare LED-Wände für Konzerte, Konferenzen, Messen, Festivals und Sportveranstaltungen.",
+                "s1-link": "Kurz- & langfristige Miete verfügbar →", "s2-title": "Fester Kauf",
+                "s2-desc": "Direkte Beschaffungshilfe für kommerzielle Indoor- und Outdoor-LED-Displays und digitale Werbeflächen.",
+                "s2-link": "Individuelle Größen & B2B Großhandel →", "process-main-title": "Wie es Funktioniert", "process-main-desc": "Ein optimierter Prozess für Geschwindigkeit und Zuverlässigkeit.",
+                "p1-title": "Anfrage Senden", "p1-desc": "Teilen Sie uns Ihren Projektumfang mit, ob Miete oder fester Kauf.",
+                "p2-title": "Sofortiges Matching", "p2-desc": "Wir leiten Ihre Anfrage direkt an einen verifizierten Partner in Ihrer Region weiter.",
+                "p3-title": "Nahtlose Ausführung", "p3-desc": "Unser Partner übernimmt Lieferung, Aufbau und Service für einen reibungslosen Projektabschluss.",
+                "gallery-badge": "Visuelle Show", "gallery-title": "LED Displays in Aktion", "gallery-desc": "Von Stadion-Sportspielen bis hin zu riesigen Bühnen – sehen Sie unsere Hardware im Einsatz.",
+                "g1-tag": "Stadien & Sport", "g1-title": "Arena-Perimeter & Anzeigetafeln", "g1-desc": "Hohe Langlebigkeit und Helligkeit für professionelle Sportstätten.",
+                "g2-tag": "Mega-Events", "g2-title": "Helle Outdoor-Displays", "g2-desc": "Entwickelt für den reibungslosen Betrieb bei direkter Sonneneinstrahlung.",
+                "g3-tag": "Konzerte & Shows", "g3-title": "Modulare Bühnenhintergründe", "g3-desc": "Leichte modulare Paneele für schnelles Rigging und atemberaubende visuelle Hintergründe.",
+                "form-title": "Anfrage Einreichen", "form-desc": "Suchen Sie einen LED-Bildschirm oder möchten Sie Partner werden?",
+                "field-name": "Name / Unternehmen", "field-email": "E-Mail-Adresse", "field-type": "Anfragetyp",
+                "opt-rental": "LED-Display Miete", "opt-purchase": "LED-Display Kauf", "opt-partner": "Lieferanten- / Partnerkooperation",
+                "field-loc": "Zielland / Region", "field-date": "Veranstaltungsdatum", "field-msg": "Projektdetails / Nachricht",
+                "btn-submit": "Anfrage Senden", "footer-sub": "Internationale B2B Lead-Generierung & Vermittlung"
             }
         };
 
         function setLanguage(lang) {
-            // Update buttons styling
-            ['en', 'si', 'hr', 'de'].forEach(l => {
-                const btn = document.getElementById('lang-' + l);
-                if (l === lang) {
-                    btn.className = "px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition";
-                } else {
-                    btn.className = "px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
-                }
+            document.querySelectorAll('.flex.items-center.bg-slate-900 button').forEach(btn => {
+                btn.className = "px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
             });
+            const activeBtn = document.getElementById('lang-' + lang);
+            if(activeBtn) activeBtn.className = "px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition";
 
-            // Replace inner text for matching CSS classes
             const t = translations[lang];
-            for (const key in t) {
-                const elements = document.querySelectorAll('.' + key);
-                elements.forEach(el => {
-                    el.textContent = t[key];
-                });
-            }
+            if (!t) return;
 
-            // Update Form Input Placeholders
-            if (t["ph-loc"]) {
-                document.getElementById('input-location').placeholder = t["ph-loc"];
-            }
-            if (t["ph-msg"]) {
-                document.getElementById('input-message').placeholder = t["ph-msg"];
+            for (const [key, value] of Object.entries(t)) {
+                document.querySelectorAll('.' + key).forEach(el => {
+                    el.textContent = value;
+                });
             }
         }
     </script>
-
-    <!-- Additional styling for calendar date picker on dark background -->
-    <style>
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-            cursor: pointer;
-        }
-    </style>
-
 </body>
 </html>

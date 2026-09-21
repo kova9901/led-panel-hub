@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
                 <!-- WEBSITE UNDER CONSTRUCTION BADGE -->
                 <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 border border-amber-500/20 text-amber-400">
                     <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                    Website under construction
+                    <span class="badge-construction">Website under construction</span>
                 </span>
             </div>
             
@@ -33,8 +33,8 @@
             <div class="flex items-center gap-3">
                 <!-- LANGUAGE SELECTOR -->
                 <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs font-semibold">
-                    <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition">EN</button>
-                    <button onclick="setLanguage('si')" id="lang-si" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">SI</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">EN</button>
+                    <button onclick="setLanguage('si')" id="lang-si" class="px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition">SI</button>
                     <button onclick="setLanguage('hr')" id="lang-hr" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">HR</button>
                     <button onclick="setLanguage('de')" id="lang-de" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">DE</button>
                 </div>
@@ -44,12 +44,11 @@
                     Get a Quote
                 </a>
 
-                <!-- SOCIAL ICONS IN HEADER (INSTAGRAM & TIKTOK) -->
+                <!-- SOCIAL ICONS IN HEADER -->
                 <div class="hidden sm:flex items-center gap-2">
                     <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl text-slate-300 hover:text-white transition" title="Instagram">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <!-- Delujoča TikTok povezava -->
                     <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl text-slate-300 hover:text-white transition" title="TikTok">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                     </a>
@@ -63,30 +62,30 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950/0 to-slate-950 pointer-events-none"></div>
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
             <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6 badge-top">
-                European B2B LED Brokerage Network
+                Evropska B2B LED Posrednička Mreža
             </span>
             <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight hero-title">
-                High-Performance LED Display <br class="hidden sm:inline">
+                Visokozmogljivi LED Zasloni <br class="hidden sm:inline">
                 <span class="bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400 bg-clip-text text-transparent hero-title-gradient">
-                    Rental & Purchase Solutions
+                    Najem in Nakup Rešitev
                 </span>
             </h1>
             <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 hero-desc">
-                Connecting event organizers, businesses, and venues with top-tier verified LED suppliers across Europe. Seamless matchmaking, guaranteed quality, zero hassle.
+                Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji po Evropi. Brezhibno posredovanje, zagotovljena kakovost.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
                 <a href="#contact" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center btn-quote">
-                    Request a Quote
+                    Oddajte Povpraševanje
                 </a>
             </div>
 
             <!-- TRUSTED REGIONS BANNER -->
             <div class="pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-slate-500 text-xs uppercase tracking-widest font-semibold">
-                <span class="banner-text">Covering Central & Southern Europe:</span>
-                <span class="text-slate-300">🇦🇹 Austria</span>
-                <span class="text-slate-300">🇸🇮 Slovenia</span>
-                <span class="text-slate-300">🇭🇷 Croatia</span>
-                <span class="text-slate-300">🇩🇪 Germany</span>
+                <span class="banner-text">Pokrivamo Srednjo in Južno Evropo:</span>
+                <span class="text-slate-300">🇦🇹 Avstrija</span>
+                <span class="text-slate-300">🇸🇮 Slovenija</span>
+                <span class="text-slate-300">🇭🇷 Hrvaška</span>
+                <span class="text-slate-300">🇩🇪 Nemčija</span>
             </div>
         </div>
     </section>
@@ -96,23 +95,23 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-6 about-title">
-                    We Bridge the Gap Between Demand and Top-Tier Equipment
+                    Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo
                 </h2>
                 <p class="text-slate-400 leading-relaxed mb-6 about-desc1">
-                    LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation. 
+                    LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing in generiranje strank.
                 </p>
                 <p class="text-slate-400 leading-relaxed about-desc2">
-                    We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.
+                    Preverjena povpraševanja strank posredujemo neposredno zanesljivim tehničnim partnerjem po Evropi, kar zagotavlja hitro izvedbo in zanesljive posle.
                 </p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <div class="text-indigo-400 text-2xl font-bold mb-2 card1-title">⚡ Fast Match</div>
-                    <p class="text-sm text-slate-400 card1-desc">We match your project requirements with the right local or regional equipment provider instantly.</p>
+                    <div class="text-indigo-400 text-2xl font-bold mb-2 card1-title">⚡ Hitro Usklajevanje</div>
+                    <p class="text-sm text-slate-400 card1-desc">Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <div class="text-cyan-400 text-2xl font-bold mb-2 card2-title">🌐 Pan-European</div>
-                    <p class="text-sm text-slate-400 card2-desc">Targeting high-demand markets across Central and Southern Europe with localized campaigns.</p>
+                    <div class="text-cyan-400 text-2xl font-bold mb-2 card2-title">🌐 Vseevropsko</div>
+                    <p class="text-sm text-slate-400 card2-desc">Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.</p>
                 </div>
             </div>
         </div>
@@ -122,31 +121,31 @@
     <section id="services" class="py-24 bg-slate-900/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 services-main-title">Our Core Offerings</h2>
-                <p class="text-slate-400 services-main-desc">Customized LED display deployments tailored for your business needs.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 services-main-title">Naše Storitve</h2>
+                <p class="text-slate-400 services-main-desc">Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 font-bold text-lg mb-6">01</div>
-                        <h3 class="text-xl font-bold text-white mb-3 s1-title">Event Rental Solutions</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 s1-title">Najem za Dogodke</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6 s1-desc">
-                            Professional modular LED walls for concerts, corporate conferences, trade shows, festivals, and sports events. Complete setup and technical support handled by trusted regional partners.
+                            Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni regionalni partnerji.
                         </p>
                     </div>
-                    <span class="text-indigo-400 text-sm font-semibold s1-link">Short & long-term rentals available &rarr;</span>
+                    <span class="text-indigo-400 text-sm font-semibold s1-link">Možnost kratkoročnega in dolgoročnega najema &rarr;</span>
                 </div>
                 <!-- Service 2 -->
                 <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-lg mb-6">02</div>
-                        <h3 class="text-xl font-bold text-white mb-3 s2-title">Permanent Purchases</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 s2-title">Trajni Nakup</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6 s2-desc">
-                            Direct procurement assistance for indoor and outdoor commercial LED displays, digital billboards, retail screens, and architectural video walls sourced from top-tier manufacturers.
+                            Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb vodilnih proizvajalcev.
                         </p>
                     </div>
-                    <span class="text-cyan-400 text-sm font-semibold s2-link">Custom sizing & B2B wholesale &rarr;</span>
+                    <span class="text-cyan-400 text-sm font-semibold s2-link">Prilagojene dimenzije in B2B veleprodaja &rarr;</span>
                 </div>
             </div>
         </div>
@@ -155,24 +154,24 @@
     <!-- HOW IT WORKS / 3-STEP PROCESS -->
     <section id="process" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight text-white mb-4 process-main-title">How It Works</h2>
-            <p class="text-slate-400 process-main-desc">A streamlined process designed for speed and reliability.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-4 process-main-title">Kako Deluje</h2>
+            <p class="text-slate-400 process-main-desc">Enostaven in hiter postopek, zasnovan za zanesljivost.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">01</div>
-                <h3 class="text-lg font-bold text-white mb-2 p1-title">Submit Your Request</h3>
-                <p class="text-slate-400 text-sm leading-relaxed p1-desc">Tell us your project scope, whether you need a short-term rental or a permanent display purchase.</p>
+                <h3 class="text-lg font-bold text-white mb-2 p1-title">Pošljite Povpraševanje</h3>
+                <p class="text-slate-400 text-sm leading-relaxed p1-desc">Sporočite nam obseg vašega projekta – ali potrebujete kratkoročni najem ali trajni nakup zaslona.</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">02</div>
-                <h3 class="text-lg font-bold text-white mb-2 p2-title">Instant Matchmaking</h3>
-                <p class="text-slate-400 text-sm leading-relaxed p2-desc">We route your specific inquiry directly to a verified, high-performance execution partner in your target region.</p>
+                <h3 class="text-lg font-bold text-white mb-2 p2-title">Takojšnje Spajanje</h3>
+                <p class="text-slate-400 text-sm leading-relaxed p2-desc">Vaše povpraševanje usmerimo neposredno k preverjenemu izvajalskemu partnerju v vaši regiji.</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">03</div>
-                <h3 class="text-lg font-bold text-white mb-2 p3-title">Seamless Execution</h3>
-                <p class="text-slate-400 text-sm leading-relaxed p3-desc">Our trusted partner handles delivery, setup, and service, ensuring a smooth and successful project completion.</p>
+                <h3 class="text-lg font-bold text-white mb-2 p3-title">Brezhibna Izvedba</h3>
+                <p class="text-slate-400 text-sm leading-relaxed p3-desc">Naš zanesljiv partner poskrbi za dostavo, montažo in podporo ter zagotovi uspešen zaključek projekta.</p>
             </div>
         </div>
     </section>
@@ -182,10 +181,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 gallery-badge">
-                    Visual Showcase
+                    Vizualna Predstavitev
                 </span>
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 gallery-title">LED Displays in Action</h2>
-                <p class="text-slate-400 gallery-desc">From vibrant stadium sports matches to massive arena stages, see how our verified hardware performs in real-world environments.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 gallery-title">LED Zasloni v Akciji</h2>
+                <p class="text-slate-400 gallery-desc">Od dinamičnih športnih stadionov do velikih koncertnih odrov – preverite, kako naši LED sistemi izstopajo v praksi.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -196,11 +195,11 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g1-tag">Stadiums & Sports</span>
-                        <h3 class="text-xl font-bold text-white mt-2 g1-title">Arena Perimeters & Scoreboards</h3>
+                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g1-tag">Stadioni in Šport</span>
+                        <h3 class="text-xl font-bold text-white mt-2 g1-title">Arena Perimetri in Semaforji</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 g1-desc">High durability and brightness designed for professional sports venues and perimeter advertising.</p>
+                        <p class="text-sm text-slate-300 g1-desc">Visoka vzdržljivost in svetlost, prilagojena za profesionalne športne objekte in obrobno oglaševanje.</p>
                     </div>
                 </div>
 
@@ -211,11 +210,11 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest g2-tag">Mega Events</span>
-                        <h3 class="text-xl font-bold text-white mt-2 g2-title">High-Brightness Outdoor Displays</h3>
+                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest g2-tag">Mega Dogodki</span>
+                        <h3 class="text-xl font-bold text-white mt-2 g2-title">Zunanji Zasloni Visoke Svetlosti</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 g2-desc">Engineered to perform seamlessly under direct sunlight and challenging outdoor weather conditions.</p>
+                        <p class="text-sm text-slate-300 g2-desc">Zasnovani za nemoteno delovanje pod neposredno sončno svetlobo in v zahtevnih zunanjih vremenskih razmerah.</p>
                     </div>
                 </div>
 
@@ -226,11 +225,11 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g3-tag">Concerts & Shows</span>
-                        <h3 class="text-xl font-bold text-white mt-2 g3-title">Modular Stage Video Backdrops</h3>
+                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest g3-tag">Koncerti in Nastopi</span>
+                        <h3 class="text-xl font-bold text-white mt-2 g3-title">Modularne Videopozadine za Oder</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 g3-desc">Lightweight modular panels allowing fast rigging and stunning visual backdrops for live performances.</p>
+                        <p class="text-sm text-slate-300 g3-desc">Lahki modularni paneli, ki omogočajo hitro postavitev in osupljive vizualne ozadje za dogodke v živo.</p>
                     </div>
                 </div>
             </div>
@@ -241,49 +240,49 @@
     <section id="contact" class="py-24 max-w-3xl mx-auto px-6">
         <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-3 form-title">Submit Your Inquiry</h2>
-                <p class="text-slate-400 text-sm form-desc">Looking for an LED screen or want to become a partner? Drop us a message.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-3 form-title">Oddajte Povpraševanje</h2>
+                <p class="text-slate-400 text-sm form-desc">Iščete LED zaslon ali želite postati partner? Pišite nam.</p>
             </div>
 
             <form action="https://formspree.io/f/mbgjvqvp" method="POST" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-name">Your Name / Company</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-name">Vaše Ime / Podjetje</label>
                         <input type="text" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-email">Email Address</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-email">E-poštni Naslov</label>
                         <input type="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-type">Inquiry Type</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-type">Vrsta Povpraševanja</label>
                         <select name="type" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
-                            <option value="Rental" class="opt-rental">LED Display Rental</option>
-                            <option value="Purchase" class="opt-purchase">LED Display Purchase</option>
-                            <option value="Partnership" class="opt-partner">Supplier / Partner Collaboration</option>
+                            <option value="Rental" class="opt-rental">Najem LED Zaslona</option>
+                            <option value="Purchase" class="opt-purchase">Nakup LED Zaslona</option>
+                            <option value="Partnership" class="opt-partner">Sodelovanje z Dobaviteljem / Partnerjem</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-loc">Target Country / Region</label>
-                        <input type="text" id="input-location" name="location" placeholder="e.g. Slovenia, Croatia, Austria..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-loc">Ciljna Država / Regija</label>
+                        <input type="text" id="input-location" name="location" placeholder="npr. Slovenija, Hrvaška, Avstrija..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-date">Event / Start Date</label>
-                    <input type="text" id="input-date" name="event_date" placeholder="e.g. 15.07.2026 or Summer 2026" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-date">Datum Dogodka / Začetka</label>
+                    <input type="text" id="input-date" name="event_date" placeholder="npr. 15.07.2026 ali Poletje 2026" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-msg">Project Details / Message</label>
-                    <textarea id="input-message" name="message" rows="4" required placeholder="Describe your screen requirements, event dates, or proposal..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 field-msg">Podrobnosti Projekta / Sporočilo</label>
+                    <textarea id="input-message" name="message" rows="4" required placeholder="Opišite zahteve glede zaslona, datume dogodka ali predlog..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-indigo-600/30 btn-submit">
-                    Send Inquiry
+                    Pošlji Povpraševanje
                 </button>
             </form>
         </div>
@@ -292,12 +291,12 @@
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 py-12 bg-slate-950 text-center text-sm text-slate-500">
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 LEDpanelHub.com. All rights reserved.</p>
+            <p>&copy; 2026 LEDpanelHub.com. Vse pravice pridržane.</p>
             <div class="flex items-center gap-6">
                 <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="hover:text-indigo-400 transition">Instagram</a>
                 <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="hover:text-indigo-400 transition">TikTok</a>
             </div>
-            <p class="text-slate-400 footer-sub">International B2B Lead Generation & Brokerage</p>
+            <p class="text-slate-400 footer-sub">Mednarodna B2B Lead Generacija in Posredovanje</p>
         </div>
     </footer>
 
@@ -305,9 +304,11 @@
     <script>
         const translations = {
             en: {
+                "badge-construction": "Website under construction",
                 "nav-about": "About Us", "nav-services": "Services", "nav-process": "How It Works", "nav-gallery": "Gallery", "nav-partners": "For Partners",
                 "btn-quote": "Get a Quote", "badge-top": "European B2B LED Brokerage Network", "hero-title": "High-Performance LED Display",
                 "hero-title-gradient": "Rental & Purchase Solutions", "hero-desc": "Connecting event organizers, businesses, and venues with top-tier verified LED suppliers across Europe. Seamless matchmaking, guaranteed quality, zero hassle.",
+                "banner-text": "Covering Central & Southern Europe:",
                 "about-title": "We Bridge the Gap Between Demand and Top-Tier Equipment",
                 "about-desc1": "LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation.",
                 "about-desc2": "We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.",
@@ -329,21 +330,24 @@
                 "field-name": "Your Name / Company", "field-email": "Email Address", "field-type": "Inquiry Type",
                 "opt-rental": "LED Display Rental", "opt-purchase": "LED Display Purchase", "opt-partner": "Supplier / Partner Collaboration",
                 "field-loc": "Target Country / Region", "field-date": "Event / Start Date", "field-msg": "Project Details / Message",
+                "ph-loc": "e.g. Slovenia, Croatia, Austria...", "ph-date": "e.g. 15.07.2026 or Summer 2026", "ph-msg": "Describe your screen requirements, event dates, or proposal...",
                 "btn-submit": "Send Inquiry", "footer-sub": "International B2B Lead Generation & Brokerage"
             },
             si: {
+                "badge-construction": "Spletna stran je v izdelavi",
                 "nav-about": "O Nas", "nav-services": "Storitve", "nav-process": "Kako Deluje", "nav-gallery": "Galerija", "nav-partners": "Za Partnerje",
                 "btn-quote": "Oddajte Povpraševanje", "badge-top": "Evropska B2B LED Posrednička Mreža", "hero-title": "Visokozmogljivi LED Zasloni",
                 "hero-title-gradient": "Najem in Nakup Rešitev", "hero-desc": "Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji po Evropi. Brezhibno posredovanje, zagotovljena kakovost.",
+                "banner-text": "Pokrivamo Srednjo in Južno Evropo:",
                 "about-title": "Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo",
-                "about-desc1": "LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing.",
+                "about-desc1": "LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing in generiranje strank.",
                 "about-desc2": "Preverjena povpraševanja strank posredujemo neposredno zanesljivim tehničnim partnerjem po Evropi, kar zagotavlja hitro izvedbo in zanesljive posle.",
                 "card1-title": "⚡ Hitro Usklajevanje", "card1-desc": "Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.",
                 "card2-title": "🌐 Vseevropsko", "card2-desc": "Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.",
                 "services-main-title": "Naše Storitve", "services-main-desc": "Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.",
-                "s1-title": "Najem za Dogodke", "s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni partnerji.",
+                "s1-title": "Najem za Dogodke", "s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni regionalni partnerji.",
                 "s1-link": "Možnost kratkoročnega in dolgoročnega najema →", "s2-title": "Trajni Nakup",
-                "s2-desc": "Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb.",
+                "s2-desc": "Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb vodilnih proizvajalcev.",
                 "s2-link": "Prilagojene dimenzije in B2B veleprodaja →", "process-main-title": "Kako Deluje", "process-main-desc": "Enostaven in hiter postopek, zasnovan za zanesljivost.",
                 "p1-title": "Pošljite Povpraševanje", "p1-desc": "Sporočite nam obseg vašega projekta – ali potrebujete kratkoročni najem ali trajni nakup zaslona.",
                 "p2-title": "Takojšnje Spajanje", "p2-desc": "Vaše povpraševanje usmerimo neposredno k preverjenemu izvajalskemu partnerju v vaši regiji.",
@@ -351,51 +355,57 @@
                 "gallery-badge": "Vizualna Predstavitev", "gallery-title": "LED Zasloni v Akciji", "gallery-desc": "Od dinamičnih športnih stadionov do velikih koncertnih odrov – preverite, kako naši LED sistemi izstopajo v praksi.",
                 "g1-tag": "Stadioni in Šport", "g1-title": "Arena Perimetri in Semaforji", "g1-desc": "Visoka vzdržljivost in svetlost, prilagojena za profesionalne športne objekte in obrobno oglaševanje.",
                 "g2-tag": "Mega Dogodki", "g2-title": "Zunanji Zasloni Visoke Svetlosti", "g2-desc": "Zasnovani za nemoteno delovanje pod neposredno sončno svetlobo in v zahtevnih zunanjih vremenskih razmerah.",
-                "g3-tag": "Koncerti in Nastopi", "g3-title": "Modularne Videopozadine za Oder", "g3-desc": "Lahki modularni paneli, ki omogočajo hitro postvitev in osupljive vizualne ozadje za dogodke v živo.",
+                "g3-tag": "Koncerti in Nastopi", "g3-title": "Modularne Videopozadine za Oder", "g3-desc": "Lahki modularni paneli, ki omogočajo hitro postavitev in osupljive vizualne ozadje za dogodke v živo.",
                 "form-title": "Oddajte Povpraševanje", "form-desc": "Iščete LED zaslon ali želite postati partner? Pišite nam.",
                 "field-name": "Vaše Ime / Podjetje", "field-email": "E-poštni Naslov", "field-type": "Vrsta Povpraševanja",
                 "opt-rental": "Najem LED Zaslona", "opt-purchase": "Nakup LED Zaslona", "opt-partner": "Sodelovanje z Dobaviteljem / Partnerjem",
                 "field-loc": "Ciljna Država / Regija", "field-date": "Datum Dogodka / Začetka", "field-msg": "Podrobnosti Projekta / Sporočilo",
+                "ph-loc": "npr. Slovenija, Hrvaška, Avstrija...", "ph-date": "npr. 15.07.2026 ali Poletje 2026", "ph-msg": "Opišite zahteve glede zaslona, datume dogodka ali predlog...",
                 "btn-submit": "Pošlji Povpraševanje", "footer-sub": "Mednarodna B2B Lead Generacija in Posredovanje"
             },
             hr: {
+                "badge-construction": "Web stranica je u izradi",
                 "nav-about": "O Nama", "nav-services": "Usluge", "nav-process": "Kako Radi", "nav-gallery": "Galerija", "nav-partners": "Za Partnere",
                 "btn-quote": "Zatražite Ponudu", "badge-top": "Europska B2B LED Posrednička Mreža", "hero-title": "Vrhunska LED Rješenja",
                 "hero-title-gradient": "Najam i Kupnja Zaslona", "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem Europe. Brzo spajanje, zajamčena kvaliteta, bez komplikacija.",
+                "banner-text": "Pokrivamo Središnju i Južnu Europu:",
                 "about-title": "Spajamo Potrebe Kupaca i Vrhunsku Opremu",
-                "about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma. Umjesto upravljanja logistikom, fokusiramo se na ciljani digitalni marketing.",
+                "about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma. Umjesto upravljanja logistikom, fokusiramo se na ciljani digitalni marketing i generiranje klijenata.",
                 "about-desc2": "Provjerene upite klijenata prosljeđujemo izravno pouzdanim tehničkim partnerima diljem Europe, osiguravajući brzu realizaciju i sigurne poslove.",
                 "card1-title": "⚡ Brzo Spajanje", "card1-desc": "Trenutno usklađujemo zahtjeve vašeg projekta s pravim lokalnim ili regionalnim dobavljačem.",
                 "card2-title": "🌐 Paneuropski", "card2-desc": "Ciljanje tržišta s visokom potražnjom diljem Središnje i Južne Europe s lokaliziranim kampanjama.",
                 "services-main-title": "Naše Usluge", "services-main-desc": "Prilagođena rješenja LED zaslona skrojena za vaše poslovne potrebe.",
-                "s1-title": "Najam za Događaje", "s1-desc": "Profesionalni modularni LED videozidovi za koncerte, korporativne konferencije, sajmove, festivale i sportske događaje. Postavu vode provjereni partneri.",
+                "s1-title": "Najam za Događaje", "s1-desc": "Profesionalni modularni LED videozidovi za koncerte, korporativne konferencije, sajmove, festivale i sportske događaje. Postavu vode provjereni regionalni partneri.",
                 "s1-link": "Mogućnost kratkoročnog i dugoročnog najma →", "s2-title": "Trajna Kupnja",
-                "s2-desc": "Izravna nabava unutarnjih i vanjskih komercijalnih LED zaslona, digitalnih panoa i arhitektonskih videorazgleda od vodećih proizvođača.",
+                "s2-desc": "Izravna nabava unutarnjih i vanjskih komercijalnih LED zaslona, digitalnih panoa i arhitektonskih videorazgleda vodećih proizvođača.",
                 "s2-link": "Prilagođene dimenzije i B2B veleprodaja →", "process-main-title": "Kako Radi", "process-main-desc": "Jednostavan i brz proces osmišljen za pouzdanost.",
                 "p1-title": "Pošaljite Upit", "p1-desc": "Opišite nam opseg vašeg projekta – trebate li kratkoročni najam ili trajnu kupnju zaslona.",
                 "p2-title": "Trenutno Usklađivanje", "p2-desc": "Vaš upit izravno usmjeravamo provjerenom izvođaču i partneru u vašoj regiji.",
                 "p3-title": "Glatka Izvedba", "p3-desc": "Naš pouzdani partner brine se za dostavu, montažu i podršku te osigurava uspješan završetak projekta.",
                 "gallery-badge": "Vizualni Prikaz", "gallery-title": "LED Zasloni na djelu", "gallery-desc": "Od dinamičnih sportskih stadiona do velikih koncertnih pozornica – provjerite kako naš hardver funkcionira u praksi.",
                 "g1-tag": "Stadioni i Sport", "g1-title": "Perimetri Arena i Semafori", "g1-desc": "Visoka izdržljivost i svjetlina dizajnirani za profesionalne sportske objekte i perimetralno oglašavanje.",
-                "g2-tag": "Veliki Događaji", "g2-title": "Vanjski Zasloni Visoke Svjetline", "g2-desc": "Dizajnirani za besprijekoran rad pod izravnom sunčevom svjetlošću i u zahtjevnim vanjskim vremenskim uvjetima.",
+                "g2-tag": "Veliki Događaji", "g2-title": "Vanjski Zasloni Visoke Svjetline", "g2-desc": "Dizajnirani za besprijekoran rad pod izravnom sunčevom svjetlošću i u zahtjevnim vanjskim uvjetima.",
                 "g3-tag": "Koncerti i Predstave", "g3-title": "Modularne Pozadinske Video Pozornice", "g3-desc": "Lagani modularni paneli koji omogućuju brzu montažu i zapanjujuće vizualne pozadine za nastupe uživo.",
                 "form-title": "Pošaljite Svoj Upit", "form-desc": "Tražite LED zaslon ili želite postati partner? Pošaljite nam poruku.",
                 "field-name": "Vaše Ime / Tvrtka", "field-email": "E-mail Adresa", "field-type": "Vrsta Upita",
                 "opt-rental": "Najam LED Zaslona", "opt-purchase": "Kupnja LED Zaslona", "opt-partner": "Suradnja s Dobavljačem / Partnerom",
                 "field-loc": "Ciljana Država / Regija", "field-date": "Datum Događaja / Početka", "field-msg": "Detalji Projekta / Poruka",
+                "ph-loc": "npr. Slovenija, Hrvatska, Austrija...", "ph-date": "npr. 15.07.2026 ili Ljeto 2026", "ph-msg": "Opišite zahtjeve za zaslon, datume događaja ili prijedlog...",
                 "btn-submit": "Pošalji Upit", "footer-sub": "Međunarodna B2B Lead Generacija i Posredovanje"
             },
             de: {
+                "badge-construction": "Website in Bearbeitung",
                 "nav-about": "Über Uns", "nav-services": "Leistungen", "nav-process": "Wie es funktioniert", "nav-gallery": "Galerie", "nav-partners": "Für Partner",
                 "btn-quote": "Anfrage senden", "badge-top": "Europäisches B2B LED Brokerage-Netzwerk", "hero-title": "Leistungsstarke LED-Displays",
                 "hero-title-gradient": "Vermietung & Kauf", "hero-desc": "Wir verbinden Eventveranstalter, Unternehmen und Locations mit erstklassigen, verifizierten LED-Anbietern in Europa. Reibungsloses Matching, garantierte Qualität.",
+                "banner-text": "Wir decken Mittel- und Südeuropa ab:",
                 "about-title": "Wir schlagen die Brücke zwischen Nachfrage und Top-Equipment",
-                "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform. Statt schwerer Logistik konzentrieren wir uns voll auf zielgerichtetes Online-Marketing.",
+                "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform. Statt schwerer Logistik konzentrieren wir uns voll auf zielgerichtetes Online-Marketing und Lead-Generierung.",
                 "about-desc2": "Wir leiten verifizierte Kundenanfragen direkt an zuverlässige technische Partner in ganz Europa weiter – für schnelle Abwicklung und verlässliche Projekte.",
                 "card1-title": "⚡ Schnelles Match", "card1-desc": "Wir bringen Ihre Projektanforderungen sofort mit dem passenden lokalen Anbieter zusammen.",
                 "card2-title": "🌐 Pan-Europäisch", "card2-desc": "Fokus auf wachstumsstarke Märkte in Mittel- und Südeuropa durch lokalisierte Kampagnen.",
                 "services-main-title": "Unsere Kernleistungen", "services-main-desc": "Maßgeschneiderte LED-Display-Lösungen für Ihre Geschäftsanforderungen.",
-                "s1-title": "Event-Mietlösungen", "s1-desc": "Professionelle modulare LED-Wände für Konzerte, Firmenkonferenzen, Messen und Sportevents. Kompletter Aufbau durch vertrauenswürdige Partner.",
+                "s1-title": "Event-Mietlösungen", "s1-desc": "Professionelle modulare LED-Wände für Konzerte, Firmenkonferenzen, Messen und Sportevents. Kompletter Aufbau durch vertrauenswürdige regionale Partner.",
                 "s1-link": "Kurz- und Langzeitmiete verfügbar →", "s2-title": "Permanenter Kauf",
                 "s2-desc": "Direkte Beschaffungshilfe für Indoor- und Outdoor-LED-Displays, Werbetafeln und architektonische Videowände von Top-Herstellern.",
                 "s2-link": "Maßanfertigungen & B2B Großhandel →", "process-main-title": "Wie es funktioniert", "process-main-desc": "Ein optimierter Prozess für maximale Geschwindigkeit.",
@@ -410,11 +420,13 @@
                 "field-name": "Ihr Name / Unternehmen", "field-email": "E-Mail-Adresse", "field-type": "Anfragetyp",
                 "opt-rental": "LED-Display Mieten", "opt-purchase": "LED-Display Kaufen", "opt-partner": "Lieferanten- / Partnerkooperation",
                 "field-loc": "Zielland / Region", "field-date": "Veranstaltungs- / Startdatum", "field-msg": "Projektdetails / Nachricht",
+                "ph-loc": "z. B. Slowenien, Kroatien, Österreich...", "ph-date": "z. B. 15.07.2026 oder Sommer 2026", "ph-msg": "Beschreiben Sie Ihre Display-Anforderungen, Termine oder Ihr Vorhaben...",
                 "btn-submit": "Anfrage Absenden", "footer-sub": "Internationale B2B Lead Generierung & Vermittlung"
             }
         };
 
         function setLanguage(lang) {
+            // Posodobi gumbe za izbiro jezika
             document.querySelectorAll('.flex.items-center.bg-slate-950 button, .flex.items-center.bg-slate-900 button').forEach(btn => {
                 btn.classList.remove('bg-indigo-600', 'text-white');
                 btn.classList.add('text-slate-400');
@@ -425,6 +437,10 @@
                 activeBtn.classList.remove('text-slate-400');
             }
 
+            // Nastavi atribut lang na html znački
+            document.documentElement.lang = lang;
+
+            // Zamenjaj besedila glede na izbrani jezik
             const t = translations[lang];
             if (!t) return;
 
@@ -434,7 +450,21 @@
                     el.textContent = t[key];
                 });
             }
+
+            // Posodobi placeholderje v vnosnih poljih
+            const locInput = document.getElementById('input-location');
+            const dateInput = document.getElementById('input-date');
+            const msgInput = document.getElementById('input-message');
+
+            if (locInput && t['ph-loc']) locInput.placeholder = t['ph-loc'];
+            if (dateInput && t['ph-date']) dateInput.placeholder = t['ph-date'];
+            if (msgInput && t['ph-msg']) msgInput.placeholder = t['ph-msg'];
         }
+
+        // Nastavi privzeti jezik na slovenski ob nalaganju strani
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage('si');
+        });
     </script>
 </body>
 </html>

@@ -236,11 +236,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-name">Your Name / Company</label>
-                        <input type="text" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                        <input type="text" id="input-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-email">Email Address</label>
-                        <input type="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                        <input type="email" id="input-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                 </div>
 
@@ -326,7 +326,7 @@
     <script>
         let currentLang = 'en';
         let aiStep = 1;
-        let aiData = { type: '', duration: '', location: '' };
+        let aiData = { type: '', clientType: '', duration: '', location: '', date: '', email: '', desc: '' };
 
         // Multilingual Translation Dictionary (EN Primary)
         const translations = {
@@ -358,15 +358,17 @@
                 "tr-opt-rental": "LED Display Rental", "tr-opt-purchase": "LED Display Purchase", "tr-opt-partner": "Supplier / Partner Collaboration",
                 "tr-field-loc": "Target Country / Region", "tr-field-date": "Event / Start Date", "tr-field-msg": "Project Details / Message",
                 "tr-btn-submit": "Send Inquiry", "tr-footer-sub": "International B2B Lead Generation & Brokerage",
-                "ai-welcome": "Hello! 👋 I am your LED Assistant AI. Do you need a **rental** (for an event) or a **purchase** (permanent installation)?",
+                
+                // AI Flow Texts EN
+                "ai-welcome": "Hello! 👋 I am your LED Assistant AI. Are you inquiring as an **Individual** or a **Company / Business**?",
+                "ai-opt-ind": "Individual", "ai-opt-comp": "Company",
+                "ai-q-type": "Great. Do you need a **rental** (for an event) or a **purchase** (permanent installation)?",
                 "ai-opt-1-1": "Rental (Event)", "ai-opt-1-2": "Purchase (Permanent)",
-                "ai-q2": "Great. You chose <b>{type}</b>. How long will the display be in use, or what is the permanent purpose?",
-                "ai-opt-2-1": "Short-term (1-3 days)", "ai-opt-2-2": "Long-term / Permanent",
-                "ai-q3": "In which country or region will your project take place?",
-                "ai-opt-3-1": "Slovenia", "ai-opt-3-2": "Croatia", "ai-opt-3-3": "Austria", "ai-opt-3-4": "Germany",
-                "ai-rec-rental": "Based on your requirements, we warmly recommend a **RENTAL**. This avoids high investment costs, and the technical team handles complete assembly and disassembly.",
-                "ai-rec-purchase": "Based on long-term usage, we recommend a **PERMANENT PURCHASE**, as investment in a commercial LED display quickly pays off through advertising or continuous use.",
-                "ai-final": "{rec}<br><br>✨ I have prepared your data in the inquiry form below. Would you like me to connect you with a local partner?",
+                "ai-q-date": "When do you need the display (Event or Start Date)?",
+                "ai-q-loc": "In which country or region will your project take place?",
+                "ai-q-desc": "Please briefly describe your project or screen requirements:",
+                "ai-q-email": "Please enter your email address so we can send you the offer:",
+                "ai-final": "✨ Thank you! All data has been automatically filled into the inquiry form below. Click the button to review and submit.",
                 "ai-btn-form": "Go to Inquiry Form",
                 "ai-placeholder": "Type your answer...",
                 "ai-send": "Send"
@@ -399,15 +401,17 @@
                 "tr-opt-rental": "Najem LED Zaslona", "tr-opt-purchase": "Nakup LED Zaslona", "tr-opt-partner": "Sodelovanje z Dobaviteljem / Partnerjem",
                 "tr-field-loc": "Ciljna Država / Regija", "tr-field-date": "Datum Dogodka / Začetka", "tr-field-msg": "Podrobnosti Projekta / Sporočilo",
                 "tr-btn-submit": "Pošlji Povpraševanje", "tr-footer-sub": "Mednarodna B2B Lead Generacija in Posredovanje",
-                "ai-welcome": "Pozdravljeni! 👋 Jaz sem vaš AI svetovalec za LED zaslone. Ali za vaš projekt potrebujete **najem** (za dogodek) ali **nakup** (trajna namestitev)?",
+                
+                // AI Flow Texts SI
+                "ai-welcome": "Pozdravljeni! 👋 Jaz sem vaš AI svetovalec za LED zaslone. Ali se zanimate kot **Fizična oseba** ali **Podjetje**?",
+                "ai-opt-ind": "Fizična oseba", "ai-opt-comp": "Podjetje",
+                "ai-q-type": "Odlično. Ali za vaš projekt potrebujete **najem** (za dogodek) ali **nakup** (trajna namestitev)?",
                 "ai-opt-1-1": "Najem (Dogodek)", "ai-opt-1-2": "Nakup (Trajno)",
-                "ai-q2": "Odlično. Izbrali ste <b>{type}</b>. Koliko časa bo zaslon v uporabi ali kakšen je trajni namen?",
-                "ai-opt-2-1": "Kratkoročno (1-3 dni)", "ai-opt-2-2": "Trajna namestitev",
-                "ai-q3": "V kateri državi/regiji se bo projekt izvajal?",
-                "ai-opt-3-1": "Slovenija", "ai-opt-3-2": "Hrvaška", "ai-opt-3-3": "Avstrija", "ai-opt-3-4": "Nemčija",
-                "ai-rec-rental": "Glede na vaše zahteve vam toplo priporočamo <b>NAJAM</b>. Tako se izognete visokim stroškom investicije, tehnična ekipa pa poskrbi za celotno montažo in demontažo.",
-                "ai-rec-purchase": "Glede na dolgoročno rabo vam priporočamo <b>TRAJNI NAKUP</b>, saj se vam investicija v komercialni LED zaslon hitro povrne skozi oglaševanje ali stalno rabo.",
-                "ai-final": "{rec}<br><br>✨ Vaše podatke sem pripravil v kontaktni obrazec spodaj na strani. Želite, da vas povežem z lokalnim partnerjem?",
+                "ai-q-date": "Za katerega datuma oziroma kdaj točno potrebujete zaslon?",
+                "ai-q-loc": "V kateri državi/regiji se bo projekt izvajal?",
+                "ai-q-desc": "Napišite kratek opis oziroma zahteve glede zaslona:",
+                "ai-q-email": "Prosimo, vpišite vaš e-poštni naslov, da vam lahko posredujemo ponudbo:",
+                "ai-final": "✨ Hvala! Vse podatke sem samodejno vnesel v kontaktni obrazec spodaj. Kliknite gumb za pregled in oddajo.",
                 "ai-btn-form": "Pojdi na obrazec za oddajo",
                 "ai-placeholder": "Vpišite odgovor...",
                 "ai-send": "Pošlji"
@@ -438,15 +442,17 @@
                 "tr-opt-rental": "Najam", "tr-opt-purchase": "Kupnja", "tr-opt-partner": "Partnerstvo",
                 "tr-field-loc": "Regija", "tr-field-date": "Datum", "tr-field-msg": "Poruka",
                 "tr-btn-submit": "Pošalji", "tr-footer-sub": "B2B Posredovanje",
-                "ai-welcome": "Pozdrav! 👋 Ja sam vaš AI savjetnik za LED zaslone. Trebate li za svoj projekt **najam** (za događaj) ili **kupnju** (trajna ugradnja)?",
+                
+                // AI Flow Texts HR
+                "ai-welcome": "Pozdrav! 👋 Ja sam vaš AI savjetnik za LED zaslone. Obraćate li se kao **Fizička osoba** ili **Tvrtka**?",
+                "ai-opt-ind": "Fizička osoba", "ai-opt-comp": "Tvrtka",
+                "ai-q-type": "Odlično. Trebate li **najam** (za događaj) ili **kupnju** (trajna ugradnja)?",
                 "ai-opt-1-1": "Najam (Događaj)", "ai-opt-1-2": "Kupnja (Trajno)",
-                "ai-q2": "Odlično. Odabrali ste <b>{type}</b>. Koliko dugo će zaslon biti u upotrebi ili koja je svrha?",
-                "ai-opt-2-1": "Kratkoročno (1-3 dana)", "ai-opt-2-2": "Trajna ugradnja",
-                "ai-q3": "U kojoj državi/regiji se projekt provodi?",
-                "ai-opt-3-1": "Slovenija", "ai-opt-3-2": "Hrvatska", "ai-opt-3-3": "Austrija", "ai-opt-3-4": "Njemačka",
-                "ai-rec-rental": "S obzirom na vaše zahtjeve, toplo preporučujemo <b>NAJAM</b>. Time izbjegavate visoke troškove investicije, a tehnički tim brine o montaži.",
-                "ai-rec-purchase": "S obzirom na dugoročnu upotrebu, preporučujemo <b>TRAJNU KUPNJU</b> jer se investicija brzo vraća kroz oglašavanje.",
-                "ai-final": "{rec}<br><br>✨ Pripremio sam vaše podatke u obrazac ispod. Želite li da vas povežem s partnerom?",
+                "ai-q-date": "Za koji datum odnosno kada točno trebate zaslon?",
+                "ai-q-loc": "U kojoj državi/regiji se projekt provodi?",
+                "ai-q-desc": "Opišite ukratko projekt i potrebe za zaslonom:",
+                "ai-q-email": "Molimo unesite vaš e-mail kako bismo vam poslali ponudu:",
+                "ai-final": "✨ Hvala! Svi podaci su automatski uneseni u obrazac ispod. Kliknite gumb za pregled i slanje.",
                 "ai-btn-form": "Idi na obrazac",
                 "ai-placeholder": "Upišite odgovor...",
                 "ai-send": "Pošalji"
@@ -477,15 +483,17 @@
                 "tr-opt-rental": "Miete", "tr-opt-purchase": "Kauf", "tr-opt-partner": "Partnerschaft",
                 "tr-field-loc": "Region", "tr-field-date": "Datum", "tr-field-msg": "Nachricht",
                 "tr-btn-submit": "Absenden", "tr-footer-sub": "B2B Broker",
-                "ai-welcome": "Hallo! 👋 Ich bin Ihr LED-Assistent. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf** (permanente Installation)?",
+                
+                // AI Flow Texts DE
+                "ai-welcome": "Hallo! 👋 Ich bin Ihr LED-Assistent. Handelt es sich um eine Anfrage als **Privatperson** oder **Unternehmen**?",
+                "ai-opt-ind": "Privatperson", "ai-opt-comp": "Unternehmen",
+                "ai-q-type": "Großartig. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf** (permanente Installation)?",
                 "ai-opt-1-1": "Miete (Event)", "ai-opt-1-2": "Kauf (Permanent)",
-                "ai-q2": "Großartig. Sie haben <b>{type}</b> gewählt. Wie lange wird das Display im Einsatz sein?",
-                "ai-opt-2-1": "Kurzzeitig (1-3 Tage)", "ai-opt-2-2": "Permanente Installation",
-                "ai-q3": "In welchem Land bzw. welcher Region findet das Projekt statt?",
-                "ai-opt-3-1": "Slowenien", "ai-opt-3-2": "Kroatien", "ai-opt-3-3": "Österreich", "ai-opt-3-4": "Deutschland",
-                "ai-rec-rental": "Basierend auf Ihren Anforderungen empfehlen wir dringend eine **MIETE**. So vermeiden Sie hohe Investitionskosten und das Technikteam kümmert sich um den Aufbau.",
-                "ai-rec-purchase": "Aufgrund der langfristigen Nutzung empfehlen wir einen **PERMANENTEN KAUF**, da sich die Investition schnell amortisiert.",
-                "ai-final": "{rec}<br><br>✨ Ich habe Ihre Daten für das Anfrageformular vorbereitet. Möchten Sie zum Formular?",
+                "ai-q-date": "Für welches Datum bzw. ab wann benötigen Sie das Display?",
+                "ai-q-loc": "In welchem Land bzw. welcher Region findet das Projekt statt?",
+                "ai-q-desc": "Bitte beschreiben Sie kurz Ihr Projekt und die Display-Anforderungen:",
+                "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse ein, damit wir Ihnen das Angebot senden können:",
+                "ai-final": "✨ Danke! Alle Daten wurden automatisch in das Anfrageformular unten eingetragen. Klicken Sie auf den Button zum Absenden.",
                 "ai-btn-form": "Zum Anfrageformular",
                 "ai-placeholder": "Antwort eingeben...",
                 "ai-send": "Senden"
@@ -537,20 +545,20 @@
 
         function initAiChat() {
             const dict = translations[currentLang];
-            document.getElementById('ai-messages.innerHTML') = '';
+            document.getElementById('ai-messages').innerHTML = '';
             appendMessage(dict['ai-welcome'], 'ai');
             document.getElementById('ai-user-input').placeholder = dict['ai-placeholder'];
             
             const quickOpts = document.getElementById('ai-quick-options');
             quickOpts.innerHTML = `
-                <button onclick="handleAiChoice('${dict['ai-opt-1-1']}')" class="bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1.5 rounded-xl hover:bg-indigo-600/40 transition">${dict['ai-opt-1-1']}</button>
-                <button onclick="handleAiChoice('${dict['ai-opt-1-2']}')" class="bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 text-xs px-3 py-1.5 rounded-xl hover:bg-cyan-600/40 transition">${dict['ai-opt-1-2']}</button>
+                <button onclick="handleAiChoice('${dict['ai-opt-ind']}')" class="bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1.5 rounded-xl hover:bg-indigo-600/40 transition">${dict['ai-opt-ind']}</button>
+                <button onclick="handleAiChoice('${dict['ai-opt-comp']}')" class="bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 text-xs px-3 py-1.5 rounded-xl hover:bg-cyan-600/40 transition">${dict['ai-opt-comp']}</button>
             `;
         }
 
         function resetAiChat() {
             aiStep = 1;
-            aiData = { type: '', duration: '', location: '' };
+            aiData = { type: '', clientType: '', duration: '', location: '', date: '', email: '', desc: '' };
             document.getElementById('ai-messages').innerHTML = '';
             if(!document.getElementById('ai-chat-window').classList.contains('hidden')) {
                 initAiChat();
@@ -587,20 +595,25 @@
             const quickOpts = document.getElementById('ai-quick-options');
             
             if(aiStep === 1) {
-                aiData.type = input.toLowerCase().includes('purchase') || input.toLowerCase().includes('nakup') || input.toLowerCase().includes('kupnja') || input.toLowerCase().includes('kauf') ? 'Purchase' : 'Rental';
+                aiData.clientType = input;
                 aiStep = 2;
                 quickOpts.innerHTML = `
-                    <button onclick="handleAiChoice('${dict['ai-opt-2-1']}')" class="bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1.5 rounded-xl">${dict['ai-opt-2-1']}</button>
-                    <button onclick="handleAiChoice('${dict['ai-opt-2-2']}')" class="bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 text-xs px-3 py-1.5 rounded-xl">${dict['ai-opt-2-2']}</button>
+                    <button onclick="handleAiChoice('${dict['ai-opt-1-1']}')" class="bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1.5 rounded-xl">${dict['ai-opt-1-1']}</button>
+                    <button onclick="handleAiChoice('${dict['ai-opt-1-2']}')" class="bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 text-xs px-3 py-1.5 rounded-xl">${dict['ai-opt-1-2']}</button>
                 `;
                 setTimeout(() => {
-                    let typeText = aiData.type === 'Rental' ? dict['ai-opt-1-1'] : dict['ai-opt-1-2'];
-                    let msg = dict['ai-q2'].replace('{type}', typeText);
-                    appendMessage(msg, 'ai');
+                    appendMessage(dict['ai-q-type'], 'ai');
                 }, 500);
             } else if(aiStep === 2) {
-                aiData.duration = input;
+                aiData.type = input.toLowerCase().includes('purchase') || input.toLowerCase().includes('nakup') || input.toLowerCase().includes('kupnja') || input.toLowerCase().includes('kauf') ? 'Purchase' : 'Rental';
                 aiStep = 3;
+                quickOpts.innerHTML = '';
+                setTimeout(() => {
+                    appendMessage(dict['ai-q-date'], 'ai');
+                }, 500);
+            } else if(aiStep === 3) {
+                aiData.date = input;
+                aiStep = 4;
                 quickOpts.innerHTML = `
                     <button onclick="handleAiChoice('Slovenia')" class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-xl">Slovenia</button>
                     <button onclick="handleAiChoice('Croatia')" class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-xl">Croatia</button>
@@ -608,29 +621,37 @@
                     <button onclick="handleAiChoice('Germany')" class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-xl">Germany</button>
                 `;
                 setTimeout(() => {
-                    appendMessage(dict['ai-q3'], 'ai');
+                    appendMessage(dict['ai-q-loc'], 'ai');
                 }, 500);
-            } else if(aiStep === 3) {
+            } else if(aiStep === 4) {
                 aiData.location = input;
-                aiStep = 4;
+                aiStep = 5;
                 quickOpts.innerHTML = '';
-                
-                let recommendation = "";
-                if(aiData.duration.toLowerCase().includes('short') || aiData.duration.toLowerCase().includes('kratkoročno') || aiData.duration.toLowerCase().includes('1-3') || aiData.duration.toLowerCase().includes('kurz') || aiData.type === 'Rental') {
-                    recommendation = dict['ai-rec-rental'];
-                    document.getElementById('select-type').value = "Rental";
-                } else {
-                    recommendation = dict['ai-rec-purchase'];
-                    document.getElementById('select-type').value = "Purchase";
-                }
+                setTimeout(() => {
+                    appendMessage(dict['ai-q-desc'], 'ai');
+                }, 500);
+            } else if(aiStep === 5) {
+                aiData.desc = input;
+                aiStep = 6;
+                quickOpts.innerHTML = '';
+                setTimeout(() => {
+                    appendMessage(dict['ai-q-email'], 'ai');
+                }, 500);
+            } else if(aiStep === 6) {
+                aiData.email = input;
+                aiStep = 7;
+                quickOpts.innerHTML = '';
 
+                // AUTOMATICALLY FILL THE MAIN CONTACT FORM FIELDS
+                document.getElementById('input-name').value = `[${aiData.clientType}] Projektno povpraševanje`;
+                document.getElementById('input-email').value = aiData.email;
+                document.getElementById('select-type').value = aiData.type;
                 document.getElementById('input-location').value = aiData.location;
-                document.getElementById('input-message').value = `AI Recommendation: ${aiData.type}, Duration: ${aiData.duration}, Location: ${aiData.location}`;
-
-                let finalMsg = dict['ai-final'].replace('{rec}', recommendation);
+                document.getElementById('input-date').value = aiData.date;
+                document.getElementById('input-message').value = aiData.desc;
 
                 setTimeout(() => {
-                    appendMessage(finalMsg, 'ai');
+                    appendMessage(dict['ai-final'], 'ai');
                     quickOpts.innerHTML = `
                         <button onclick="scrollToContact()" class="bg-emerald-600 text-white text-xs px-4 py-2 rounded-xl font-bold">${dict['ai-btn-form']}</button>
                     `;

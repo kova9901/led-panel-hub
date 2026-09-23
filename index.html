@@ -261,7 +261,7 @@
 
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-date">Event / Start Date</label>
-                    <input type="text" id="input-date" name="event_date" placeholder="e.g. 15.07.2026 or Summer 2026" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                    <input type="text" id="input-date" name="event_date" placeholder="e.g. od 15. do 20. julija 2026" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                 </div>
 
                 <div>
@@ -300,7 +300,7 @@
             <!-- Quick Options / Input -->
             <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-col gap-2">
                 <div id="ai-quick-options" class="flex gap-2 flex-wrap">
-                    <!-- Quick buttons / Calendar injected via JS -->
+                    <!-- Quick buttons injected via JS -->
                 </div>
                 <div class="flex gap-2" id="ai-input-row">
                     <input type="text" id="ai-user-input" placeholder="Type your answer..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500" onkeypress="if(event.key === 'Enter') handleAiText()">
@@ -364,7 +364,7 @@
                 "ai-opt-ind": "Individual", "ai-opt-comp": "Company",
                 "ai-q-type": "Great. Do you need a **rental** (for an event) or a **purchase** (permanent installation)?",
                 "ai-opt-1-1": "Rental (Event)", "ai-opt-1-2": "Purchase (Permanent)",
-                "ai-q-date": "Please select your event or start date using the calendar below:",
+                "ai-q-date": "From when to when do you need the service? (e.g. from July 15 to July 20)",
                 "ai-q-loc": "In which country or region will your project take place?",
                 "ai-q-desc": "Please briefly describe your project or screen requirements:",
                 "ai-q-email": "Please enter your email address so we can send you the offer:",
@@ -407,13 +407,13 @@
                 "ai-opt-ind": "Posameznik", "ai-opt-comp": "Podjetje",
                 "ai-q-type": "Odlično. Potrebujete **najem** (za dogodek) ali **nakup** (trajna namestitev)?",
                 "ai-opt-1-1": "Najem (Dogodek)", "ai-opt-1-2": "Nakup (Trajno)",
-                "ai-q-date": "Prosimo, izberite datum dogodka ali začetka s pomočjo spodnjega koledarja:",
+                "ai-q-date": "Od kdaj do kdaj potrebujete storitev? (npr. od 15. do 20. julija)",
                 "ai-q-loc": "V kateri državi ali regiji bo potekal vaš projekt?",
                 "ai-q-desc": "Na kratko opišite zahteve glede vašega projekta ali zaslona:",
                 "ai-q-email": "Vnesite svoj e-poštni naslov, da vam lahko pošljemo ponudbo:",
                 "ai-final": "✨ Hvala! Vsi podatki so bili samodejno vneseni v spodnji obrazec. Kliknite spodnji gumb za oddajo.",
                 "ai-btn-form": "Pojdi na obrazec za povpraševanje",
-                "ai-placeholder": "Vnesite odgovor...",
+                "ai-placeholder": "Vnesite odgovor (npr. od 15. do 20.7.)...",
                 "ai-send": "Pošlji"
             },
             hr: {
@@ -450,13 +450,13 @@
                 "ai-opt-ind": "Pojedinac", "ai-opt-comp": "Tvrtka",
                 "ai-q-type": "Odlično. Trebate li **najem** (za događaj) ili **kupnju** (trajnu instalaciju)?",
                 "ai-opt-1-1": "Najam (Događaj)", "ai-opt-1-2": "Kupnja (Trajno)",
-                "ai-q-date": "Molimo odaberite datum događaja ili početka pomoću kalendara u nastavku:",
+                "ai-q-date": "Od kada do kada trebate uslugu? (npr. od 15. do 20. srpnja)",
                 "ai-q-loc": "U kojoj državi ili regiji će se održati vaš projekt?",
                 "ai-q-desc": "Molimo opratite svoje zahtjeve za projekt ili ekran:",
                 "ai-q-email": "Unesite svoju e-mail adresu kako bismo vam poslali ponudu:",
                 "ai-final": "✨ Hvala! Svi podaci su automatski uneseni u obrazac ispod. Pritisnite gumb za pregled i slanje.",
                 "ai-btn-form": "Idi na obrazac za upit",
-                "ai-placeholder": "Unesite odgovor...",
+                "ai-placeholder": "Unesite odgovor (npr. od 15. do 20.7.)...",
                 "ai-send": "Pošalji"
             },
             de: {
@@ -493,13 +493,13 @@
                 "ai-opt-ind": "Privatperson", "ai-opt-comp": "Unternehmen",
                 "ai-q-type": "Großartig. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf** (feste Installation)?",
                 "ai-opt-1-1": "Miete (Event)", "ai-opt-1-2": "Kauf (Permanent)",
-                "ai-q-date": "Bitte wählen Sie Ihr Veranstaltungs- oder Startdatum im Kalender aus:",
+                "ai-q-date": "Von wann bis wann benötigen Sie den Service? (z.B. vom 15. bis 20. Juli)",
                 "ai-q-loc": "In welchem Land oder welcher Region findet Ihr Projekt statt?",
                 "ai-q-desc": "Bitte beschreiben Sie kurz Ihr Projekt oder Ihre Display-Anforderungen:",
                 "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse ein, damit wir Ihnen das Angebot zusenden können:",
                 "ai-final": "✨ Vielen Dank! Alle Daten wurden automatisch in das Anfrageformular unten eingetragen. Klicken Sie auf den Button zum Absenden.",
                 "ai-btn-form": "Zum Anfrageformular",
-                "ai-placeholder": "Antwort eingeben...",
+                "ai-placeholder": "Antwort eingeben (z.B. 15. bis 20. Juli)...",
                 "ai-send": "Senden"
             }
         };
@@ -602,19 +602,6 @@
                     <button onclick="handleAiChoice('type', 'Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>
                     <button onclick="handleAiChoice('type', 'Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>
                 `;
-            } else if (aiStep === 3) {
-                // Interactive Calendar Widget injected in AI chat window
-                inputRow.style.display = 'none';
-                const today = new Date().toISOString().split('T')[0];
-                quickOpts.innerHTML = `
-                    <div class="w-full bg-slate-900 border border-slate-800 p-3 rounded-xl flex flex-col gap-2">
-                        <div class="flex items-center justify-between text-xs text-slate-300 font-medium">
-                            <span>📅 Select Date</span>
-                        </div>
-                        <input type="date" id="ai-calendar-picker" value="${today}" min="${today}" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
-                        <button onclick="handleCalendarSelection()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 rounded-lg text-xs transition">Confirm Date</button>
-                    </div>
-                `;
             } else if (aiStep === 7) {
                 inputRow.style.display = 'none';
                 quickOpts.innerHTML = `
@@ -633,20 +620,14 @@
             renderAiMessages();
         }
 
-        function handleCalendarSelection() {
-            const picker = document.getElementById('ai-calendar-picker');
-            // If picker value exists, use it. Otherwise default to today's date so it never fails.
-            aiData.date = (picker && picker.value) ? picker.value : new Date().toISOString().split('T')[0];
-            aiStep++;
-            renderAiMessages();
-        }
-
         function handleAiText() {
             const input = document.getElementById('ai-user-input');
             const val = input.value.trim();
             if(!val) return;
 
-            if(aiStep === 4) {
+            if(aiStep === 3) {
+                aiData.date = val;
+            } else if(aiStep === 4) {
                 aiData.location = val;
             } else if(aiStep === 5) {
                 aiData.desc = val;

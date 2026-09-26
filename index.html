@@ -294,6 +294,7 @@
                     <span class="text-white font-bold text-sm">LED Assistant AI</span>
                 </div>
                 <div class="flex items-center gap-2">
+                    <button onclick="skipToForm()" aria-label="Skip to form" title="Skip to form" class="text-xs text-indigo-400 hover:text-indigo-300 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20" data-i18n="ai-skip">Form 📝</button>
                     <button onclick="resetAiChat()" aria-label="Reset chat" title="Reset chat" class="text-slate-400 hover:text-white text-xs">🔄</button>
                     <button onclick="toggleAiChat()" aria-label="Close chat" class="text-slate-400 hover:text-white text-lg">&times;</button>
                 </div>
@@ -328,7 +329,7 @@
     <script>
         let currentLang = 'en';
         let aiStep = 1;
-        let aiData = { clientType: '', type: '', date: '', location: '', desc: '', email: '' };
+        let aiData = { intent: '', type: '', placement: '', size: '', date: '', location: '', desc: '', name: '', email: '' };
 
         const translations = {
             en: {
@@ -358,24 +359,36 @@
                 "opt-rental": "LED Display Rental", "opt-purchase": "LED Display Purchase", "opt-partner": "Supplier / Partner Collaboration",
                 "field-loc": "Target Country / Region", "field-date": "Event / Start Date", "field-msg": "Project Details / Message",
                 "btn-submit": "Send Inquiry", "footer-sub": "International B2B Lead Generation & Brokerage",
-                "ai-welcome": "Hello! 👋 Are you inquiring as an **Individual** or a **Company / Business**?",
-                "ai-opt-ind": "Individual", "ai-opt-comp": "Company",
+                "ai-skip": "Form 📝",
+                "ai-welcome": "Hello! 👋 Welcome to LEDpanelHub. Are you looking for LED screens as a **Client** or do you want to join as a **Technical Partner / Supplier**?",
+                "ai-opt-client": "I need LED screens",
+                "ai-opt-partner": "I am a Supplier / Partner",
                 "ai-q-type": "Do you need a **rental** or a **purchase**?",
                 "ai-opt-1-1": "Rental", "ai-opt-1-2": "Purchase",
+                "ai-q-placement": "Is the installation **Indoor** or **Outdoor**?",
+                "ai-opt-in": "Indoor", "ai-opt-out": "Outdoor",
+                "ai-q-size": "What approximate screen size or format do you need?",
                 "ai-q-date": "When is your event or start date?",
                 "ai-q-loc": "In which country will your project take place?",
-                "ai-q-desc": "What kind of application or screen size do you need?",
+                "ai-q-name": "What is your name or company name?",
                 "ai-q-email": "Please enter your email address:",
+                "ai-partner-gear": "What kind of LED equipment or services do you offer?",
+                "ai-partner-loc": "In which regions/countries do you operate?",
                 "ai-final": "✨ Thank you! All data has been filled into the inquiry form below.",
                 "ai-btn-form": "Go to Form",
                 "ai-send": "Send",
                 "summary-title": "PROJECT INQUIRY SUMMARY (via AI Assistant)",
-                "summary-client": "• Client Type: ",
+                "summary-client": "• Inquiry Goal: Client Solution",
                 "summary-solution": "• Solution Needed: ",
+                "summary-placement": "• Placement: ",
+                "summary-size": "• Estimated Size: ",
                 "summary-location": "• Target Location: ",
                 "summary-date": "• Schedule / Date: ",
-                "summary-req": "• Requirements / Specs:\n  ",
-                "summary-notes": "Additional notes or questions:"
+                "summary-req": "• Specifications:\n  ",
+                "summary-notes": "Additional notes or questions:",
+                "summary-partner-title": "PARTNER COLLABORATION INQUIRY (via AI Assistant)",
+                "summary-partner-gear": "• Equipment / Services: ",
+                "summary-partner-loc": "• Operational Regions: "
             },
             si: {
                 "top-banner": "Spletna stran je v izdelavi",
@@ -404,24 +417,36 @@
                 "opt-rental": "Najem LED Zaslona", "opt-purchase": "Nakup LED Zaslona", "opt-partner": "Sodelovanje (Partner)",
                 "field-loc": "Ciljna Država / Regija", "field-date": "Datum Dogodka / Začetka", "field-msg": "Podrobnosti Projekta / Sporočilo",
                 "btn-submit": "Pošlji Povpraševanje", "footer-sub": "Mednarodna B2B Mreža in Posredništvo",
-                "ai-welcome": "Pozdravljeni! 👋 Zadevo urejate kot **Fizična oseba** ali **Podjetje**?",
-                "ai-opt-ind": "Fizična oseba", "ai-opt-comp": "Podjetje",
+                "ai-skip": "Obrazec 📝",
+                "ai-welcome": "Pozdravljeni! 👋 Dobrodošli na LEDpanelHubu. Iščete LED zaslone kot **Stranka** ali se želite pridružiti kot **Tehnični partner / Dobavitelj**?",
+                "ai-opt-client": "Iščem LED zaslone",
+            "ai-opt-partner": "Sem dobavitelj / partner",
                 "ai-q-type": "Potrebujete **najem** ali **nakup** zaslona?",
                 "ai-opt-1-1": "Najem", "ai-opt-1-2": "Nakup",
+                "ai-q-placement": "Bo postavitev v zaprtem prostoru (**Indoor**) ali zunaj (**Outdoor**)?",
+                "ai-opt-in": "Znotraj (Indoor)", "ai-opt-out": "Zunaj (Outdoor)",
+                "ai-q-size": "Kakšno okvirno velikost ali format zaslona potrebujete?",
                 "ai-q-date": "Kdaj se bo odvijal dogodek oziroma za kateri datum gre?",
                 "ai-q-loc": "V kateri državi se bo izvajal projekt?",
-                "ai-q-desc": "Za kakšen namen ali velikost zaslona gre?",
+                "ai-q-name": "Kako je vaše ime ali ime vašega podjetja?",
                 "ai-q-email": "Prosim vnesite vaš e-poštni naslov:",
+                "ai-partner-gear": "Kakšno opremo ali storitve ponujate kot dobavitelj?",
+                "ai-partner-loc": "V katerih regijah/državah delujete?",
                 "ai-final": "✨ Hvala! Podatki so bili uspešno preneseni v spodnji obrazec.",
                 "ai-btn-form": "Poglej obrazec",
                 "ai-send": "Pošlji",
                 "summary-title": "POVZETEK POVPRAŠEVANJA (preko AI pomočnika)",
-                "summary-client": "• Tip stranke: ",
+                "summary-client": "• Cilj povpraševanja: Rešitev za stranko",
                 "summary-solution": "• Potrebna rešitev: ",
+                "summary-placement": "• Postavitev: ",
+                "summary-size": "• Ocenjena velikost: ",
                 "summary-location": "• Ciljna lokacija: ",
                 "summary-date": "• Termin / Datum: ",
-                "summary-req": "• Zahteve / Specifikacije:\n  ",
-                "summary-notes": "Dodatne opombe ali vprašanja:"
+                "summary-req": "• Specifikacije:\n  ",
+                "summary-notes": "Dodatne opombe ali vprašanja:",
+                "summary-partner-title": "POVPRAŠEVANJE ZA PARTNERSTVO (preko AI pomočnika)",
+                "summary-partner-gear": "• Oprema / Storitve: ",
+                "summary-partner-loc": "• Regije delovanja: "
             },
             hr: {
                 "top-banner": "Web stranica je u izradi",
@@ -450,24 +475,36 @@
                 "opt-rental": "Najem LED Ekrana", "opt-purchase": "Kupnja LED Ekrana", "opt-partner": "Suradnja (Partner)",
                 "field-loc": "Ciljana Država / Regija", "field-date": "Datum Događaja / Početka", "field-msg": "Detalji Projekta / Poruka",
                 "btn-submit": "Pošalji Upit", "footer-sub": "Međunarodna B2B Mreža i Posredništvo",
-                "ai-welcome": "Pozdrav! 👋 Dogovor vodite kao **Fizička osoba** ili **Tvrtka**?",
-                "ai-opt-ind": "Fizička osoba", "ai-opt-comp": "Tvrtka",
+                "ai-skip": "Obrazac 📝",
+                "ai-welcome": "Pozdrav! 👋 Dobrodošli na LEDpanelHub. Tražite li LED ekrane kao **Klijent** ili se želite pridružiti kao **Tehnički partner / Dobavljač**?",
+                "ai-opt-client": "Tražim LED ekrane",
+                "ai-opt-partner": "Ja sam dobavljač / partner",
                 "ai-q-type": "Trebate li **najam** ili **kupnju** ekrana?",
                 "ai-opt-1-1": "Najam", "ai-opt-1-2": "Kupnja",
+                "ai-q-placement": "Je li postavljanje u zatvorenom (**Indoor**) ili na otvorenom (**Outdoor**)?",
+                "ai-opt-in": "Unutra (Indoor)", "ai-opt-out": "Vani (Outdoor)",
+                "ai-q-size": "Kakvu okvirnu veličinu ili format ekrana trebate?",
                 "ai-q-date": "Kada se održava događaj ili za koji datum trebate uslugu?",
                 "ai-q-loc": "U kojoj državi će se održati projekt?",
-                "ai-q-desc": "Kakvu vrstu primjene ili veličinu ekrana trebate?",
+                "ai-q-name": "Kako se zovete ili kako se zove vaša tvrtka?",
                 "ai-q-email": "Molimo unesite vašu e-mail adresu:",
+                "ai-partner-gear": "Kakvu opremu ili usluge nudite kao dobavljač?",
+                "ai-partner-loc": "U kojim regijama/državama djelujete?",
                 "ai-final": "✨ Hvala! Podaci su uspješno uneseni u obrazac ispod.",
                 "ai-btn-form": "Pogledaj obrazac",
                 "ai-send": "Pošalji",
                 "summary-title": "SAŽETAK UPITA (preko AI pomoćnika)",
-                "summary-client": "• Tip klijenta: ",
+                "summary-client": "• Cilj upita: Rješenje za klijenta",
                 "summary-solution": "• Potrebno rješenje: ",
+                "summary-placement": "• Postavljanje: ",
+                "summary-size": "• Procijenjena veličina: ",
                 "summary-location": "• Ciljana lokacija: ",
                 "summary-date": "• Termin / Datum: ",
-                "summary-req": "• Zahtjevi / Specifikacije:\n  ",
-                "summary-notes": "Dodatne napomene ili pitanja:"
+                "summary-req": "• Specifikacije:\n  ",
+                "summary-notes": "Dodatne napomene ili pitanja:",
+                "summary-partner-title": "UPIT ZA PARTNERSTVO (preko AI pomoćnika)",
+                "summary-partner-gear": "• Oprema / Usluge: ",
+                "summary-partner-loc": "• Regije rada: "
             },
             de: {
                 "top-banner": "Website im Aufbau",
@@ -496,24 +533,36 @@
                 "opt-rental": "LED-Display Miete", "opt-purchase": "LED-Display Kauf", "opt-partner": "Lieferanten- / Partnerkooperation",
                 "field-loc": "Ziel-Land / Region", "field-date": "Veranstaltungs- / Startdatum", "field-msg": "Projektdetails / Nachricht",
                 "btn-submit": "Anfrage Absenden", "footer-sub": "Internationale B2B Lead-Generierung",
-                "ai-welcome": "Hallo! 👋 Handelt es sich um eine Anfrage als **Privatperson** oder **Unternehmen**?",
-                "ai-opt-ind": "Privatperson", "ai-opt-comp": "Unternehmen",
+                "ai-skip": "Formular 📝",
+                "ai-welcome": "Hallo! 👋 Willkommen bei LEDpanelHub. Suchen Sie LED-Displays als **Kunde** oder möchten Sie als **Technischer Partner / Lieferant** beitreten?",
+                "ai-opt-client": "Ich suche LED-Displays",
+                "ai-opt-partner": "Ich bin Lieferant / Partner",
                 "ai-q-type": "Benötigen Sie eine **Miete** oder einen **Kauf**?",
                 "ai-opt-1-1": "Miete", "ai-opt-1-2": "Kauf",
+                "ai-q-placement": "Handelt es sich um eine **Indoor**- oder **Outdoor**-Installation?",
+                "ai-opt-in": "Indoor", "ai-opt-out": "Outdoor",
+                "ai-q-size": "Welche ungefähre Bildschirmgröße oder Format benötigen Sie?",
                 "ai-q-date": "Für welchen Zeitraum bzw. welches Datum benötigen Sie den Bildschirm?",
                 "ai-q-loc": "In welchem Land findet das Projekt statt?",
-                "ai-q-desc": "Welche Anwendung oder Bildschirmgröße benötigen Sie?",
+                "ai-q-name": "Wie ist Ihr Name oder Firmenname?",
                 "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse ein:",
+                "ai-partner-gear": "Welche LED-Ausrüstung oder Dienstleistungen bieten Sie an?",
+                "ai-partner-loc": "In welchen Regionen/Ländern sind Sie tätig?",
                 "ai-final": "✨ Vielen Dank! Alle Daten wurden in das Anfrageformular unten eingetragen.",
                 "ai-btn-form": "Zum Formular",
                 "ai-send": "Senden",
                 "summary-title": "PROJEKTANFRAGE-ZUSAMMENFASSUNG (über KI-Assistent)",
-                "summary-client": "• Kundentyp: ",
+                "summary-client": "• Anfrageziel: Kundenlösung",
                 "summary-solution": "• Gewünschte Lösung: ",
+                "summary-placement": "• Installation: ",
+                "summary-size": "• Geschätzte Größe: ",
                 "summary-location": "• Zielort: ",
                 "summary-date": "• Termin / Datum: ",
-                "summary-req": "• Anforderungen / Spezifikationen:\n  ",
-                "summary-notes": "Zusätzliche Anmerkungen oder Fragen:"
+                "summary-req": "• Spezifikationen:\n  ",
+                "summary-notes": "Zusätzliche Anmerkungen oder Fragen:",
+                "summary-partner-title": "PARTNERKOOPERATION-ANFRAGE (über KI-Assistent)",
+                "summary-partner-gear": "• Ausrüstung / Dienstleistungen: ",
+                "summary-partner-loc": "• Einsatzregionen: "
             }
         };
 
@@ -548,10 +597,15 @@
 
         function resetAiChat() {
             aiStep = 1;
-            aiData = { clientType: '', type: '', date: '', location: '', desc: '', email: '' };
+            aiData = { intent: '', type: '', placement: '', size: '', date: '', location: '', desc: '', name: '', email: '' };
             document.getElementById('ai-messages').innerHTML = '';
             document.getElementById('ai-input-row').style.display = 'none';
             renderAiStep();
+        }
+
+        function skipToForm() {
+            toggleAiChat();
+            fillContactForm();
         }
 
         function addAiMessage(text, isUser = false) {
@@ -572,18 +626,32 @@
 
             if (aiStep === 1) {
                 addAiMessage(t['ai-welcome']);
-                addOption(t['ai-opt-ind'], () => nextStep('clientType', t['ai-opt-ind']));
-                addOption(t['ai-opt-comp'], () => nextStep('clientType', t['ai-opt-comp']));
+                addOption(t['ai-opt-client'], () => nextStep('intent', 'client'));
+                addOption(t['ai-opt-partner'], () => nextStep('intent', 'partner'));
             } else if (aiStep === 2) {
-                addAiMessage(t['ai-q-type']);
-                addOption(t['ai-opt-1-1'], () => nextStep('type', 'Rental'));
-                addOption(t['ai-opt-1-2'], () => nextStep('type', 'Purchase'));
+                if (aiData.intent === 'client') {
+                    addAiMessage(t['ai-q-type']);
+                    addOption(t['ai-opt-1-1'], () => nextStep('type', 'Rental'));
+                    addOption(t['ai-opt-1-2'], () => nextStep('type', 'Purchase'));
+                } else {
+                    aiStep = 20; // Skip to partner branch
+                    renderAiStep();
+                }
             } else if (aiStep === 3) {
+                addAiMessage(t['ai-q-placement']);
+                addOption(t['ai-opt-in'], () => nextStep('placement', 'Indoor'));
+                addOption(t['ai-opt-out'], () => nextStep('placement', 'Outdoor'));
+            } else if (aiStep === 4) {
+                addAiMessage(t['ai-q-size']);
+                inputRow.style.display = 'flex';
+                document.getElementById('ai-user-input').placeholder = "e.g. 5x3m or 15 m²...";
+                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 5) {
                 addAiMessage(t['ai-q-date']);
                 inputRow.style.display = 'flex';
                 document.getElementById('ai-user-input').placeholder = "e.g. July 15 - July 20";
                 document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 4) {
+            } else if (aiStep === 6) {
                 addAiMessage(t['ai-q-loc']);
                 addOption("Slovenia", () => nextStep('location', 'Slovenia'));
                 addOption("Austria", () => nextStep('location', 'Austria'));
@@ -594,17 +662,46 @@
                     document.getElementById('ai-user-input').placeholder = "Type country...";
                     document.getElementById('ai-user-input').focus();
                 });
-            } else if (aiStep === 5) {
-                addAiMessage(t['ai-q-desc']);
+            } else if (aiStep === 7) {
+                addAiMessage(t['ai-q-name']);
                 inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').placeholder = "e.g. 5x3m LED screen...";
+                document.getElementById('ai-user-input').placeholder = "Your Name or Company Name";
                 document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 6) {
+            } else if (aiStep === 8) {
                 addAiMessage(t['ai-q-email']);
                 inputRow.style.display = 'flex';
                 document.getElementById('ai-user-input').placeholder = "name@example.com";
                 document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 7) {
+            } else if (aiStep === 9) {
+                addAiMessage(t['ai-final']);
+                addOption(t['ai-btn-form'], () => {
+                    toggleAiChat();
+                    fillContactForm();
+                });
+                fillContactForm();
+            }
+            // PARTNER BRANCH
+            else if (aiStep === 20) {
+                addAiMessage(t['ai-partner-gear']);
+                inputRow.style.display = 'flex';
+                document.getElementById('ai-user-input').placeholder = "e.g. Rental LED cabinets, mobile trailers...";
+                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 21) {
+                addAiMessage(t['ai-partner-loc']);
+                inputRow.style.display = 'flex';
+                document.getElementById('ai-user-input').placeholder = "e.g. Slovenia, Austria, Croatia...";
+                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 22) {
+                addAiMessage(t['ai-q-name']);
+                inputRow.style.display = 'flex';
+                document.getElementById('ai-user-input').placeholder = "Company / Your Name";
+                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 23) {
+                addAiMessage(t['ai-q-email']);
+                inputRow.style.display = 'flex';
+                document.getElementById('ai-user-input').placeholder = "partner@example.com";
+                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 24) {
                 addAiMessage(t['ai-final']);
                 addOption(t['ai-btn-form'], () => {
                     toggleAiChat();
@@ -634,19 +731,46 @@
             const val = inputEl.value.trim();
             if (!val) return;
             
-            if (aiStep === 3) {
+            if (aiStep === 4) {
                 inputEl.value = '';
-                nextStep('date', val);
-            } else if (aiStep === 4) {
-                inputEl.value = '';
-                nextStep('location', val);
+                nextStep('size', val);
             } else if (aiStep === 5) {
                 inputEl.value = '';
-                nextStep('desc', val);
+                nextStep('date', val);
             } else if (aiStep === 6) {
+                inputEl.value = '';
+                nextStep('location', val);
+            } else if (aiStep === 7) {
+                inputEl.value = '';
+                nextStep('name', val);
+            } else if (aiStep === 8) {
                 if (val.includes('@') && val.includes('.')) {
                     inputEl.value = '';
-                    nextStep('email', val);
+                    aiData.email = val;
+                    aiStep = 9;
+                    addAiMessage(val, true);
+                    setTimeout(renderAiStep, 400);
+                } else {
+                    addAiMessage("⚠️ Please enter a valid email address.");
+                }
+            }
+            // Partner text inputs
+            else if (aiStep === 20) {
+                inputEl.value = '';
+                nextStep('desc', val);
+            } else if (aiStep === 21) {
+                inputEl.value = '';
+                nextStep('location', val);
+            } else if (aiStep === 22) {
+                inputEl.value = '';
+                nextStep('name', val);
+            } else if (aiStep === 23) {
+                if (val.includes('@') && val.includes('.')) {
+                    inputEl.value = '';
+                    aiData.email = val;
+                    aiStep = 24;
+                    addAiMessage(val, true);
+                    setTimeout(renderAiStep, 400);
                 } else {
                     addAiMessage("⚠️ Please enter a valid email address.");
                 }
@@ -655,7 +779,10 @@
 
         function handleAiBack() {
             if (aiStep > 1) {
-                aiStep--;
+                if (aiStep === 20) { aiStep = 1; }
+                else if (aiStep > 20 && aiStep <= 24) { aiStep--; }
+                else { aiStep--; }
+
                 const container = document.getElementById('ai-messages');
                 if (container.lastChild) container.lastChild.remove(); 
                 if (container.lastChild) container.lastChild.remove(); 
@@ -664,29 +791,46 @@
         }
 
         function fillContactForm() {
+            if (aiData.name) document.getElementById('input-name').value = aiData.name;
             if (aiData.email) document.getElementById('input-email').value = aiData.email;
             
             let typeSelect = document.getElementById('select-type');
-            if (typeSelect && aiData.type) {
-                typeSelect.value = aiData.type;
+            if (typeSelect) {
+                if (aiData.intent === 'partner') {
+                    typeSelect.value = 'Partnership';
+                } else if (aiData.type) {
+                    typeSelect.value = aiData.type;
+                }
             }
             
             if (aiData.location) document.getElementById('input-location').value = aiData.location;
             if (aiData.date) document.getElementById('input-date').value = aiData.date;
 
             const t = translations[currentLang];
+            let formattedMessage = '';
 
-            // Fully localized clean professional formatting
-            const formattedMessage = 
-                t['summary-title'] + "\n" +
-                "----------------------------------------\n" +
-                t['summary-client'] + aiData.clientType + "\n" +
-                t['summary-solution'] + (aiData.type === 'Rental' ? (currentLang === 'si' ? 'Najem LED zaslona' : currentLang === 'hr' ? 'Najam LED ekrana' : currentLang === 'de' ? 'LED-Display Miete' : 'LED Display Rental') : (currentLang === 'si' ? 'Nakup LED zaslona' : currentLang === 'hr' ? 'Kupnja LED ekrana' : currentLang === 'de' ? 'LED-Display Kauf' : 'LED Display Purchase')) + "\n" +
-                t['summary-location'] + aiData.location + "\n" +
-                t['summary-date'] + aiData.date + "\n" +
-                t['summary-req'] + aiData.desc + "\n" +
-                "----------------------------------------\n\n" +
-                t['summary-notes'];
+            if (aiData.intent === 'partner') {
+                formattedMessage = 
+                    t['summary-partner-title'] + "\n" +
+                    "----------------------------------------\n" +
+                    t['summary-client'] + "Supplier / Partner Collaboration\n" +
+                    t['summary-partner-gear'] + aiData.desc + "\n" +
+                    t['summary-partner-loc'] + aiData.location + "\n" +
+                    "----------------------------------------\n\n" +
+                    t['summary-notes'];
+            } else {
+                formattedMessage = 
+                    t['summary-title'] + "\n" +
+                    "----------------------------------------\n" +
+                    t['summary-client'] + "\n" +
+                    t['summary-solution'] + (aiData.type === 'Rental' ? (currentLang === 'si' ? 'Najem LED zaslona' : currentLang === 'hr' ? 'Najem LED ekrana' : currentLang === 'de' ? 'LED-Display Miete' : 'LED Display Rental') : (currentLang === 'si' ? 'Nakup LED zaslona' : currentLang === 'hr' ? 'Kupnja LED ekrana' : currentLang === 'de' ? 'LED-Display Kauf' : 'LED Display Purchase')) + "\n" +
+                    t['summary-placement'] + aiData.placement + "\n" +
+                    t['summary-size'] + aiData.size + "\n" +
+                    t['summary-location'] + aiData.location + "\n" +
+                    t['summary-date'] + aiData.date + "\n" +
+                    "----------------------------------------\n\n" +
+                    t['summary-notes'];
+            }
 
             const messageField = document.getElementById('input-message');
             if (messageField) {

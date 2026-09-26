@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -303,7 +303,8 @@
             <!-- Quick Options / Input -->
             <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-col gap-2">
                 <div id="ai-quick-options" class="flex gap-2 flex-wrap"></div>
-                <div class="flex gap-2" id="ai-input-row">
+                <div class="flex gap-2 items-center" id="ai-input-row">
+                    <button id="ai-back-btn" onclick="handleAiBack()" class="hidden bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-2 rounded-xl text-xs transition" title="Nazaj">←</button>
                     <input type="text" id="ai-user-input" placeholder="Type your answer..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500" onkeypress="if(event.key === 'Enter') handleAiText()">
                     <button onclick="handleAiText()" class="bg-indigo-600 text-white px-3 py-2 rounded-xl text-xs font-semibold hover:bg-indigo-500" data-i18n="ai-send">Send</button>
                 </div>
@@ -444,7 +445,8 @@
                 "g1-tag": "Stadioni i Sport", "g1-title": "Sportske Arene", "g1-desc": "Visoka izdržljivost i svjetlina.",
                 "g2-tag": "Mega Događaji", "g2-title": "Vanjski Prikazi", "g2-desc": "Za rad na izravnoj sunčevoj svjetlosti.",
                 "g3-tag": "Koncerti", "g3-title": "Pozadine za Bine", "g3-desc": "Lagani modularni paneli.",
-                "form-title": "Pošaljite Upit", "form-desc": "Trebate LED ekran ili želite postati partner?",
+                "form-title": "Pošaljite Upit",
+                "form-desc": "Trebate LED ekran ili želite postati partner?",
                 "field-name": "Vaše Ime / Tvrtka", "field-email": "E-mail Adresa", "field-type": "Vrsta Upita",
                 "opt-rental": "Najam LED Zaslona", "opt-purchase": "Kupnja LED Zaslona", "opt-partner": "Partnerstvo",
                 "field-loc": "Ciljana Država / Regija", "field-date": "Datum Događaja", "field-msg": "Detalji Projekta",
@@ -520,7 +522,6 @@
             });
             document.getElementById('lang-' + lang).className = "px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition";
 
-            // Update all elements with data-i18n attribute
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
@@ -549,49 +550,95 @@
             renderAiStep();
         }
 
+        function handleAiBack() {
+            if (aiStep > 1) {
+                aiStep--;
+                renderAiStep();
+            }
+        }
+
         function renderAiStep() {
             const msgContainer = document.getElementById('ai-messages');
             const quickContainer = document.getElementById('ai-quick-options');
             const inputRow = document.getElementById('ai-input-row');
-            
-            let questionText = '';
-            let quickHtml = '';
+            const backBtn = document.getElementById('ai-back-btn');
+            const userInput = document.getElementById('ai-user-input');
 
-            if (aiStep === 1) {
-                questionText = translations[currentLang]["ai-welcome"];
-                quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-ind"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-ind"]}</button>` +
-                            `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-comp"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-comp"]}</button>`;
-                inputRow.style.display = 'none';
-            } else if (aiStep === 2) {
-                questionText = translations[currentLang]["ai-q-type"];
-                quickHtml = `<button onclick="handleAiChoice('Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>` +
-                            `<button onclick="handleAiChoice('Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>`;
-                inputRow.style.display = 'none';
-            } else if (aiStep === 3) {
-                questionText = translations[currentLang]["ai-q-date"];
-                quickHtml = '';
-                inputRow.style.display = 'flex';
-            } else if (aiStep === 4) {
-                questionText = translations[currentLang]["ai-q-loc"];
-                quickHtml = '';
-                inputRow.style.display = 'flex';
-            } else if (aiStep === 5) {
-                questionText = translations[currentLang]["ai-q-desc"];
-                quickHtml = '';
-                inputRow.style.display = 'flex';
-            } else if (aiStep === 6) {
-                questionText = translations[currentLang]["ai-q-email"];
-                quickHtml = '';
-                inputRow.style.display = 'flex';
-            } else if (aiStep === 7) {
-                questionText = translations[currentLang]["ai-final"];
-                quickHtml = `<button onclick="finalizeAiData()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl text-xs transition">${translations[currentLang]["ai-btn-form"]}</button>`;
-                inputRow.style.display = 'none';
+            // Show/Hide back button based on step
+            if (aiStep > 1 && aiStep < 7) {
+                backBtn.classList.remove('hidden');
+            } else {
+                backBtn.classList.add('hidden');
             }
-            
-            appendMessage('bot', questionText);
-            quickContainer.innerHTML = quickHtml;
+
+            // Adjust input type based on step (email input optimization)
+            if (aiStep === 6) {
+                userInput.type = 'email';
+            } else {
+                userInput.type = 'text';
+            }
+
+            quickContainer.innerHTML = '';
+            inputRow.style.display = 'none';
+
+            // Show typing indicator animation
+            const typingId = appendTypingIndicator();
+
+            setTimeout(() => {
+                removeTypingIndicator(typingId);
+
+                let questionText = '';
+                let quickHtml = '';
+
+                if (aiStep === 1) {
+                    questionText = translations[currentLang]["ai-welcome"];
+                    quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-ind"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-ind"]}</button>` +
+                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-comp"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-comp"]}</button>`;
+                    inputRow.style.display = 'none';
+                } else if (aiStep === 2) {
+                    questionText = translations[currentLang]["ai-q-type"];
+                    quickHtml = `<button onclick="handleAiChoice('Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>` +
+                                `<button onclick="handleAiChoice('Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>`;
+                    inputRow.style.display = 'none';
+                } else if (aiStep === 3) {
+                    questionText = translations[currentLang]["ai-q-date"];
+                    inputRow.style.display = 'flex';
+                } else if (aiStep === 4) {
+                    questionText = translations[currentLang]["ai-q-loc"];
+                    inputRow.style.display = 'flex';
+                } else if (aiStep === 5) {
+                    questionText = translations[currentLang]["ai-q-desc"];
+                    inputRow.style.display = 'flex';
+                } else if (aiStep === 6) {
+                    questionText = translations[currentLang]["ai-q-email"];
+                    inputRow.style.display = 'flex';
+                } else if (aiStep === 7) {
+                    questionText = translations[currentLang]["ai-final"];
+                    quickHtml = `<button onclick="finalizeAiData()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl text-xs transition">${translations[currentLang]["ai-btn-form"]}</button>`;
+                    inputRow.style.display = 'none';
+                }
+                
+                appendMessage('bot', questionText);
+                quickContainer.innerHTML = quickHtml;
+                msgContainer.scrollTop = msgContainer.scrollHeight;
+            }, 600);
+        }
+
+        function appendTypingIndicator() {
+            const msgContainer = document.getElementById('ai-messages');
+            const div = document.createElement('div');
+            const id = 'typing-' + Date.now();
+            div.id = id;
+            div.className = 'self-start bg-slate-800 text-slate-400 p-3 rounded-2xl max-w-[85%] text-xs flex items-center gap-1.5';
+            div.innerHTML = `<span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.2s]"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>`;
+            msgContainer.appendChild(div);
             msgContainer.scrollTop = msgContainer.scrollHeight;
+            return id;
+        }
+
+        function removeTypingIndicator(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
         }
 
         function appendMessage(sender, text) {
@@ -613,7 +660,6 @@
             const val = input.value.trim();
             if(!val) return;
 
-            // Email validation regex check at step 6
             if (aiStep === 6) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(val)) {
@@ -666,4 +712,4 @@
         }
     </script>
 </body>
-</html>>
+</html>

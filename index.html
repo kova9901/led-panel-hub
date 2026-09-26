@@ -283,7 +283,12 @@
 
     <!-- FLOATING AI ASSISTANT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="toggleAiChat()" id="ai-toggle-btn" aria-label="Open AI Assistant" class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105">
+        <!-- NOTIFICATION BADGE ON TOGGLE -->
+        <div id="ai-notification-badge" class="absolute -top-2 -left-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-bounce shadow-md hidden">
+            AI Help ✨
+        </div>
+
+        <button onclick="toggleAiChat()" id="ai-toggle-btn" aria-label="Open AI Assistant" class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105 relative">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
         </button>
 
@@ -330,6 +335,7 @@
         let currentLang = 'en';
         let aiStep = 1;
         let aiData = { intent: '', type: '', placement: '', size: '', date: '', location: '', desc: '', name: '', email: '' };
+        let hasAiAutoOpened = false;
 
         const translations = {
             en: {
@@ -570,6 +576,22 @@
             }
         };
 
+        // SAMODEJNI PROAKTIVNI SPROŽILEC OB NALOŽITVI STRANI
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                if (!hasAiAutoOpened) {
+                    const win = document.getElementById('ai-chat-window');
+                    // Odpremo okno in prikažemo obvestilno značko
+                    win.classList.remove('hidden');
+                    document.getElementById('ai-notification-badge').classList.remove('hidden');
+                    hasAiAutoOpened = true;
+                    if (document.getElementById('ai-messages').children.length === 0) {
+                        renderAiStep();
+                    }
+                }
+            }, 3500); // Odpre se po 3.5 sekundah
+        });
+
         function setLanguage(lang) {
             currentLang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -595,6 +617,8 @@
         function toggleAiChat() {
             const win = document.getElementById('ai-chat-window');
             win.classList.toggle('hidden');
+            // Ko uporabnik odpre klepet, skrijemo utripajočo značko
+            document.getElementById('ai-notification-badge').classList.add('hidden');
             if (!win.classList.contains('hidden') && aiStep === 1 && document.getElementById('ai-messages').children.length === 0) {
                 renderAiStep();
             }
@@ -630,13 +654,12 @@
             if (aiStep === 1) {
                 appendAiMessage('ai', translations[currentLang]['ai-welcome']);
                 optionsBox.innerHTML = `
-                    <button onclick="handleAiOption('${translations[currentLang]['ai-opt-help']}'); aiStep=1.5; renderAiStep();" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-help']}</button>
+                    <button onclick="aiStep=1.5; renderAiStep();" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-help']}</button>
                     <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
                     <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
                 `;
             } else if (aiStep === 1.5) {
-                // Po kliku na pomoč ga usmerimo naprej v izbiro klienta ali partnerja
-                appendAiMessage('ai', currentLang === 'si' ? 'Z veseljem vam pomagam! Kako želite nadaljevati?' : 'I am happy to help! How would you like to proceed?');
+                appendAiMessage('ai', currentLang === 'si' ? 'Z veseljem vam pomagam! Kako želite nadaljevati?' : (currentLang === 'hr' ? 'Rado ću vam pomoći! Kako želite nastaviti?' : (currentLang === 'de' ? 'Gerne! Wie möchten Sie fortfahren?' : 'I am happy to help! How would you like to proceed?')));
                 optionsBox.innerHTML = `
                     <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
                     <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
@@ -690,10 +713,6 @@
                 inputRow.style.display = 'flex';
                 document.getElementById('ai-user-input').focus();
             }
-        }
-
-        function handleAiOption(text) {
-            appendAiMessage('user', text);
         }
 
         function handleAiText() {

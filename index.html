@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide shadow-inner flex items-center justify-center gap-2">
         <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-        <span class="tr-top-banner">Website under construction</span>
+        <span data-i18n="top-banner">Website under construction</span>
     </div>
 
     <!-- HEADER / NAVIGATION -->
@@ -25,23 +25,23 @@
             </div>
             
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-indigo-400 transition tr-nav-about">About Us</a>
-                <a href="#services" class="hover:text-indigo-400 transition tr-nav-services">Services</a>
-                <a href="#process" class="hover:text-indigo-400 transition tr-nav-process">How It Works</a>
-                <a href="#gallery" class="hover:text-indigo-400 transition tr-nav-gallery">Gallery</a>
-                <a href="#contact" class="hover:text-indigo-400 transition tr-nav-partners">For Partners</a>
+                <a href="#about" class="hover:text-indigo-400 transition" data-i18n="nav-about">About Us</a>
+                <a href="#services" class="hover:text-indigo-400 transition" data-i18n="nav-services">Services</a>
+                <a href="#process" class="hover:text-indigo-400 transition" data-i18n="nav-process">How It Works</a>
+                <a href="#gallery" class="hover:text-indigo-400 transition" data-i18n="nav-gallery">Gallery</a>
+                <a href="#contact" class="hover:text-indigo-400 transition" data-i18n="nav-partners">For Partners</a>
             </nav>
             <div class="flex items-center gap-3">
                 <!-- LANGUAGE SELECTOR -->
-                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs font-semibold">
-                    <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition">EN</button>
-                    <button onclick="setLanguage('si')" id="lang-si" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">SI</button>
-                    <button onclick="setLanguage('hr')" id="lang-hr" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">HR</button>
-                    <button onclick="setLanguage('de')" id="lang-de" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">DE</button>
+                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs font-semibold" role="group" aria-label="Language selector">
+                    <button onclick="setLanguage('en')" id="lang-en" aria-label="Switch to English" class="px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition">EN</button>
+                    <button onclick="setLanguage('si')" id="lang-si" aria-label="Preklopi v slovenščino" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">SI</button>
+                    <button onclick="setLanguage('hr')" id="lang-hr" aria-label="Prebaci na hrvatski" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">HR</button>
+                    <button onclick="setLanguage('de')" id="lang-de" aria-label="Auf Deutsch umschalten" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">DE</button>
                 </div>
 
                 <!-- GET A QUOTE BUTTON -->
-                <a href="#contact" class="hidden sm:inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-indigo-600/20 tr-btn-quote">
+                <a href="#contact" class="hidden sm:inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-indigo-600/25" data-i18n="btn-quote">
                     Get a Quote
                 </a>
             </div>
@@ -52,27 +52,27 @@
     <section class="relative overflow-hidden py-24 lg:py-28 border-b border-slate-800/60">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950/0 to-slate-950 pointer-events-none"></div>
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6 tr-badge-top">
+            <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6" data-i18n="badge-top">
                 European B2B LED Brokerage Network
             </span>
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight tr-hero-title">
-                High-Performance LED Display <br class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400 bg-clip-text text-transparent tr-hero-title-gradient">
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+                <span data-i18n="hero-title">High-Performance LED Display</span> <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400 bg-clip-text text-transparent" data-i18n="hero-title-gradient">
                     Rental & Purchase Solutions
                 </span>
             </h1>
-            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 tr-hero-desc">
+            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10" data-i18n="hero-desc">
                 Connecting event organizers, businesses, and venues with verified LED suppliers across Central and Southern Europe. Seamless matchmaking, guaranteed quality, zero hassle.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-                <a href="#contact" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center tr-btn-quote">
+                <a href="#contact" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center" data-i18n="btn-quote">
                     Get a Quote
                 </a>
             </div>
 
             <!-- TRUSTED REGIONS BANNER -->
             <div class="pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-slate-500 text-xs uppercase tracking-widest font-semibold">
-                <span class="tr-banner-text">Covering Central & Southern Europe:</span>
+                <span data-i18n="banner-text">Covering Central & Southern Europe:</span>
                 <span class="text-slate-300">🇦🇹 Austria</span>
                 <span class="text-slate-300">🇸🇮 Slovenia</span>
                 <span class="text-slate-300">🇭🇷 Croatia</span>
@@ -85,24 +85,24 @@
     <section id="about" class="py-24 max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-6 tr-about-title">
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-6" data-i18n="about-title">
                     We Bridge the Gap Between Demand and Top-Tier Equipment
                 </h2>
-                <p class="text-slate-400 leading-relaxed mb-6 tr-about-desc1">
+                <p class="text-slate-400 leading-relaxed mb-6" data-i18n="about-desc1">
                     LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation.
                 </p>
-                <p class="text-slate-400 leading-relaxed tr-about-desc2">
+                <p class="text-slate-400 leading-relaxed" data-i18n="about-desc2">
                     We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.
                 </p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <div class="text-indigo-400 text-2xl font-bold mb-2 tr-card1-title">⚡ Fast Match</div>
-                    <p class="text-sm text-slate-400 tr-card1-desc">We instantly match your project requirements with the right local or regional equipment provider.</p>
+                    <div class="text-indigo-400 text-2xl font-bold mb-2" data-i18n="card1-title">⚡ Fast Match</div>
+                    <p class="text-sm text-slate-400" data-i18n="card1-desc">We instantly match your project requirements with the right local or regional equipment provider.</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <div class="text-cyan-400 text-2xl font-bold mb-2 tr-card2-title">🌐 Pan-European</div>
-                    <p class="text-sm text-slate-400 tr-card2-desc">Targeting high-demand markets across Central and Southern Europe with localized campaigns.</p>
+                    <div class="text-cyan-400 text-2xl font-bold mb-2" data-i18n="card2-title">🌐 Pan-European</div>
+                    <p class="text-sm text-slate-400" data-i18n="card2-desc">Targeting high-demand markets across Central and Southern Europe with localized campaigns.</p>
                 </div>
             </div>
         </div>
@@ -112,31 +112,31 @@
     <section id="services" class="py-24 bg-slate-900/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 tr-services-main-title">Our Services</h2>
-                <p class="text-slate-400 tr-services-main-desc">Customized LED display deployments tailored for your business needs.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4" data-i18n="services-main-title">Our Services</h2>
+                <p class="text-slate-400" data-i18n="services-main-desc">Customized LED display deployments tailored for your business needs.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 font-bold text-lg mb-6">01</div>
-                        <h3 class="text-xl font-bold text-white mb-3 tr-s1-title">Event Rental Solutions</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 tr-s1-desc">
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s1-title">Event Rental Solutions</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="s1-desc">
                             Professional modular LED video walls for concerts, corporate conferences, trade shows, festivals, and sports events. Setup handled by trusted regional partners.
                         </p>
                     </div>
-                    <span class="text-indigo-400 text-sm font-semibold tr-s1-link">Short & long-term rentals available &rarr;</span>
+                    <span class="text-indigo-400 text-sm font-semibold" data-i18n="s1-link">Short & long-term rentals available &rarr;</span>
                 </div>
                 <!-- Service 2 -->
                 <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-lg mb-6">02</div>
-                        <h3 class="text-xl font-bold text-white mb-3 tr-s2-title">Permanent Purchases</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 tr-s2-desc">
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s2-title">Permanent Purchases</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="s2-desc">
                             Direct procurement assistance for indoor and outdoor commercial LED displays, digital billboards, and architectural video walls from leading manufacturers.
                         </p>
                     </div>
-                    <span class="text-cyan-400 text-sm font-semibold tr-s2-link">Custom sizing & B2B wholesale &rarr;</span>
+                    <span class="text-cyan-400 text-sm font-semibold" data-i18n="s2-link">Custom sizing & B2B wholesale &rarr;</span>
                 </div>
             </div>
         </div>
@@ -145,24 +145,24 @@
     <!-- HOW IT WORKS / 3-STEP PROCESS -->
     <section id="process" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight text-white mb-4 tr-process-main-title">How It Works</h2>
-            <p class="text-slate-400 tr-process-main-desc">A simple and fast process designed for reliability.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-4" data-i18n="process-main-title">How It Works</h2>
+            <p class="text-slate-400" data-i18n="process-main-desc">A simple and fast process designed for reliability.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">01</div>
-                <h3 class="text-lg font-bold text-white mb-2 tr-p1-title">Submit Your Request</h3>
-                <p class="text-slate-400 text-sm leading-relaxed tr-p1-desc">Tell us your project scope – whether you need a short-term rental or a permanent display purchase.</p>
+                <h3 class="text-lg font-bold text-white mb-2" data-i18n="p1-title">Submit Your Request</h3>
+                <p class="text-slate-400 text-sm leading-relaxed" data-i18n="p1-desc">Tell us your project scope – whether you need a short-term rental or a permanent display purchase.</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">02</div>
-                <h3 class="text-lg font-bold text-white mb-2 tr-p2-title">Instant Matching</h3>
-                <p class="text-slate-400 text-sm leading-relaxed tr-p2-desc">We route your specific inquiry directly to a verified contractor and partner in your region.</p>
+                <h3 class="text-lg font-bold text-white mb-2" data-i18n="p2-title">Instant Matching</h3>
+                <p class="text-slate-400 text-sm leading-relaxed" data-i18n="p2-desc">We route your specific inquiry directly to a verified contractor and partner in your region.</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <div class="text-indigo-400 text-4xl font-black mb-4">03</div>
-                <h3 class="text-lg font-bold text-white mb-2 tr-p3-title">Smooth Execution</h3>
-                <p class="text-slate-400 text-sm leading-relaxed tr-p3-desc">Our trusted partner takes care of delivery, assembly, and support to ensure project success.</p>
+                <h3 class="text-lg font-bold text-white mb-2" data-i18n="p3-title">Smooth Execution</h3>
+                <p class="text-slate-400 text-sm leading-relaxed" data-i18n="p3-desc">Our trusted partner takes care of delivery, assembly, and support to ensure project success.</p>
             </div>
         </div>
     </section>
@@ -171,53 +171,53 @@
     <section id="gallery" class="py-24 bg-slate-900/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 tr-gallery-badge">
+                <span class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4" data-i18n="gallery-badge">
                     Visual Showcase
                 </span>
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-4 tr-gallery-title">LED Displays in Action</h2>
-                <p class="text-slate-400 tr-gallery-desc">From vibrant sports stadiums to massive concert stages – see how our hardware performs in reality.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4" data-i18n="gallery-title">LED Displays in Action</h2>
+                <p class="text-slate-400" data-i18n="gallery-desc">From vibrant sports stadiums to massive concert stages – see how our hardware performs in reality.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 flex flex-col justify-between aspect-[4/3]">
                     <div class="absolute inset-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Stadiums" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Stadiums" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest tr-g1-tag">Stadiums & Sports</span>
-                        <h3 class="text-xl font-bold text-white mt-2 tr-g1-title">Arena Perimeters & Scoreboards</h3>
+                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest" data-i18n="g1-tag">Stadiums & Sports</span>
+                        <h3 class="text-xl font-bold text-white mt-2" data-i18n="g1-title">Arena Perimeters & Scoreboards</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 tr-g1-desc">High durability and brightness built for professional sports facilities and perimeter ads.</p>
+                        <p class="text-sm text-slate-300" data-i18n="g1-desc">High durability and brightness built for professional sports facilities and perimeter ads.</p>
                     </div>
                 </div>
 
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 flex flex-col justify-between aspect-[4/3]">
                     <div class="absolute inset-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Events" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Events" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest tr-g2-tag">Mega Events</span>
-                        <h3 class="text-xl font-bold text-white mt-2 tr-g2-title">High-Brightness Outdoor Displays</h3>
+                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest" data-i18n="g2-tag">Mega Events</span>
+                        <h3 class="text-xl font-bold text-white mt-2" data-i18n="g2-title">High-Brightness Outdoor Displays</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 tr-g2-desc">Engineered for flawless performance under direct sunlight and rugged outdoor conditions.</p>
+                        <p class="text-sm text-slate-300" data-i18n="g2-desc">Engineered for flawless performance under direct sunlight and rugged outdoor conditions.</p>
                     </div>
                 </div>
 
                 <div class="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 flex flex-col justify-between aspect-[4/3]">
                     <div class="absolute inset-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Concerts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Concerts" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-40">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8">
-                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest tr-g3-tag">Concerts & Shows</span>
-                        <h3 class="text-xl font-bold text-white mt-2 tr-g3-title">Modular Stage Video Backdrops</h3>
+                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest" data-i18n="g3-tag">Concerts & Shows</span>
+                        <h3 class="text-xl font-bold text-white mt-2" data-i18n="g3-title">Modular Stage Video Backdrops</h3>
                     </div>
                     <div class="relative z-10 p-8 pt-0">
-                        <p class="text-sm text-slate-300 tr-g3-desc">Lightweight modular panels allowing fast setup and stunning visual backdrops for live acts.</p>
+                        <p class="text-sm text-slate-300" data-i18n="g3-desc">Lightweight modular panels allowing fast setup and stunning visual backdrops for live acts.</p>
                     </div>
                 </div>
             </div>
@@ -228,48 +228,48 @@
     <section id="contact" class="py-24 max-w-3xl mx-auto px-6">
         <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-3 tr-form-title">Submit Your Inquiry</h2>
-                <p class="text-slate-400 text-sm tr-form-desc">Looking for an LED screen or want to become a partner? Drop us a message.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-3" data-i18n="form-title">Submit Your Inquiry</h2>
+                <p class="text-slate-400 text-sm" data-i18n="form-desc">Looking for an LED screen or want to become a partner? Drop us a message.</p>
             </div>
 
             <form action="https://formspree.io/f/mbgjvqvp" method="POST" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-name">Your Name / Company</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-name">Your Name / Company</label>
                         <input type="text" id="input-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-email">Email Address</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-email">Email Address</label>
                         <input type="email" id="input-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-type">Inquiry Type</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-type">Inquiry Type</label>
                         <select id="select-type" name="type" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
-                            <option value="Rental" class="tr-opt-rental">LED Display Rental</option>
-                            <option value="Purchase" class="tr-opt-purchase">LED Display Purchase</option>
-                            <option value="Partnership" class="tr-opt-partner">Supplier / Partner Collaboration</option>
+                            <option value="Rental" data-i18n="opt-rental">LED Display Rental</option>
+                            <option value="Purchase" data-i18n="opt-purchase">LED Display Purchase</option>
+                            <option value="Partnership" data-i18n="opt-partner">Supplier / Partner Collaboration</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-loc">Target Country / Region</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-loc">Target Country / Region</label>
                         <input type="text" id="input-location" name="location" placeholder="e.g. Slovenia, Austria, Germany..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-date">Event / Start Date</label>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-date">Event / Start Date</label>
                     <input type="text" id="input-date" name="event_date" placeholder="e.g. od 15. do 20. julija 2026" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 tr-field-msg">Project Details / Message</label>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2" data-i18n="field-msg">Project Details / Message</label>
                     <textarea id="input-message" name="message" rows="4" required placeholder="Describe your screen requirements, event dates or proposal..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-indigo-600/30 tr-btn-submit">
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-indigo-600/30" data-i18n="btn-submit">
                     Send Inquiry
                 </button>
             </form>
@@ -279,7 +279,7 @@
     <!-- FLOATING AI ASSISTANT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
         <!-- Chat Toggle Button -->
-        <button onclick="toggleAiChat()" id="ai-toggle-btn" class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105">
+        <button onclick="toggleAiChat()" id="ai-toggle-btn" aria-label="Open AI Assistant" class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
         </button>
 
@@ -291,20 +291,21 @@
                     <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
                     <span class="text-white font-bold text-sm">LED Assistant AI</span>
                 </div>
-                <button onclick="toggleAiChat()" class="text-slate-400 hover:text-white">&times;</button>
+                <div class="flex items-center gap-2">
+                    <button onclick="resetAiChat()" aria-label="Reset chat" title="Reset chat" class="text-slate-400 hover:text-white text-xs">🔄</button>
+                    <button onclick="toggleAiChat()" aria-label="Close chat" class="text-slate-400 hover:text-white">&times;</button>
+                </div>
             </div>
             <!-- Messages Container -->
             <div id="ai-messages" class="p-4 h-80 overflow-y-auto space-y-3 text-sm flex flex-col">
-                <!-- Initialized dynamically based on current language -->
+                <!-- Initialized dynamically -->
             </div>
             <!-- Quick Options / Input -->
             <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-col gap-2">
-                <div id="ai-quick-options" class="flex gap-2 flex-wrap">
-                    <!-- Quick buttons injected via JS -->
-                </div>
+                <div id="ai-quick-options" class="flex gap-2 flex-wrap"></div>
                 <div class="flex gap-2" id="ai-input-row">
                     <input type="text" id="ai-user-input" placeholder="Type your answer..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500" onkeypress="if(event.key === 'Enter') handleAiText()">
-                    <button onclick="handleAiText()" class="bg-indigo-600 text-white px-3 py-2 rounded-xl text-xs font-semibold hover:bg-indigo-500 tr-ai-send">Send</button>
+                    <button onclick="handleAiText()" class="bg-indigo-600 text-white px-3 py-2 rounded-xl text-xs font-semibold hover:bg-indigo-500" data-i18n="ai-send">Send</button>
                 </div>
             </div>
         </div>
@@ -318,7 +319,7 @@
                 <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="hover:text-indigo-400 transition">Instagram</a>
                 <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="hover:text-indigo-400 transition">TikTok</a>
             </div>
-            <p class="text-slate-400 tr-footer-sub">International B2B Lead Generation & Brokerage</p>
+            <p class="text-slate-400" data-i18n="footer-sub">International B2B Lead Generation & Brokerage</p>
         </div>
     </footer>
 
@@ -328,36 +329,36 @@
         let aiStep = 1;
         let aiData = { clientType: '', type: '', date: '', location: '', desc: '', email: '' };
 
-        // Multilingual Translation Dictionary
+        // Centralized Multilingual Translation Dictionary
         const translations = {
             en: {
-                "tr-top-banner": "Website under construction",
-                "tr-nav-about": "About Us", "tr-nav-services": "Services", "tr-nav-process": "How It Works", "tr-nav-gallery": "Gallery", "tr-nav-partners": "For Partners",
-                "tr-btn-quote": "Get a Quote", "tr-badge-top": "European B2B LED Brokerage Network", "tr-hero-title": "High-Performance LED Display",
-                "tr-hero-title-gradient": "Rental & Purchase Solutions", "tr-hero-desc": "Connecting event organizers, businesses, and venues with verified LED suppliers across Central and Southern Europe. Seamless matchmaking, guaranteed quality, zero hassle.",
-                "tr-banner-text": "Covering Central & Southern Europe:",
-                "tr-about-title": "We Bridge the Gap Between Demand and Top-Tier Equipment",
-                "tr-about-desc1": "LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation.",
-                "tr-about-desc2": "We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.",
-                "tr-card1-title": "⚡ Fast Match", "tr-card1-desc": "We instantly match your project requirements with the right local or regional equipment provider.",
-                "tr-card2-title": "🌐 Pan-European", "tr-card2-desc": "Targeting high-demand markets across Central and Southern Europe with localized campaigns.",
-                "tr-services-main-title": "Our Services", "tr-services-main-desc": "Customized LED display deployments tailored for your business needs.",
-                "tr-s1-title": "Event Rental Solutions", "tr-s1-desc": "Professional modular LED video walls for concerts, corporate conferences, trade shows, festivals, and sports events. Setup handled by trusted regional partners.",
-                "tr-s1-link": "Short & long-term rentals available →", "tr-s2-title": "Permanent Purchases",
-                "tr-s2-desc": "Direct procurement assistance for indoor and outdoor commercial LED displays, digital billboards, and architectural video walls from leading manufacturers.",
-                "tr-s2-link": "Custom sizing & B2B wholesale →", "tr-process-main-title": "How It Works", "tr-process-main-desc": "A simple and fast process designed for reliability.",
-                "tr-p1-title": "Submit Your Request", "tr-p1-desc": "Tell us your project scope – whether you need a short-term rental or a permanent display purchase.",
-                "tr-p2-title": "Instant Matching", "tr-p2-desc": "We route your specific inquiry directly to a verified contractor and partner in your region.",
-                "tr-p3-title": "Smooth Execution", "tr-p3-desc": "Our trusted partner takes care of delivery, assembly, and support to ensure project success.",
-                "tr-gallery-badge": "Visual Showcase", "tr-gallery-title": "LED Displays in Action", "tr-gallery-desc": "From vibrant sports stadiums to massive concert stages – see how our hardware performs in reality.",
-                "tr-g1-tag": "Stadiums & Sports", "tr-g1-title": "Arena Perimeters & Scoreboards", "tr-g1-desc": "High durability and brightness built for professional sports facilities and perimeter ads.",
-                "tr-g2-tag": "Mega Events", "tr-g2-title": "High-Brightness Outdoor Displays", "tr-g2-desc": "Engineered for flawless performance under direct sunlight and rugged outdoor conditions.",
-                "tr-g3-tag": "Concerts & Shows", "tr-g3-title": "Modular Stage Video Backdrops", "tr-g3-desc": "Lightweight modular panels allowing fast setup and stunning visual backdrops for live acts.",
-                "tr-form-title": "Submit Your Inquiry", "tr-form-desc": "Looking for an LED screen or want to become a partner? Drop us a message.",
-                "tr-field-name": "Your Name / Company", "tr-field-email": "Email Address", "tr-field-type": "Inquiry Type",
-                "tr-opt-rental": "LED Display Rental", "tr-opt-purchase": "LED Display Purchase", "tr-opt-partner": "Supplier / Partner Collaboration",
-                "tr-field-loc": "Target Country / Region", "tr-field-date": "Event / Start Date", "tr-field-msg": "Project Details / Message",
-                "tr-btn-submit": "Send Inquiry", "tr-footer-sub": "International B2B Lead Generation & Brokerage",
+                "top-banner": "Website under construction",
+                "nav-about": "About Us", "nav-services": "Services", "nav-process": "How It Works", "nav-gallery": "Gallery", "nav-partners": "For Partners",
+                "btn-quote": "Get a Quote", "badge-top": "European B2B LED Brokerage Network", "hero-title": "High-Performance LED Display",
+                "hero-title-gradient": "Rental & Purchase Solutions", "hero-desc": "Connecting event organizers, businesses, and venues with verified LED suppliers across Central and Southern Europe. Seamless matchmaking, guaranteed quality, zero hassle.",
+                "banner-text": "Covering Central & Southern Europe:",
+                "about-title": "We Bridge the Gap Between Demand and Top-Tier Equipment",
+                "about-desc1": "LEDpanelHub.com operates as an international digital brokerage platform. Instead of managing heavy logistics ourselves, we focus purely on targeted digital marketing and lead generation.",
+                "about-desc2": "We channel verified client requests directly to trusted, reliable technical partners across Europe, ensuring fast execution for buyers and consistent projects for suppliers.",
+                "card1-title": "⚡ Fast Match", "card1-desc": "We instantly match your project requirements with the right local or regional equipment provider.",
+                "card2-title": "🌐 Pan-European", "card2-desc": "Targeting high-demand markets across Central and Southern Europe with localized campaigns.",
+                "services-main-title": "Our Services", "services-main-desc": "Customized LED display deployments tailored for your business needs.",
+                "s1-title": "Event Rental Solutions", "s1-desc": "Professional modular LED video walls for concerts, corporate conferences, trade shows, festivals, and sports events. Setup handled by trusted regional partners.",
+                "s1-link": "Short & long-term rentals available →", "s2-title": "Permanent Purchases",
+                "s2-desc": "Direct procurement assistance for indoor and outdoor commercial LED displays, digital billboards, and architectural video walls from leading manufacturers.",
+                "s2-link": "Custom sizing & B2B wholesale →", "process-main-title": "How It Works", "process-main-desc": "A simple and fast process designed for reliability.",
+                "p1-title": "Submit Your Request", "p1-desc": "Tell us your project scope – whether you need a short-term rental or a permanent display purchase.",
+                "p2-title": "Instant Matching", "p2-desc": "We route your specific inquiry directly to a verified contractor and partner in your region.",
+                "p3-title": "Smooth Execution", "p3-desc": "Our trusted partner takes care of delivery, assembly, and support to ensure project success.",
+                "gallery-badge": "Visual Showcase", "gallery-title": "LED Displays in Action", "gallery-desc": "From vibrant sports stadiums to massive concert stages – see how our hardware performs in reality.",
+                "g1-tag": "Stadiums & Sports", "g1-title": "Arena Perimeters & Scoreboards", "g1-desc": "High durability and brightness built for professional sports facilities and perimeter ads.",
+                "g2-tag": "Mega Events", "g2-title": "High-Brightness Outdoor Displays", "g2-desc": "Engineered for flawless performance under direct sunlight and rugged outdoor conditions.",
+                "g3-tag": "Concerts & Shows", "g3-title": "Modular Stage Video Backdrops", "g3-desc": "Lightweight modular panels allowing fast setup and stunning visual backdrops for live acts.",
+                "form-title": "Submit Your Inquiry", "form-desc": "Looking for an LED screen or want to become a partner? Drop us a message.",
+                "field-name": "Your Name / Company", "field-email": "Email Address", "field-type": "Inquiry Type",
+                "opt-rental": "LED Display Rental", "opt-purchase": "LED Display Purchase", "opt-partner": "Supplier / Partner Collaboration",
+                "field-loc": "Target Country / Region", "field-date": "Event / Start Date", "field-msg": "Project Details / Message",
+                "btn-submit": "Send Inquiry", "footer-sub": "International B2B Lead Generation & Brokerage",
                 
                 // AI Flow EN
                 "ai-welcome": "Hello! 👋 I am your LED Assistant AI. Are you inquiring as an **Individual** or a **Company / Business**?",
@@ -368,256 +369,243 @@
                 "ai-q-loc": "In which country or region will your project take place?",
                 "ai-q-desc": "Please briefly describe your project or screen requirements:",
                 "ai-q-email": "Please enter your email address so we can send you the offer:",
-                "ai-final": "✨ Thank you! All data has been automatically filled into the inquiry form below. Click the button to review and submit.",
+                "ai-email-error": "⚠️ Please enter a valid email address (e.g. name@example.com):",
+                "ai-final": "✨ Thank you! All data has been automatically filled into the inquiry form below. Please review your details before submitting!",
                 "ai-btn-form": "Go to Inquiry Form",
                 "ai-placeholder": "Type your answer...",
-                "ai-send": "Send"
+                "ai-send": "Send",
+                "ai-review-notice": "⚠️ Please review your details below before clicking submit!"
             },
             si: {
-                "tr-top-banner": "Spletna stran je v izdelavi / Website under construction",
-                "tr-nav-about": "O Nas", "tr-nav-services": "Storitve", "tr-nav-process": "Kako Deluje", "tr-nav-gallery": "Galerija", "tr-nav-partners": "Za Partnerje",
-                "tr-btn-quote": "Oddajte Povpraševanje", "tr-badge-top": "Evropska B2B LED Posrednička Mreža", "tr-hero-title": "Visokozmogljivi LED Zasloni",
-                "tr-hero-title-gradient": "Najem in Nakup Rešitev", "tr-hero-desc": "Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji v Srednji in Južni Evropi. Brezhibno posredovanje, zagotovljena kakovost.",
-                "tr-banner-text": "Pokrivamo Srednjo in Južno Evropo:",
-                "tr-about-title": "Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo",
-                "tr-about-desc1": "LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing in generiranje strank.",
-                "tr-about-desc2": "Preverjena povpraševanja strank posredujemo neposredno zanesljivim tehničnim partnerjem po Evropi, kar zagotavlja hitro izvedbo in zanesljive posle.",
-                "tr-card1-title": "⚡ Hitro Usklajevanje", "tr-card1-desc": "Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.",
-                "tr-card2-title": "🌐 Vseevropsko", "tr-card2-desc": "Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.",
-                "tr-services-main-title": "Naše Storitve", "tr-services-main-desc": "Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.",
-                "tr-s1-title": "Najem za Dogodke", "tr-s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni regionalni partnerji.",
-                "tr-s1-link": "Možnost kratkoročnega in dolgoročnega najema →", "tr-s2-title": "Trajni Nakup",
-                "tr-s2-desc": "Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb vodilnih proizvajalcev.",
-                "tr-s2-link": "Prilagojene dimenzije in B2B veleprodaja →", "tr-process-main-title": "Kako Deluje", "tr-process-main-desc": "Enostaven in hiter postopek, zasnovan za zanesljivost.",
-                "tr-p1-title": "Oddajte Zahtevo", "tr-p1-desc": "Povejte nam obseg vašega projekta – ali potrebujete kratkoročni najem ali nakup zaslona.",
-                "tr-p2-title": "Takojšnja Uskladitev", "tr-p2-desc": "Vaše povpraševanje posredujemo neposredno preverjenemu pogodbenemu partnerju v vaši regiji.",
-                "tr-p3-title": "Nemotena Izvedba", "tr-p3-desc": "Zanesljiv partner poskrbi za dostavo, montažo in podporo ob zaključku.",
-                "tr-gallery-badge": "Vizualna Predstavitev", "tr-gallery-title": "LED Zasloni v Akciji", "tr-gallery-desc": "Od športnih stadionov do velikih koncertnih odrov – poglejte delovanje opreme v praksi.",
-                "tr-g1-tag": "Stadioni in Šport", "tr-g1-title": "Arena Perimeter in Semaforji", "tr-g1-desc": "Visoka trpežnost in svetlost za profesionalne športne objekte.",
-                "tr-g2-tag": "Megadogodki", "tr-g2-title": "Svetli Zunanji Zasloni", "tr-g2-desc": "Zasnovano za brezhibno delovanje pod neposredno sončno svetlobo.",
-                "tr-g3-tag": "Koncerti in Nastopi", "tr-g3-title": "Modularne Ozadje Odra", "tr-g3-desc": "Lahki modularni paneli za hitro postavitev in osupljivo kuliso.",
-                "tr-form-title": "Oddajte Povpraševanje", "tr-form-desc": "Iščete LED zaslon ali želite postati partner? Pošljite nam sporočilo.",
-                "tr-field-name": "Vaše Ime / Podjetje", "tr-field-email": "E-poštni Naslov", "tr-field-type": "Vrsta Povpraševanja",
-                "tr-opt-rental": "Najem LED Zaslona", "tr-opt-purchase": "Nakup LED Zaslona", "tr-opt-partner": "Sodelovanje z Dobaviteljem",
-                "tr-field-loc": "Ciljna Država / Regija", "tr-field-date": "Datum Dogodka / Začetka", "tr-field-msg": "Podrobnosti Projekta / Sporočilo",
-                "tr-btn-submit": "Pošlji Povpraševanje", "tr-footer-sub": "Mednarodna B2B mreža za posredovanje in generiranje strank",
+                "top-banner": "Spletna stran je v izdelavi",
+                "nav-about": "O Nas", "nav-services": "Storitve", "nav-process": "Kako Deluje", "nav-gallery": "Galerija", "nav-partners": "Za Partnerje",
+                "btn-quote": "Oddajte Povpraševanje", "badge-top": "Evropska B2B LED Posrednička Mreža", "hero-title": "Visokozmogljivi LED Zasloni",
+                "hero-title-gradient": "Najem in Nakup Rešitev", "hero-desc": "Povezujemo organizatorje dogodkov, podjetja in prostore s preverjenimi LED dobavitelji v Srednji in Južni Evropi. Brezhibno posredovanje, zagotovljena kakovost.",
+                "banner-text": "Pokrivamo Srednjo in Južno Evropo:",
+                "about-title": "Premoščamo Vrzel Med Povpraševanjem in Vrhunsko Opremo",
+                "about-desc1": "LEDpanelHub.com deluje kot mednarodna digitalna posrednička platforma. Namesto ukvarjanja s težko logistiko se osredotočamo izključno na ciljni spletni marketing in generiranje strank.",
+                "about-desc2": "Preverjena povpraševanja strank posredujemo neposredno zanesljivim tehničnim partnerjem po Evropi, kar zagotavlja hitro izvedbo in zanesljive posle.",
+                "card1-title": "⚡ Hitro Usklajevanje", "card1-desc": "Vaše projektne zahteve nemudoma povežemo s primernim lokalnim ali regionalnim ponudnikom opreme.",
+                "card2-title": "🌐 Vseevropsko", "card2-desc": "Ciljanje trgov z visokim povpraševanjem v Srednji in Južni Evropi z lokaliziranimi oglaševalskimi kampanjami.",
+                "services-main-title": "Naše Storitve", "services-main-desc": "Prilagojene postavitve LED zaslonov za vaše poslovne potrebe.",
+                "s1-title": "Najem za Dogodke", "s1-desc": "Profesionalni modularni LED videozidi za koncerte, korporativne konference, sejme, festivale in športne dogodke. Celotno postavo vodijo preverjeni regionalni partnerji.",
+                "s1-link": "Možnost kratkoročnega in dolgoročnega najema →", "s2-title": "Trajni Nakup",
+                "s2-desc": "Neposredna pomoč pri nabavi notranjih in zunanjih komercialnih LED zaslonov, digitalnih panojev in arhitekturnih videostavb vodilnih proizvajalcev.",
+                "s2-link": "Prilagojene dimenzije in B2B veleprodaja →", "process-main-title": "Kako Deluje", "process-main-desc": "Enostaven in hiter postopek, zasnovan za zanesljivost.",
+                "p1-title": "Oddajte Zahtevo", "p1-desc": "Povejte nam obseg vašega projekta – ali potrebujete kratkoročni najem ali trajni nakup zaslona.",
+                "p2-title": "Takojšnje Ujemanje", "p2-desc": "Vaše povpraševanje usmerimo neposredno k preverjenemu pogodbenemu partnerju v vaši regiji.",
+                "p3-title": "Gladka Izvedba", "p3-desc": "Naš zaupanja vreden partner poskrbi za dostavo, montažo in podporo za uspeh vašega projekta.",
+                "gallery-badge": "Vizualna Predstavitev", "gallery-title": "LED Zasloni na Delu", "gallery-desc": "Od živahnih športnih stadionov do ogromnih koncertnih odrov – preverite našo opremo v praksi.",
+                "g1-tag": "Stadioni in Šport", "g1-title": "Arénski Robovi in Semaforji", "g1-desc": "Visoka trpežnost in svetilnost, prilagojeni za profesionalne športne objekte.",
+                "g2-tag": "Mega Dogodki", "g2-title": "Zunanji Zasloni Visoke Svetilnosti", "g2-desc": "Zasnovano za brezhibno delovanje pod neposrednimi sončnimi žarki in v zahtevnih zunanjih razmerah.",
+                "g3-tag": "Koncerti in Nastopi", "g3-title": "Modularne Odrsko-Video Kulise", "g3-desc": "Lahki modularni elementi omogočajo hitro postavitev in osupljivo vizualno ozadje.",
+                "form-title": "Oddajte Povpraševanje", "form-desc": "Iščete LED zaslon ali želite postati partner? Pošljite nam sporočilo.",
+                "field-name": "Vaše Ime / Podjetje", "field-email": "E-poštni Naslov", "field-type": "Vrsta Povpraševanja",
+                "opt-rental": "Najem LED Zaslona", "opt-purchase": "Nakup LED Zaslona", "opt-partner": "Sodelovanje / Dobavitelj",
+                "field-loc": "Ciljna Država / Regija", "field-date": "Datum Dogodka / Začetka", "field-msg": "Podrobnosti Projekta / Sporočilo",
+                "btn-submit": "Pošlji Povpraševanje", "footer-sub": "Mednarodna B2B mreža za generiranje in posredovanje kontaktov",
                 
                 // AI Flow SI
-                "ai-welcome": "Pozdravljeni! 👋 Sem vaš LED pomočnik AI. Se zanimate kot **Posameznik** ali **Podjetje**?",
+                "ai-welcome": "Pozdravljeni! 👋 Sem vaš pomočnik za LED zaslone. Se zanimate kot **Posameznik** ali **Podjetje**?",
                 "ai-opt-ind": "Posameznik", "ai-opt-comp": "Podjetje",
                 "ai-q-type": "Odlično. Potrebujete **najem** (za dogodek) ali **nakup** (trajna namestitev)?",
                 "ai-opt-1-1": "Najem (Dogodek)", "ai-opt-1-2": "Nakup (Trajno)",
-                "ai-q-date": "Od kdaj do kdaj potrebujete storitev? (npr. od 15. do 20. julija)",
+                "ai-q-date": "Kdaj in za kako dolgo potrebujete storitev? (npr. od 15. do 20. julija)",
                 "ai-q-loc": "V kateri državi ali regiji bo potekal vaš projekt?",
-                "ai-q-desc": "Na kratko opišite zahteve glede vašega projekta ali zaslona:",
+                "ai-q-desc": "Na kratko opišite vaš projekt ali zahteve glede zaslona:",
                 "ai-q-email": "Vnesite svoj e-poštni naslov, da vam lahko pošljemo ponudbo:",
-                "ai-final": "✨ Hvala! Vsi podatki so bili samodejno vneseni v spodnji obrazec. Kliknite spodnji gumb za oddajo.",
-                "ai-btn-form": "Pojdi na obrazec za povpraševanje",
-                "ai-placeholder": "Vnesite odgovor (npr. od 15. do 20.7.)...",
-                "ai-send": "Pošlji"
+                "ai-email-error": "⚠️ Prosimo, vnesite veljaven e-poštni naslov (npr. ime@primer.si):",
+                "ai-final": "✨ Hvala! Vsi podatki so bili samodejno vneseni v spodnji obrazec. Prosimo, preverite vpisane podatke, preden jih pošljete!",
+                "ai-btn-form": "Pojdi na obrazec",
+                "ai-placeholder": "Vnesite odgovor...",
+                "ai-send": "Pošlji",
+                "ai-review-notice": "⚠️ Prosimo, preverite vpisane podatke spodaj, preden kliknete gumb za pošiljanje!"
             },
             hr: {
-                "tr-top-banner": "Web stranica je u izradi / Website under construction",
-                "tr-nav-about": "O Nama", "tr-nav-services": "Usluge", "tr-nav-process": "Kako Radi", "tr-nav-gallery": "Galerija", "tr-nav-partners": "Za Partnere",
-                "tr-btn-quote": "Zatražite Ponudu", "tr-badge-top": "Europska B2B LED Posrednička Mreža", "tr-hero-title": "Visokoučinkoviti LED Ekrani",
-                "tr-hero-title-gradient": "Najem i Kupnja Rješenja", "tr-hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima u Srednjoj i Južnoj Europi.",
-                "tr-banner-text": "Pokrivamo Srednju i Južnu Europu:",
-                "tr-about-title": "Premošćujemo Jaz Između Potražnje i Vrhunske Opreme",
-                "tr-about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma usmjerena na generiranje leadova.",
-                "tr-about-desc2": "Provjerene zahtjeve klijenata prosljeđujemo pouzdanim tehničkim partnerima širom Europe.",
-                "tr-card1-title": "⚡ Brzo Usklađivanje", "tr-card1-desc": "Trenutačno spajamo vaše projektne zahtjeve s odgovarajućim partnerom.",
-                "tr-card2-title": "🌐 Paneuropski", "tr-card2-desc": "Ciljanje tržišta s visokom potražnjom u Srednjoj i Južnoj Europi.",
-                "tr-services-main-title": "Naše Usluge", "tr-services-main-desc": "Prilagođena rješenja LED zaslona za vaše poslovanje.",
-                "tr-s1-title": "Najam za Događaje", "tr-s1-desc": "Profesionalni modularni LED video zidovi za koncerte, korporativne konferencije i festivale.",
-                "tr-s1-link": "Kratkoročni i dugoročni najam →", "tr-s2-title": "Trajna Kupnja",
-                "tr-s2-desc": "Direktna nabava unutarnjih i vanjskih komercijalnih LED zaslona.",
-                "tr-s2-link": "Prilagođene dimenzije i B2B veleprodaja →", "tr-process-main-title": "Kako Radi", "tr-process-main-desc": "Jednostavan i brz proces osmišljen za pouzdanost.",
-                "tr-p1-title": "Pošaljite Zahtjev", "tr-p1-desc": "Recite nam opseg vašeg projekta.",
-                "tr-p2-title": "Brzo Spajanje", "tr-p2-desc": "Vaš upit prosljeđujemo provjerenom ugovornom partneru u vašoj regiji.",
-                "tr-p3-title": "Glatka Izvedba", "tr-p3-desc": "Pouzdan partner brine se za dostavu, montažu i podršku.",
-                "tr-gallery-badge": "Vizualni Prikaz", "tr-gallery-title": "LED Ekrani u Akciji", "tr-gallery-desc": "Pogledajte stvarnu izvedbu opreme.",
-                "tr-g1-tag": "Stadioni i Sport", "tr-g1-title": "Perimetri i Semafori", "tr-g1-desc": "Visoka trajnost i svjetlina.",
-                "tr-g2-tag": "Veliki Događaji", "tr-g2-title": "Vanjski Ekrani", "tr-g2-desc": "Besprijekoran rad pod sunčevim svjetlom.",
-                "tr-g3-tag": "Koncerti i Show", "tr-g3-title": "Pozadine za Scenu", "tr-g3-desc": "Lagani modularni paneli.",
-                "tr-form-title": "Pošaljite Upit", "tr-form-desc": "Trebate LED ekran ili želite postati partner?",
-                "tr-field-name": "Vaše Ime / Tvrtka", "tr-field-email": "E-mail Adresa", "tr-field-type": "Vrsta Upita",
-                "tr-opt-rental": "Najam LED Ekrana", "tr-opt-purchase": "Kupnja LED Ekrana", "tr-opt-partner": "Partnerstvo / Suradnja",
-                "tr-field-loc": "Ciljana Država / Regija", "tr-field-date": "Datum Događaja / Početka", "tr-field-msg": "Detalji Projekta / Poruka",
-                "tr-btn-submit": "Pošalji Upit", "tr-footer-sub": "Međunarodna B2B posrednička mreža",
+                "top-banner": "Web stranica je u izradi",
+                "nav-about": "O Nama", "nav-services": "Usluge", "nav-process": "Kako Radi", "nav-gallery": "Galerija", "nav-partners": "Za Partnere",
+                "btn-quote": "Zatražite Ponudu", "badge-top": "Europska B2B LED Posrednička Mreža", "hero-title": "Visokoučinkoviti LED Zasloni",
+                "hero-title-gradient": "Rješenja za Najam i Kupnju", "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem Srednje i Južne Europe.",
+                "banner-text": "Pokrivamo Srednju i Južnu Europu:",
+                "about-title": "Spajamo Potražnju i Vrhunsku Opremu",
+                "about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma fokusirana na generiranje kvalitetnih upita.",
+                "about-desc2": "Provjerene zahtjeve klijenata usmjeravamo izravno pouzdanim tehničkim partnerima.",
+                "card1-title": "⚡ Brzo Spajanje", "card1-desc": "Trenutačno povezujemo vaše projektne zahtjeve s pravim pružateljem opreme.",
+                "card2-title": "🌐 Paneuropski", "card2-desc": "Ciljano pokrivanje tržišta Srednje i Južne Europe.",
+                "services-main-title": "Naše Usluge", "services-main-desc": "Prilagođena rješenja LED zaslona.",
+                "s1-title": "Najam za Događaje", "s1-desc": "Profesionalni modularni LED video zidovi za koncerte, konferencije i festivale.",
+                "s1-link": "Dostupan kratkoročni i dugoročni najam →", "s2-title": "Trajna Kupnja",
+                "s2-desc": "Izravna nabava unutarnjih i vanjskih komercijalnih LED zaslona.",
+                "s2-link": "Prilagođene dimenzije i B2B veleprodaja →", "process-main-title": "Kako Radi", "process-main-desc": "Jednostavan i brz proces.",
+                "p1-title": "Pošaljite Zahtjev", "p1-desc": "Recite nam opseg vašeg projekta.",
+                "p2-title": "Brzo Usklađivanje", "p2-desc": "Usmjeravamo upit provjerenom partneru u vašoj regiji.",
+                "p3-title": "Glatka Izvedba", "p3-desc": "Naš partner brine o isporuci i montaži.",
+                "gallery-badge": "Galerija", "gallery-title": "LED Zasloni na Djelu", "gallery-desc": "Pogledajte našu opremu u stvarnim uvjetima.",
+                "g1-tag": "Stadioni i Sport", "g1-title": "Sportske Arene", "g1-desc": "Visoka izdržljivost i svjetlina.",
+                "g2-tag": "Mega Događaji", "g2-title": "Vanjski Prikazi", "g2-desc": "Za rad na izravnoj sunčevoj svjetlosti.",
+                "g3-tag": "Koncerti", "g3-title": "Pozadine za Bine", "g3-desc": "Lagani modularni paneli.",
+                "form-title": "Pošaljite Upit", "form-desc": "Trebate LED ekran ili želite postati partner?",
+                "field-name": "Vaše Ime / Tvrtka", "field-email": "E-mail Adresa", "field-type": "Vrsta Upita",
+                "opt-rental": "Najam LED Zaslona", "opt-purchase": "Kupnja LED Zaslona", "opt-partner": "Partnerstvo",
+                "field-loc": "Ciljana Država / Regija", "field-date": "Datum Događaja", "field-msg": "Detalji Projekta",
+                "btn-submit": "Pošalji Upit", "footer-sub": "Međunarodna B2B mreža",
                 
                 // AI Flow HR
-                "ai-welcome": "Pozdrav! 👋 Ja sam vaš LED pomoćnik AI. Zanima vas kao **Pojedinac** ili **Tvrtka**?",
+                "ai-welcome": "Pozdrav! 👋 Ja sam vaš LED asistent. Tražite li uslugu kao **Pojedinac** ili **Tvrtka**?",
                 "ai-opt-ind": "Pojedinac", "ai-opt-comp": "Tvrtka",
-                "ai-q-type": "Odlično. Trebate li **najem** (za događaj) ili **kupnju** (trajnu instalaciju)?",
+                "ai-q-type": "Odlično. Trebate li **najam** ili **kupnju**?",
                 "ai-opt-1-1": "Najam (Događaj)", "ai-opt-1-2": "Kupnja (Trajno)",
-                "ai-q-date": "Od kada do kada trebate uslugu? (npr. od 15. do 20. srpnja)",
-                "ai-q-loc": "U kojoj državi ili regiji će se održati vaš projekt?",
-                "ai-q-desc": "Molimo opratite svoje zahtjeve za projekt ili ekran:",
-                "ai-q-email": "Unesite svoju e-mail adresu kako bismo vam poslali ponudu:",
-                "ai-final": "✨ Hvala! Svi podaci su automatski uneseni u obrazac ispod. Pritisnite gumb za pregled i slanje.",
-                "ai-btn-form": "Idi na obrazac za upit",
-                "ai-placeholder": "Unesite odgovor (npr. od 15. do 20.7.)...",
-                "ai-send": "Pošalji"
+                "ai-q-date": "Kada i na koje razdoblje trebate uslugu?",
+                "ai-q-loc": "U kojoj državi ili regiji se održava projekt?",
+                "ai-q-desc": "Kratko opišite svoje zahtjeve za ekran:",
+                "ai-q-email": "Unesite vašu e-mail adresu za slanje ponude:",
+                "ai-email-error": "⚠️ Molimo unesite valjanu e-mail adresu:",
+                "ai-final": "✨ Hvala! Podaci su upisani u obrazac ispod. Molimo provjerite unesene podatke prije slanja!",
+                "ai-btn-form": "Idi na obrazac",
+                "ai-placeholder": "Upišite odgovor...",
+                "ai-send": "Pošalji",
+                "ai-review-notice": "⚠️ Molimo provjerite unesene podatke u nastavku prije slanja!"
             },
             de: {
-                "tr-top-banner": "Website under construction",
-                "tr-nav-about": "Über Uns", "tr-nav-services": "Dienstleistungen", "tr-nav-process": "Wie Es Funktioniert", "tr-nav-gallery": "Galerie", "tr-nav-partners": "Für Partner",
-                "tr-btn-quote": "Angebot Anfordern", "tr-badge-top": "Europäisches B2B LED Brokerage-Netzwerk", "tr-hero-title": "Leistungsstarke LED-Displays",
-                "tr-hero-title-gradient": "Miet- & Kauf-Lösungen", "tr-hero-desc": "Wir verbinden Eventorganisatoren und Unternehmen mit verifizierten LED-Lieferanten in ganz Mitteleuropa.",
-                "tr-banner-text": "Abdeckung in Mitteleuropa & Südeuropa:",
-                "tr-about-title": "Wir schlagen die Brücke zwischen Nachfrage und Ausrüstung",
-                "tr-about-desc1": "LEDpanelHub.com agiert als internationale digitale Brokerage-Plattform für zielgerichtetes Online-Marketing.",
-                "tr-about-desc2": "Wir leiten verifizierte Anfragen direkt an zuverlässige technische Partner weiter.",
-                "tr-card1-title": "⚡ Schneller Match", "tr-card1-desc": "Wir verbinden Ihre Projektanforderungen sofort mit dem passenden Partner.",
-                "tr-card2-title": "🌐 Pan-Europäisch", "tr-card2-desc": "Fokus auf wachstumsstarke Märkte in Mitteleuropa.",
-                "tr-services-main-title": "Unsere Dienstleistungen", "tr-services-main-desc": "Maßgeschneiderte LED-Display-Lösungen für Ihr Unternehmen.",
-                "tr-s1-title": "Event-Mietlösungen", "tr-s1-desc": "Professionelle modulare LED-Videowände für Konzerte, Messen und Festivals.",
-                "tr-s1-link": "Kurz- & langfristige Miete →", "tr-s2-title": "Permanenter Kauf",
-                "tr-s2-desc": "Direkte Beschaffung von kommerziellen Indoor- und Outdoor-LED-Displays.",
-                "tr-s2-link": "Individuelle Größen & B2B Großhandel →", "tr-process-main-title": "Wie Es Funktioniert", "tr-process-main-desc": "Ein einfacher und schneller Prozess für höchste Zuverlässigkeit.",
-                "tr-p1-title": "Anfrage Senden", "tr-p1-desc": "Teilen Sie uns Ihren Projektumfang mit.",
-                "tr-p2-title": "Sofortiges Matching", "tr-p2-desc": "Wir leiten Ihre Anfrage an einen verifizierten Partner in Ihrer Region weiter.",
-                "tr-p3-title": "Reibungslose Umsetzung", "tr-p3-desc": "Unser Partner übernimmt Lieferung, Montage und Support.",
-                "tr-gallery-badge": "Visuelle Referenzen", "tr-gallery-title": "LED-Displays in Aktion", "tr-gallery-desc": "Erleben Sie echte Hardware-Leistung.",
-                "tr-g1-tag": "Stadien & Sport", "tr-g1-title": "Arena-Perimeter & Anzeigetafeln", "tr-g1-desc": "Hohe Langlebigkeit und Helligkeit.",
-                "tr-g2-tag": "Mega-Events", "tr-g2-title": "Helle Outdoor-Displays", "tr-g2-desc": "Entwickelt für direktes Sonnenlicht.",
-                "tr-g3-tag": "Konzerte & Shows", "tr-g3-title": "Modulare Bühnenrückwände", "tr-g3-desc": "Leichte Module für schnelle Aufbauten.",
-                "tr-form-title": "Unverbindliche Anfrage", "tr-form-desc": "Suchen Sie einen LED-Bildschirm oder möchten Sie Partner werden?",
-                "tr-field-name": "Ihr Name / Unternehmen", "tr-field-email": "E-Mail-Adresse", "tr-field-type": "Anfrageart",
-                "tr-opt-rental": "LED-Display Miete", "tr-opt-purchase": "LED-Display Kauf", "tr-opt-partner": "Lieferanten- / Partnerkooperation",
-                "tr-field-loc": "Zielregion / Land", "tr-field-date": "Veranstaltungs- / Startdatum", "tr-field-msg": "Projektdetails / Nachricht",
-                "tr-btn-submit": "Anfrage Senden", "tr-footer-sub": "Internationale B2B Lead-Generierungs- & Vermittlungsplattform",
+                "top-banner": "Website im Aufbau",
+                "nav-about": "Über Uns", "nav-services": "Dienstleistungen", "nav-process": "Wie es funktioniert", "nav-gallery": "Galerie", "nav-partners": "Für Partner",
+                "btn-quote": "Angebot anfordern", "badge-top": "Europäisches B2B LED Brokerage-Netzwerk", "hero-title": "Leistungsstarke LED-Displays",
+                "hero-title-gradient": "Miete & Kauf Lösungen", "hero-desc": "Wir verbinden Veranstalter und Unternehmen mit verifizierten LED-Lieferanten in ganz Mitteleuropa.",
+                "banner-text": "Abgedeckte Regionen:",
+                "about-title": "Wir schlagen die Brücke zwischen Bedarf und Top-Equipment",
+                "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform.",
+                "about-desc2": "Wir leiten verifizierte Kundenanfragen direkt an zuverlässige technische Partner weiter.",
+                "card1-title": "⚡ Schneller Match", "card1-desc": "Wir verbinden Ihre Anforderungen sofort mit passenden Anbietern.",
+                "card2-title": "🌐 Pan-Europäisch", "card2-desc": "Gezielte Kampagnen in ganz Europa.",
+                "services-main-title": "Unsere Dienstleistungen", "services-main-desc": "Maßgeschneiderte LED-Display-Lösungen.",
+                "s1-title": "Event-Mietlösungen", "s1-desc": "Professionelle modulare LED-Wände für Konzerte und Messen.",
+                "s1-link": "Kurz- & langfristige Miete verfügbar →", "s2-title": "Permanenter Kauf",
+                "s2-desc": "Direkte Beschaffungshilfe für kommerzielle LED-Displays.",
+                "s2-link": "Individuelle Größen & B2B Großhandel →", "process-main-title": "Wie es funktioniert", "process-main-desc": "Ein einfacher und schneller Prozess.",
+                "p1-title": "Anfrage senden", "p1-desc": "Teilen Sie uns Ihren Projektumfang mit.",
+                "p2-title": "Sofortiges Matching", "p2-desc": "Wir leiten Ihre Anfrage an einen verifizierten Partner weiter.",
+                "p3-title": "Reibungslose Umsetzung", "p3-desc": "Unser Partner kümmert sich um Lieferung und Montage.",
+                "gallery-badge": "Galerie", "gallery-title": "LED-Displays in Aktion", "gallery-desc": "Erleben Sie unsere Hardware in der Realität.",
+                "g1-tag": "Stadien & Sport", "g1-title": "Arena-Perimeter", "g1-desc": "Hohe Haltbarkeit und Helligkeit.",
+                "g2-tag": "Mega-Events", "g2-title": "Outdoor-Displays", "g2-desc": "Für den Betrieb bei direktem Sonnenlicht.",
+                "g3-tag": "Konzerte & Shows", "g3-title": "Bühnenhintergründe", "g3-desc": "Leichte modulare Paneele.",
+                "form-title": "Anfrage Einreichen", "form-desc": "Suchen Sie einen LED-Bildschirm oder möchten Sie Partner werden?",
+                "field-name": "Ihr Name / Unternehmen", "field-email": "E-Mail-Adresse", "field-type": "Anfragetyp",
+                "opt-rental": "LED-Display Miete", "opt-purchase": "LED-Display Kauf", "opt-partner": "Partner-Zusammenarbeit",
+                "field-loc": "Zielland / Region", "field-date": "Veranstaltungsdatum", "field-msg": "Projektdetails",
+                "btn-submit": "Anfrage Senden", "footer-sub": "Internationale B2B Lead-Generierung",
                 
                 // AI Flow DE
-                "ai-welcome": "Hallo! 👋 Ich bin Ihr LED-Assistent AI. Fragen Sie als **Privatperson** oder **Unternehmen** an?",
+                "ai-welcome": "Hallo! 👋 Ich bin Ihr LED-Assistent. Fragen Sie als **Privatperson** oder als **Unternehmen** an?",
                 "ai-opt-ind": "Privatperson", "ai-opt-comp": "Unternehmen",
-                "ai-q-type": "Großartig. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf** (feste Installation)?",
+                "ai-q-type": "Super. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf**?",
                 "ai-opt-1-1": "Miete (Event)", "ai-opt-1-2": "Kauf (Permanent)",
-                "ai-q-date": "Von wann bis wann benötigen Sie den Service? (z.B. vom 15. bis 20. Juli)",
+                "ai-q-date": "Wann und für wie lange benötigen Sie den Service?",
                 "ai-q-loc": "In welchem Land oder welcher Region findet Ihr Projekt statt?",
-                "ai-q-desc": "Bitte beschreiben Sie kurz Ihr Projekt oder Ihre Display-Anforderungen:",
-                "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse ein, damit wir Ihnen das Angebot zusenden können:",
-                "ai-final": "✨ Vielen Dank! Alle Daten wurden automatisch in das Anfrageformular unten eingetragen. Klicken Sie auf den Button zum Absenden.",
-                "ai-btn-form": "Zum Anfrageformular",
-                "ai-placeholder": "Antwort eingeben (z.B. 15. bis 20. Juli)...",
-                "ai-send": "Senden"
+                "ai-q-desc": "Bitte beschreiben Sie kurz Ihr Projekt:",
+                "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse für das Angebot ein:",
+                "ai-email-error": "⚠️ Bitte geben Sie eine gültige E-Mail-Adresse ein:",
+                "ai-final": "✨ Vielen Dank! Alle Daten wurden in das Formular unten übertragen. Bitte überprüfen Sie die Angaben vor dem Senden!",
+                "ai-btn-form": "Zum Formular",
+                "ai-placeholder": "Antwort eingeben...",
+                "ai-send": "Senden",
+                "ai-review-notice": "⚠️ Bitte überprüfen Sie Ihre Daten unten, bevor Sie auf Senden klicken!"
             }
         };
 
         function setLanguage(lang) {
             currentLang = lang;
-            ['en', 'si', 'hr', 'de'].forEach(l => {
-                const btn = document.getElementById(`lang-${l}`);
-                if(l === lang) {
-                    btn.className = "px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition";
-                } else {
-                    btn.className = "px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            document.querySelectorAll('[id^="lang-"]').forEach(btn => {
+                btn.className = "px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            });
+            document.getElementById('lang-' + lang).className = "px-2 py-1.5 rounded-lg bg-indigo-600 text-white transition";
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
                 }
             });
 
-            // Update static translations
-            document.querySelectorAll('[class*="tr-"]').forEach(el => {
-                for(let cls of el.classList) {
-                    if(cls.startsWith('tr-') && translations[lang][cls]) {
-                        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                            el.placeholder = translations[lang][cls];
-                        } else {
-                            el.innerHTML = translations[lang][cls];
-                        }
-                    }
-                }
-            });
-
-            // Re-render chat messages if chat is open
-            renderAiMessages();
+            document.getElementById('ai-user-input').placeholder = translations[lang]["ai-placeholder"];
+            if(!document.getElementById('ai-chat-window').classList.contains('hidden')) {
+                renderAiStep();
+            }
         }
 
-        // AI Chat Engine logic
         function toggleAiChat() {
             const win = document.getElementById('ai-chat-window');
             win.classList.toggle('hidden');
             if(!win.classList.contains('hidden') && aiStep === 1 && document.getElementById('ai-messages').children.length === 0) {
-                renderAiMessages();
+                renderAiStep();
             }
         }
 
-        function renderAiMessages() {
-            const container = document.getElementById('ai-messages');
-            container.innerHTML = '';
-            
-            // Welcome message
-            appendAiMsg(translations[currentLang]["ai-welcome"], 'ai');
-            
-            if (aiStep >= 2) {
-                appendAiMsg(aiData.clientType, 'user');
-                appendAiMsg(translations[currentLang]["ai-q-type"], 'ai');
-            }
-            if (aiStep >= 3) {
-                appendAiMsg(aiData.type, 'user');
-                appendAiMsg(translations[currentLang]["ai-q-date"], 'ai');
-            }
-            if (aiStep >= 4) {
-                appendAiMsg(aiData.date, 'user');
-                appendAiMsg(translations[currentLang]["ai-q-loc"], 'ai');
-            }
-            if (aiStep >= 5) {
-                appendAiMsg(aiData.location, 'user');
-                appendAiMsg(translations[currentLang]["ai-q-desc"], 'ai');
-            }
-            if (aiStep >= 6) {
-                appendAiMsg(aiData.desc, 'user');
-                appendAiMsg(translations[currentLang]["ai-q-email"], 'ai');
-            }
-            if (aiStep >= 7) {
-                appendAiMsg(aiData.email, 'user');
-                appendAiMsg(translations[currentLang]["ai-final"], 'ai');
-            }
-
-            updateAiControls();
-            container.scrollTop = container.scrollHeight;
+        function resetAiChat() {
+            aiStep = 1;
+            aiData = { clientType: '', type: '', date: '', location: '', desc: '', email: '' };
+            document.getElementById('ai-messages').innerHTML = '';
+            renderAiStep();
         }
 
-        function appendAiMsg(text, sender) {
-            const container = document.getElementById('ai-messages');
-            const div = document.createElement('div');
-            div.className = sender === 'ai' ? 'bg-slate-800 text-slate-200 p-3 rounded-2xl rounded-bl-sm max-w-[85%]' : 'bg-indigo-600 text-white p-3 rounded-2xl rounded-br-sm max-w-[85%] ml-auto';
-            div.innerHTML = text;
-            container.appendChild(div);
-        }
-
-        function updateAiControls() {
-            const quickOpts = document.getElementById('ai-quick-options');
+        function renderAiStep() {
+            const msgContainer = document.getElementById('ai-messages');
+            const quickContainer = document.getElementById('ai-quick-options');
             const inputRow = document.getElementById('ai-input-row');
-            quickOpts.innerHTML = '';
+            
+            let questionText = '';
+            let quickHtml = '';
 
             if (aiStep === 1) {
+                questionText = translations[currentLang]["ai-welcome"];
+                quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-ind"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-ind"]}</button>` +
+                            `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-comp"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-comp"]}</button>`;
                 inputRow.style.display = 'none';
-                quickOpts.innerHTML = `
-                    <button onclick="handleAiChoice('clientType', '${translations[currentLang]["ai-opt-ind"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-ind"]}</button>
-                    <button onclick="handleAiChoice('clientType', '${translations[currentLang]["ai-opt-comp"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-comp"]}</button>
-                `;
             } else if (aiStep === 2) {
+                questionText = translations[currentLang]["ai-q-type"];
+                quickHtml = `<button onclick="handleAiChoice('Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>` +
+                            `<button onclick="handleAiChoice('Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>`;
                 inputRow.style.display = 'none';
-                quickOpts.innerHTML = `
-                    <button onclick="handleAiChoice('type', 'Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>
-                    <button onclick="handleAiChoice('type', 'Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>
-                `;
-            } else if (aiStep === 7) {
-                inputRow.style.display = 'none';
-                quickOpts.innerHTML = `
-                    <a href="#contact" onclick="toggleAiChat()" class="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-lg">${translations[currentLang]["ai-btn-form"]}</a>
-                `;
-            } else {
+            } else if (aiStep === 3) {
+                questionText = translations[currentLang]["ai-q-date"];
+                quickHtml = '';
                 inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').placeholder = translations[currentLang]["ai-placeholder"];
-                document.getElementById('ai-user-input').focus();
+            } else if (aiStep === 4) {
+                questionText = translations[currentLang]["ai-q-loc"];
+                quickHtml = '';
+                inputRow.style.display = 'flex';
+            } else if (aiStep === 5) {
+                questionText = translations[currentLang]["ai-q-desc"];
+                quickHtml = '';
+                inputRow.style.display = 'flex';
+            } else if (aiStep === 6) {
+                questionText = translations[currentLang]["ai-q-email"];
+                quickHtml = '';
+                inputRow.style.display = 'flex';
+            } else if (aiStep === 7) {
+                questionText = translations[currentLang]["ai-final"];
+                quickHtml = `<button onclick="finalizeAiData()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl text-xs transition">${translations[currentLang]["ai-btn-form"]}</button>`;
+                inputRow.style.display = 'none';
             }
+            
+            appendMessage('bot', questionText);
+            quickContainer.innerHTML = quickHtml;
+            msgContainer.scrollTop = msgContainer.scrollHeight;
         }
 
-        function handleAiChoice(field, value) {
-            aiData[field] = value;
-            aiStep++;
-            renderAiMessages();
+        function appendMessage(sender, text) {
+            const msgContainer = document.getElementById('ai-messages');
+            const div = document.createElement('div');
+            div.className = sender === 'bot' ? 'self-start bg-slate-800 text-slate-200 p-3 rounded-2xl max-w-[85%] text-xs leading-relaxed' : 'self-end bg-indigo-600 text-white p-3 rounded-2xl max-w-[85%] text-xs leading-relaxed';
+            div.innerHTML = text;
+            msgContainer.appendChild(div);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+        }
+
+        function handleAiChoice(choice) {
+            appendMessage('user', choice);
+            processAiInput(choice);
         }
 
         function handleAiText() {
@@ -625,27 +613,57 @@
             const val = input.value.trim();
             if(!val) return;
 
-            if(aiStep === 3) {
-                aiData.date = val;
-            } else if(aiStep === 4) {
-                aiData.location = val;
-            } else if(aiStep === 5) {
-                aiData.desc = val;
-            } else if(aiStep === 6) {
-                aiData.email = val;
-                // Populate main contact form automatically
-                document.getElementById('input-name').value = aiData.clientType;
-                document.getElementById('input-email').value = aiData.email;
-                document.getElementById('select-type').value = aiData.type === 'Rental' ? 'Rental' : 'Purchase';
-                document.getElementById('input-location').value = aiData.location;
-                document.getElementById('input-date').value = aiData.date;
-                document.getElementById('input-message').value = aiData.desc;
+            // Email validation regex check at step 6
+            if (aiStep === 6) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(val)) {
+                    appendMessage('user', val);
+                    appendMessage('bot', translations[currentLang]["ai-email-error"]);
+                    return;
+                }
             }
 
+            appendMessage('user', val);
             input.value = '';
-            aiStep++;
-            renderAiMessages();
+            processAiInput(val);
+        }
+
+        function processAiInput(val) {
+            if (aiStep === 1) {
+                aiData.clientType = val;
+                aiStep = 2;
+            } else if (aiStep === 2) {
+                aiData.type = val;
+                aiStep = 3;
+            } else if (aiStep === 3) {
+                aiData.date = val;
+                aiStep = 4;
+            } else if (aiStep === 4) {
+                aiData.location = val;
+                aiStep = 5;
+            } else if (aiStep === 5) {
+                aiData.desc = val;
+                aiStep = 6;
+            } else if (aiStep === 6) {
+                aiData.email = val;
+                aiStep = 7;
+            }
+            renderAiStep();
+        }
+
+        function finalizeAiData() {
+            document.getElementById('input-name').value = aiData.clientType + " (via AI Assistant)";
+            document.getElementById('input-email').value = aiData.email;
+            document.getElementById('select-type').value = aiData.type.includes('Rental') || aiData.type.includes('Najem') ? 'Rental' : 'Purchase';
+            document.getElementById('input-location').value = aiData.location;
+            document.getElementById('input-date').value = aiData.date;
+            
+            const reviewNotice = translations[currentLang]["ai-review-notice"];
+            document.getElementById('input-message').value = reviewNotice + "\n\nDetails / Description: " + aiData.desc;
+
+            document.getElementById('ai-chat-window').classList.add('hidden');
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
-</html>
+</html>>

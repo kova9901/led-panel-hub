@@ -306,6 +306,13 @@
     </footer>
 
 
+    <!-- PLAVajoči GUMB ZA PONOVNO ODPIRANJE AI KLEPETA -->
+    <button id="ai-launcher-btn" onclick="openAiChat()" class="fixed bottom-6 right-6 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-all duration-300 hover:scale-105 hidden border border-indigo-400/30">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span data-i18n="ai-launcher-text">💬 AI Pomočnik</span>
+    </button>
+
+
     <!-- AI CHAT ASSISTANT WIDGET -->
     <div id="ai-chat-window" class="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden hidden transition-all duration-300">
         <!-- Chat Header -->
@@ -379,6 +386,7 @@
                 "field-loc": "Target Country / Region", "field-date": "Event / Start Date", "field-msg": "Project Details / Message",
                 "btn-submit": "Send Inquiry", "footer-sub": "International B2B Lead Generation & Brokerage",
                 "ai-skip": "Form 📝",
+                "ai-launcher-text": "💬 AI Assistant",
                 "ai-welcome": "Hello! 👋 Welcome to LEDpanelHub. Do you need help finding the right LED screen, or are you looking for assistance with something else?",
                 "ai-opt-help": "Yes, I need help choosing a screen",
                 "ai-opt-client": "I need LED screens",
@@ -438,6 +446,7 @@
                 "field-loc": "Ciljna Država / Regija", "field-date": "Datum Dogodka / Začetka", "field-msg": "Podrobnosti Projekta / Sporočilo",
                 "btn-submit": "Pošlji Povpraševanje", "footer-sub": "Mednarodna B2B Generacija Vodij in Posredništvo",
                 "ai-skip": "Obrazec 📝",
+                "ai-launcher-text": "💬 AI Pomočnik",
                 "ai-welcome": "Pozdravljeni! 👋 Dobrodošli na LEDpanelHub. Ali potrebujete pomoč pri izbiri ustreznega LED zaslona ali pa želite oddati povpraševanje?",
                 "ai-opt-help": "Da, potrebujem pomoč pri izbiri zaslona",
                 "ai-opt-client": "Potrebujem LED zaslone",
@@ -498,6 +507,7 @@
                 "field-loc": "Ciljana država / regija", "field-date": "Datum događaja / početka", "field-msg": "Detalji projekta / Poruka",
                 "btn-submit": "Pošalji upit", "footer-sub": "Međunarodna B2B generacija voditelja i posredovanje",
                 "ai-skip": "Obrazac 📝",
+                "ai-launcher-text": "💬 AI Pomoćnik",
                 "ai-welcome": "Pozdrav! 👋 Dobrodošli na LEDpanelHub. Trebate li pomoć oko odabira pravog LED zaslona ili trebate informacije o uslugama?",
                 "ai-opt-help": "Da, trebam pomoć oko odabira zaslona",
                 "ai-opt-client": "Trebam LED zaslone",
@@ -558,9 +568,10 @@
                 "field-loc": "Ziel-Land / Region", "field-date": "Veranstaltungs- / Startdatum", "field-msg": "Projektdetails / Nachricht",
                 "btn-submit": "Anfrage senden", "footer-sub": "Internationale B2B-Lead-Generierung & Vermittlung",
                 "ai-skip": "Formular 📝",
+                "ai-launcher-text": "💬 AI Assistent",
                 "ai-welcome": "Hallo! 👋 Willkommen bei LEDpanelHub. Benötigen Sie Hilfe bei der Auswahl des richtigen LED-Bildschirms oder bei der Projekterstellung?",
                 "ai-opt-help": "Ja, ich brauche Hilfe bei der Bildschirmauswahl",
-                "ai-opt-client": "Ich benötige LED-Bildschirme",
+                "ai-opt-client": "I benötige LED-Bildschirme",
                 "ai-opt-partner": "Ich bin Lieferant / Partner",
                 "ai-q-type": "Benötigen Sie eine **Miete** oder einen **Kauf**?",
                 "ai-opt-1-1": "Miete", "ai-opt-1-2": "Kauf",
@@ -591,7 +602,7 @@
             }
         };
 
-        // SAMODEJNI SPROŽILEC (S PREVERJANJEM, ALI JE UPORABNIK ZAPRL OKNO)
+        // SAMODEJNI SPROŽILEC
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (!hasAiAutoOpened && !userClosedChat) {
@@ -601,6 +612,8 @@
                     if (document.getElementById('ai-messages').children.length === 0) {
                         renderAiStep();
                     }
+                } else if (userClosedChat) {
+                    document.getElementById('ai-launcher-btn').classList.remove('hidden');
                 }
             }, 3500);
         });
@@ -627,9 +640,19 @@
             if(aiStep === 1) renderAiStep();
         }
 
+        function openAiChat() {
+            document.getElementById('ai-chat-window').classList.remove('hidden');
+            document.getElementById('ai-launcher-btn').classList.add('hidden');
+            userClosedChat = false;
+            if (document.getElementById('ai-messages').children.length === 0) {
+                renderAiStep();
+            }
+        }
+
         function closeAiChat() {
             document.getElementById('ai-chat-window').classList.add('hidden');
-            userClosedChat = true; // Prepreči nadaljnje samodejno odpiranje, če je stranka zaprla okno
+            document.getElementById('ai-launcher-btn').classList.remove('hidden');
+            userClosedChat = true;
         }
 
         function resetAiChat() {
@@ -641,6 +664,7 @@
 
         function skipToForm() {
             document.getElementById('ai-chat-window').classList.add('hidden');
+            document.getElementById('ai-launcher-btn').classList.remove('hidden');
             userClosedChat = true;
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }

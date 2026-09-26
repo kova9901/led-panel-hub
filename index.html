@@ -10,6 +10,15 @@
         #ai-messages::-webkit-scrollbar { width: 6px; }
         #ai-messages::-webkit-scrollbar-track { background: #0f172a; }
         #ai-messages::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        @keyframes pulse-fast {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .animate-typing span {
+            animation: pulse-fast 1.2s infinite ease-in-out;
+        }
+        .animate-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .animate-typing span:nth-child(3) { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
@@ -281,18 +290,9 @@
         </div>
     </section>
 
-    <!-- FLOATING AI ASSISTANT WIDGET -->
+    <!-- FLOATING AI ASSISTANT WIDGET (TOGGLE BUTTON REMOVED AS REQUESTED) -->
     <div class="fixed bottom-6 right-6 z-50">
-        <!-- NOTIFICATION BADGE ON TOGGLE -->
-        <div id="ai-notification-badge" class="absolute -top-2 -left-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-bounce shadow-md hidden">
-            AI Help ✨
-        </div>
-
-        <button onclick="toggleAiChat()" id="ai-toggle-btn" aria-label="Open AI Assistant" class="bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105 relative">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-        </button>
-
-        <div id="ai-chat-window" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+        <div id="ai-chat-window" class="hidden absolute bottom-0 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
             <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
@@ -301,7 +301,7 @@
                 <div class="flex items-center gap-2">
                     <button onclick="skipToForm()" aria-label="Skip to form" title="Skip to form" class="text-xs text-indigo-400 hover:text-indigo-300 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20" data-i18n="ai-skip">Form 📝</button>
                     <button onclick="resetAiChat()" aria-label="Reset chat" title="Reset chat" class="text-slate-400 hover:text-white text-xs">🔄</button>
-                    <button onclick="toggleAiChat()" aria-label="Close chat" class="text-slate-400 hover:text-white text-lg">&times;</button>
+                    <button onclick="closeAiChat()" aria-label="Close chat" class="text-slate-400 hover:text-white text-lg">&times;</button>
                 </div>
             </div>
             
@@ -459,8 +459,9 @@
             hr: {
                 "top-banner": "Web stranica je u izradi",
                 "nav-about": "O nama", "nav-services": "Usluge", "nav-process": "Kako radi", "nav-gallery": "Galerija", "nav-partners": "Za partnere",
-                "btn-quote": "Zatražite ponudu", "badge-top": "Europska B2B LED posrednička mreža", "hero-title": "Visokoučinkoviti LED zasloni",
-                "hero-title-gradient": "Rješenja za najam i kupnju", "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem srednje i južne Europe.",
+                "btn-quote": "Zatražite ponudu", "badge-top": "Europska B2B LED posrednička mreža",
+                "hero-title": "Visokoučinkoviti LED zasloni", "hero-title-gradient": "Rješenja za najam i kupnju",
+                "hero-desc": "Povezujemo organizatore događaja, tvrtke i prostore s provjerenim LED dobavljačima diljem srednje i južne Europe.",
                 "banner-text": "Pokrivamo Srednju i Južnu Europu:",
                 "about-title": "Premošćujemo jaz između potražnje i vrhunske opreme",
                 "about-desc1": "LEDpanelHub.com djeluje kao međunarodna digitalna posrednička platforma.",
@@ -518,8 +519,9 @@
             de: {
                 "top-banner": "Website im Aufbau",
                 "nav-about": "Über uns", "nav-services": "Dienstleistungen", "nav-process": "Wie es funktioniert", "nav-gallery": "Galerie", "nav-partners": "Für Partner",
-                "btn-quote": "Angebot anfordern", "badge-top": "Europäisches B2B LED Brokerage-Netzwerk", "hero-title": "Hochleistungs-LED-Displays",
-                "hero-title-gradient": "Miet- & Kauf-Lösungen", "hero-desc": "Verbindung von Eventveranstaltern, Unternehmen und Veranstaltungsorten mit verifizierten LED-Lieferanten in Mittel- und Südeuropa.",
+                "btn-quote": "Angebot anfordern", "badge-top": "Europäisches B2B LED Brokerage-Netzwerk",
+                "hero-title": "Hochleistungs-LED-Displays", "hero-title-gradient": "Miet- & Kauf-Lösungen",
+                "hero-desc": "Verbindung von Eventveranstaltern, Unternehmen und Veranstaltungsorten mit verifizierten LED-Lieferanten in Mittel- und Südeuropa.",
                 "banner-text": "Abdeckung von Mittel- und Südeuropa:",
                 "about-title": "Wir schlagen die Brücke zwischen Nachfrage und Erstklassiger Ausrüstung",
                 "about-desc1": "LEDpanelHub.com agiert als internationale digitale Vermittlungsplattform.",
@@ -581,15 +583,13 @@
             setTimeout(() => {
                 if (!hasAiAutoOpened) {
                     const win = document.getElementById('ai-chat-window');
-                    // Odpremo okno in prikažemo obvestilno značko
                     win.classList.remove('hidden');
-                    document.getElementById('ai-notification-badge').classList.remove('hidden');
                     hasAiAutoOpened = true;
                     if (document.getElementById('ai-messages').children.length === 0) {
                         renderAiStep();
                     }
                 }
-            }, 3500); // Odpre se po 3.5 sekundah
+            }, 3500);
         });
 
         function setLanguage(lang) {
@@ -614,14 +614,8 @@
             if(aiStep === 1) renderAiStep();
         }
 
-        function toggleAiChat() {
-            const win = document.getElementById('ai-chat-window');
-            win.classList.toggle('hidden');
-            // Ko uporabnik odpre klepet, skrijemo utripajočo značko
-            document.getElementById('ai-notification-badge').classList.add('hidden');
-            if (!win.classList.contains('hidden') && aiStep === 1 && document.getElementById('ai-messages').children.length === 0) {
-                renderAiStep();
-            }
+        function closeAiChat() {
+            document.getElementById('ai-chat-window').classList.add('hidden');
         }
 
         function resetAiChat() {
@@ -645,74 +639,95 @@
             box.scrollTop = box.scrollHeight;
         }
 
+        // DODANA FUNKCIJA ZA PRIKAZ "AI PIŠE..." ANIMACIJE
+        function showTypingIndicator() {
+            const box = document.getElementById('ai-messages');
+            const div = document.createElement('div');
+            div.id = 'ai-typing-indicator';
+            div.className = 'self-start bg-slate-800 text-slate-400 p-3 rounded-2xl rounded-tl-none text-xs flex items-center gap-1.5 animate-typing';
+            div.innerHTML = '<span>●</span><span>●</span><span>●</span>';
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('ai-typing-indicator');
+            if (indicator) indicator.remove();
+        }
+
         function renderAiStep() {
             const optionsBox = document.getElementById('ai-quick-options');
             const inputRow = document.getElementById('ai-input-row');
             optionsBox.innerHTML = '';
             inputRow.style.display = 'none';
 
-            if (aiStep === 1) {
-                appendAiMessage('ai', translations[currentLang]['ai-welcome']);
-                optionsBox.innerHTML = `
-                    <button onclick="aiStep=1.5; renderAiStep();" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-help']}</button>
-                    <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
-                    <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
-                `;
-            } else if (aiStep === 1.5) {
-                appendAiMessage('ai', currentLang === 'si' ? 'Z veseljem vam pomagam! Kako želite nadaljevati?' : (currentLang === 'hr' ? 'Rado ću vam pomoći! Kako želite nastaviti?' : (currentLang === 'de' ? 'Gerne! Wie möchten Sie fortfahren?' : 'I am happy to help! How would you like to proceed?')));
-                optionsBox.innerHTML = `
-                    <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
-                    <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
-                `;
-            } else if (aiStep === 2) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-type']);
-                optionsBox.innerHTML = `
-                    <button onclick="aiData.type='Rental'; aiStep=3; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-1-1']}</button>
-                    <button onclick="aiData.type='Purchase'; aiStep=3; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-1-2']}</button>
-                `;
-            } else if (aiStep === 3) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-placement']);
-                optionsBox.innerHTML = `
-                    <button onclick="aiData.placement='Indoor'; aiStep=4; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-in']}</button>
-                    <button onclick="aiData.placement='Outdoor'; aiStep=4; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-out']}</button>
-                `;
-            } else if (aiStep === 4) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-size']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 5) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-date']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 6) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-loc']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 7) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-name']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 7.5) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-email']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 8) {
-                appendAiMessage('ai', translations[currentLang]['ai-partner-gear']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 9) {
-                appendAiMessage('ai', translations[currentLang]['ai-partner-loc']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 10) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-name']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            } else if (aiStep === 10.5) {
-                appendAiMessage('ai', translations[currentLang]['ai-q-email']);
-                inputRow.style.display = 'flex';
-                document.getElementById('ai-user-input').focus();
-            }
+            showTypingIndicator();
+            setTimeout(() => {
+                removeTypingIndicator();
+
+                if (aiStep === 1) {
+                    appendAiMessage('ai', translations[currentLang]['ai-welcome']);
+                    optionsBox.innerHTML = `
+                        <button onclick="aiStep=1.5; renderAiStep();" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-help']}</button>
+                        <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
+                        <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
+                    `;
+                } else if (aiStep === 1.5) {
+                    appendAiMessage('ai', currentLang === 'si' ? 'Z veseljem vam pomagam! Kako želite nadaljevati?' : (currentLang === 'hr' ? 'Rado ću vam pomoći! Kako želite nastaviti?' : (currentLang === 'de' ? 'Gerne! Wie möchten Sie fortfahren?' : 'I am happy to help! How would you like to proceed?')));
+                    optionsBox.innerHTML = `
+                        <button onclick="aiData.intent='Client'; aiStep=2; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-client']}</button>
+                        <button onclick="aiData.intent='Partner'; aiStep=8; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition w-full text-left">${translations[currentLang]['ai-opt-partner']}</button>
+                    `;
+                } else if (aiStep === 2) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-type']);
+                    optionsBox.innerHTML = `
+                        <button onclick="aiData.type='Rental'; aiStep=3; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-1-1']}</button>
+                        <button onclick="aiData.type='Purchase'; aiStep=3; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-1-2']}</button>
+                    `;
+                } else if (aiStep === 3) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-placement']);
+                    optionsBox.innerHTML = `
+                        <button onclick="aiData.placement='Indoor'; aiStep=4; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-in']}</button>
+                        <button onclick="aiData.placement='Outdoor'; aiStep=4; renderAiStep();" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl transition flex-1 text-center">${translations[currentLang]['ai-opt-out']}</button>
+                    `;
+                } else if (aiStep === 4) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-size']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 5) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-date']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 6) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-loc']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 7) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-name']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 7.5) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-email']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 8) {
+                    appendAiMessage('ai', translations[currentLang]['ai-partner-gear']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 9) {
+                    appendAiMessage('ai', translations[currentLang]['ai-partner-loc']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 10) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-name']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                } else if (aiStep === 10.5) {
+                    appendAiMessage('ai', translations[currentLang]['ai-q-email']);
+                    inputRow.style.display = 'flex';
+                    document.getElementById('ai-user-input').focus();
+                }
+            }, 600);
         }
 
         function handleAiText() {
@@ -735,6 +750,10 @@
                 aiData.name = val;
                 aiStep = 7.5;
             } else if (aiStep === 7.5) {
+                if(!val.includes('@')) {
+                    appendAiMessage('ai', currentLang === 'si' ? 'Prosimo, vnesite veljaven e-poštni naslov (z @).' : 'Please enter a valid email address.');
+                    return;
+                }
                 aiData.email = val;
                 finishClientAi();
                 return;
@@ -748,6 +767,10 @@
                 aiData.name = val;
                 aiStep = 10.5;
             } else if (aiStep === 10.5) {
+                if(!val.includes('@')) {
+                    appendAiMessage('ai', currentLang === 'si' ? 'Prosimo, vnesite veljaven e-poštni naslov (z @).' : 'Please enter a valid email address.');
+                    return;
+                }
                 aiData.email = val;
                 finishPartnerAi();
                 return;

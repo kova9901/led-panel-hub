@@ -303,8 +303,8 @@
             <!-- Quick Options / Input -->
             <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-col gap-2">
                 <div id="ai-quick-options" class="flex gap-2 flex-wrap"></div>
-                <div class="flex gap-2 items-center" id="ai-input-row" style="display: none;">
-                    <button id="ai-back-btn" onclick="handleAiBack()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-2 rounded-xl text-xs transition" title="Nazaj">←</button>
+                <div class="flex gap-2 items-center" id="ai-input-row">
+                    <button id="ai-back-btn" onclick="handleAiBack()" class="hidden bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-2 rounded-xl text-xs transition" title="Nazaj">←</button>
                     <input type="text" id="ai-user-input" placeholder="Type your answer..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500" onkeypress="if(event.key === 'Enter') handleAiText()">
                     <button onclick="handleAiText()" class="bg-indigo-600 text-white px-3 py-2 rounded-xl text-xs font-semibold hover:bg-indigo-500" data-i18n="ai-send">Send</button>
                 </div>
@@ -366,15 +366,12 @@
                 "ai-opt-ind": "Individual", "ai-opt-comp": "Company",
                 "ai-q-type": "Great. Do you need a **rental** (for an event) or a **purchase** (permanent installation)?",
                 "ai-opt-1-1": "Rental (Event)", "ai-opt-1-2": "Purchase (Permanent)",
+                "ai-q-date": "From when to when do you need the service? (e.g. from July 15 to July 20)",
                 "ai-q-loc": "In which country or region will your project take place?",
-                "ai-loc-1": "Slovenia 🇸🇮", "ai-loc-2": "Austria 🇦🇹", "ai-loc-3": "Croatia 🇭🇷", "ai-loc-4": "Germany 🇩🇪", "ai-loc-5": "Other 🌍",
-                "ai-q-date": "When do you need the LED display?",
-                "ai-date-1": "Soon / Next Days ⚡", "ai-date-2": "This Month 📅", "ai-date-3": "In a Few Months 🗓️", "ai-date-4": "Permanent / Flexible 🔄",
-                "ai-q-desc": "What kind of application or screen size do you need?",
-                "ai-desc-1": "Concert / Festival Stage 🎸", "ai-desc-2": "Corporate Event / Fair 🏢", "ai-desc-3": "Sports Arena / Stadium ⚽", "ai-desc-4": "Commercial Billboard / Store 📺",
+                "ai-q-desc": "Please briefly describe your project or screen requirements:",
                 "ai-q-email": "Please enter your email address so we can send you the offer:",
                 "ai-email-error": "⚠️ Please enter a valid email address (e.g. name@example.com):",
-                "ai-final": "✨ Thank you! All data has been automatically filled into the inquiry form below. Please enter your name and review your details!",
+                "ai-final": "✨ Thank you! All data has been automatically filled into the inquiry form below. Please review your details before submitting!",
                 "ai-btn-form": "Go to Inquiry Form",
                 "ai-placeholder": "Type your answer...",
                 "ai-send": "Send",
@@ -414,15 +411,12 @@
                 "ai-opt-ind": "Posameznik", "ai-opt-comp": "Podjetje",
                 "ai-q-type": "Odlično. Potrebujete **najem** (za dogodek) ali **nakup** (trajna namestitev)?",
                 "ai-opt-1-1": "Najem (Dogodek)", "ai-opt-1-2": "Nakup (Trajno)",
+                "ai-q-date": "Kdaj in za kako dolgo potrebujete storitev? (npr. od 15. do 20. julija)",
                 "ai-q-loc": "V kateri državi ali regiji bo potekal vaš projekt?",
-                "ai-loc-1": "Slovenija 🇸🇮", "ai-loc-2": "Avstrija 🇦🇹", "ai-loc-3": "Hrvaška 🇭🇷", "ai-loc-4": "Nemčija 🇩🇪", "ai-loc-5": "Drugo 🌍",
-                "ai-q-date": "Kdaj potrebujete LED zaslon?",
-                "ai-date-1": "Kmalu / V prihodnjih dneh ⚡", "ai-date-2": "Ta mesec 📅", "ai-date-3": "Čez nekaj mesecev 🗓️", "ai-date-4": "Trajno / Prilagodljivo 🔄",
-                "ai-q-desc": "Kakšno vrsto dogodka ali zaslona potrebujete?",
-                "ai-desc-1": "Koncertni / Festivalni oder 🎸", "ai-desc-2": "Korporativni dogodek / Sejem 🏢", "ai-desc-3": "Športna arena / Stadion ⚽", "ai-desc-4": "Komercialni pano / Trgovina 📺",
+                "ai-q-desc": "Na kratko opišite vaš projekt ali zahteve glede zaslona:",
                 "ai-q-email": "Vnesite svoj e-poštni naslov, da vam lahko pošljemo ponudbo:",
                 "ai-email-error": "⚠️ Prosimo, vnesite veljaven e-poštni naslov (npr. ime@primer.si):",
-                "ai-final": "✨ Hvala! Podatki so pripravljeni v spodnjem obrazcu. Prosimo, vpišite vaše ime ter preverite podatke preden pošljete!",
+                "ai-final": "✨ Hvala! Podatki so bili pripravljeni v spodnjem obrazcu. Prosimo, vpišite vaše ime ter preverite podatke preden pošljete!",
                 "ai-btn-form": "Pojdi na obrazec",
                 "ai-placeholder": "Vnesite odgovor...",
                 "ai-send": "Pošlji",
@@ -441,15 +435,12 @@
                 "ai-opt-ind": "Pojedinac", "ai-opt-comp": "Tvrtka",
                 "ai-q-type": "Odlično. Trebate li **najam** ili **kupnju**?",
                 "ai-opt-1-1": "Najam (Događaj)", "ai-opt-1-2": "Kupnja (Trajno)",
+                "ai-q-date": "Kada i na koje razdoblje trebate uslugu?",
                 "ai-q-loc": "U kojoj državi ili regiji se održava projekt?",
-                "ai-loc-1": "Slovenija 🇸🇮", "ai-loc-2": "Austrija 🇦🇹", "ai-loc-3": "Hrvatska 🇭🇷", "ai-loc-4": "Njemačka 🇩🇪", "ai-loc-5": "Ostalo 🌍",
-                "ai-q-date": "Kada trebate LED zaslon?",
-                "ai-date-1": "Uskoro / Sljedećih dana ⚡", "ai-date-2": "Ovaj mjesec 📅", "ai-date-3": "Za nekoliko mjeseci 🗓️", "ai-date-4": "Trajno / Fleksibilno 🔄",
-                "ai-q-desc": "Kakvu vrstu primjene ili ekrana trebate?",
-                "ai-desc-1": "Koncertna / Festivalska pozornica 🎸", "ai-desc-2": "Korporativni događaj / Sajam 🏢", "ai-desc-3": "Sportska arena / Stadion ⚽", "ai-desc-4": "Komercijalni pano / Trgovina 📺",
+                "ai-q-desc": "Kratko opišite svoje zahtjeve za ekran:",
                 "ai-q-email": "Unesite vašu e-mail adresu za slanje ponude:",
                 "ai-email-error": "⚠️ Molimo unesite valjanu e-mail adresu:",
-                "ai-final": "✨ Hvala! Podaci su upisani u obrazac ispod. Molimo upišite ime i provjerite podatke prije slanja!",
+                "ai-final": "✨ Hvala! Podaci su upisani u obrazac ispod. Molimo unesite ime i provjerite podatke prije slanja!",
                 "ai-btn-form": "Idi na obrazac",
                 "ai-placeholder": "Upišite odgovor...",
                 "ai-send": "Pošalji",
@@ -468,12 +459,9 @@
                 "ai-opt-ind": "Privatperson", "ai-opt-comp": "Unternehmen",
                 "ai-q-type": "Super. Benötigen Sie eine **Miete** (für ein Event) oder einen **Kauf**?",
                 "ai-opt-1-1": "Miete (Event)", "ai-opt-1-2": "Kauf (Permanent)",
+                "ai-q-date": "Wann und für wie lange benötigen Sie den Service?",
                 "ai-q-loc": "In welchem Land oder welcher Region findet Ihr Projekt statt?",
-                "ai-loc-1": "Slowenien 🇸🇮", "ai-loc-2": "Österreich 🇦🇹", "ai-loc-3": "Kroatien 🇭🇷", "ai-loc-4": "Deutschland 🇩🇪", "ai-loc-5": "Andere 🌍",
-                "ai-q-date": "Wann benötigen Sie das LED-Display?",
-                "ai-date-1": "Demnächst / In den nächsten Tagen ⚡", "ai-date-2": "Diesen Monat 📅", "ai-date-3": "In wenigen Monaten 🗓️", "ai-date-4": "Permanent / Flexibel 🔄",
-                "ai-q-desc": "Welche Art von Anwendung oder Bildschirmgröße benötigen Sie?",
-                "ai-desc-1": "Konzert / Festivalbühne 🎸", "ai-desc-2": "Firmenevent / Messe 🏢", "ai-desc-3": "Sportarena / Stadion ⚽", "ai-desc-4": "Werbetafel / Geschäft 📺",
+                "ai-q-desc": "Bitte beschreiben Sie kurz Ihr Projekt:",
                 "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse für das Angebot ein:",
                 "ai-email-error": "⚠️ Bitte geben Sie eine gültige E-Mail-Adresse ein:",
                 "ai-final": "✨ Vielen Dank! Daten wurden übertragen. Bitte tragen Sie Ihren Namen ein und prüfen Sie die Angaben!",
@@ -541,13 +529,12 @@
 
             if (aiStep === 6) {
                 userInput.type = 'email';
-                inputRow.style.display = 'flex';
             } else {
                 userInput.type = 'text';
-                inputRow.style.display = 'none';
             }
 
             quickContainer.innerHTML = '';
+            inputRow.style.display = 'none';
 
             const typingId = appendTypingIndicator();
 
@@ -561,29 +548,21 @@
                     questionText = translations[currentLang]["ai-welcome"];
                     quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-ind"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-ind"]}</button>` +
                                 `<button onclick="handleAiChoice('${translations[currentLang]["ai-opt-comp"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-comp"]}</button>`;
+                    inputRow.style.display = 'none';
                 } else if (aiStep === 2) {
                     questionText = translations[currentLang]["ai-q-type"];
                     quickHtml = `<button onclick="handleAiChoice('Rental')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-1"]}</button>` +
                                 `<button onclick="handleAiChoice('Purchase')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-opt-1-2"]}</button>`;
+                    inputRow.style.display = 'none';
                 } else if (aiStep === 3) {
-                    questionText = translations[currentLang]["ai-q-loc"];
-                    quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-loc-1"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-loc-1"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-loc-2"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-loc-2"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-loc-3"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-loc-3"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-loc-4"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-loc-4"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-loc-5"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-loc-5"]}</button>`;
-                } else if (aiStep === 4) {
                     questionText = translations[currentLang]["ai-q-date"];
-                    quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-date-1"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-date-1"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-date-2"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-date-2"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-date-3"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-date-3"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-date-4"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-date-4"]}</button>`;
+                    inputRow.style.display = 'flex';
+                } else if (aiStep === 4) {
+                    questionText = translations[currentLang]["ai-q-loc"];
+                    inputRow.style.display = 'flex';
                 } else if (aiStep === 5) {
                     questionText = translations[currentLang]["ai-q-desc"];
-                    quickHtml = `<button onclick="handleAiChoice('${translations[currentLang]["ai-desc-1"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-desc-1"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-desc-2"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-desc-2"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-desc-3"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-desc-3"]}</button>` +
-                                `<button onclick="handleAiChoice('${translations[currentLang]["ai-desc-4"]}')" class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-xl text-xs transition border border-indigo-500/30">${translations[currentLang]["ai-desc-4"]}</button>`;
+                    inputRow.style.display = 'flex';
                 } else if (aiStep === 6) {
                     questionText = translations[currentLang]["ai-q-email"];
                     inputRow.style.display = 'flex';
@@ -596,7 +575,7 @@
                 appendMessage('bot', questionText);
                 quickContainer.innerHTML = quickHtml;
                 msgContainer.scrollTop = msgContainer.scrollHeight;
-            }, 500);
+            }, 600);
         }
 
         function appendTypingIndicator() {
@@ -657,10 +636,10 @@
                 aiData.type = val;
                 aiStep = 3;
             } else if (aiStep === 3) {
-                aiData.location = val;
+                aiData.date = val;
                 aiStep = 4;
             } else if (aiStep === 4) {
-                aiData.date = val;
+                aiData.location = val;
                 aiStep = 5;
             } else if (aiStep === 5) {
                 aiData.desc = val;
@@ -673,24 +652,25 @@
         }
 
         function finalizeAiData() {
-            // Polje za ime ostane prazno, da stranka vpiše svoje pravo ime
+            // Polje za ime se popolnoma izprazni, da uporabnik vpiše svoje ime ali podjetje
             document.getElementById('input-name').value = "";
             
             document.getElementById('input-email').value = aiData.email;
-            document.getElementById('select-type').value = aiData.type.includes('Rental') || aiData.type.includes('Najem') || aiData.type.includes('Miete') ? 'Rental' : 'Purchase';
+            document.getElementById('select-type').value = aiData.type.includes('Rental') || aiData.type.includes('Najem') ? 'Rental' : 'Purchase';
             document.getElementById('input-location').value = aiData.location;
             document.getElementById('input-date').value = aiData.date;
             
             const reviewNotice = translations[currentLang]["ai-review-notice"];
+            // Podatek o tipu stranke (Posameznik / Podjetje) se shrani v polje za sporočilo
             document.getElementById('input-message').value = reviewNotice + 
                 "\n\n--- Podatki iz klepeta ---" +
                 "\nTip stranke: " + aiData.clientType +
-                "\nVrsta zaslona / dogodka: " + aiData.desc;
+                "\nOpis projekta: " + aiData.desc;
 
             document.getElementById('ai-chat-window').classList.add('hidden');
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
             
-            // Fokus se postavi na polje za ime
+            // Fokus se samodejno postavi na polje za ime
             document.getElementById('input-name').focus();
         }
     </script>

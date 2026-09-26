@@ -368,7 +368,14 @@
                 "ai-q-email": "Please enter your email address:",
                 "ai-final": "✨ Thank you! All data has been filled into the inquiry form below.",
                 "ai-btn-form": "Go to Form",
-                "ai-send": "Send"
+                "ai-send": "Send",
+                "summary-title": "PROJECT INQUIRY SUMMARY (via AI Assistant)",
+                "summary-client": "• Client Type: ",
+                "summary-solution": "• Solution Needed: ",
+                "summary-location": "• Target Location: ",
+                "summary-date": "• Schedule / Date: ",
+                "summary-req": "• Requirements / Specs:\n  ",
+                "summary-notes": "Additional notes or questions:"
             },
             si: {
                 "top-banner": "Spletna stran je v izdelavi",
@@ -407,7 +414,14 @@
                 "ai-q-email": "Prosim vnesite vaš e-poštni naslov:",
                 "ai-final": "✨ Hvala! Podatki so bili uspešno preneseni v spodnji obrazec.",
                 "ai-btn-form": "Poglej obrazec",
-                "ai-send": "Pošlji"
+                "ai-send": "Pošlji",
+                "summary-title": "POVZETEK POVPRAŠEVANJA (preko AI pomočnika)",
+                "summary-client": "• Tip stranke: ",
+                "summary-solution": "• Potrebna rešitev: ",
+                "summary-location": "• Ciljna lokacija: ",
+                "summary-date": "• Termin / Datum: ",
+                "summary-req": "• Zahteve / Specifikacije:\n  ",
+                "summary-notes": "Dodatne opombe ali vprašanja:"
             },
             hr: {
                 "top-banner": "Web stranica je u izradi",
@@ -427,7 +441,7 @@
                 "s2-link": "Prilagođene dimenzije i B2B veleprodaja →", "process-main-title": "Kako Radi", "process-main-desc": "Jednostavan i brz proces osmišljen za pouzdanost.",
                 "p1-title": "Pošaljite Zahtjev", "p1-desc": "Opišite opseg vašeg projekta.", "p2-title": "Trenutno Spajanje", "p2-desc": "Upit usmjeravamo provjerenom partneru.",
                 "p3-title": "Glatka Izvedba", "p3-desc": "Naš partner brine o dostavi i montaži.",
-                "gallery-badge": "Vizualni Prikaz", "gallery-title": "LED Ekrani u Akciji", "gallery-desc": "Od sportskih stadiona do velikih koncertnih pozornica.",
+                "gallery-badge": "Vizualni Prikaz", "gallery-title": "LED Ekrani u Akciji", "gallery-desc": "Od sportskih stadionima do velikih koncertnih pozornica.",
                 "g1-tag": "Stadioni i Sport", "g1-title": "Obodni Ekrani i Semafori", "g1-desc": "Visoka izdržljivost i svjetlina.",
                 "g2-tag": "Mega Događaji", "g2-title": "Vanjski Ekrani Visoke Svjetline", "g2-desc": "Dizajnirano za rad na suncu.",
                 "g3-tag": "Koncerti i Nastupi", "g3-title": "Modularne Pozadine za Pozornicu", "g3-desc": "Lagani modularni paneli za nastupe uživo.",
@@ -446,7 +460,14 @@
                 "ai-q-email": "Molimo unesite vašu e-mail adresu:",
                 "ai-final": "✨ Hvala! Podaci su uspješno uneseni u obrazac ispod.",
                 "ai-btn-form": "Pogledaj obrazac",
-                "ai-send": "Pošalji"
+                "ai-send": "Pošalji",
+                "summary-title": "SAŽETAK UPITA (preko AI pomoćnika)",
+                "summary-client": "• Tip klijenta: ",
+                "summary-solution": "• Potrebno rješenje: ",
+                "summary-location": "• Ciljana lokacija: ",
+                "summary-date": "• Termin / Datum: ",
+                "summary-req": "• Zahtjevi / Specifikacije:\n  ",
+                "summary-notes": "Dodatne napomene ili pitanja:"
             },
             de: {
                 "top-banner": "Website im Aufbau",
@@ -485,7 +506,14 @@
                 "ai-q-email": "Bitte geben Sie Ihre E-Mail-Adresse ein:",
                 "ai-final": "✨ Vielen Dank! Alle Daten wurden in das Anfrageformular unten eingetragen.",
                 "ai-btn-form": "Zum Formular",
-                "ai-send": "Senden"
+                "ai-send": "Senden",
+                "summary-title": "PROJEKTANFRAGE-ZUSAMMENFASSUNG (über KI-Assistent)",
+                "summary-client": "• Kundentyp: ",
+                "summary-solution": "• Gewünschte Lösung: ",
+                "summary-location": "• Zielort: ",
+                "summary-date": "• Termin / Datum: ",
+                "summary-req": "• Anforderungen / Spezifikationen:\n  ",
+                "summary-notes": "Zusätzliche Anmerkungen oder Fragen:"
             }
         };
 
@@ -646,17 +674,19 @@
             if (aiData.location) document.getElementById('input-location').value = aiData.location;
             if (aiData.date) document.getElementById('input-date').value = aiData.date;
 
-            // Clean, professional formatting for the inquiry message box
+            const t = translations[currentLang];
+
+            // Fully localized clean professional formatting
             const formattedMessage = 
-                "PROJECT INQUIRY SUMMARY (via AI Assistant)\n" +
+                t['summary-title'] + "\n" +
                 "----------------------------------------\n" +
-                "• Client Type: " + aiData.clientType + "\n" +
-                "• Solution Needed: " + (aiData.type === 'Rental' ? 'LED Display Rental' : 'LED Display Purchase') + "\n" +
-                "• Target Location: " + aiData.location + "\n" +
-                "• Schedule / Date: " + aiData.date + "\n" +
-                "• Requirements / Specs:\n  " + aiData.desc + "\n" +
+                t['summary-client'] + aiData.clientType + "\n" +
+                t['summary-solution'] + (aiData.type === 'Rental' ? (currentLang === 'si' ? 'Najem LED zaslona' : currentLang === 'hr' ? 'Najam LED ekrana' : currentLang === 'de' ? 'LED-Display Miete' : 'LED Display Rental') : (currentLang === 'si' ? 'Nakup LED zaslona' : currentLang === 'hr' ? 'Kupnja LED ekrana' : currentLang === 'de' ? 'LED-Display Kauf' : 'LED Display Purchase')) + "\n" +
+                t['summary-location'] + aiData.location + "\n" +
+                t['summary-date'] + aiData.date + "\n" +
+                t['summary-req'] + aiData.desc + "\n" +
                 "----------------------------------------\n\n" +
-                "Additional notes or questions:";
+                t['summary-notes'];
 
             const messageField = document.getElementById('input-message');
             if (messageField) {

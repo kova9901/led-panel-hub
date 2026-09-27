@@ -43,8 +43,14 @@
         </div>
     </header>
 
+    <!-- NOTICE: UNDER CONSTRUCTION BANNER -->
+    <div class="bg-cyan-500/10 border-b border-cyan-500/20 py-2.5 px-4 text-center text-xs sm:text-sm text-cyan-300 font-medium flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation text-cyan-400"></i>
+        <span data-i18n="construction_banner">Spletna stran je trenutno v izdelavi. Kljub tomu lahko že oddate povpraševanje!</span>
+    </div>
+
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-28 overflow-hidden border-b border-slate-900">
+    <section class="relative pt-24 pb-28 overflow-hidden border-b border-slate-900">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=2000&q=80" alt="Concert LED screen stage" class="w-full h-full object-cover object-center opacity-25">
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
@@ -257,7 +263,7 @@
                 <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
-                <!-- Dinamično polnjenje pozdravnega sporočila glede na jezik -->
+                <!-- Dinamično polnjenje pozdravnega sporočila -->
             </div>
             <div class="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
                 <input type="text" id="chat-input" onkeypress="handleChatKey(event)" data-i18n-placeholder="chat_placeholder" placeholder="Vpišite sporočilo..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500">
@@ -272,6 +278,7 @@
 
         const translations = {
             si: {
+                construction_banner: "Spletna stran je trenutno v izdelavi. Kljub tomu lahko že oddate povpraševanje!",
                 nav_services: "Storitve partnerjev",
                 nav_about: "O posredništvu",
                 nav_contact: "Povpraševanje",
@@ -309,7 +316,7 @@
                 opt_2: "Nakup ali najem velikih LED ekranov",
                 opt_3: "Celovita tehnična izvedba in logistika",
                 chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdravljeni! Kako vam lahko pomagam pri nakupu ali najemu LED panojev in zaslonov za vaš projekt?",
+                chat_welcome: "Pozdravljeni! Stran je v izdelavi, vendar vam lahko vseeno pomagam pri nakupu ali najemu LED panojev in zaslonov. Kako vam lahko pomagam?",
                 chat_reply: "Hvala za vaše sporočilo! Vaše zahteve za nakup ali najem LED zaslonov bomo posredovali našim tehničnim partnerjem.",
                 chat_placeholder: "Vpišite sporočilo...",
                 footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
@@ -320,6 +327,7 @@
                 footer_terms: "Pogoji posredništva"
             },
             en: {
+                construction_banner: "Website is currently under construction. You can still submit your inquiry!",
                 nav_services: "Partner Services",
                 nav_about: "About Brokerage",
                 nav_contact: "Contact",
@@ -357,7 +365,7 @@
                 opt_2: "Purchase or Rental of Large LED Screens",
                 opt_3: "Complete Technical Execution & Logistics",
                 chat_title: "LEDpanelHub Assistant",
-                chat_welcome: "Hello! How can I help you with purchasing or renting LED boards and screens for your project?",
+                chat_welcome: "Hello! The site is under construction, but I can still help you with purchasing or renting LED boards and screens. How can I help?",
                 chat_reply: "Thank you for your message! Your requirements for purchasing or renting LED displays will be forwarded to our technical partners.",
                 chat_placeholder: "Type a message...",
                 footer_about: "Independent international brokerage connecting clients with verified providers of LED purchase, rental, and event equipment.",
@@ -368,6 +376,7 @@
                 footer_terms: "Brokerage Terms"
             },
             hr: {
+                construction_banner: "Web stranica je trenutno u izradi. Ipak, već sada možete poslati upit!",
                 nav_services: "Usluge partnera",
                 nav_about: "O posredništvu",
                 nav_contact: "Upit",
@@ -405,7 +414,7 @@
                 opt_2: "Kupnja ili najam velikih LED ekrana",
                 opt_3: "Kompletna tehnička izvedba i logistika",
                 chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdravljeni! Kako vam mogu pomoći s kupnjom ili najmom LED panoa i ekrana za vaš projekt?",
+                chat_welcome: "Pozdrav! Stranica je u izradi, ali vam svejedno mogu pomoći s kupnjom ili najmom LED panoa i ekrana. Kako vam mogu pomoći?",
                 chat_reply: "Hvala na vašoj poruci! Vaši zahtjevi za kupnju ili najam LED zaslona bit će proslijeđeni našim tehničkim partnerima.",
                 chat_placeholder: "Upišite poruku...",
                 footer_about: "Neovisno međunarodno posredništvo za povezivanje klijenata i provjerenih pružalaca kupnje, najma LED panoa i opreme.",
@@ -416,6 +425,7 @@
                 footer_terms: "Uvjeti posredništva"
             },
             de: {
+                construction_banner: "Die Website befindet sich derzeit im Aufbau. Sie können Ihre Anfrage dennoch bereits absenden!",
                 nav_services: "Partnerdienste",
                 nav_about: "Über Vermittlung",
                 nav_contact: "Anfrage",
@@ -453,7 +463,7 @@
                 opt_2: "Kauf oder Miete von grossen LED-Bildschirmen",
                 opt_3: "Komplette technische Umsetzung & Logistika",
                 chat_title: "LEDpanelHub Assistent",
-                chat_welcome: "Hallo! Wie kann ich Ihnen beim Kauf oder der Miete von LED-Banden und Bildschirmen für Ihr Projekt helfen?",
+                chat_welcome: "Hallo! Die Website ist im Aufbau, aber ich kann Ihnen trotzdem beim Kauf oder der Miete von LED-Banden und Displays helfen. Wie kann ich Ihnen helfen?",
                 chat_reply: "Vielen Dank für Ihre Nachricht! Ihre Anforderungen bezüglich Kauf oder Miete von LED-Displays werden an unsere technischen Partner weitergeleitet.",
                 chat_placeholder: "Nachricht eingeben...",
                 footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern für Kauf, Miete von LED-Banden und Equipment.",
@@ -494,7 +504,6 @@
                 }
             });
 
-            // Posodobi začetno sporočilo klepetalnika ob menjavi jezika, če je vsebovalo samo začetno besedilo
             const container = document.getElementById('chat-messages');
             if (container.children.length === 1) {
                 container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">${translations[lang].chat_welcome}</div>`;
@@ -505,7 +514,6 @@
             const win = document.getElementById('chat-window');
             win.classList.toggle('hidden');
             
-            // Nastavi začetno sporočilo ob prvem odprtju, če je prazen
             const container = document.getElementById('chat-messages');
             if (container.children.length === 0) {
                 container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">${translations[currentLang].chat_welcome}</div>`;

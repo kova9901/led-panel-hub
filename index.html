@@ -168,7 +168,7 @@
                     <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" alt="Backstage" class="w-full h-full object-cover min-h-[350px]">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
                         <h3 class="text-xl font-semibold text-white mb-2" data-i18n="about_box_title">Imate vprašanje ali projekt?</h3>
-                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših metrov in zahtev ali pa nam pošljite povpraševanje.</p>
+                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših podatkov in zahtev ali pa nam pošljite povpraševanje.</p>
                         <a href="#contact" class="inline-block text-center px-6 py-3 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="about_box_btn">Stopite v stik</a>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
         </div>
     </section>
 
-    <!-- CONTACT FORM SECTION (FORMSPREE) -->
+    <!-- CONTACT FORM SECTION (FORMSPREE) WITH VALIDATION -->
     <section id="contact" class="py-24 bg-slate-900/40">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -184,31 +184,37 @@
                 <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.</p>
             </div>
             
-            <form action="https://formspree.io/f/mbgjvqvp" method="POST" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+            <form id="inquiry-form" action="https://formspree.io/f/mbgjvqvp" method="POST" onsubmit="return validateForm(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
                 <input type="hidden" name="_subject" value="Novo povpraševanje z LEDpanelHub.com">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Podjetje</label>
-                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Naziv podjetja</label>
+                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="npr. Janez Novak ali Podjetje d.o.o.">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="vas@email.com">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve</label>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve in oprema</label>
                     <select id="form-service" name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
-                        <option value="Nakup ali najem športnih LED panojev" data-i18n="opt_1">Nakup ali najem športnih LED panojev</option>
-                        <option value="Nakup ali najem velikih LED ekranov" data-i18n="opt_2">Nakup ali najem velikih LED ekranov</option>
-                        <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_3">Celovita tehnična izvedba in logistika</option>
+                        <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
+                        <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
+                        <option value="Nakup velikih LED ekranov" data-i18n="opt_buy_screens">Nakup velikih LED ekranov</option>
+                        <option value="Najem velikih LED ekranov" data-i18n="opt_rent_screens">Najem velikih LED ekranov</option>
+                        <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_logistics">Celovita tehnična izvedba in logistika</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti dogodka / Lokacija / Metri</label>
-                    <textarea id="form-message" name="message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume in vaše zahteve..."></textarea>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti, metri in dodatna vprašanja</label>
+                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume, zahtevane metre ter če imate kakšna dodatna vprašanja ali posebne zahteve..."></textarea>
                 </div>
+                
+                <!-- Opozorilni napis za validacijo -->
+                <div id="form-error-msg" class="hidden text-rose-400 text-xs font-semibold bg-rose-500/10 border border-rose-500/20 p-3 rounded-lg"></div>
+
                 <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20" data-i18n="form_submit">Pošlji povpraševanje</button>
             </form>
         </div>
@@ -247,13 +253,13 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE SMART CHATBOT WIDGET -->
+    <!-- INTERACTIVE ADVANCED CHATBOT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
         <button onclick="toggleChat()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center shadow-2xl hover:scale-105 transition">
             <i class="fa-solid fa-comment-dots text-2xl"></i>
         </button>
 
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[480px]">
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[500px]">
             <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
@@ -274,11 +280,11 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC & GUIDED CHATBOT -->
+    <!-- JAVASCRIPT LOGIC & ADVANCED CHATBOT -->
     <script>
         let currentLang = 'si';
-        let chatState = 'INIT';
-        let userLeadData = { type: '', meters: '', email: '' };
+        let chatState = 'ASK_ENTITY'; // ASK_ENTITY, ASK_NAME, ASK_EMAIL, ASK_TYPE, ASK_METERS, ASK_EXTRA, READY
+        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', extra: '' };
 
         const translations = {
             si: {
@@ -307,20 +313,22 @@
                 about_bullet_2: "Preverjeni ponudniki z izkušnjami",
                 about_bullet_3: "Prilagojene rešitve za nakup ali najem",
                 about_box_title: "Imate vprašanje ali projekt?",
-                about_box_desc: "Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših metrov in zahtev ali pa nam pošljite povpraševanje.",
+                about_box_desc: "Uporabite naš pametni klepetalnik spodaj desno za hiter vnos podatkov ali pa nam pošljite povpraševanje.",
                 about_box_btn: "Stopite v stik",
                 contact_heading: "Oddajte povpraševanje",
                 contact_subheading: "Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.",
-                form_name: "Ime in priimek / Podjetje",
+                form_name: "Ime in priimek / Naziv podjetja",
                 form_email: "E-poštni naslov",
-                form_service: "Vrsta storitve",
-                form_message: "Podrobnosti dogodka / Lokacija / Metri",
+                form_service: "Vrsta storitve in oprema",
+                form_message: "Podrobnosti, metri in dodatna vprašanja",
                 form_submit: "Pošlji povpraševanje",
-                opt_1: "Nakup ali najem športnih LED panojev",
-                opt_2: "Nakup ali najem velikih LED ekranov",
-                opt_3: "Celovita tehnična izvedba in logistika",
+                opt_buy_sports: "Nakup športnih LED panojev",
+                opt_rent_sports: "Najem športnih LED panojev",
+                opt_buy_screens: "Nakup velikih LED ekranov",
+                opt_rent_screens: "Najem velikih LED ekranov",
+                opt_logistics: "Celovita tehnična izvedba in logistika",
                 chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdravljeni! Tukaj sem, da zberem specifikacije za vaš projekt (dolžino/metre in vrsto opreme) ter jih posredujem našim partnerjem. Kaj vas zanima?",
+                chat_welcome: "Pozdravljeni! Pomagal vam bom zbrati podatke za vaše povpraševanje. Ali povpraševanje oddajate kot fizična oseba ali podjetje?",
                 chat_placeholder: "Vpišite sporočilo...",
                 footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
                 footer_contact_title: "Kontakt in podpora",
@@ -328,6 +336,10 @@
                 footer_privacy: "Politika zasebnosti (GDPR)",
                 footer_cookies: "Piškotki",
                 footer_terms: "Pogoji posredništva",
+                btn_physical: "👤 Fizična oseba",
+                btn_company: "🏢 Podjetje",
+                btn_buy: "🛒 Nakup",
+                btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Športni LED panoji",
                 btn_screens: "📺 Veliki LED ekrani",
                 btn_fillform: "✨ Prenesi podatke v obrazec"
@@ -358,20 +370,22 @@
                 about_bullet_2: "Verified experienced providers",
                 about_bullet_3: "Tailored solutions for purchase or rental",
                 about_box_title: "Have a question or project?",
-                about_box_desc: "Use our smart chatbot below to quickly submit your measurements and requirements or send us a direct inquiry.",
+                about_box_desc: "Use our smart chatbot below to quickly submit your details or send us a direct inquiry.",
                 about_box_btn: "Get in Touch",
                 contact_heading: "Submit an Inquiry",
                 contact_subheading: "Fill out the form below and we will forward it to our expert technical partners.",
-                form_name: "Full Name / Company",
+                form_name: "Full Name / Company Name",
                 form_email: "Email Address",
-                form_service: "Service Type",
-                form_message: "Event Details / Location / Measurements",
+                form_service: "Service Type & Equipment",
+                form_message: "Details, meters and additional questions",
                 form_submit: "Send Inquiry",
-                opt_1: "Purchase or Rental of Sports LED Boards",
-                opt_2: "Purchase or Rental of Large LED Screens",
-                opt_3: "Complete Technical Execution & Logistics",
+                opt_buy_sports: "Purchase of Sports LED Boards",
+                opt_rent_sports: "Rental of Sports LED Boards",
+                opt_buy_screens: "Purchase of Large LED Screens",
+                opt_rent_screens: "Rental of Large LED Screens",
+                opt_logistics: "Complete Technical Execution & Logistics",
                 chat_title: "LEDpanelHub Assistant",
-                chat_welcome: "Hello! I am here to collect your project requirements (meters/dimensions and equipment type) for our partners. What are you looking for?",
+                chat_welcome: "Hello! I will help you gather details for your inquiry. Are you inquiring as an individual or a company?",
                 chat_placeholder: "Type a message...",
                 footer_about: "Independent international brokerage connecting clients with verified providers of LED purchase, rental, and event equipment.",
                 footer_contact_title: "Contact & Support",
@@ -379,6 +393,10 @@
                 footer_privacy: "Privacy Policy (GDPR)",
                 footer_cookies: "Cookies",
                 footer_terms: "Brokerage Terms",
+                btn_physical: "👤 Individual",
+                btn_company: "🏢 Company",
+                btn_buy: "🛒 Purchase",
+                btn_rent: "⏱️ Rental",
                 btn_sports: "🏀 Sports LED Boards",
                 btn_screens: "📺 Large LED Screens",
                 btn_fillform: "✨ Fill Form with Data"
@@ -409,20 +427,22 @@
                 about_bullet_2: "Provjereni ponuđači s iskustvom",
                 about_bullet_3: "Prilagođena rješenja za kupnju ili najam",
                 about_box_title: "Imate pitanje ili projekt?",
-                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brzu dostavu metara i zahtjeva ili nam pošaljite upit.",
+                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brzi unos podataka ili nam pošaljite upit.",
                 about_box_btn: "Stupite u kontakt",
                 contact_heading: "Pošaljite upit",
                 contact_subheading: "Ispunite donji obrazac i proslijedit ćemo ga našim tehničkim partnerima.",
-                form_name: "Ime i prezime / Tvrtka",
+                form_name: "Ime i prezime / Naziv tvrtke",
                 form_email: "E-mail adresa",
-                form_service: "Vrsta usluge",
-                form_message: "Detalji događaja / Lokacija / Metri",
+                form_service: "Vrsta usluge i oprema",
+                form_message: "Detalji, metri i dodatna pitanja",
                 form_submit: "Pošalji upit",
-                opt_1: "Kupnja ili najam sportskih LED panoa",
-                opt_2: "Kupnja ili najam velikih LED ekrana",
-                opt_3: "Kompletna tehnička izvedba i logistika",
+                opt_buy_sports: "Kupnja sportskih LED panoa",
+                opt_rent_sports: "Najam sportskih LED panoa",
+                opt_buy_screens: "Kupnja velikih LED ekrana",
+                opt_rent_screens: "Najam velikih LED ekrana",
+                opt_logistics: "Kompletna tehnička izvedba i logistika",
                 chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdrav! Ovdje sam da prikupim specifikacije za vaš projekt (metražu i vrstu opreme) za naše partnere. Što vas zanima?",
+                chat_welcome: "Pozdrav! Pomoći ću vam prikupiti podatke za vaš upit. Šaljete li upit kao fizička osoba ili tvrtka?",
                 chat_placeholder: "Upišite poruku...",
                 footer_about: "Neovisno međunarodno posredništvo za povezivanje klijenata i provjerenih pružalaca kupnje, najma LED panoa i opreme.",
                 footer_contact_title: "Kontakt i podrška",
@@ -430,6 +450,10 @@
                 footer_privacy: "Politika privatnosti (GDPR)",
                 footer_cookies: "Kolačići",
                 footer_terms: "Uvjeti posredništva",
+                btn_physical: "👤 Fizička osoba",
+                btn_company: "🏢 Tvrtka",
+                btn_buy: "🛒 Kupnja",
+                btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Sportski LED panoi",
                 btn_screens: "📺 Veliki LED ekrani",
                 btn_fillform: "✨ Prenesi podatke u obrazac"
@@ -460,20 +484,22 @@
                 about_bullet_2: "Verifizierte erfahrene Anbieter",
                 about_bullet_3: "Massgeschneiderte Lösungen für Kauf oder Miete",
                 about_box_title: "Haben Sie eine Frage oder ein Projekt?",
-                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts oder senden Sie uns eine direkte Anfrage.",
+                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts für eine schnelle Dateneingabe oder senden Sie uns eine Anfrage.",
                 about_box_btn: "Kontakt aufnehmen",
                 contact_heading: "Anfrage senden",
                 contact_subheading: "Füllen Sie das Formular aus und wir leiten es an unsere technischen Partner weiter.",
-                form_name: "Name / Unternehmen",
+                form_name: "Name / Firmenname",
                 form_email: "E-Mail-Adresse",
-                form_service: "Dienstleistungsart",
-                form_message: "Veranstaltungsdetails / Standort / Meter",
+                form_service: "Dienstleistungsart & Ausrüstung",
+                form_message: "Details, Meter und zusätzliche Fragen",
                 form_submit: "Anfrage senden",
-                opt_1: "Kauf oder Miete von Sport-LED-Banden",
-                opt_2: "Kauf oder Miete von grossen LED-Bildschirmen",
-                opt_3: "Komplette technische Umsetzung & Logistika",
+                opt_buy_sports: "Kauf von Sport-LED-Banden",
+                opt_rent_sports: "Miete von Sport-LED-Banden",
+                opt_buy_screens: "Kauf von grossen LED-Bildschirmen",
+                opt_rent_screens: "Miete von grossen LED-Bildschirmen",
+                opt_logistics: "Komplette technische Umsetzung & Logistika",
                 chat_title: "LEDpanelHub Assistent",
-                chat_welcome: "Hallo! Ich helfe Ihnen dabei, die Projektdaten (Meter/Grösse & Ausrüstung) für unsere Partner zu erfassen. Wonach suchen Sie?",
+                chat_welcome: "Hallo! Ich helfe Ihnen beim Erfassen Ihrer Anfrage. Stellen Sie die Anfrage als Privatperson oder als Unternehmen?",
                 chat_placeholder: "Nachricht eingeben...",
                 footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern für Kauf, Miete von LED-Banden und Equipment.",
                 footer_contact_title: "Kontakt & Support",
@@ -481,6 +507,10 @@
                 footer_privacy: "Datenschutz (DSGVO)",
                 footer_cookies: "Cookies",
                 footer_terms: "Vermittlungsbedingungen",
+                btn_physical: "👤 Privatperson",
+                btn_company: "🏢 Unternehmen",
+                btn_buy: "🛒 Kauf",
+                btn_rent: "⏱️ Miete",
                 btn_sports: "🏀 Sport-LED-Banden",
                 btn_screens: "📺 Grosse LED-Bildschirme",
                 btn_fillform: "✨ Daten ins Formular übertragen"
@@ -530,13 +560,13 @@
         }
 
         function resetChat() {
-            chatState = 'ASK_TYPE';
-            userLeadData = { type: '', meters: '', email: '' };
+            chatState = 'ASK_ENTITY';
+            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', extra: '' };
             const container = document.getElementById('chat-messages');
-            container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">${translations[currentLang].chat_welcome}</div>`;
+            container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${translations[currentLang].chat_welcome}</div>`;
             renderQuickReplies([
-                { text: translations[currentLang].btn_sports, action: 'set_type_sports' },
-                { text: translations[currentLang].btn_screens, action: 'set_type_screens' }
+                { text: translations[currentLang].btn_physical, action: 'entity_physical' },
+                { text: translations[currentLang].btn_company, action: 'entity_company' }
             ]);
         }
 
@@ -556,21 +586,68 @@
             const container = document.getElementById('chat-messages');
             container.innerHTML += `<div class="bg-cyan-500/20 border border-cyan-500/30 p-2.5 rounded-xl rounded-tr-none text-slate-200 text-xs max-w-[85%] ml-auto">${label}</div>`;
             
-            if (action === 'set_type_sports' || action === 'set_type_screens') {
-                userLeadData.type = label;
+            if (chatState === 'ASK_ENTITY') {
+                userLeadData.entityType = label;
+                chatState = 'ASK_NAME';
+                setTimeout(() => {
+                    let prompt = currentLang === 'si' ? "Prosim, vpišite vaše ime in priimek ali naziv podjetja:" :
+                                 currentLang === 'en' ? "Please enter your full name or company name:" :
+                                 currentLang === 'hr' ? "Molimo unesite vaše ime i prezime ili naziv tvrtke:" :
+                                 "Bitte geben Sie Ihren Namen oder Firmennamen ein:";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
+                    container.scrollTop = container.scrollHeight;
+                    document.getElementById('chat-quick-replies').innerHTML = '';
+                }, 600);
+            } else if (chatState === 'ASK_TYPE') {
+                userLeadData.dealType = label;
+                chatState = 'ASK_EQUIPMENT';
+                setTimeout(() => {
+                    let prompt = currentLang === 'si' ? "Katero vrsto opreme potrebujete?" :
+                                 currentLang === 'en' ? "What type of equipment do you need?" :
+                                 currentLang === 'hr' ? "Koju vrstu opreme trebate?" :
+                                 "Welche Art von Ausrüstung benötigen Sie?";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
+                    container.scrollTop = container.scrollHeight;
+                    renderQuickReplies([
+                        { text: translations[currentLang].btn_sports, action: 'eq_sports' },
+                        { text: translations[currentLang].btn_screens, action: 'eq_screens' }
+                    ]);
+                }, 600);
+            } else if (chatState === 'ASK_EQUIPMENT') {
+                userLeadData.equipment = label;
                 chatState = 'ASK_METERS';
                 setTimeout(() => {
-                    let promptText = currentLang === 'si' ? "Odlično. Koliko metrov (dolžine oziroma kvadratnih metrov) približno potrebujete?" :
-                                     currentLang === 'en' ? "Great. Approximately how many meters or square meters do you need?" :
-                                     currentLang === 'hr' ? "Odlično. Koliko metara odnosno kvadratnih metara otprilike trebate?" :
-                                     "Ausgezeichnet. Wie viele Meter oder Quadratmeter benötigen Sie ungefähr?";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${promptText}</div>`;
+                    let prompt = currentLang === 'si' ? "Koliko metrov (dolžine oziroma kvadratnih metrov) približno potrebujete?" :
+                                 currentLang === 'en' ? "Approximately how many meters or square meters do you need?" :
+                                 currentLang === 'hr' ? "Koliko metara odnosno kvadratnih metara otprilike trebate?" :
+                                 "Wie viele Meter oder Quadratmeter benötigen Sie ungefähr?";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
                     container.scrollTop = container.scrollHeight;
                     document.getElementById('chat-quick-replies').innerHTML = '';
                 }, 600);
             } else if (action === 'fill_form') {
-                document.getElementById('form-service').value = userLeadData.type.includes('Šport') || userLeadData.type.includes('Sports') || userLeadData.type.includes('Sport') ? "Nakup ali najem športnih LED panojev" : "Nakup ali najem velikih LED ekranov";
-                document.getElementById('form-message').value = `Zbrano preko chatbota:\nVrsta: ${userLeadData.type}\nZahtevani metri/dimenzije: ${userLeadData.meters}`;
+                // Prenos v obrazec
+                document.getElementById('form-name').value = userLeadData.name;
+                document.getElementById('form-email').value = userLeadData.email;
+                
+                // Določitev pravilne opcije v izbirnem seznamu
+                let serviceSelect = document.getElementById('form-service');
+                let targetOptionValue = "";
+                if (userLeadData.dealType.toLowerCase().includes('nakup') || userLeadData.dealType.toLowerCase().includes('purchase') || userLeadData.dealType.toLowerCase().includes('kupnja') || userLeadData.dealType.toLowerCase().includes('kauf')) {
+                    targetOptionValue = userLeadData.equipment.toLowerCase().includes('šport') || userLeadData.equipment.toLowerCase().includes('sport') ? "Nakup športnih LED panojev" : "Nakup velikih LED ekranov";
+                } else {
+                    targetOptionValue = userLeadData.equipment.toLowerCase().includes('šport') || userLeadData.equipment.toLowerCase().includes('sport') ? "Najem športnih LED panojev" : "Najem velikih LED ekranov";
+                }
+                
+                for(let opt of serviceSelect.options) {
+                    if(opt.value === targetOptionValue) {
+                        opt.selected = true;
+                        break;
+                    }
+                }
+
+                document.getElementById('form-message').value = `Status: ${userLeadData.entityType}\nZahtevani metri/dimenzije: ${userLeadData.meters}\nDodatna vprašanja / zahteve stranke: ${userLeadData.extra || 'Brez posebnih dodatnih vprašanj'}`;
+                
                 document.getElementById('chat-window').classList.add('hidden');
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
             }
@@ -587,28 +664,53 @@
             input.value = '';
             container.scrollTop = container.scrollHeight;
 
-            if (chatState === 'ASK_METERS') {
-                userLeadData.meters = msg;
-                chatState = 'READY';
+            if (chatState === 'ASK_NAME') {
+                userLeadData.name = msg;
+                chatState = 'ASK_EMAIL';
                 setTimeout(() => {
-                    let summaryText = currentLang === 'si' ? `Hvala! Zabilježil sem: <b>${userLeadData.type}</b>, količina/metri: <b>${userLeadData.meters}</b>. Želite te podatke takoj prenesti v kontaktni obrazec spodaj?` :
-                                      currentLang === 'en' ? `Thanks! Recorded: <b>${userLeadData.type}</b>, meters: <b>${userLeadData.meters}</b>. Would you like to transfer these details into the contact form below?` :
-                                      currentLang === 'hr' ? `Hvala! Zabilježio sam: <b>${userLeadData.type}</b>, metri: <b>${userLeadData.meters}</b>. Želite li ove podatke prenijeti u kontakt obrazac dolje?` :
-                                      `Danke! Erfasst: <b>${userLeadData.type}</b>, Meter: <b>${userLeadData.meters}</b>. Möchten Sie diese Daten ins Kontaktformular übertragen?`;
-                    
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${summaryText}</div>`;
+                    let prompt = currentLang === 'si' ? "Vpišite vaš e-poštni naslov:" :
+                                 currentLang === 'en' ? "Enter your email address:" :
+                                 currentLang === 'hr' ? "Unesite svoju e-mail adresu:" :
+                                 "Geben Sie Ihre E-Mail-Adresse ein:";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
+                    container.scrollTop = container.scrollHeight;
+                }, 600);
+            } else if (chatState === 'ASK_EMAIL') {
+                userLeadData.email = msg;
+                chatState = 'ASK_TYPE';
+                setTimeout(() => {
+                    let prompt = currentLang === 'si' ? "Ali vas zanima nakup ali najem?" :
+                                 currentLang === 'en' ? "Are you interested in purchase or rental?" :
+                                 currentLang === 'hr' ? "Zanima li vas kupnja ili najam?" :
+                                 "Interessieren Sie sich für Kauf oder Miete?";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
                     container.scrollTop = container.scrollHeight;
                     renderQuickReplies([
-                        { text: translations[currentLang].btn_fillform, action: 'fill_form' }
+                        { text: translations[currentLang].btn_buy, action: 'deal_buy' },
+                        { text: translations[currentLang].btn_rent, action: 'deal_rent' }
                     ]);
-                }, 800);
-            } else {
+                }, 600);
+            } else if (chatState === 'ASK_METERS') {
+                userLeadData.meters = msg;
+                chatState = 'ASK_EXTRA';
                 setTimeout(() => {
-                    let replyText = currentLang === 'si' ? "Razumem. Za točne dimenzije in specifikacije kliknite gumb spodaj za prenos podatkov v obrazec." :
-                                    currentLang === 'en' ? "Understood. For exact measurements and specifications, click below to transfer to the form." :
-                                    currentLang === 'hr' ? "Razumijem. Za točne dimenzije kliknite gumb ispod za prijenos u obrazac." :
-                                    "Verstanden. Klicken Sie unten, um die Daten ins Formular zu übertragen.";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${replyText}</div>`;
+                    let prompt = currentLang === 'si' ? "Imate morda še kakšna dodatna vprašanja, posebne zahteve ali opombe glede lokacije?" :
+                                 currentLang === 'en' ? "Do you have any additional questions, special requests, or location notes?" :
+                                 currentLang === 'hr' ? "Imate li možda još nekih dodatnih pitanja, posebnih zahtjeva ili napomena?" :
+                                 "Haben Sie weitere Fragen, Sonderwünsche oder Standortnotizen?";
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
+                    container.scrollTop = container.scrollHeight;
+                }, 600);
+            } else if (chatState === 'ASK_EXTRA') {
+                userLeadData.extra = msg;
+                chatState = 'READY';
+                setTimeout(() => {
+                    let summary = currentLang === 'si' ? `Hvala! Zbral sem naslednje podatke:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Podjetje: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite spodnji gumb za prenos v obrazec.` :
+                                  currentLang === 'en' ? `Thanks! Collected details:<br>• Type: <b>${userLeadData.entityType}</b><br>• Name/Company: <b>${userLeadData.name}</b><br>• Email: <b>${userLeadData.email}</b><br>• Service: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meters: <b>${userLeadData.meters}</b><br><br>Click below to transfer to the form.` :
+                                  currentLang === 'hr' ? `Hvala! Prikupljeni podaci:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Tvrtka: <b>${userLeadData.name}</b><br>• E-mail: <b>${userLeadData.email}</b><br>• Usluga: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite ispod za prijenos u obrazac.` :
+                                  `Danke! Gesammelte Daten:<br>• Typ: <b>${userLeadData.entityType}</b><br>• Name/Firma: <b>${userLeadData.name}</b><br>• E-Mail: <b>${userLeadData.email}</b><br>• Leistung: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meter: <b>${userLeadData.meters}</b><br><br>Klicken Sie unten zum Übertragen.`;
+                    
+                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${summary}</div>`;
                     container.scrollTop = container.scrollHeight;
                     renderQuickReplies([
                         { text: translations[currentLang].btn_fillform, action: 'fill_form' }
@@ -619,6 +721,39 @@
 
         function handleChatKey(e) {
             if (e.key === 'Enter') sendChatMessage();
+        }
+
+        // Pred pošiljanjem preveri vnose v obrazcu (Validation)
+        function validateForm(e) {
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
+            const message = document.getElementById('form-message').value.trim();
+            const errorDiv = document.getElementById('form-error-msg');
+
+            if (!name || !email || !message) {
+                e.preventDefault();
+                errorDiv.textContent = currentLang === 'si' ? "Prosimo, izpolnite vsa obvezna polja (ime/podjetje, e-pošta in podrobnosti/vprašanja)." :
+                                       currentLang === 'en' ? "Please fill in all mandatory fields (name/company, email, and details/questions)." :
+                                       currentLang === 'hr' ? "Molimo ispunite sva obavezna polja (ime/tvrtka, e-mail i detalji/pitanja)." :
+                                       "Bitte füllen Sie alle Pflichtfelder aus.";
+                errorDiv.classList.remove('hidden');
+                return false;
+            }
+
+            // Preprost pregled e-poštnega naslova
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                errorDiv.textContent = currentLang === 'si' ? "Vneseni e-poštni naslov ni veljaven. Preverite zapis." :
+                                       currentLang === 'en' ? "The entered email address is invalid." :
+                                       currentLang === 'hr' ? "Unesena e-mail adresa nije važeća." :
+                                       "Die eingegebene E-Mail-Adresse ist ungültig.";
+                errorDiv.classList.remove('hidden');
+                return false;
+            }
+
+            errorDiv.classList.add('hidden');
+            return true;
         }
     </script>
 </body>

@@ -168,7 +168,7 @@
                     <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" alt="Backstage" class="w-full h-full object-cover min-h-[350px]">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
                         <h3 class="text-xl font-semibold text-white mb-2" data-i18n="about_box_title">Imate vprašanje ali projekt?</h3>
-                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših podatkov in zahtev ali pa nam pošljite povpraševanje.</p>
+                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših podatkov ali pa nam pošljite povpraševanje.</p>
                         <a href="#contact" class="inline-block text-center px-6 py-3 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="about_box_btn">Stopite v stik</a>
                     </div>
                 </div>
@@ -208,8 +208,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti, metri in dodatna vprašanja</label>
-                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume, zahtevane metre ter če imate kakšna dodatna vprašanja ali posebne zahteve..."></textarea>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
+                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..."></textarea>
                 </div>
                 
                 <!-- Opozorilni napis za validacijo -->
@@ -283,7 +283,7 @@
     <!-- JAVASCRIPT LOGIC & ADVANCED CHATBOT -->
     <script>
         let currentLang = 'si';
-        let chatState = 'ASK_ENTITY'; // ASK_ENTITY, ASK_NAME, ASK_EMAIL, ASK_TYPE, ASK_METERS, ASK_EXTRA, READY
+        let chatState = 'ASK_ENTITY';
         let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', extra: '' };
 
         const translations = {
@@ -320,7 +320,7 @@
                 form_name: "Ime in priimek / Naziv podjetja",
                 form_email: "E-poštni naslov",
                 form_service: "Vrsta storitve in oprema",
-                form_message: "Podrobnosti, metri in dodatna vprašanja",
+                form_message: "Podrobnosti in dodatna vprašanja",
                 form_submit: "Pošlji povpraševanje",
                 opt_buy_sports: "Nakup športnih LED panojev",
                 opt_rent_sports: "Najem športnih LED panojev",
@@ -377,7 +377,7 @@
                 form_name: "Full Name / Company Name",
                 form_email: "Email Address",
                 form_service: "Service Type & Equipment",
-                form_message: "Details, meters and additional questions",
+                form_message: "Details and additional questions",
                 form_submit: "Send Inquiry",
                 opt_buy_sports: "Purchase of Sports LED Boards",
                 opt_rent_sports: "Rental of Sports LED Boards",
@@ -434,7 +434,7 @@
                 form_name: "Ime i prezime / Naziv tvrtke",
                 form_email: "E-mail adresa",
                 form_service: "Vrsta usluge i oprema",
-                form_message: "Detalji, metri i dodatna pitanja",
+                form_message: "Detalji i dodatna pitanja",
                 form_submit: "Pošalji upit",
                 opt_buy_sports: "Kupnja sportskih LED panoa",
                 opt_rent_sports: "Najam sportskih LED panoa",
@@ -450,7 +450,7 @@
                 footer_privacy: "Politika privatnosti (GDPR)",
                 footer_cookies: "Kolačići",
                 footer_terms: "Uvjeti posredništva",
-                btn_physical: "👤 Fizička osoba",
+                btn_physical: "👤 Fizična osoba",
                 btn_company: "🏢 Tvrtka",
                 btn_buy: "🛒 Kupnja",
                 btn_rent: "⏱️ Najem",
@@ -491,7 +491,7 @@
                 form_name: "Name / Firmenname",
                 form_email: "E-Mail-Adresse",
                 form_service: "Dienstleistungsart & Ausrüstung",
-                form_message: "Details, Meter und zusätzliche Fragen",
+                form_message: "Details und zusätzliche Fragen",
                 form_submit: "Anfrage senden",
                 opt_buy_sports: "Kauf von Sport-LED-Banden",
                 opt_rent_sports: "Miete von Sport-LED-Banden",
@@ -630,7 +630,6 @@
                 document.getElementById('form-name').value = userLeadData.name;
                 document.getElementById('form-email').value = userLeadData.email;
                 
-                // Določitev pravilne opcije v izbirnem seznamu
                 let serviceSelect = document.getElementById('form-service');
                 let targetOptionValue = "";
                 if (userLeadData.dealType.toLowerCase().includes('nakup') || userLeadData.dealType.toLowerCase().includes('purchase') || userLeadData.dealType.toLowerCase().includes('kupnja') || userLeadData.dealType.toLowerCase().includes('kauf')) {
@@ -646,7 +645,15 @@
                     }
                 }
 
-                document.getElementById('form-message').value = `Status: ${userLeadData.entityType}\nZahtevani metri/dimenzije: ${userLeadData.meters}\nDodatna vprašanja / zahteve stranke: ${userLeadData.extra || 'Brez posebnih dodatnih vprašanj'}`;
+                // Oblikovanje sporočila z vključenim pozivom za dopisovanje
+                let defaultExtraPrompt = currentLang === 'si' ? "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..." :
+                                         currentLang === 'en' ? "If you have any additional questions or special requests, please write them here..." :
+                                         currentLang === 'hr' ? "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje..." :
+                                         "Wenn Sie weitere Fragen oder Sonderwünsche haben, schreiben Sie diese bitte hier...";
+
+                let userExtraText = (userLeadData.extra && userLeadData.extra !== defaultExtraPrompt) ? userLeadData.extra : "";
+
+                document.getElementById('form-message').value = `Status: ${userLeadData.entityType}\nZahtevani metri/dimenzije: ${userLeadData.meters}\n\nDodatna vprašanja / zahteve stranke:\n${userExtraText || defaultExtraPrompt}`;
                 
                 document.getElementById('chat-window').classList.add('hidden');
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
@@ -705,7 +712,7 @@
                 userLeadData.extra = msg;
                 chatState = 'READY';
                 setTimeout(() => {
-                    let summary = currentLang === 'si' ? `Hvala! Zbral sem naslednje podatke:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Podjetje: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite spodnji gumb za prenos v obrazec.` :
+                    let summary = currentLang === 'si' ? `Hvala! Zbral sam naslednje podatke:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Podjetje: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite spodnji gumb za prenos v obrazec.` :
                                   currentLang === 'en' ? `Thanks! Collected details:<br>• Type: <b>${userLeadData.entityType}</b><br>• Name/Company: <b>${userLeadData.name}</b><br>• Email: <b>${userLeadData.email}</b><br>• Service: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meters: <b>${userLeadData.meters}</b><br><br>Click below to transfer to the form.` :
                                   currentLang === 'hr' ? `Hvala! Prikupljeni podaci:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Tvrtka: <b>${userLeadData.name}</b><br>• E-mail: <b>${userLeadData.email}</b><br>• Usluga: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite ispod za prijenos u obrazac.` :
                                   `Danke! Gesammelte Daten:<br>• Typ: <b>${userLeadData.entityType}</b><br>• Name/Firma: <b>${userLeadData.name}</b><br>• E-Mail: <b>${userLeadData.email}</b><br>• Leistung: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meter: <b>${userLeadData.meters}</b><br><br>Klicken Sie unten zum Übertragen.`;
@@ -723,7 +730,7 @@
             if (e.key === 'Enter') sendChatMessage();
         }
 
-        // Pred pošiljanjem preveri vnose v obrazcu (Validation)
+        // Pred pošiljanjem preveri vnose v obrazec (Validation)
         function validateForm(e) {
             const name = document.getElementById('form-name').value.trim();
             const email = document.getElementById('form-email').value.trim();
@@ -740,7 +747,6 @@
                 return false;
             }
 
-            // Preprost pregled e-poštnega naslova
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 e.preventDefault();

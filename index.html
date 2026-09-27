@@ -208,7 +208,6 @@
             
             <form id="inquiry-form" action="https://formspree.io/f/mbgjvqvp" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
                 <input type="hidden" name="_subject" value="Novo povpraševanje z LEDpanelHub.com">
-                <!-- Formspree Autoresponder nastavitev (samodejni e-poštni odgovor stranki) -->
                 <input type="hidden" name="_autoresponse" value="Hvala za vaše povpraševanje na LEDpanelHub.com! Vaše sporočilo smo uspešno prejeli, ga obdelujemo in vas bomo v najkrajšem možnem času kontaktirali z rešitvijo. Ekipa LEDpanelHub">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -241,7 +240,6 @@
                     <p class="mt-2 text-xs text-cyan-400 font-medium italic" data-i18n="form_missing_hint">V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.</p>
                 </div>
                 
-                <!-- Opozorilni napis za validacijo -->
                 <div id="form-error-msg" class="hidden text-rose-400 text-xs font-semibold bg-rose-500/10 border border-rose-500/20 p-3 rounded-lg"></div>
 
                 <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20" data-i18n="form_submit">Pošlji povpraševanje</button>
@@ -284,12 +282,10 @@
 
     <!-- WHATSAPP QUICK BUTTON & CHATBOT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <!-- WhatsApp Floating Button -->
-        <a href="https://wa.me/" target="_blank" id="whatsapp-btn" class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xl hover:scale-105 transition" title="Kontaktirajte nas preko WhatsAppa">
+        <a href="https://wa.me/" target="_blank" id="whatsapp-btn" class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xl hover:scale-105 transition" title="WhatsApp">
             <i class="fa-brands fa-whatsapp text-2xl"></i>
         </a>
 
-        <!-- Chatbot Toggle -->
         <div>
             <button onclick="toggleChat()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center shadow-2xl hover:scale-105 transition">
                 <i class="fa-solid fa-comment-dots text-2xl"></i>
@@ -312,7 +308,7 @@
                     </div>
                 </div>
                 <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
-                    <!-- Dinamični vnos -->
+                    <!-- Dinamični pogovor -->
                 </div>
                 <div id="chat-quick-replies" class="p-2 bg-slate-950/60 border-t border-slate-800 flex flex-wrap gap-1.5"></div>
                 
@@ -402,54 +398,54 @@
                 top_construction: "Website under construction",
                 nav_services: "Partner Services",
                 nav_about: "About Brokerage",
-                nav_contact: "Contact",
-                nav_cta: "Get a Quote",
-                hero_badge: "Top-tier Network of Verified Suppliers",
-                hero_title: "Reliable Brokerage for Purchase & Rental of LED Displays & Sports Boards",
-                hero_desc: "We connect you with verified technical partners for stadium LED perimeter lines, massive event screens, and complete regional technical logistics.",
-                hero_btn_primary: "Request Partner Offer",
-                hero_btn_secondary: "View Services",
-                services_heading: "What do our verified partners offer?",
-                services_subheading: "Complete turnkey purchase and rental solutions for sports events, concerts, and exhibitions.",
+                nav_contact: "Inquiry",
+                nav_cta: "Submit Inquiry",
+                hero_badge: "Top Network of Verified Providers",
+                hero_title: "Reliable Brokerage for Purchase and Rental of LED Displays & Sports Boards",
+                hero_desc: "We connect you with verified technical partners for perimeter LED lines, large event screens, and complete technical logistics in the region.",
+                hero_btn_primary: "Get Partner Offer",
+                hero_btn_secondary: "View Offers",
+                services_heading: "What Do Our Verified Partners Offer?",
+                services_subheading: "Comprehensive purchase and rental solutions for sports events, concerts, exhibitions, and gatherings.",
                 service_1_title: "Purchase & Rental of Sports LED Boards",
-                service_1_desc: "Purchase or rental of dynamic LED advertising perimeter systems for maximum sponsor visibility at sports arenas.",
+                service_1_desc: "Dynamic pitch-side LED advertising lines for maximum sponsor visibility at football, basketball, and other sporting events.",
                 service_2_title: "Purchase & Rental of Large LED Screens",
-                service_2_desc: "Purchase or rental of high-performance large screens (10 to 100+ sqm) for outdoor and indoor concerts, festivals, and corporate events.",
+                service_2_desc: "High-performance large displays (from 10 to 100+ square meters) for concerts, festivals, cultural, and corporate events.",
                 service_3_title: "Technical Logistics & Operations",
-                service_3_desc: "Reliable partner teams handle transport, professional setup, dismantling, and technical on-site support and content management during the event.",
-                about_heading: "How does our brokerage work?",
-                about_text_1: "As a broker, we save you valuable time searching for the right equipment and vetted providers. We analyze your inquiry and direct it to the most suitable technical partner.",
-                about_text_2: "We ensure smooth coordination, transparency, and execution support, whether for equipment purchase or short-term event rentals.",
-                about_bullet_1: "Fast & non-binding quotes",
-                about_bullet_2: "Verified experienced providers",
+                service_3_desc: "Reliable partner teams handle transport, expert installation, dismantling, technical support, and content management during events.",
+                about_heading: "How Does Our Brokerage Work?",
+                about_text_1: "As a broker, we save you valuable time finding the right equipment and verified providers. We analyze your inquiry and direct it to the most suitable technical partner in our network.",
+                about_text_2: "We ensure smooth coordination, transparency, and support throughout project implementation, whether for equipment purchase or short-term rental.",
+                about_bullet_1: "Fast and non-binding offer",
+                about_bullet_2: "Verified providers with experience",
                 about_bullet_3: "Tailored solutions for purchase or rental",
-                about_box_title: "Have a question or project?",
-                about_box_desc: "Use our smart chatbot below to quickly submit your details or send us a direct inquiry.",
+                about_box_title: "Have a Question or Project?",
+                about_box_desc: "Use our smart chatbot on the bottom right for quick data submission or send us a direct inquiry.",
                 about_box_btn: "Get in Touch",
-                contact_heading: "Submit an Inquiry",
-                contact_subheading: "Fill out the form below and we will forward it to our expert technical partners.",
+                contact_heading: "Submit Your Inquiry",
+                contact_subheading: "Fill out the form below and we will forward it to our technical partners.",
                 form_name: "Full Name / Company Name",
                 form_name_ph: "e.g. John Doe or Company Ltd.",
                 form_email: "Email Address",
                 form_email_ph: "you@email.com",
                 form_service: "Service Type & Equipment",
                 form_file: "Attach sketch, floor plan or blueprint (optional)",
-                form_message: "Details and Additional Questions",
-                form_message_ph: "If you have any additional questions or special requests, please write them here...",
+                form_message: "Details & Additional Questions",
+                form_message_ph: "If you have any additional questions or special requirements, please write them here...",
                 form_missing_hint: "If you forgot to mention anything, you can add it here.",
                 form_submit: "Send Inquiry",
-                opt_buy_sports: "Purchase of Sports LED Boards",
-                opt_rent_sports: "Rental of Sports LED Boards",
-                opt_buy_screens: "Purchase of Large LED Screens",
-                opt_rent_screens: "Rental of Large LED Screens",
+                opt_buy_sports: "Purchase Sports LED Boards",
+                opt_rent_sports: "Rent Sports LED Boards",
+                opt_buy_screens: "Purchase Large LED Screens",
+                opt_rent_screens: "Rent Large LED Screens",
                 opt_logistics: "Complete Technical Execution & Logistics",
                 chat_title: "LEDpanelHub Assistant",
-                chat_welcome: "Hello! I'ل gladly help you prepare an inquiry for our technical partners. Are you inquiring as an individual or a company?",
+                chat_welcome: "Hello! I'm happy to help you prepare an inquiry for our technical partners. Are you submitting as an individual or a company?",
                 chat_placeholder: "Type a message...",
-                footer_about: "Independent international brokerage connecting clients with verified providers of LED purchase, rental, and event equipment.",
+                footer_about: "Independent international brokerage connecting clients and verified providers for LED panels and equipment purchase/rental.",
                 footer_contact_title: "Contact & Support",
                 footer_region: "Region: SI, HR, AT, DE",
-                footer_legal_title: "Legal Information",
+                footer_legal_title: "Legal Notices",
                 footer_privacy: "Privacy Policy (GDPR)",
                 footer_cookies: "Cookies",
                 footer_terms: "Brokerage Terms",
@@ -460,7 +456,7 @@
                 btn_rent: "⏱️ Rental",
                 btn_sports: "🏀 Sports LED Boards",
                 btn_screens: "📺 Large LED Screens",
-                btn_fillform: "✨ Fill Form with Data",
+                btn_fillform: "✨ Transfer data to form",
                 btn_reset: "Reset",
                 toast_success: "Data successfully transferred to the form!",
                 modal_close: "Close"
@@ -470,31 +466,31 @@
                 nav_services: "Usluge partnera",
                 nav_about: "O posredništvu",
                 nav_contact: "Upit",
-                nav_cta: "Pošaljite upit",
+                nav_cta: "Pošalji upit",
                 hero_badge: "Vrhunska mreža provjerenih ponuđača",
-                hero_title: "Pouzdano posredništvo za kupnju i najam LED ekrana i sportskih panoa",
-                hero_desc: "Povezujemo vas s provjerenim tehničkim partnerima za oglasne LED linije uz terene, velike ekrane za priredbe i kompletnu tehničku logistiku.",
-                hero_btn_primary: "Zatražite ponudu partnera",
-                hero_btn_secondary: "Pregledajte ponudu",
+                hero_title: "Pouzdano posredništvo za kupnju i najam LED zaslona i sportskih panoa",
+                hero_desc: "Povezujemo vas s provjerenim tehničkim partnerima za oglasne LED linije na terenima, velike ekrane za događaje i potpunu tehničku logistiku u regiji.",
+                hero_btn_primary: "Zatraži ponudu partnera",
+                hero_btn_secondary: "Pregledaj ponudu",
                 services_heading: "Što nude naši provjereni partneri?",
-                services_subheading: "Cjelovita rješenja za kupnju i najam za sportske događaje, koncerte i sajmove.",
+                services_subheading: "Sveobuhvatna rješenja za kupnju i najam za sportske događaje, koncerte, sajmove i manifestacije.",
                 service_1_title: "Kupnja i najam sportskih LED panoa",
-                service_1_desc: "Kupnja ili najam dinamičnih LED oglasnih linija uz terene za maksimalnu vidljivost sponzora na sportskim utakmicama.",
+                service_1_desc: "Kupnja ili najam dinamičnih oglasnih LED linija uz terene za maksimalnu vidljivost sponzora na nogometnim, košarkaškim i drugim sportskim utakmicama.",
                 service_2_title: "Kupnja i najam velikih LED ekrana",
-                service_2_desc: "Kupnja ili najam visoko učinkovitih velikih ekrana (od 10 do 100+ kvadrata) za koncerte, festivale i korporativna događanja.",
+                service_2_desc: "Kupnja ili najam visokoučinkovitih velikih zaslona (od 10 do 100+ četvornih metara) za koncerte, festivale, kulturna i korporativna događanja.",
                 service_3_title: "Tehnička logistika i operativa",
-                service_3_desc: "Pouzdan tim partnera brine se za transport, stručnu montažu, demontažu te tehničku podršku i upravljanje sadržajem tijekom samog događaja.",
+                service_3_desc: "Pouzdana ekipa partnera brine se za transport, stručnu montažu, demontažu te tehničku podršku i upravljanje sadržajem tijekom samog događaja.",
                 about_heading: "Kako radi naše posredništvo?",
-                about_text_1: "Kao posrednik štedimo vaše dragocjeno vrijeme u potrazi za pravom opremom. Analiziramo vaš upit i usmjeravamo ga najprikladnijem tehničkom partneru.",
-                about_text_2: "Jamčimo glatku koordinaciju i podršku pri realizaciji projekata, bez obzira radi li se o kupnji opreme ili kratkoročnom najmu.",
+                about_text_1: "Kao posrednik štedimo vam dragocjeno vrijeme u traženju pravog dijela opreme i provjerenih izvođača. Analiziramo vaš upit i usmjeravamo ga najprikladnijem tehničkom partneru.",
+                about_text_2: "Jamčimo glatku koordinaciju, transparentnost i podršku u realizaciji projekata, bilo da se radi o kupnji opreme ili kratkoročnom najmu.",
                 about_bullet_1: "Brza i neobvezujuća ponuda",
                 about_bullet_2: "Provjereni ponuđači s iskustvom",
                 about_bullet_3: "Prilagođena rješenja za kupnju ili najam",
                 about_box_title: "Imate pitanje ili projekt?",
-                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brzi unos podataka ili nam pošaljite upit.",
+                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brz unos podataka ili nam pošaljite upit.",
                 about_box_btn: "Stupite u kontakt",
                 contact_heading: "Pošaljite upit",
-                contact_subheading: "Ispunite donji obrazac i proslijedit ćemo ga našim tehničnim partnerima.",
+                contact_subheading: "Ispunite obrazac u nastavku i proslijedit ćemo ga našim tehničkim partnerima.",
                 form_name: "Ime i prezime / Naziv tvrtke",
                 form_name_ph: "npr. Ivan Horvat ili Tvrtka d.o.o.",
                 form_email: "E-mail adresa",
@@ -502,18 +498,18 @@
                 form_service: "Vrsta usluge i oprema",
                 form_file: "Priložite skicu, tlocrt ili nacrt (opcionalni dokument)",
                 form_message: "Detalji i dodatna pitanja",
-                form_message_ph: "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje...",
+                form_message_ph: "Ako imate dodatnih pitanja ili posebnih zahtjeva, molimo upišite ih ovdje...",
                 form_missing_hint: "Ukoliko ste nešto zaboravili napisati, možete dopisati ovdje.",
                 form_submit: "Pošalji upit",
                 opt_buy_sports: "Kupnja sportskih LED panoa",
                 opt_rent_sports: "Najam sportskih LED panoa",
                 opt_buy_screens: "Kupnja velikih LED ekrana",
                 opt_rent_screens: "Najam velikih LED ekrana",
-                opt_logistics: "Kompletna tehnička izvedba i logistika",
+                opt_logistics: "Cjelovita tehnička izvedba i logistika",
                 chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdrav! Rado ću vam pomoći pripremiti upit za naše tehnične partnere. Šaljete li upit kao fizička osoba ili tvrtka?",
+                chat_welcome: "Pozdrav! Rado ću vam pomoći pripremiti upit za naše tehničke partnere. Podnosite li upit kao fizička osoba ili tvrtka?",
                 chat_placeholder: "Upišite poruku...",
-                footer_about: "Neovisno međunarodno posredništvo za povezivanje klijenata i provjerenih pružalaca kupnje, najma LED panoa i opreme.",
+                footer_about: "Neovisno međunarodno posredništvo za povezivanje naručitelja i provjerenih ponuđača kupnje i najma LED panoa i opreme.",
                 footer_contact_title: "Kontakt i podrška",
                 footer_region: "Regija: SI, HR, AT, DE",
                 footer_legal_title: "Pravne obavijesti",
@@ -521,70 +517,70 @@
                 footer_cookies: "Kolačići",
                 footer_terms: "Uvjeti posredništva",
                 footer_rights: "© 2026 LEDpanelHub.com. Sva prava pridržana.",
-                btn_physical: "👤 Fizična osoba",
+                btn_physical: "👤 Fizička osoba",
                 btn_company: "🏢 Tvrtka",
                 btn_buy: "🛒 Kupnja",
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Sportski LED panoi",
                 btn_screens: "📺 Veliki LED ekrani",
                 btn_fillform: "✨ Prenesi podatke u obrazac",
-                btn_reset: "Ispočetka",
+                btn_reset: "Ponovo",
                 toast_success: "Podaci su uspješno preneseni u obrazac!",
                 modal_close: "Zatvori"
             },
             de: {
                 top_construction: "Website im Aufbau",
-                nav_services: "Partnerdienste",
-                nav_about: "Über Vermittlung",
+                nav_services: "Partnerservices",
+                nav_about: "Über das Brokerage",
                 nav_contact: "Anfrage",
-                nav_cta: "Angebot einholen",
+                nav_cta: "Anfrage senden",
                 hero_badge: "Erstklassiges Netzwerk verifizierter Anbieter",
-                hero_title: "Zuverlässige Vermittlung für Kauf & Miete von LED-Displays & Sportbanden",
-                hero_desc: "Wir verbinden Sie mit verifizierten technischen Partnern für Stadion-LED-Banden, große Event-Bildschirme und komplette Logistik.",
-                hero_btn_primary: "Partnerangebot anfordern",
-                hero_btn_secondary: "Angebot ansehen",
+                hero_title: "Zuverlässige Vermittlung für Kauf und Miete von LED-Displays & Sportbanden",
+                hero_desc: "Wir verbinden Sie mit verifizierten technischen Partnern für LED-Banden, Großbildschirme und komplette technische Logistik in der Region.",
+                hero_btn_primary: "Partnerangebot einholen",
+                hero_btn_secondary: "Angebote ansehen",
                 services_heading: "Was bieten unsere verifizierten Partner?",
-                services_subheading: "Komplette schlüsselfertige Lösungen für Kauf und Miete bei Sportevents und Messen.",
-                service_1_title: "Kauf & Miete von Sport-LED-Banden",
-                service_1_desc: "Kauf oder Miete von dynamischen LED-Werbebanden für maximale Sponsorensichtbarkeit bei Sportspielen.",
-                service_2_title: "Kauf & Miete von grossen LED-Bildschirmen",
-                service_2_desc: "Kauf oder Miete von Hochleistungs-Grossbildschirmen (10 bis 100+ m²) für Konzerte, Festivals und Firmenveranstaltungen.",
-                service_3_title: "Technische Logistika & Betrieb",
-                service_3_desc: "Zuverlässige Partnerteams kümmern sich um Transport, professionellen Aufbau, Abbau sowie Vor-Ort-Support während des Events.",
+                services_subheading: "Umfassende Kauf- und Mietlösungen für Sportveranstaltungen, Konzerte, Messen und Events.",
+                service_1_title: "Kauf und Miete von Sport-LED-Banden",
+                service_1_desc: "Dynamische LED-Werbebanden für maximale Sponsorensichtbarkeit bei Fußball-, Basketball- und anderen Sportereignissen.",
+                service_2_title: "Kauf und Miete von großen LED-Bildschirmen",
+                service_2_desc: "Hochleistungsfähige Großdisplays (von 10 bis 100+ qm) für Konzerte, Festivals, Kultur- und Firmenveranstaltungen.",
+                service_3_title: "Technische Logistik und Betrieb",
+                service_3_desc: "Zuverlässige Partnerteams kümmern sich um Transport, fachgerechte Installation, Demontage, technischen Support und Content-Management während der Veranstaltung.",
                 about_heading: "Wie funktioniert unsere Vermittlung?",
-                about_text_1: "Als Vermittler sparen wir Ihnen wertvolle Zeit bei der Suche nach der richtigen Ausrüstung. Wir analysieren Ihre Anfrage und leiten sie an den passenden Partner weiter.",
-                about_text_2: "Wir garantieren reibungslose Koordination und Unterstützung bei der Projektabwicklung – egal ob für den Gerätekauf oder die Kurzzeitmiete.",
-                about_bullet_1: "Schnelle & unverbindliche Angebote",
-                about_bullet_2: "Verifizierte erfahrene Anbieter",
-                about_bullet_3: "Massgeschneiderte Lösungen für Kauf oder Miete",
+                about_text_1: "Als Vermittler sparen wir Ihnen wertvolle Zeit bei der Suche nach der richtigen Ausrüstung und verifizierten Anbietern. Wir analysieren Ihre Anfrage und leiten sie an den passenden technischen Partner weiter.",
+                about_text_2: "Wir garantieren reibungslose Koordination, Transparenz und Unterstützung bei der Projektabwicklung, egal ob Gerätekauf oder kurzfristige Miete.",
+                about_bullet_1: "Schnelles und unverbindliches Angebot",
+                about_bullet_2: "Verifizierte Anbieter mit Erfahrung",
+                about_bullet_3: "Maßgeschneiderte Lösungen für Kauf oder Miete",
                 about_box_title: "Haben Sie eine Frage oder ein Projekt?",
-                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts für eine schnelle Dateneingabe oder senden Sie uns eine Anfrage.",
+                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts für eine schnelle Dateneingabe oder senden Sie uns eine direkte Anfrage.",
                 about_box_btn: "Kontakt aufnehmen",
                 contact_heading: "Anfrage senden",
-                contact_subheading: "Füllen Sie das Formular aus und wir leiten es an unsere technischen Partner weiter.",
-                form_name: "Name / Firmenname",
+                contact_subheading: "Füllen Sie das Formular unten aus und wir leiten es an unsere technischen Partner weiter.",
+                form_name: "Vollständiger Name / Firmenname",
                 form_name_ph: "z.B. Max Mustermann oder Firma GmbH",
                 form_email: "E-Mail-Adresse",
-                form_email_ph: "ihre@email.com",
-                form_service: "Dienstleistungsart & Ausrüstung",
+                form_email_ph: "sie@email.com",
+                form_service: "Art der Dienstleistung & Ausrüstung",
                 form_file: "Skizze, Grundriss oder Plan anhängen (optional)",
-                form_message: "Details und zusätzliche Fragen",
-                form_message_ph: "Wenn Sie weitere Fragen oder Sonderwünsche haben, schreiben Sie diese bitte hier...",
+                form_message: "Details & zusätzliche Fragen",
+                form_message_ph: "Wenn Sie zusätzliche Fragen oder spezielle Anforderungen haben, schreiben Sie diese bitte hier...",
                 form_missing_hint: "Falls Sie etwas vergessen haben, können Sie es hier ergänzen.",
-                form_submit: "Anfrage senden",
+                form_submit: "Anfrage absenden",
                 opt_buy_sports: "Kauf von Sport-LED-Banden",
                 opt_rent_sports: "Miete von Sport-LED-Banden",
-                opt_buy_screens: "Kauf von grossen LED-Bildschirmen",
-                opt_rent_screens: "Miete von grossen LED-Bildschirmen",
-                opt_logistics: "Komplette technische Umsetzung & Logistika",
+                opt_buy_screens: "Kauf von großen LED-Bildschirmen",
+                opt_rent_screens: "Miete von großen LED-Bildschirmen",
+                opt_logistics: "Komplette technische Ausführung & Logistik",
                 chat_title: "LEDpanelHub Assistent",
-                chat_welcome: "Hallo! Ich helfe Ihnen gerne dabei, eine Anfrage für unsere Partner vorzubereiten. Stellen Sie die Anfrage als Privatperson oder als Unternehmen?",
+                chat_welcome: "Hallo! Gerne helfe ich Ihnen, eine Anfrage für unsere technischen Partner vorzubereiten. Reichen Sie als Privatperson oder als Unternehmen ein?",
                 chat_placeholder: "Nachricht eingeben...",
-                footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern für Kauf, Miete von LED-Banden und Equipment.",
+                footer_about: "Unabhängiges internationales Brokerage zur Verbindung von Kunden und verifizierten Anbietern für LED-Paneele und Equipment.",
                 footer_contact_title: "Kontakt & Support",
                 footer_region: "Region: SI, HR, AT, DE",
-                footer_legal_title: "Rechtliches",
-                footer_privacy: "Datenschutz (DSGVO)",
+                footer_legal_title: "Rechtliche Hinweise",
+                footer_privacy: "Datenschutzrichtlinie (GDPR)",
                 footer_cookies: "Cookies",
                 footer_terms: "Vermittlungsbedingungen",
                 footer_rights: "© 2026 LEDpanelHub.com. Alle Rechte vorbehalten.",
@@ -593,70 +589,218 @@
                 btn_buy: "🛒 Kauf",
                 btn_rent: "⏱️ Miete",
                 btn_sports: "🏀 Sport-LED-Banden",
-                btn_screens: "📺 Grosse LED-Bildschirme",
-                btn_fillform: "✨ Daten ins Formular übertragen",
-                btn_reset: "Neu",
+                btn_screens: "📺 Große LED-Bildschirme",
+                btn_fillform: "✨ Daten in Formular übertragen",
+                btn_reset: "Zurücksetzen",
                 toast_success: "Daten erfolgreich in das Formular übertragen!",
-                modal_close: "Schliessen"
+                modal_close: "Schließen"
             }
         };
 
+        function setLanguage(lang) {
+            currentLang = lang;
+            ['si', 'en', 'hr', 'de'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if(l === lang) {
+                    btn.className = "px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition";
+                } else {
+                    btn.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if(translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        }
+
+        // Chatbot logika
+        let chatOpen = false;
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            chatOpen = !chatOpen;
+            if(chatOpen) {
+                win.classList.remove('hidden');
+                if(document.getElementById('chat-messages').children.length === 0) {
+                    initChat();
+                }
+            } else {
+                win.classList.add('hidden');
+            }
+        }
+
+        function resetChat() {
+            chatState = 'ASK_ENTITY';
+            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', country: '', address: '', extra: '' };
+            document.getElementById('chat-messages').innerHTML = '';
+            initChat();
+        }
+
+        function appendMessage(sender, text) {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = sender === 'bot' ? 'flex justify-start' : 'flex justify-end';
+            div.innerHTML = `<div class="${sender === 'bot' ? 'bg-slate-800 text-slate-200 border border-slate-700' : 'bg-cyan-500 text-slate-950 font-medium'} rounded-2xl px-4 py-2.5 max-w-[85%] text-xs leading-relaxed">${text}</div>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function setQuickReplies(buttons) {
+            const container = document.getElementById('chat-quick-replies');
+            container.innerHTML = '';
+            buttons.forEach(btn => {
+                const b = document.createElement('button');
+                b.className = "bg-slate-900 border border-slate-800 hover:border-cyan-500 text-cyan-400 text-xs px-3 py-1.5 rounded-lg transition font-medium";
+                b.textContent = btn.text;
+                b.onclick = () => btn.action();
+                container.appendChild(b);
+            });
+        }
+
+        function updateStepper(step) {
+            document.getElementById('chat-stepper').textContent = `Korak ${step} od 7`;
+        }
+
+        function initChat() {
+            updateStepper(1);
+            appendMessage('bot', translations[currentLang].chat_welcome);
+            setQuickReplies([
+                { text: translations[currentLang].btn_physical, action: () => handleChatChoice('Fizična oseba') },
+                { text: translations[currentLang].btn_company, action: () => handleChatChoice('Podjetje') }
+            ]);
+        }
+
+        function handleChatChoice(val) {
+            appendMessage('user', val);
+            userLeadData.entityType = val;
+            chatState = 'ASK_NAME';
+            updateStepper(2);
+            appendMessage('bot', currentLang === 'si' ? "Prosim, vpišite vaše ime in priimek ali naziv podjetja:" : "Please enter your full name or company name:");
+            setQuickReplies([]);
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const val = input.value.trim();
+            if(!val) return;
+            input.value = '';
+            processChatInput(val);
+        }
+
+        function handleChatKey(e) {
+            if(e.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function processChatInput(val) {
+            appendMessage('user', val);
+            if(chatState === 'ASK_NAME') {
+                userLeadData.name = val;
+                chatState = 'ASK_EMAIL';
+                updateStepper(3);
+                appendMessage('bot', currentLang === 'si' ? "Odlično. Vpišite vaš e-poštni naslov za kontakt:" : "Great. Please enter your email address for contact:");
+            } else if(chatState === 'ASK_EMAIL') {
+                userLeadData.email = val;
+                chatState = 'ASK_DEAL';
+                updateStepper(4);
+                appendMessage('bot', currentLang === 'si' ? "Ali vas zanima nakup ali najem opreme?" : "Are you interested in purchase or rental?");
+                setQuickReplies([
+                    { text: translations[currentLang].btn_buy, action: () => processChatInput('Nakup') },
+                    { text: translations[currentLang].btn_rent, action: () => processChatInput('Najem') }
+                ]);
+            } else if(chatState === 'ASK_DEAL') {
+                userLeadData.dealType = val;
+                chatState = 'ASK_EQUIPMENT';
+                updateStepper(5);
+                appendMessage('bot', currentLang === 'si' ? "Katera vrsta opreme vas zanima?" : "What type of equipment are you interested in?");
+                setQuickReplies([
+                    { text: translations[currentLang].btn_sports, action: () => processChatInput('Športni LED panoji') },
+                    { text: translations[currentLang].btn_screens, action: () => processChatInput('Veliki LED ekrani') }
+                ]);
+            } else if(chatState === 'ASK_EQUIPMENT') {
+                userLeadData.equipment = val;
+                chatState = 'ASK_METERS';
+                updateStepper(6);
+                appendMessage('bot', currentLang === 'si' ? "Kakšna je okvirna površina v m2 ali dolžina v metrih?" : "What is the approximate surface area in m2 or length in meters?");
+                setQuickReplies([]);
+            } else if(chatState === 'ASK_METERS') {
+                userLeadData.meters = val;
+                chatState = 'ASK_EXTRA';
+                updateStepper(7);
+                appendMessage('bot', currentLang === 'si' ? "Ali imate še kakšno dodatno opombo ali specifikacijo?" : "Do you have any additional notes or specifications?");
+                setQuickReplies([]);
+            } else if(chatState === 'ASK_EXTRA') {
+                userLeadData.extra = val;
+                chatState = 'DONE';
+                document.getElementById('chat-stepper').textContent = "Zaključeno";
+                appendMessage('bot', currentLang === 'si' ? "Hvala! Zbrali smo vse podatke. Podatke lahko sedaj neposredno prenesete v uradni kontaktni obrazec." : "Thank you! We have collected all details. You can now transfer data directly to the official contact form.");
+                setQuickReplies([
+                    { text: translations[currentLang].btn_fillform, action: () => transferChatToForm() }
+                ]);
+            }
+        }
+
+        function transferChatToForm() {
+            document.getElementById('form-name').value = userLeadData.name;
+            document.getElementById('form-email').value = userLeadData.email;
+            document.getElementById('form-message').value = `[Preko asistenta]\nTip: ${userLeadData.entityType}\nNakup/Najem: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nKoličina/Metri: ${userLeadData.meters}\nOpomba: ${userLeadData.extra}`;
+            
+            toggleChat();
+            window.location.href = '#contact';
+            
+            const toast = document.getElementById('toast-notification');
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 4000);
+        }
+
+        // Form validacija
+        function validateForm(e) {
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
+            const msg = document.getElementById('form-message').value.trim();
+            const errBox = document.getElementById('form-error-msg');
+
+            if(!name || !email || !msg) {
+                e.preventDefault();
+                errBox.classList.remove('hidden');
+                errBox.textContent = currentLang === 'si' ? "Prosimo, izpolnite vsa obvezna polja!" : "Please fill in all required fields!";
+                return false;
+            }
+            errBox.classList.add('hidden');
+            return true;
+        }
+
+        // Pravni dokumenti modal
         const legalTexts = {
-            si: {
-                privacy: {
-                    title: "Politika zasebnosti in varstvo podatkov (GDPR)",
-                    content: "Na spletni strani LEDpanelHub.com spoštujemo vašo zasebnost. Preko kontaktnega obrazca in pametnega klepetalnika zbiramo le nujno potrebne podatke (ime, e-pošta, lokacija dogodka in specifikacije opreme), izključno z namenom posredovanja vašega povpraševanja ustreznim tehničnim partnerjem v naši mreži. Vaši podatki se ne delijo z tretjimi osebami za trženjske namene."
-                },
-                cookies: {
-                    title: "Politika piškotkov",
-                    content: "Spletna stran uporablja nujne tehnične piškotke za zagotavljanje delovanja in izbiro jezika (SI, EN, HR, DE). Analitičnih ali sledilnih piškotkov tretjih oseb ne nameščamo brez vaše privolitve."
-                },
-                terms: {
-                    title: "Pogoji posredništva",
-                    content: "LEDpanelHub.com deluje izključno kot neodvisno mednarodno posredništvo, ki povezuje naročnike in preverjene ponudnike ter izvajalce tehnične opreme. Oddaja povpraševanja je neobvezujoča, končne pogodbe, dobavne roke in pogoje pa naročnik sklene neposredno s izbranim tehničnim partnerjem."
-                }
+            privacy: {
+                si: { title: "Politika zasebnosti (GDPR)", content: "Vašo zasebnost jemljemo resno. Vsi posredovani podatki preko kontaktnega obrazca ali asistenta se uporabljajo izključno za namene posredovanja ponudb naših tehničnih partnerjev v skladu z veljavno uredbo GDPR." },
+                en: { title: "Privacy Policy (GDPR)", content: "We take your privacy seriously. All data submitted via the contact form or assistant is used exclusively for forwarding offers from our technical partners in accordance with GDPR regulations." },
+                hr: { title: "Politika privatnosti (GDPR)", content: "Vašu privatnost shvaćamo ozbiljno. Svi podaci poslani putem obrasca ili asistenta koriste se isključivo u svrhe prosljeđivanja ponuda naših tehničkih partnera sukladno GDPR-u." },
+                de: { title: "Datenschutzrichtlinie (GDPR)", content: "Wir nehmen Ihre Privatsphäre ernst. Alle über das Kontaktformular oder den Assistenten übermittelten Daten werden ausschließlich zur Weiterleitung von Angeboten unserer technischen Partner gemäß DSGVO verwendet." }
             },
-            en: {
-                privacy: {
-                    title: "Privacy Policy & GDPR",
-                    content: "At LEDpanelHub.com, we respect your privacy. Through our contact form and chatbot, we collect only necessary data (name, email, event location, and equipment specs) solely to forward your inquiry to verified technical partners in our network."
-                },
-                cookies: {
-                    title: "Cookie Policy",
-                    content: "The website uses essential technical cookies required for proper rendering and language preferences (SI, EN, HR, DE). No invasive tracking cookies are used."
-                },
-                terms: {
-                    title: "Brokerage Terms",
-                    content: "LEDpanelHub.com operates strictly as an independent international brokerage connecting clients with verified technical equipment providers. Submitting an inquiry is non-binding."
-                }
+            cookies: {
+                si: { title: "Politika piškotkov", content: "Spletna stran uporablja nujne piškotke za zagotavljanje delovanja in analitiko obiska za izboljšanje uporabniške izkušnje." },
+                en: { title: "Cookie Policy", content: "The website uses essential cookies to ensure functionality and visit analytics to improve user experience." },
+                hr: { title: "Politika kolačića", content: "Web stranica koristi nužne kolačiće za osiguravanje rada i analitiku posjeta radi poboljšanja korisničkog iskustva." },
+                de: { title: "Cookie-Richtlinie", content: "Die Website verwendet essentielle Cookies zur Gewährleistung der Funktionalität und Besucheranalysen zur Verbesserung der User Experience." }
             },
-            hr: {
-                privacy: {
-                    title: "Politika privatnosti i GDPR",
-                    content: "Na web stranici LEDpanelHub.com poštujemo vašu privatnost. Preko kontaktnog obrasca i chatbota prikupljamo samo nužne podatke (ime, e-mail, lokacija događaja i specifikacije) isključivo u svrhu prosljeđivanja vašeg upita provjerenim tehničkim partnerima."
-                },
-                cookies: {
-                    title: "Politika kolačića",
-                    content: "Stranica koristi nužne tehničke kolačiće za ispravan rad i spremanje odabranog jezika (SI, EN, HR, DE)."
-                },
-                terms: {
-                    title: "Uvjeti posredništva",
-                    content: "LEDpanelHub.com djeluje isključivo kao neovisno međunarodno posredništvo koje povezuje naručitelje i provjerene ponuđače tehničke opreme. Slanje upita je neobvezujuće."
-                }
-            },
-            de: {
-                privacy: {
-                    title: "Datenschutzbestimmungen (DSGVO)",
-                    content: "Auf LEDpanelHub.com respektieren wir Ihre Privatsphäre. Über unser Kontaktformular und den Chatbot erheben wir nur die unbedingt erforderlichen Daten zur Weiterleitung an verifizierte technische Partner."
-                },
-                cookies: {
-                    title: "Cookie-Richtlinie",
-                    content: "Die Website verwendet essenzielle technische Cookies für die ordnungsgemäße Funktion und Spracheinstellungen (SI, EN, HR, DE)."
-                },
-                terms: {
-                    title: "Vermittlungsbedingungen",
-                    content: "LEDpanelHub.com agiert ausschließlich als unabhängige internationale Vermittlungsplattform zwischen Kunden und verifizierten technischen Anbietern."
-                }
+            terms: {
+                si: { title: "Pogoji posredništva", content: "LEDpanelHub.com deluje izključno kot neodvisno mednarodno posredništvo. Ne jamčimo za neposredne dobavne roke tretjih oseb, temveč skrbno povezujemo naročnike s preverjenimi izvajalci." },
+                en: { title: "Brokerage Terms", content: "LEDpanelHub.com operates exclusively as an independent international brokerage. We do not guarantee direct third-party delivery times, but carefully connect clients with verified providers." },
+                hr: { title: "Uvjeti posredništva", content: "LEDpanelHub.com djeluje isključivo kao neovisno međunarodno posredništvo. Ne jamčimo za izravne rokove isporuke trećih strana, već pažljivo povezujemo klijente s provjerenim izvođačima." },
+                de: { title: "Vermittlungsbedingungen", content: "LEDpanelHub.com agiert ausschließlich als unabhängiges internationales Brokerage. Wir garantieren keine direkten Lieferzeiten Dritter, sondern verbinden Kunden sorgfältig mit verifizierten Anbietern." }
             }
         };
 
@@ -664,1077 +808,15 @@
             const modal = document.getElementById('legal-modal');
             const titleEl = document.getElementById('modal-title');
             const bodyEl = document.getElementById('modal-body');
-            
-            const data = legalTexts[currentLang][type];
-            titleEl.textContent = data.title;
-            bodyEl.innerHTML = `<p>${data.content}</p>`;
+
+            const item = legalTexts[type][currentLang];
+            titleEl.textContent = item.title;
+            bodyEl.innerHTML = `<p>${item.content}</p>`;
             modal.classList.remove('hidden');
         }
 
         function closeLegalModal() {
             document.getElementById('legal-modal').classList.add('hidden');
-        }
-
-        function updateStepper(step) {
-            const stepperEl = document.getElementById('chat-stepper');
-            const totalSteps = 7;
-            let stepTexts = {
-                si: `Korak ${step} od ${totalSteps}`,
-                en: `Step ${step} of ${totalSteps}`,
-                hr: `Korak ${step} od ${totalSteps}`,
-                de: `Schritt ${step} von ${totalSteps}`
-            };
-            stepperEl.textContent = stepTexts[currentLang];
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast-notification');
-            document.getElementById('toast-text').textContent = message;
-            toast.classList.remove('translate-x-full');
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 4000);
-        }
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholderTukaj je posodobljena koda, ki vključuje obe zahtevani poslovno-pravni novosti neposredno v kodo strani:
-
-1. **Modalno okno za pravne dokumente (GDPR / Politika zasebnosti in Pogoji):** V nogi strani (footerju) so povezave sedaj interaktivne – ko uporabnik klikne nanje, se mu odpre lepo urejeno modalno okno z vsemi obveznimi pravnimi določili in GDPR informacijami (prilagojeno za več jezikov).
-2. **Obvestilo / modalno okno o uspešni oddaji (Avtomatski odzivnik):** Dodan je sistem, ki po oddaji obrazca (preko Formspree-ja) uporabniku takoj prikaže uradno potrditev in simulacijo avtomatskega e-poštnega sporočila z zahvalo (*"Hvala za vaše povpraševanje, vaš primer obravnavamo..."*).
-
-Tukaj je celotna koda:
-
-```html
-<!DOCTYPE html>
-<html lang="si">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEDpanelHub.com | Mednarodno posredništvo LED zaslonov in športnih panojev</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-    <style>
-        @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
-
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast-notification" class="fixed top-20 right-6 z-50 transform translate-x-full transition-transform duration-300 bg-emerald-500 text-slate-950 px-6 py-3 rounded-xl shadow-2xl font-bold flex items-center gap-3 text-sm">
-        <i class="fa-solid fa-circle-check text-base"></i>
-        <span id="toast-text" data-i18n="toast_success">Podatki so bili uspešno preneseni v obrazec!</span>
-    </div>
-
-    <!-- MODAL ZA PRAVNE DOKUMENTE (GDPR) -->
-    <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
-            <div class="p-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
-                <h3 id="modal-title" class="font-bold text-white text-base">Pravno obvestilo</h3>
-                <button onclick="closeLegalModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <div id="modal-content" class="p-6 overflow-y-auto text-sm text-slate-300 space-y-4 leading-relaxed">
-                <!-- Dinamična vsebina -->
-            </div>
-            <div class="p-4 bg-slate-950 border-t border-slate-800 text-right">
-                <button onclick="closeLegalModal()" class="px-5 py-2 bg-cyan-500 text-slate-950 font-semibold rounded-xl text-xs hover:bg-cyan-400 transition" data-i18n="modal_close">Zapri</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL ZA AVTOMATSKI ODZIVNIK (AUTO-RESPONDER SUCCESS) -->
-    <div id="autoresponder-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden p-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-4 text-2xl">
-                <i class="fa-solid fa-paper-plane"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2" data-i18n="ar_title">Povpraševanje je bilo uspešno poslano!</h3>
-            <p class="text-slate-400 text-sm mb-6" data-i18n="ar_desc">
-                Hkrati smo vam poslali avtomatsko potrditev na vaš e-poštni naslov:
-            </p>
-            <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl text-left text-xs text-slate-300 mb-6 space-y-2 font-mono">
-                <p class="text-cyan-400 font-bold" data-i18n="ar_subject">Zadeva: Hvala za vaše povpraševanje – LEDpanelHub</p>
-                <p data-i18n="ar_body">"Hvala za vaše povpraševanje, vaš primer obravnavamo in vas kontaktiramo v najkrajšem možnem času."</p>
-            </div>
-            <button onclick="closeAutoresponderModal()" class="w-full py-3 bg-cyan-500 text-slate-950 font-bold rounded-xl text-sm hover:bg-cyan-400 transition" data-i18n="ar_btn">Nazaj na stran</button>
-        </div>
-    </div>
-
-    <!-- TOP NOTICE: UNDER CONSTRUCTION -->
-    <div class="bg-cyan-500 text-slate-950 py-2 px-4 text-center text-xs font-bold tracking-wide uppercase flex items-center justify-center gap-2 shadow-sm">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span data-i18n="top_construction">Stran je v izdelavi</span>
-    </div>
-
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                    <i class="fa-solid fa-display text-white text-lg"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-white">LEDpanel<span class="text-cyan-400">Hub</span></span>
-            </a>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-cyan-400 transition" data-i18n="nav_services">Storitve partnerjev</a>
-                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav_about">O posredništvu</a>
-                <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Povpraševanje</a>
-            </nav>
-
-            <!-- Language Switcher & CTA -->
-            <div class="flex items-center gap-4">
-                <div class="flex bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs font-medium">
-                    <button onclick="setLanguage('si')" id="btn-si" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition">SI</button>
-                    <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">EN</button>
-                    <button onclick="setLanguage('hr')" id="btn-hr" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">HR</button>
-                    <button onclick="setLanguage('de')" id="btn-de" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">DE</button>
-                </div>
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="nav_cta">Oddaj povpraševanje</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="relative pt-24 pb-28 overflow-hidden border-b border-slate-900">
-        <div class="absolute inset-0 z-0">
-            <img src="[https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=2000&q=80](https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=2000&q=80)" alt="Concert LED screen stage" class="w-full h-full object-cover object-center opacity-25">
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
-                <i class="fa-solid fa-network-wired"></i> <span data-i18n="hero_badge">Vrhunska mreža preverjenih ponudnikov</span>
-            </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight" data-i18n="hero_title">
-                Zanesljivo posredništvo za nakup in najem LED zaslonov ter športnih panojev
-            </h1>
-            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="hero_desc">
-                Povezujemo vas s preverjenimi tehničnimi partnerji za oglasne LED linije na igriščih, velike ekrane za prireditve ter popolno tehnično logistiko v regiji.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-xl shadow-cyan-500/20" data-i18n="hero_btn_primary">
-                    Pridobi ponudbo partnerja
-                </a>
-                <a href="#services" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-slate-900/80 backdrop-blur border border-slate-700 text-white hover:bg-slate-800 transition" data-i18n="hero_btn_secondary">
-                    Preglej ponudbo
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-slate-900/40 border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="services_heading">Kaj ponujajo naši preverjeni partnerji?</h2>
-                <p class="mt-4 text-slate-400 text-lg" data-i18n="services_subheading">Celovite rešitve za nakup in najem za športne dogodke, koncerte, sejme in prireditve.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="[https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80)" alt="Sports LED boards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-rectangle-ad"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_1_title">Nakup in najem športnih LED panojev</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_1_desc">
-                                Nakup ali najem dinamičnih oglasnih LED linij ob igriščih za največjo vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih tekmah.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="[https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80)" alt="Large LED screens" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-tv"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_2_title">Nakup in najem velikih LED ekranov</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_2_desc">
-                                Nakup ali najem visoko zmogljivih velikih zaslonov (od 10 do 100+ kvadratnih metrov) za koncerte, festivale, kulturne in korporativne dogodke.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="[https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80)" alt="Logistics" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-truck-fast"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_3_title">Tehnična logistika in operativa</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_3_desc">
-                                Zanesljiva ekipa partnerjev poskrbi za transport, strokovno postavitev, demontažo ter tehnično podporo in upravljanje vsebin med samim dogodkom.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT BROKER ROLE -->
-    <section id="about" class="py-24 border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6" data-i18n="about_heading">Kako deluje naše posredništvo?</h2>
-                    <p class="text-slate-400 leading-relaxed mb-4" data-i18n="about_text_1">
-                        Kot posrednik vam prihranimo dragocen čas pri iskanju prave opreme in preverjenih izvajalcev. Vaše povpraševanje analiziramo in ga usmerimo k najustreznejšemu tehničnemu partnerju v naši mreži.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed mb-6" data-i18n="about_text_2">
-                        Zagotavljamo gladko koordinacijo, preglednost in podporo pri realizaciji projektov, ne glede na to, ali gre za nakup opreme ali kratkoročni najem za dogodek.
-                    </p>
-                    <ul class="space-y-3 text-sm text-slate-300 font-medium">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_1">Hitra in neobvezujoča ponudba</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_2">Preverjeni ponudniki z izkušnjami</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_3">Prilagojene rešitve za nakup ali najem</span></li>
-                    </ul>
-                </div>
-                <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
-                    <img src="[https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80)" alt="Backstage" class="w-full h-full object-cover min-h-[350px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
-                        <h3 class="text-xl font-semibold text-white mb-2" data-i18n="about_box_title">Imate vprašanje ali projekt?</h3>
-                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših podatkov ali pa nam pošljite povpraševanje.</p>
-                        <a href="#contact" class="inline-block text-center px-6 py-3 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="about_box_btn">Stopite v stik</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT FORM SECTION (FORMSPREE) WITH FILE UPLOAD -->
-    <section id="contact" class="py-24 bg-slate-900/40">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="contact_heading">Oddajte povpraševanje</h2>
-                <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.</p>
-            </div>
-            
-            <form id="inquiry-form" action="[https://formspree.io/f/mbgjvqvp](https://formspree.io/f/mbgjvqvp)" method="POST" enctype="multipart/form-data" onsubmit="return handleFormSubmit(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
-                <input type="hidden" name="_subject" value="Novo povpraševanje z LEDpanelHub.com">
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Naziv podjetja</label>
-                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_name_ph" placeholder="npr. Janez Novak ali Podjetje d.o.o.">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_email_ph" placeholder="vas@email.com">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve in oprema</label>
-                    <select id="form-service" name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
-                        <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
-                        <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
-                        <option value="Nakup velikih LED ekranov" data-i18n="opt_buy_screens">Nakup velikih LED ekranov</option>
-                        <option value="Najem velikih LED ekranov" data-i18n="opt_rent_screens">Najem velikih LED ekranov</option>
-                        <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_logistics">Celovita tehnična izvedba in logistika</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_file">Priložite skico, tloris ali načrt (opcijski dokument)</label>
-                    <input type="file" name="attachment" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-cyan-500 file:text-slate-950 hover:file:bg-cyan-400 transition">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
-                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_message_ph" placeholder="Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..."></textarea>
-                    <p class="mt-2 text-xs text-cyan-400 font-medium italic" data-i18n="form_missing_hint">V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.</p>
-                </div>
-                
-                <!-- Opozorilni napis za validacijo -->
-                <div id="form-error-msg" class="hidden text-rose-400 text-xs font-semibold bg-rose-500/10 border border-rose-500/20 p-3 rounded-lg"></div>
-
-                <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20" data-i18n="form_submit">Pošlji povpraševanje</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-900 bg-slate-950 py-12 text-sm text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white">
-                        <i class="fa-solid fa-display text-sm"></i>
-                    </div>
-                    <span class="text-lg font-bold text-white">LEDpanelHub.com</span>
-                </div>
-                <p class="text-xs text-slate-500 leading-relaxed" data-i18n="footer_about">
-                    Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.
-                </p>
-            </div>
-            <div>
-                <h4 class="font-semibold text-white mb-3 text-xs uppercase tracking-wider" data-i18n="footer_contact_title">Kontakt in podpora</h4>
-                <p class="text-xs text-slate-400 mb-1"><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> ledpanelhub.info@gmail.com</p>
-                <p class="text-xs text-slate-400"><i class="fa-solid fa-globe text-cyan-400 mr-2"></i> <span data-i18n="footer_region">Regija: SI, HR, AT, DE</span></p>
-            </div>
-            <div>
-                <h4 class="font-semibold text-white mb-3 text-xs uppercase tracking-wider" data-i18n="footer_legal_title">Pravna obvestila</h4>
-                <ul class="space-y-1 text-xs">
-                    <li><a href="#" onclick="openLegal('privacy')" class="hover:text-cyan-400 transition" data-i18n="footer_privacy">Politika zasebnosti (GDPR)</a></li>
-                    <li><a href="#" onclick="openLegal('cookies')" class="hover:text-cyan-400 transition" data-i18n="footer_cookies">Piškotki</a></li>
-                    <li><a href="#" onclick="openLegal('terms')" class="hover:text-cyan-400 transition" data-i18n="footer_terms">Pogoji posredništva</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900/80 pt-6 text-center text-xs text-slate-600" data-i18n="footer_rights">
-            &copy; 2026 LEDpanelHub.com. Vse pravice pridržane.
-        </div>
-    </footer>
-
-    <!-- WHATSAPP QUICK BUTTON & CHATBOT WIDGET -->
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <!-- WhatsApp Floating Button -->
-        <a href="[https://wa.me/](https://wa.me/)" target="_blank" id="whatsapp-btn" class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xl hover:scale-105 transition" title="Kontaktirajte nas preko WhatsAppa">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-        </a>
-
-        <!-- Chatbot Toggle -->
-        <div>
-            <button onclick="toggleChat()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center shadow-2xl hover:scale-105 transition">
-                <i class="fa-solid fa-comment-dots text-2xl"></i>
-            </button>
-
-            <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[560px]">
-                <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-                            <span class="font-semibold text-white text-sm" data-i18n="chat_title">LEDpanelHub Asistent</span>
-                        </div>
-                        <div id="chat-stepper" class="text-[10px] text-cyan-400 font-medium mt-0.5">Korak 1 od 7</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="resetChat()" class="text-xs text-slate-400 hover:text-cyan-400 transition bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg flex items-center gap-1" title="Začni znova">
-                            <i class="fa-solid fa-rotate-right"></i> <span data-i18n="btn_reset">Znova</span>
-                        </button>
-                        <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                </div>
-                <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
-                    <!-- Dinamični vnos -->
-                </div>
-                <div id="chat-quick-replies" class="p-2 bg-slate-950/60 border-t border-slate-800 flex flex-wrap gap-1.5"></div>
-                
-                <div class="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
-                    <input type="text" id="chat-input" onkeypress="handleChatKey(event)" data-i18n-placeholder="chat_placeholder" placeholder="Vpišite sporočilo..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500">
-                    <button onclick="sendChatMessage()" class="px-4 py-2 bg-cyan-500 text-slate-950 font-semibold rounded-xl text-sm hover:bg-cyan-400 transition"><i class="fa-solid fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        let currentLang = 'si';
-        let chatState = 'ASK_ENTITY';
-        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', country: '', address: '', extra: '' };
-
-        const legalTexts = {
-            si: {
-                privacy: {
-                    title: "Politika zasebnosti in varstvo podatkov (GDPR)",
-                    body: "<p><b>1. Upravljavec podatkov:</b><br>LEDpanelHub.com deluje kot neodvisno posredništvo. Zbrane osebne podatke preko kontaktnega obrazca in klepetalnika uporabljamo izključno za namene posredovanja ponudb ustreznim tehničnim partnerjem.</p><p><b>2. Vrsta zbranih podatkov:</b><br>Zbiramo ime/naziv, e-poštni naslov, lokacijo dogodka in tehnične zahteve, ki jih posredujete prostovoljno.</p><p><b>3. Vaše pravice:</b><br>Kadarkoli lahko zahtevate vpogled, izbris ali popravek vaših osebnih podatkov z obvestilom na naš e-poštni naslov.</p>"
-                },
-                cookies: {
-                    title: "Politika piškotkov",
-                    body: "<p>Spletna stran uporablja nujne piškotke za delovanje sej in izbiro jezika. Ne sledimo osebno občutljivih podatkov za trženjske zbirke tretjih oseb.</p>"
-                },
-                terms: {
-                    title: "Pogoji posredništva",
-                    body: "<p><b>1. Vloga posrednika:</b><br>LEDpanelHub.com je posrednik med naročnikom in izvajalci tehnične opreme. Ne prevzemamo neposredne garancije za izvedbo pogodb s strani izbranih pogodbenih partnerjev, temveč skrbimo za kakovostno povezovanje.</p><p><b>2. Neobvezujoča povpraševanja:</b><br>Oddaja povpraševanja je popolnoma brezplačna in neobvezujoča za obe strani.</p>"
-                }
-            },
-            en: {
-                privacy: {
-                    title: "Privacy Policy & GDPR",
-                    body: "<p><b>1. Data Controller:</b><br>LEDpanelHub.com operates as an independent brokerage. Collected personal data is used solely for forwarding inquiries to verified technical partners.</p><p><b>2. Data Collected:</b><br>We collect names, email addresses, event locations, and specifications provided voluntarily.</p><p><b>3. Your Rights:</b><br>You may request data access, correction, or deletion at any time via email.</p>"
-                },
-                cookies: {
-                    title: "Cookie Policy",
-                    body: "<p>Our website uses essential cookies for session management and language preferences.</p>"
-                },
-                terms: {
-                    title: "Brokerage Terms",
-                    body: "<p><b>1. Broker Role:</b><br>LEDpanelHub.com connects clients with technical providers. We facilitate introductions but operational contracts are formed directly with partners.</p>"
-                }
-            },
-            hr: {
-                privacy: {
-                    title: "Politika privatnosti (GDPR)",
-                    body: "<p><b>1. Voditelj obrade:</b><br>LEDpanelHub.com djeluje kao neovisno posredništvo. Osobni podaci prikupljeni putem obrasca koriste se isključivo za prosljeđivanje upita partnerima.</p><p><b>2. Vaša prava:</b><br>U svakom trenutku možete zatražiti uvid ili brisanje vaših podataka.</p>"
-                },
-                cookies: {
-                    title: "Politika kolačića",
-                    body: "<p>Stranica koristi nužne kolačiće za ispravan rad i odabir jezika.</p>"
-                },
-                terms: {
-                    title: "Uvjeti posredništva",
-                    body: "<p><b>1. Uloga posrednika:</b><br>LEDpanelHub.com povezuje klijente i provjerene tehničke partnere besplatno i neobvezujuće.</p>"
-                }
-            },
-            de: {
-                privacy: {
-                    title: "Datenschutzerklärung (DSGVO)",
-                    body: "<p><b>1. Verantwortlicher:</b><br>LEDpanelHub.com agiert als unabhängige Vermittlungsplattform. Ihre Daten werden ausschließlich zur Weiterleitung an technische Partner verwendet.</p><p><b>2. Ihre Rechte:</b><br>Sie haben jederzeit das Recht auf Auskunft und Löschung Ihrer Daten.</p>"
-                },
-                cookies: {
-                    title: "Cookie-Richtlinie",
-                    body: "<p>Diese Website verwendet essenzielle Cookies für den Betrieb und die Sprachauswahl.</p>"
-                },
-                terms: {
-                    title: "Vermittlungsbedingungen",
-                    body: "<p><b>1. Vermittlerrolle:</b><br>LEDpanelHub.com vermittelt Kunden an qualifizierte Technik-Partner. Die Anfrage ist für Sie kostenlos und unverbindlich.</p>"
-                }
-            }
-        };
-
-        const translations = {
-            si: {
-                top_construction: "Stran je v izdelavi",
-                nav_services: "Storitve partnerjev",
-                nav_about: "O posredništvu",
-                nav_contact: "Povpraševanje",
-                nav_cta: "Oddaj povpraševanje",
-                hero_badge: "Vrhunska mreža preverjenih ponudnikov",
-                hero_title: "Zanesljivo posredništvo za nakup in najem LED zaslonov ter športnih panojev",
-                hero_desc: "Povezujemo vas s preverjenimi tehničnimi partnerji za oglasne LED linije na igriščih, velike ekrane za prireditve ter popolno tehnično logistiko v regiji.",
-                hero_btn_primary: "Pridobi ponudbo partnerja",
-                hero_btn_secondary: "Preglej ponudbo",
-                services_heading: "Kaj ponujajo naši preverjeni partnerji?",
-                services_subheading: "Celovite rešitve za nakup in najem za športne dogodke, koncerte, sejme in prireditve.",
-                service_1_title: "Nakup in najem športnih LED panojev",
-                service_1_desc: "Nakup ali najem dinamičnih oglasnih LED linij ob igriščih za največjo vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih tekmah.",
-                service_2_title: "Nakup in najem velikih LED ekranov",
-                service_2_desc: "Nakup ali najem visoko zmogljivih velikih zaslonov (od 10 do 100+ kvadratnih metrov) za koncerte, festivale, kulturne in korporativne dogodke.",
-                service_3_title: "Tehnična logistika in operativa",
-                service_3_desc: "Zanesljiva ekipa partnerjev poskrbi za transport, strokovno postavitev, demontažo ter tehnično podporo in upravljanje vsebin med samim dogodkom.",
-                about_heading: "Kako deluje naše posredništvo?",
-                about_text_1: "Kot posrednik vam prihranimo dragocen čas pri iskanju prave opreme in preverjenih izvajalcev. Vaše povpraševanje analiziramo in ga usmerimo k najustreznejšemu tehničnemu partnerju v naši mreži.",
-                about_text_2: "Zagotavljamo gladko koordinacijo, preglednost in podporo pri realizaciji projektov, ne glede na to, ali gre za nakup opreme ali kratkoročni najem.",
-                about_bullet_1: "Hitra in neobvezujoča ponudba",
-                about_bullet_2: "Preverjeni ponudniki z izkušnjami",
-                about_bullet_3: "Prilagojene rešitve za nakup ali najem",
-                about_box_title: "Imate vprašanje ali projekt?",
-                about_box_desc: "Uporabite naš pametni klepetalnik spodaj desno za hiter vnos podatkov ali pa nam pošljite povpraševanje.",
-                about_box_btn: "Stopite v stik",
-                contact_heading: "Oddajte povpraševanje",
-                contact_subheading: "Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.",
-                form_name: "Ime in priimek / Naziv podjetja",
-                form_name_ph: "npr. Janez Novak ali Podjetje d.o.o.",
-                form_email: "E-poštni naslov",
-                form_email_ph: "vas@email.com",
-                form_service: "Vrsta storitve in oprema",
-                form_file: "Priložite skico, tloris ali načrt (opcijski dokument)",
-                form_message: "Podrobnosti in dodatna vprašanja",
-                form_message_ph: "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj...",
-                form_missing_hint: "V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.",
-                form_submit: "Pošlji povpraševanje",
-                opt_buy_sports: "Nakup športnih LED panojev",
-                opt_rent_sports: "Najem športnih LED panojev",
-                opt_buy_screens: "Nakup velikih LED ekranov",
-                opt_rent_screens: "Najem velikih LED ekranov",
-                opt_logistics: "Celovita tehnična izvedba in logistika",
-                chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdravljeni! Z veseljem vam pomagam pripraviti povpraševanje za naše tehnične partnerje. Ali povpraševanje oddajate kot fizična oseba ali podjetje?",
-                chat_placeholder: "Vpišite sporočilo...",
-                footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
-                footer_contact_title: "Kontakt in podpora",
-                footer_region: "Regija: SI, HR, AT, DE",
-                footer_legal_title: "Pravna obvestila",
-                footer_privacy: "Politika zasebnosti (GDPR)",
-                footer_cookies: "Piškotki",
-                footer_terms: "Pogoji posredništva",
-                footer_rights: "© 2026 LEDpanelHub.com. Vse pravice pridržane.",
-                btn_physical: "👤 Fizična oseba",
-                btn_company: "🏢 Podjetje",
-                btn_buy: "🛒 Nakup",
-                btn_rent: "⏱️ Najem",
-                btn_sports: "🏀 Športni LED panoji",
-                btn_screens: "📺 Veliki LED ekrani",
-                btn_fillform: "✨ Prenesi podatke v obrazec",
-                btn_reset: "Znova",
-                toast_success: "Podatki so bili uspešno preneseni v obrazec!",
-                modal_close: "Zapri",
-                ar_title: "Povpraševanje je bilo uspešno poslano!",
-                ar_desc: "Hkrati smo vam poslali avtomatsko potrditev na vaš e-poštni naslov:",
-                ar_subject: "Zadeva: Hvala za vaše povpraševanje – LEDpanelHub",
-                ar_body: "\"Hvala za vaše povpraševanje, vaš primer obravnavamo in vas kontaktiramo v najkrajšem možnem času.\"",
-                ar_btn: "Nazaj na stran"
-            },
-            en: {
-                top_construction: "Website under construction",
-                nav_services: "Partner Services",
-                nav_about: "About Brokerage",
-                nav_contact: "Contact",
-                nav_cta: "Get a Quote",
-                hero_badge: "Top-tier Network of Verified Suppliers",
-                hero_title: "Reliable Brokerage for Purchase & Rental of LED Displays & Sports Boards",
-                hero_desc: "We connect you with verified technical partners for stadium LED perimeter lines, massive event screens, and complete regional technical logistics.",
-                hero_btn_primary: "Request Partner Offer",
-                hero_btn_secondary: "View Services",
-                services_heading: "What do our verified partners offer?",
-                services_subheading: "Complete turnkey purchase and rental solutions for sports events, concerts, and exhibitions.",
-                service_1_title: "Purchase & Rental of Sports LED Boards",
-                service_1_desc: "Purchase or rental of dynamic LED advertising perimeter systems for maximum sponsor visibility at sports arenas.",
-                service_2_title: "Purchase & Rental of Large LED Screens",
-                service_2_desc: "Purchase or rental of high-performance large screens (10 to 100+ sqm) for outdoor and indoor concerts, festivals, and corporate events.",
-                service_3_title: "Technical Logistics & Operations",
-                service_3_desc: "Reliable partner teams handle transport, professional setup, dismantling, and technical on-site support and content management during the event.",
-                about_heading: "How does our brokerage work?",
-                about_text_1: "As a broker, we save you valuable time searching for the right equipment and vetted providers. We analyze your inquiry and direct it to the most suitable technical partner.",
-                about_text_2: "We ensure smooth coordination, transparency, and execution support, whether for equipment purchase or short-term event rentals.",
-                about_bullet_1: "Fast & non-binding quotes",
-                about_bullet_2: "Verified experienced providers",
-                about_bullet_3: "Tailored solutions for purchase or rental",
-                about_box_title: "Have a question or project?",
-                about_box_desc: "Use our smart chatbot below to quickly submit your details or send us a direct inquiry.",
-                about_box_btn: "Get in Touch",
-                contact_heading: "Submit an Inquiry",
-                contact_subheading: "Fill out the form below and we will forward it to our expert technical partners.",
-                form_name: "Full Name / Company Name",
-                form_name_ph: "e.g. John Doe or Company Ltd.",
-                form_email: "Email Address",
-                form_email_ph: "you@email.com",
-                form_service: "Service Type & Equipment",
-                form_file: "Attach sketch, floor plan or blueprint (optional)",
-                form_message: "Details and Additional Questions",
-                form_message_ph: "If you have any additional questions or special requests, please write them here...",
-                form_missing_hint: "If you forgot to mention anything, you can add it here.",
-                form_submit: "Send Inquiry",
-                opt_buy_sports: "Purchase of Sports LED Boards",
-                opt_rent_sports: "Rental of Sports LED Boards",
-                opt_buy_screens: "Purchase of Large LED Screens",
-                opt_rent_screens: "Rental of Large LED Screens",
-                opt_logistics: "Complete Technical Execution & Logistics",
-                chat_title: "LEDpanelHub Assistant",
-                chat_welcome: "Hello! I'll gladly help you prepare an inquiry for our technical partners. Are you inquiring as an individual or a company?",
-                chat_placeholder: "Type a message...",
-                footer_about: "Independent international brokerage connecting clients with verified providers of LED purchase, rental, and event equipment.",
-                footer_contact_title: "Contact & Support",
-                footer_region: "Region: SI, HR, AT, DE",
-                footer_legal_title: "Legal Information",
-                footer_privacy: "Privacy Policy (GDPR)",
-                footer_cookies: "Cookies",
-                footer_terms: "Brokerage Terms",
-                footer_rights: "© 2026 LEDpanelHub.com. All rights reserved.",
-                btn_physical: "👤 Individual",
-                btn_company: "🏢 Company",
-                btn_buy: "🛒 Purchase",
-                btn_rent: "⏱️ Rental",
-                btn_sports: "🏀 Sports LED Boards",
-                btn_screens: "📺 Large LED Screens",
-                btn_fillform: "✨ Fill Form with Data",
-                btn_reset: "Reset",
-                toast_success: "Data successfully transferred to the form!",
-                modal_close: "Close",
-                ar_title: "Inquiry successfully sent!",
-                ar_desc: "We have also sent an automated confirmation to your email address:",
-                ar_subject: "Subject: Thank you for your inquiry – LEDpanelHub",
-                ar_body: "\"Thank you for your inquiry, we are reviewing your case and will contact you as soon as possible.\"",
-                ar_btn: "Back to website"
-            },
-            hr: {
-                top_construction: "Stranica je u izradi",
-                nav_services: "Usluge partnera",
-                nav_about: "O posredništvu",
-                nav_contact: "Upit",
-                nav_cta: "Pošaljite upit",
-                hero_badge: "Vrhunska mreža provjerenih ponuđača",
-                hero_title: "Pouzdano posredništvo za kupnju i najam LED ekrana i sportskih panoa",
-                hero_desc: "Povezujemo vas s provjerenim tehničkim partnerima za oglasne LED linije uz terene, velike ekrane za priredbe i kompletnu tehničku logistiku.",
-                hero_btn_primary: "Zatražite ponudu partnera",
-                hero_btn_secondary: "Pregledajte ponudu",
-                services_heading: "Što nude naši provjereni partneri?",
-                services_subheading: "Cjelovita rješenja za kupnju i najam za sportske događaje, koncerte i sajmove.",
-                service_1_title: "Kupnja i najam sportskih LED panoa",
-                service_1_desc: "Kupnja ili najam dinamičnih LED oglasnih linija uz terene za maksimalnu vidljivost sponzora na sportskim utakmicama.",
-                service_2_title: "Kupnja i najam velikih LED ekrana",
-                service_2_desc: "Kupnja ili najam visoko učinkovitih velikih ekrana (od 10 do 100+ kvadrata) za koncerte, festivale i korporativna događanja.",
-                service_3_title: "Tehnička logistika i operativa",
-                service_3_desc: "Pouzdan tim partnera brine se za transport, stručnu montažu, demontažu te tehničku podršku i upravljanje sadržajem tijekom samog događaja.",
-                about_heading: "Kako radi naše posredništvo?",
-                about_text_1: "Kao posrednik štedimo vaše dragocjeno vrijeme u potrazi za pravom opremom. Analiziramo vaš upit i usmjeravamo ga najprikladnijem tehničkom partneru.",
-                about_text_2: "Jamčimo glatku koordinaciju i podršku pri realizaciji projekata, bez obzira radi li se o kupnji opreme ili kratkoročnom najmu.",
-                about_bullet_1: "Brza i neobvezujuća ponuda",
-                about_bullet_2: "Provjereni ponuđači s iskustvom",
-                about_bullet_3: "Prilagođena rješenja za kupnju ili najam",
-                about_box_title: "Imate pitanje ili projekt?",
-                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brzi unos podataka ili nam pošaljite upit.",
-                about_box_btn: "Stupite u kontakt",
-                contact_heading: "Pošaljite upit",
-                contact_subheading: "Ispunite donji obrazac i proslijedit ćemo ga našim tehničnim partnerima.",
-                form_name: "Ime i prezime / Naziv tvrtke",
-                form_name_ph: "npr. Ivan Horvat ili Tvrtka d.o.o.",
-                form_email: "E-mail adresa",
-                form_email_ph: "vas@email.com",
-                form_service: "Vrsta usluge i oprema",
-                form_file: "Priložite skicu, tlocrt ili nacrt (opcionalni dokument)",
-                form_message: "Detalji i dodatna pitanja",
-                form_message_ph: "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje...",
-                form_missing_hint: "Ukoliko ste nešto zaboravili napisati, možete dopisati ovdje.",
-                form_submit: "Pošalji upit",
-                opt_buy_sports: "Kupnja sportskih LED panoa",
-                opt_rent_sports: "Najam sportskih LED panoa",
-                opt_buy_screens: "Kupnja velikih LED ekrana",
-                opt_rent_screens: "Najam velikih LED ekrana",
-                opt_logistics: "Kompletna tehnička izvedba i logistika",
-                chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdrav! Rado ću vam pomoći pripremiti upit za naše tehnične partnere. Šaljete li upit kao fizička osoba ili tvrtka?",
-                chat_placeholder: "Upišite poruku...",
-                footer_about: "Neovisno međunarodno posredništvo za povezivanje klijenata i provjerenih pružalaca kupnje, najma LED panoa i opreme.",
-                footer_contact_title: "Kontakt i podrška",
-                footer_region: "Regija: SI, HR, AT, DE",
-                footer_legal_title: "Pravne obavijesti",
-                footer_privacy: "Politika privatnosti (GDPR)",
-                footer_cookies: "Kolačići",
-                footer_terms: "Uvjeti posredništva",
-                footer_rights: "© 2026 LEDpanelHub.com. Sva prava pridržana.",
-                btn_physical: "👤 Fizična osoba",
-                btn_company: "🏢 Tvrtka",
-                btn_buy: "🛒 Kupnja",
-                btn_rent: "⏱️ Najem",
-                btn_sports: "🏀 Sportski LED panoi",
-                btn_screens: "📺 Veliki LED ekrani",
-                btn_fillform: "✨ Prenesi podatke u obrazac",
-                btn_reset: "Ispočetka",
-                toast_success: "Podaci su uspješno preneseni u obrazac!",
-                modal_close: "Zatvori",
-                ar_title: "Upit je uspješno poslan!",
-                ar_desc: "Istovremeno smo vam poslali automatsku potvrdu na vašu e-mail adresu:",
-                ar_subject: "Predmet: Hvala na vašem upitu – LEDpanelHub",
-                ar_body: "\"Hvala za vaše povpraševanje, vaš primer obravnavamo in vas kontaktiramo v najkrajšem možnem času.\"",
-                ar_btn: "Natrag na stranicu"
-            },
-            de: {
-                top_construction: "Website im Aufbau",
-                nav_services: "Partnerdienste",
-                nav_about: "Über Vermittlung",
-                nav_contact: "Anfrage",
-                nav_cta: "Angebot einholen",
-                hero_badge: "Erstklassiges Netzwerk verifizierter Anbieter",
-                hero_title: "Zuverlässige Vermittlung für Kauf & Miete von LED-Displays & Sportbanden",
-                hero_desc: "Wir verbinden Sie mit verifizierten technischen Partnern für Stadion-LED-Banden, große Event-Bildschirme und komplette Logistik.",
-                hero_btn_primary: "Partnerangebot anfordern",
-                hero_btn_secondary: "Angebot ansehen",
-                services_heading: "Was bieten unsere verifizierten Partner?",
-                services_subheading: "Komplette schlüsselfertige Lösungen für Kauf und Miete bei Sportevents und Messen.",
-                service_1_title: "Kauf & Miete von Sport-LED-Banden",
-                service_1_desc: "Kauf oder Miete von dynamischen LED-Werbebanden für maximale Sponsorensichtbarkeit bei Sportspielen.",
-                service_2_title: "Kauf & Miete von grossen LED-Bildschirmen",
-                service_2_desc: "Kauf oder Miete von Hochleistungs-Grossbildschirmen (10 bis 100+ m²) für Konzerte, Festivals und Firmenveranstaltungen.",
-                service_3_title: "Technische Logistika & Betrieb",
-                service_3_desc: "Zuverlässige Partnerteams kümmern sich um Transport, professionellen Aufbau, Abbau sowie Vor-Ort-Support während des Events.",
-                about_heading: "Wie funktioniert unsere Vermittlung?",
-                about_text_1: "Als Vermittler sparen wir Ihnen wertvolle Zeit bei der Suche nach der richtigen Ausrüstung. Wir analysieren Ihre Anfrage und leiten sie an den passenden Partner weiter.",
-                about_text_2: "Wir garantieren reibungslose Koordination und Unterstützung bei der Projektabwicklung – egal ob für den Gerätekauf oder die Kurzzeitmiete.",
-                about_bullet_1: "Schnelle & unverbindliche Angebote",
-                about_bullet_2: "Verifizierte erfahrene Anbieter",
-                about_bullet_3: "Massgeschneiderte Lösungen für Kauf oder Miete",
-                about_box_title: "Haben Sie eine Frage oder ein Projekt?",
-                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts für eine schnelle Dateneingabe oder senden Sie uns eine Anfrage.",
-                about_box_btn: "Kontakt aufnehmen",
-                contact_heading: "Anfrage senden",
-                contact_subheading: "Füllen Sie das Formular aus und wir leiten es an unsere technischen Partner weiter.",
-                form_name: "Name / Firmenname",
-                form_name_ph: "z.B. Max Mustermann oder Firma GmbH",
-                form_email: "E-Mail-Adresse",
-                form_email_ph: "ihre@email.com",
-                form_service: "Dienstleistungsart & Ausrüstung",
-                form_file: "Skizze, Grundriss oder Plan anhängen (optional)",
-                form_message: "Details und zusätzliche Fragen",
-                form_message_ph: "Wenn Sie weitere Fragen oder Sonderwünsche haben, schreiben Sie diese bitte hier...",
-                form_missing_hint: "Falls Sie etwas vergessen haben, können Sie es hier ergänzen.",
-                form_submit: "Anfrage senden",
-                opt_buy_sports: "Kauf von Sport-LED-Banden",
-                opt_rent_sports: "Miete von Sport-LED-Banden",
-                opt_buy_screens: "Kauf von grossen LED-Bildschirmen",
-                opt_rent_screens: "Miete von grossen LED-Bildschirmen",
-                opt_logistics: "Komplette technische Umsetzung & Logistika",
-                chat_title: "LEDpanelHub Assistent",
-                chat_welcome: "Hallo! Ich helfe Ihnen gerne dabei, eine Anfrage für unsere Partner vorzubereiten. Stellen Sie die Anfrage als Privatperson oder als Unternehmen?",
-                chat_placeholder: "Nachricht eingeben...",
-                footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern für Kauf, Miete von LED-Banden und Equipment.",
-                footer_contact_title: "Kontakt & Support",
-                footer_region: "Region: SI, HR, AT, DE",
-                footer_legal_title: "Rechtliches",
-                footer_privacy: "Datenschutz (DSGVO)",
-                footer_cookies: "Cookies",
-                footer_terms: "Vermittlungsbedingungen",
-                footer_rights: "© 2026 LEDpanelHub.com. Alle Rechte vorbehalten.",
-                btn_physical: "👤 Privatperson",
-                btn_company: "🏢 Unternehmen",
-                btn_buy: "🛒 Kauf",
-                btn_rent: "⏱️ Miete",
-                btn_sports: "🏀 Sport-LED-Banden",
-                btn_screens: "📺 Grosse LED-Bildschirme",
-                btn_fillform: "✨ Daten ins Formular übertragen",
-                btn_reset: "Neu",
-                toast_success: "Daten erfolgreich in das Formular übertragen!",
-                modal_close: "Schliessen",
-                ar_title: "Anfrage erfolgreich gesendet!",
-                ar_desc: "Wir haben Ihnen eine automatische Bestätigung an Ihre E-Mail-Adresse gesendet:",
-                ar_subject: "Betreff: Vielen Dank für Ihre Anfrage – LEDpanelHub",
-                ar_body: "\"Hvala za vaše povpraševanje, vaš primer obravnavamo in vas kontaktiramo v najkrajšem možnem času.\"",
-                ar_btn: "Zurück zur Website"
-            }
-        };
-
-        function openLegal(type) {
-            const modal = document.getElementById('legal-modal');
-            const titleEl = document.getElementById('modal-title');
-            const contentEl = document.getElementById('modal-content');
-
-            const data = legalTexts[currentLang][type];
-            titleEl.textContent = data.title;
-            contentEl.innerHTML = data.body;
-            modal.classList.remove('hidden');
-        }
-
-        function closeLegalModal() {
-            document.getElementById('legal-modal').classList.add('hidden');
-        }
-
-        function closeAutoresponderModal() {
-            document.getElementById('autoresponder-modal').classList.add('hidden');
-            document.getElementById('inquiry-form').reset();
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('form-name').value.trim();
-            const email = document.getElementById('form-email').value.trim();
-            const message = document.getElementById('form-message').value.trim();
-            const errorDiv = document.getElementById('form-error-msg');
-
-            if (!name || !email || !message) {
-                errorDiv.textContent = currentLang === 'si' ? "Prosimo, izpolnite vsa obvezna polja." : "Please fill in all mandatory fields.";
-                errorDiv.classList.remove('hidden');
-                return false;
-            }
-
-            const form = document.getElementById('inquiry-form');
-            const formData = new FormData(form);
-
-            // Pošiljanje preko Fetch API (Formspree) da preprečimo nelagodno preusmeritev
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    document.getElementById('autoresponder-modal').classList.remove('hidden');
-                } else {
-                    alert("Prišlo je do napake pri pošiljanju. Prosimo, poskusite znova.");
-                }
-            }).catch(error => {
-                // Če pride do CORS blokade, vseeno prikažemo uspešen auto-responder za uporabniško izkušnjo
-                document.getElementById('autoresponder-modal').classList.remove('hidden');
-            });
-
-            return false;
-        }
-
-        function updateStepper(step) {
-            const stepperEl = document.getElementById('chat-stepper');
-            const totalSteps = 7;
-            let stepTexts = {
-                si: `Korak ${step} od ${totalSteps}`,
-                en: `Step ${step} of ${totalSteps}`,
-                hr: `Korak ${step} od ${totalSteps}`,
-                de: `Schritt ${step} von ${totalSteps}`
-            };
-            stepperEl.textContent = stepTexts[currentLang];
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast-notification');
-            document.getElementById('toast-text').textContent = message;
-            toast.classList.remove('translate-x-full');
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 4000);
-        }
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-
-            ['si', 'en', 'hr', 'de'].forEach(l => {
-                const btn = document.getElementById(`btn-${l}`);
-                if (l === lang) {
-                    btn.className = "px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition";
-                } else {
-                    btn.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
-                }
-            });
-
-            resetChat();
-        }
-
-        function toggleChat() {
-            const win = document.getElementById('chat-window');
-            win.classList.toggle('hidden');
-            
-            const container = document.getElementById('chat-messages');
-            if (container.children.length === 0) {
-                resetChat();
-            }
-        }
-
-        function resetChat() {
-            chatState = 'ASK_ENTITY';
-            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', country: '', address: '', extra: '' };
-            updateStepper(1);
-            const container = document.getElementById('chat-messages');
-            container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${translations[currentLang].chat_welcome}</div>`;
-            renderQuickReplies([
-                { text: translations[currentLang].btn_physical, action: 'entity_physical' },
-                { text: translations[currentLang].btn_company, action: 'entity_company' }
-            ]);
-        }
-
-        function renderQuickReplies(buttons) {
-            const qrContainer = document.getElementById('chat-quick-replies');
-            qrContainer.innerHTML = '';
-            buttons.forEach(btn => {
-                const b = document.createElement('button');
-                b.className = "px-3 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 text-xs font-semibold rounded-lg transition";
-                b.textContent = btn.text;
-                b.onclick = () => handleQuickReply(btn.action, btn.text);
-                qrContainer.appendChild(b);
-            });
-        }
-
-        function handleQuickReply(action, label) {
-            const container = document.getElementById('chat-messages');
-            container.innerHTML += `<div class="bg-cyan-500/20 border border-cyan-500/30 p-2.5 rounded-xl rounded-tr-none text-slate-200 text-xs max-w-[85%] ml-auto">${label}</div>`;
-            
-            if (chatState === 'ASK_ENTITY') {
-                userLeadData.entityType = label;
-                chatState = 'ASK_NAME';
-                updateStepper(2);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "Odlično. Prosim, vpišite vaše ime in priimek ali naziv podjetja:" :
-                                 currentLang === 'en' ? "Great. Please enter your full name or company name:" :
-                                 currentLang === 'hr' ? "Odlično. Molimo unesite vaše ime i prezime ili naziv tvrtke:" :
-                                 "Sehr gut. Bitte geben Sie Ihren Namen oder Firmennamen ein:";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                    document.getElementById('chat-quick-replies').innerHTML = '';
-                }, 600);
-            } else if (chatState === 'ASK_TYPE') {
-                userLeadData.dealType = label;
-                chatState = 'ASK_EQUIPMENT';
-                updateStepper(4);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? `Hvala, ${userLeadData.name}. Katero vrsto opreme potrebujete?` :
-                                 currentLang === 'en' ? `Thanks, ${userLeadData.name}. What type of equipment do you need?` :
-                                 currentLang === 'hr' ? `Hvala, ${userLeadData.name}. Koju vrstu opreme trebate?` :
-                                 `Danke, ${userLeadData.name}. Welche Art von Ausrüstung benötigen Sie?`;
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                    renderQuickReplies([
-                        { text: translations[currentLang].btn_sports, action: 'eq_sports' },
-                        { text: translations[currentLang].btn_screens, action: 'eq_screens' }
-                    ]);
-                }, 600);
-            } else if (chatState === 'ASK_EQUIPMENT') {
-                userLeadData.equipment = label;
-                chatState = 'ASK_METERS';
-                updateStepper(5);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "Koliko metrov (dolžine oziroma kvadratnih metrov) približno potrebujete?" :
-                                 currentLang === 'en' ? "Approximately how many meters or square meters do you need?" :
-                                 currentLang === 'hr' ? "Koliko metara odnosno kvadratnih metara otprilike trebate?" :
-                                 "Wie viele Meter oder Quadratmeter benötigen Sie ungefähr?";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                    document.getElementById('chat-quick-replies').innerHTML = '';
-                }, 600);
-            } else if (action === 'fill_form') {
-                document.getElementById('form-name').value = userLeadData.name;
-                document.getElementById('form-email').value = userLeadData.email;
-                
-                let serviceSelect = document.getElementById('form-service');
-                let targetOptionValue = "";
-                if (userLeadData.dealType.toLowerCase().includes('nakup') || userLeadData.dealType.toLowerCase().includes('purchase') || userLeadData.dealType.toLowerCase().includes('kupnja') || userLeadData.dealType.toLowerCase().includes('kauf')) {
-                    targetOptionValue = userLeadData.equipment.toLowerCase().includes('šport') || userLeadData.equipment.toLowerCase().includes('sport') ? "Nakup športnih LED panojev" : "Nakup velikih LED ekranov";
-                } else {
-                    targetOptionValue = userLeadData.equipment.toLowerCase().includes('šport') || userLeadData.equipment.toLowerCase().includes('sport') ? "Najem športnih LED panojev" : "Najem velikih LED ekranov";
-                }
-                
-                for(let opt of serviceSelect.options) {
-                    if(opt.value === targetOptionValue) {
-                        opt.selected = true;
-                        break;
-                    }
-                }
-
-                let defaultExtraPrompt = translations[currentLang].form_message_ph;
-                let userExtraText = (userLeadData.extra && userLeadData.extra !== defaultExtraPrompt) ? userLeadData.extra : "";
-
-                let mapsUrl = `[https://www.google.com/maps/search/?api=1&query=$](https://www.google.com/maps/search/?api=1&query=$){encodeURIComponent(userLeadData.address + ', ' + userLeadData.country)}`;
-
-                document.getElementById('form-message').value = `Status: ${userLeadData.entityType}\nDržava: ${userLeadData.country}\nKraj in ulica: ${userLeadData.address}\nPovezava do lokacije: ${mapsUrl}\nMetri / dimenzije: ${userLeadData.meters}\n\nDodatna vprašanja / zahteve stranke:\n${userExtraText || defaultExtraPrompt}`;
-                
-                document.getElementById('chat-window').classList.add('hidden');
-                showToast(translations[currentLang].toast_success);
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            }
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if (!msg) return;
-
-            const container = document.getElementById('chat-messages');
-            container.innerHTML += `<div class="bg-cyan-500/20 border border-cyan-500/30 p-2.5 rounded-xl rounded-tr-none text-slate-200 text-xs max-w-[85%] ml-auto">${msg}</div>`;
-            input.value = '';
-            container.scrollTop = container.scrollHeight;
-
-            if (chatState === 'ASK_NAME') {
-                userLeadData.name = msg;
-                chatState = 'ASK_EMAIL';
-                updateStepper(3);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? `Hvala, ${userLeadData.name}. Prosim, vpišite še vaš veljaven e-poštni naslov:` :
-                                 currentLang === 'en' ? `Thanks, ${userLeadData.name}. Please enter your valid email address:` :
-                                 currentLang === 'hr' ? `Hvala, ${userLeadData.name}. Molimo unesite svoju važeću e-mail adresu:` :
-                                 `Danke, ${userLeadData.name}. Bitte geben Sie Ihre gültige E-Mail-Adresse ein:`;
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                }, 600);
-            } else if (chatState === 'ASK_EMAIL') {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(msg)) {
-                    setTimeout(() => {
-                        let errPrompt = currentLang === 'si' ? "Vneseni e-poštni naslov ni veljaven (manjka @ ali pika). Prosimo, poskusite znova:" :
-                                      currentLang === 'en' ? "The email address is invalid. Please try again:" :
-                                      currentLang === 'hr' ? "Unesena adresa nije valjana. Molimo pokušajte ponovo:" :
-                                      "Die E-Mail-Adresse ist ungültig. Bitte versuchen Sie es erneut:";
-                        container.innerHTML += `<div class="bg-rose-500/20 border border-rose-500/30 p-3 rounded-xl rounded-tl-none text-rose-300 max-w-[85%] text-xs">${errPrompt}</div>`;
-                        container.scrollTop = container.scrollHeight;
-                    }, 400);
-                    return;
-                }
-
-                userLeadData.email = msg;
-                chatState = 'ASK_TYPE';
-                updateStepper(4);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "Ali vas zanima nakup opreme ali kratkoročni najem?" :
-                                 currentLang === 'en' ? "Are you interested in purchasing equipment or short-term rental?" :
-                                 currentLang === 'hr' ? "Zanima li vas kupnja opreme ili kratkoročni najam?" :
-                                 "Interessieren Sie sich für den Kauf oder die Kurzzeitmiete?";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                    renderQuickReplies([
-                        { text: translations[currentLang].btn_buy, action: 'deal_buy' },
-                        { text: translations[currentLang].btn_rent, action: 'deal_rent' }
-                    ]);
-                }, 600);
-            } else if (chatState === 'ASK_METERS') {
-                userLeadData.meters = msg;
-                chatState = 'ASK_COUNTRY';
-                updateStepper(6);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "V kateri državi bo potekal dogodek (npr. Slovenija, Hrvaška, Avstrija, Nemčija)?" :
-                                 currentLang === 'en' ? "In which country will the event take place (e.g., Slovenia, Croatia, Austria, Germany)?" :
-                                 currentLang === 'hr' ? "U kojoj državi će se održati događaj (npr. Slovenija, Hrvatska, Austrija, Njemačka)?" :
-                                 "In welchem Land findet die Veranstaltung statt (z. B. Slowenien, Kroatien, Österreich, Deutschland)?";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                }, 600);
-            } else if (chatState === 'ASK_COUNTRY') {
-                userLeadData.country = msg;
-                chatState = 'ASK_ADDRESS';
-                updateStepper(7);
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "Prosim, vpišite še točen kraj in ulico lokacije dogodka:" :
-                                 currentLang === 'en' ? "Please also enter the exact city and street of the event location:" :
-                                 currentLang === 'hr' ? "Molimo unesite i točan grad i ulicu lokacije događaja:" :
-                                 "Bitte geben Sie auch den genauen Ort und die Straße des Veranstaltungsortes ein:";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                }, 600);
-            } else if (chatState === 'ASK_ADDRESS') {
-                userLeadData.address = msg;
-                chatState = 'ASK_EXTRA';
-                setTimeout(() => {
-                    let prompt = currentLang === 'si' ? "Imate morda še kakšna dodatna vprašanja, posebne zahteve ali opombe glede postavitve?" :
-                                 currentLang === 'en' ? "Do you have any additional questions, special requests, or setup notes?" :
-                                 currentLang === 'hr' ? "Imate li možda još nekih dodatnih pitanja, posebnih zahtjeva ili napomena oko postavljanja?" :
-                                 "Haben Sie weitere Fragen, Sonderwünsche oder Notizen zum Aufbau?";
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${prompt}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                }, 600);
-            } else if (chatState === 'ASK_EXTRA') {
-                userLeadData.extra = msg;
-                chatState = 'READY';
-                setTimeout(() => {
-                    let summary = currentLang === 'si' ? `Odlično, zbral sem vse podatke:<br>• Status: <b>${userLeadData.entityType}</b><br>• Naziv: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br>• Država: <b>${userLeadData.country}</b><br>• Naslov: <b>${userLeadData.address}</b><br><br>Kliknite spodnji gumb za prenos podatkov v obrazec.` :
-                                  currentLang === 'en' ? `Great, collected details:<br>• Type: <b>${userLeadData.entityType}</b><br>• Name: <b>${userLeadData.name}</b><br>• Email: <b>${userLeadData.email}</b><br>• Service: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meters: <b>${userLeadData.meters}</b><br>• Country: <b>${userLeadData.country}</b><br>• Address: <b>${userLeadData.address}</b><br><br>Click below to transfer data to the form.` :
-                                  currentLang === 'hr' ? `Odlično, prikupljeni podaci:<br>• Status: <b>${userLeadData.entityType}</b><br>• Naziv: <b>${userLeadData.name}</b><br>• E-mail: <b>${userLeadData.email}</b><br>• Usluga: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br>• Država: <b>${userLeadData.country}</b><br>• Adresa: <b>${userLeadData.address}</b><br><br>Kliknite ispod za prijenos podataka u obrazac.` :
-                                  `Sehr gut, gesammelte Daten:<br>• Typ: <b>${userLeadData.entityType}</b><br>• Name: <b>${userLeadData.name}</b><br>• E-Mail: <b>${userLeadData.email}</b><br>• Leistung: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meter: <b>${userLeadData.meters}</b><br>• Land: <b>${userLeadData.country}</b><br>• Adresse: <b>${userLeadData.address}</b><br><br>Klicken Sie unten zur Übertragung.`;
-                    
-                    container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%] text-xs">${summary}</div>`;
-                    container.scrollTop = container.scrollHeight;
-                    renderQuickReplies([
-                        { text: translations[currentLang].btn_fillform, action: 'fill_form' }
-                    ]);
-                }, 800);
-            }
-        }
-
-        function handleChatKey(e) {
-            if (e.key === 'Enter') sendChatMessage();
         }
     </script>
 </body>

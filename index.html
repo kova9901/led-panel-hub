@@ -43,9 +43,8 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH BACKGROUND IMAGE & OVERLAY -->
+    <!-- HERO SECTION -->
     <section class="relative pt-32 pb-28 overflow-hidden border-b border-slate-900">
-        <!-- Background Image with Dark Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=2000&q=80" alt="Concert LED screen stage" class="w-full h-full object-cover object-center opacity-25">
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
@@ -72,7 +71,7 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION WITH IMAGE CARDS -->
+    <!-- SERVICES SECTION -->
     <section id="services" class="py-24 bg-slate-900/40 border-b border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -81,10 +80,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1: Sports Boards -->
+                <!-- Card 1 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Stadium sports LED boards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Sports LED boards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
@@ -100,10 +99,10 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Large Screens -->
+                <!-- Card 2 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Festival large LED display" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Large LED screens" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
@@ -119,10 +118,10 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Logistics -->
+                <!-- Card 3 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics and setup" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
@@ -160,7 +159,7 @@
                     </ul>
                 </div>
                 <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" alt="Event production backstage" class="w-full h-full object-cover min-h-[350px]">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" alt="Backstage" class="w-full h-full object-cover min-h-[350px]">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
                         <h3 class="text-xl font-semibold text-white mb-2" data-i18n="about_box_title">Imate vprašanje ali projekt?</h3>
                         <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro analizo vaših potreb ali pa nam pošljite direktno povpraševanje.</p>
@@ -171,35 +170,39 @@
         </div>
     </section>
 
-    <!-- CONTACT FORM SECTION -->
+    <!-- CONTACT FORM SECTION (FORMSPREE) -->
     <section id="contact" class="py-24 bg-slate-900/40">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="contact_heading">Oddajte povpraševanje</h2>
                 <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.</p>
             </div>
-            <form onsubmit="handleMailtoSubmit(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+            
+            <form action="https://formspree.io/f/mbgjvqvp" method="POST" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+                <!-- Nastavitve Formspree -->
+                <input type="hidden" name="_subject" value="Novo povpraševanje z LEDpanelHub.com">
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Podjetje</label>
-                        <input type="text" id="form-name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="text" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" id="form-email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve</label>
-                    <select id="form-service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
-                        <option data-i18n="opt_1">Športni LED panoji / Oglasne linije</option>
-                        <option data-i18n="opt_2">Veliki LED ekrani za prireditve</option>
-                        <option data-i18n="opt_3">Celovita tehnična izvedba in logistika</option>
+                    <select name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <option value="Športni LED panoji / Oglasne linije" data-i18n="opt_1">Športni LED panoji / Oglasne linije</option>
+                        <option value="Veliki LED ekrani za prireditve" data-i18n="opt_2">Veliki LED ekrani za prireditve</option>
+                        <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_3">Celovita tehnična izvedba in logistika</option>
                     </select>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti dogodka / Lokacija</label>
-                    <textarea id="form-message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume in vaše zahteve..."></textarea>
+                    <textarea name="message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume in vaše zahteve..."></textarea>
                 </div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20" data-i18n="form_submit">Pošlji povpraševanje</button>
             </form>
@@ -419,7 +422,7 @@
                 service_1_desc: "Vermietung und Kauf von dynamischen LED-Werbebanden für maximale Sponsorensichtbarkeit bei Fussball-, Basketball- und Sportspielen.",
                 service_2_title: "Grosse Event-LED-Bildschirme",
                 service_2_desc: "Vermietung von Hochleistungs-Grossbildschirmen (10 bis 100+ m²) für Konzerte, Festivals und Kulturveranstaltungen.",
-                service_3_title: "Technische Logistik & Betrieb",
+                service_3_title: "Technische Logistika & Betrieb",
                 service_3_desc: "Zuverlässige Partnerteams kümmern sich um Transport, professionellen Aufbau, Abbau sowie Vor-Ort-Support während des Events.",
                 about_heading: "Wie funktioniert unsere Vermittlung?",
                 about_text_1: "Als Vermittler sparen wir Ihnen wertvolle Zeit bei der Suche nach der richtigen Ausrüstung. Wir analysieren Ihre Anfrage und leiten sie an den passenden Partner weiter.",
@@ -439,7 +442,7 @@
                 form_submit: "Anfrage senden",
                 opt_1: "Sport-LED-Banden / Werbelinien",
                 opt_2: "Grosse Event-LED-Bildschirme",
-                opt_3: "Komplette technische Umsetzung & Logistika",
+                opt_3: "Komplette technische Umsetzung & Logistik",
                 chat_title: "LEDpanelHub Assistent",
                 footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern von Sport-LED-Banden und Eventequipment.",
                 footer_contact_title: "Kontakt & Support",
@@ -462,7 +465,6 @@
                 }
             });
 
-            // Update active button state
             ['si', 'en', 'hr', 'de'].forEach(l => {
                 const btn = document.getElementById(`btn-${l}`);
                 if (l === lang) {
@@ -484,34 +486,18 @@
             if (!msg) return;
 
             const container = document.getElementById('chat-messages');
-            
-            // User message
             container.innerHTML += `<div class="bg-cyan-500/20 border border-cyan-500/30 p-3 rounded-xl rounded-tr-none text-slate-200 max-w-[85%] ml-auto">${msg}</div>`;
             input.value = '';
             container.scrollTop = container.scrollHeight;
 
-            // Simulated AI broker reply
             setTimeout(() => {
-                container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">Hvala za vaše sporočilo! Vaše zahteve za LED panoje ali zaslone bomo posredovali našim tehničnim partnerjem, ki vam bodo v najkrajšem času pripravili ponudbo.</div>`;
+                container.innerHTML += `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">Hvala za vaše sporočilo! Vaše zahteve za LED panoje ali zaslone bomo posredovali našim tehničnim partnerjem.</div>`;
                 container.scrollTop = container.scrollHeight;
             }, 1000);
         }
 
         function handleChatKey(e) {
             if (e.key === 'Enter') sendChatMessage();
-        }
-
-        function handleMailtoSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const service = document.getElementById('form-service').value;
-            const message = document.getElementById('form-message').value;
-
-            const subject = encodeURIComponent(`Novo povpraševanje: ${service} (${name})`);
-            const body = encodeURIComponent(`Ime in priimek / Podjetje: ${name}\nE-pošta stranke: ${email}\nIzbrana storitev: ${service}\n\nPodrobnosti dogodka / Lokacija:\n${message}`);
-
-            window.location.href = `mailto:ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
 </body>

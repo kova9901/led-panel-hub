@@ -259,13 +259,19 @@
             <i class="fa-solid fa-comment-dots text-2xl"></i>
         </button>
 
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[500px]">
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[520px]">
             <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
                     <span class="font-semibold text-white text-sm" data-i18n="chat_title">LEDpanelHub Asistent</span>
                 </div>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <div class="flex items-center gap-2">
+                    <!-- Gumb za ponastavitev / začetek znova -->
+                    <button onclick="resetChat()" class="text-xs text-slate-400 hover:text-cyan-400 transition bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg flex items-center gap-1" title="Začni znova">
+                        <i class="fa-solid fa-rotate-right"></i> <span data-i18n="btn_reset">Znova</span>
+                    </button>
+                    <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                </div>
             </div>
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
                 <!-- Dinamični vnos -->
@@ -342,7 +348,8 @@
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Športni LED panoji",
                 btn_screens: "📺 Veliki LED ekrani",
-                btn_fillform: "✨ Prenesi podatke v obrazec"
+                btn_fillform: "✨ Prenesi podatke v obrazec",
+                btn_reset: "Znova"
             },
             en: {
                 top_construction: "Website under construction",
@@ -399,7 +406,8 @@
                 btn_rent: "⏱️ Rental",
                 btn_sports: "🏀 Sports LED Boards",
                 btn_screens: "📺 Large LED Screens",
-                btn_fillform: "✨ Fill Form with Data"
+                btn_fillform: "✨ Fill Form with Data",
+                btn_reset: "Reset"
             },
             hr: {
                 top_construction: "Stranica je u izradi",
@@ -456,7 +464,8 @@
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Sportski LED panoi",
                 btn_screens: "📺 Veliki LED ekrani",
-                btn_fillform: "✨ Prenesi podatke u obrazac"
+                btn_fillform: "✨ Prenesi podatke u obrazac",
+                btn_reset: "Ispočetka"
             },
             de: {
                 top_construction: "Website im Aufbau",
@@ -513,7 +522,8 @@
                 btn_rent: "⏱️ Miete",
                 btn_sports: "🏀 Sport-LED-Banden",
                 btn_screens: "📺 Grosse LED-Bildschirme",
-                btn_fillform: "✨ Daten ins Formular übertragen"
+                btn_fillform: "✨ Daten ins Formular übertragen",
+                btn_reset: "Neu"
             }
         };
 
@@ -626,7 +636,6 @@
                     document.getElementById('chat-quick-replies').innerHTML = '';
                 }, 600);
             } else if (action === 'fill_form') {
-                // Prenos v obrazec
                 document.getElementById('form-name').value = userLeadData.name;
                 document.getElementById('form-email').value = userLeadData.email;
                 
@@ -645,7 +654,6 @@
                     }
                 }
 
-                // Oblikovanje sporočila z vključenim pozivom za dopisovanje
                 let defaultExtraPrompt = currentLang === 'si' ? "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..." :
                                          currentLang === 'en' ? "If you have any additional questions or special requests, please write them here..." :
                                          currentLang === 'hr' ? "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje..." :
@@ -712,7 +720,7 @@
                 userLeadData.extra = msg;
                 chatState = 'READY';
                 setTimeout(() => {
-                    let summary = currentLang === 'si' ? `Hvala! Zbral sam naslednje podatke:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Podjetje: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite spodnji gumb za prenos v obrazec.` :
+                    let summary = currentLang === 'si' ? `Hvala! Zbral sem naslednje podatke:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Podjetje: <b>${userLeadData.name}</b><br>• E-pošta: <b>${userLeadData.email}</b><br>• Storitev: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite spodnji gumb za prenos v obrazec.` :
                                   currentLang === 'en' ? `Thanks! Collected details:<br>• Type: <b>${userLeadData.entityType}</b><br>• Name/Company: <b>${userLeadData.name}</b><br>• Email: <b>${userLeadData.email}</b><br>• Service: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meters: <b>${userLeadData.meters}</b><br><br>Click below to transfer to the form.` :
                                   currentLang === 'hr' ? `Hvala! Prikupljeni podaci:<br>• Vrsta: <b>${userLeadData.entityType}</b><br>• Ime/Tvrtka: <b>${userLeadData.name}</b><br>• E-mail: <b>${userLeadData.email}</b><br>• Usluga: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Metri: <b>${userLeadData.meters}</b><br><br>Kliknite ispod za prijenos u obrazac.` :
                                   `Danke! Gesammelte Daten:<br>• Typ: <b>${userLeadData.entityType}</b><br>• Name/Firma: <b>${userLeadData.name}</b><br>• E-Mail: <b>${userLeadData.email}</b><br>• Leistung: <b>${userLeadData.dealType} ${userLeadData.equipment}</b><br>• Meter: <b>${userLeadData.meters}</b><br><br>Klicken Sie unten zum Übertragen.`;
@@ -730,7 +738,6 @@
             if (e.key === 'Enter') sendChatMessage();
         }
 
-        // Pred pošiljanjem preveri vnose v obrazec (Validation)
         function validateForm(e) {
             const name = document.getElementById('form-name').value.trim();
             const email = document.getElementById('form-email').value.trim();

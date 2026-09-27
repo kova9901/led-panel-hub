@@ -474,7 +474,7 @@
             </div>
             <div>
                 <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_contact_title">Kontakt in podpora</h4>
-                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:Ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">Ledpanelhub.info@gmail.com</a></p>
+                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">ledpanelhub.info@gmail.com</a></p>
                 <p class="text-xs text-slate-400" data-i18n="footer_region">Regija: SI, HR, AT, DE</p>
             </div>
             <div>
@@ -1107,10 +1107,28 @@
             const dims = document.getElementById('form-dimensions').value;
             const msg = document.getElementById('form-message').value;
 
+            const emailBody = `Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`;
+            
             const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
-            const body = encodeURIComponent(`Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`);
+            const body = encodeURIComponent(emailBody);
 
-            window.location.href = `mailto:Ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
+            // 1. Odpremo mailto povezavo
+            window.location.href = `mailto:ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
+
+            // 2. Hkrati kopiramo v odložišče za računalnike (fallback)
+            navigator.clipboard.writeText(`Za: ledpanelhub.info@gmail.com\nZadeva: Nova poizvedba - LEDpanelHub: ${service} (${name})\n\n${emailBody}`).then(() => {
+                const toast = document.getElementById('toast-notification');
+                const toastText = document.getElementById('toast-text');
+                if (toastText) {
+                    toastText.textContent = "Podatki so kopirani v odložišče (če se mail ne odpre, jih prilepite v Gmail)!";
+                }
+                toast.classList.remove('translate-x-full');
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                }, 6000);
+            }).catch(err => {
+                console.error('Napaka pri kopiranju: ', err);
+            });
         }
 
         const legalTexts = {

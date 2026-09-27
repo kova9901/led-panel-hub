@@ -13,6 +13,12 @@
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
 
+    <!-- TOP NOTICE: UNDER CONSTRUCTION (ČISTO NA VRHU) -->
+    <div class="bg-cyan-500 text-slate-950 py-2 px-4 text-center text-xs font-bold tracking-wide uppercase flex items-center justify-center gap-2 shadow-sm">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span data-i18n="top_construction">Stran je v izdelavi</span>
+    </div>
+
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -42,12 +48,6 @@
             </div>
         </div>
     </header>
-
-    <!-- NOTICE: UNDER CONSTRUCTION BANNER -->
-    <div class="bg-cyan-500/10 border-b border-cyan-500/20 py-2.5 px-4 text-center text-xs sm:text-sm text-cyan-300 font-medium flex items-center justify-center gap-2">
-        <i class="fa-solid fa-triangle-exclamation text-cyan-400"></i>
-        <span data-i18n="construction_banner">Spletna stran je trenutno v izdelavi. Kljub tomu lahko že oddate povpraševanje!</span>
-    </div>
 
     <!-- HERO SECTION -->
     <section class="relative pt-24 pb-28 overflow-hidden border-b border-slate-900">
@@ -278,7 +278,7 @@
 
         const translations = {
             si: {
-                construction_banner: "Spletna stran je trenutno v izdelavi. Kljub tomu lahko že oddate povpraševanje!",
+                top_construction: "Stran je v izdelavi",
                 nav_services: "Storitve partnerjev",
                 nav_about: "O posredništvu",
                 nav_contact: "Povpraševanje",
@@ -327,7 +327,7 @@
                 footer_terms: "Pogoji posredništva"
             },
             en: {
-                construction_banner: "Website is currently under construction. You can still submit your inquiry!",
+                top_construction: "Website under construction",
                 nav_services: "Partner Services",
                 nav_about: "About Brokerage",
                 nav_contact: "Contact",
@@ -376,7 +376,7 @@
                 footer_terms: "Brokerage Terms"
             },
             hr: {
-                construction_banner: "Web stranica je trenutno u izradi. Ipak, već sada možete poslati upit!",
+                top_construction: "Stranica je u izradi",
                 nav_services: "Usluge partnera",
                 nav_about: "O posredništvu",
                 nav_contact: "Upit",
@@ -425,7 +425,7 @@
                 footer_terms: "Uvjeti posredništva"
             },
             de: {
-                construction_banner: "Die Website befindet sich derzeit im Aufbau. Sie können Ihre Anfrage dennoch bereits absenden!",
+                top_construction: "Website im Aufbau",
                 nav_services: "Partnerdienste",
                 nav_about: "Über Vermittlung",
                 nav_contact: "Anfrage",
@@ -516,7 +516,7 @@
             
             const container = document.getElementById('chat-messages');
             if (container.children.length === 0) {
-                container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]">${translations[currentLang].chat_welcome}</div>`;
+                container.innerHTML = `<div class="bg-slate-800/80 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[85%]"">${translations[currentLang].chat_welcome}</div>`;
             }
         }
 

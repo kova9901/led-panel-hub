@@ -1068,7 +1068,9 @@
                 updateStepper(7);
                 const pDate = { si: "Kakšen je predviden datum dogodka / postavitve (npr. 1.10.2026)?", en: "What is the expected date of the event / setup?", hr: "Koji je predviđeni datum događaja / postavljanja?", de: "Was ist das voraussichtliche Datum der Veranstaltung / des Aufbaus?" };
                 appendMessage('bot', pDate[currentLang]);
-                setQuickReplies([]);
+    // ... (prejšnji del vaše skripte ostane nespremenjen, tu se nadaljuje vaš posredovani del) ...
+
+            setQuickReplies([]);
             } else if(chatState === 'ASK_DATE') {
                 userLeadData.date = val;
                 chatState = 'DONE';
@@ -1107,20 +1109,29 @@
             const dims = document.getElementById('form-dimensions').value;
             const msg = document.getElementById('form-message').value;
 
+            const recipient = "ledpanelhub.info@gmail.com";
             const emailBody = `Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`;
             
-            const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
-            const body = encodeURIComponent(emailBody);
+            const subject = `Nova poizvedba - LEDpanelHub: ${service} (${name})`;
 
-            // 1. Odpremo mailto povezavo
-            window.location.href = `mailto:ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
+            // Preverimo, ali je uporabnik na mobilni napravi ali računalniku
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-            // 2. Hkrati kopiramo v odložišče za računalnike (fallback)
-            navigator.clipboard.writeText(`Za: ledpanelhub.info@gmail.com\nZadeva: Nova poizvedba - LEDpanelHub: ${service} (${name})\n\n${emailBody}`).then(() => {
+            if (isMobile) {
+                // Na mobilnih napravah odpremo mailto povezavo
+                window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            } else {
+                // Na računalniku odpremo Gmail v novem zavihku
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                window.open(gmailUrl, '_blank');
+            }
+
+            // Hkrati kopiramo varnostno kopijo v odložišče
+            navigator.clipboard.writeText(`Za: ${recipient}\nZadeva: ${subject}\n\n${emailBody}`).then(() => {
                 const toast = document.getElementById('toast-notification');
                 const toastText = document.getElementById('toast-text');
                 if (toastText) {
-                    toastText.textContent = "Podatki so kopirani v odložišče (če se mail ne odpre, jih prilepite v Gmail)!";
+                    toastText.textContent = "Podatki so pripravljeni za pošiljanje / kopirani v odložišče!";
                 }
                 toast.classList.remove('translate-x-full');
                 setTimeout(() => {

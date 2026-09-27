@@ -54,7 +54,8 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#services" class="hover:text-cyan-400 transition" data-i18n="nav_services">Storitve partnerjev</a>
-                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav_about">O posredništvu</a>
+                <a href="#guide" class="hover:text-cyan-400 transition" data-i18n="nav_guide">Tehnični vodnik</a>
+                <a href="#support" class="hover:text-cyan-400 transition" data-i18n="nav_support">Servis & Garancija</a>
                 <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav_faq">FAQ</a>
                 <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Povpraševanje</a>
             </nav>
@@ -176,38 +177,89 @@
         </div>
     </section>
 
-    <!-- ABOUT BROKER ROLE -->
-    <section id="about" class="py-24 border-b border-slate-900">
+    <!-- TECHNICAL GUIDE SECTION (Tehnični vodnik / Izbira zaslona) -->
+    <section id="guide" class="py-24 border-b border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6" data-i18n="about_heading">Kako deluje naše posredništvo?</h2>
-                    <p class="text-slate-400 leading-relaxed mb-4" data-i18n="about_text_1">
-                        Kot posrednik vam prihranimo dragocen čas pri iskanju prave opreme in preverjenih izvajalcev. Vaše povpraševanje analiziramo in ga usmerimo k najustreznejšemu tehničnemu partnerju v naši mreži.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed mb-6" data-i18n="about_text_2">
-                        Zagotavljamo gladko koordinacijo, preglednost in podporo pri realizaciji projektov, ne glede na to, ali gre za nakup opreme ali kratkoročni najem za dogodek.
-                    </p>
-                    <ul class="space-y-3 text-sm text-slate-300 font-medium">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_1">Hitra in neobvezujoča ponudba</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_2">Preverjeni ponudniki z izkušnjami</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> <span data-i18n="about_bullet_3">Prilagojene rešitve za nakup ali najem</span></li>
-                    </ul>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="guide_heading">Tehnični vodnik: Kako izbrati pravi LED zaslon?</h2>
+                <p class="mt-4 text-slate-400 text-lg" data-i18n="guide_subheading">Kratki napotki za lažjo določitev specifikacij vašega projekta.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="guide_outdoor_title">Zunanji zasloni (Outdoor & Športni panoji)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="guide_outdoor_desc">
+                            Zasloni za zunanjo uporabo morajo zagotavljati visoko svetilnost (od 5000 do 8000+ nitov) za odlično vidljivost na soncu ter visoko stopnjo zaščite (IP65) proti dežju in vlagi.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_outdoor_b1">Visoka odpornost na vremenske vplive</span></li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_outdoor_b2">Primerno za stadione, koncerte na prostem in sejme</span></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" alt="Backstage" class="w-full h-full object-cover min-h-[350px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
-                        <h3 class="text-xl font-semibold text-white mb-2" data-i18n="about_box_title">Imate vprašanje ali projekt?</h3>
-                        <p class="text-slate-300 text-sm mb-4" data-i18n="about_box_desc">Uporabite naš pametni klepetalnik spodaj desno za hitro posredovanje vaših podatkov ali pa nam pošljite povpraševanje.</p>
-                        <a href="#contact" class="inline-block text-center px-6 py-3 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="about_box_btn">Stopite v stik</a>
+
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="guide_indoor_title">Notranji zasloni (Indoor & Odri)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="guide_indoor_desc">
+                            Notranji ekrani odlikujejo manjši razmiki med pikami (Pixel Pitch P2 do P4) za izjemno ostro sliko in visoko frekvenco osveževanja, kar je ključno za snemanje s kamerami.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_indoor_b1">Visoka ločljivost in ostra slika od blizu</span></li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_indoor_b2">Primerno za dvorane, TV studie in konference</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SUPPORT & WARRANTY SECTION (Garancija in servisna podpora) -->
+    <section id="support" class="py-24 bg-slate-900/30 border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6" data-i18n="support_heading">Zanesljiva garancija in servisna podpora</h2>
+                    <p class="text-slate-400 leading-relaxed mb-4" data-i18n="support_text_1">
+                        Pri nakupu ali najemu opreme preko našega posredništva vam naši partnerji zagotavljajo celovito tehnično podporo, originalne rezervne dele in hitro odzivnost na terenu.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-6" data-i18n="support_text_2">
+                        V primeru najema je vključena tudi dežurna tehnična ekipa med samim potekom dogodka, kar zagotavlja nemoteno in brezskrbno delovanje celotnega sistema.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-shield-halved text-cyan-400 text-xl mb-2"></i>
+                            <h4 class="font-semibold text-white text-sm mb-1" data-i18n="support_box1_title">Garancija kakovosti</h4>
+                            <p class="text-xs text-slate-400" data-i18n="support_box1_desc">Preverjeni proizvajalci in certifikati EU standardov.</p>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-headset text-cyan-400 text-xl mb-2"></i>
+                            <h4 class="font-semibold text-white text-sm mb-1" data-i18n="support_box2_title">24/7 Dežurna služba</h4>
+                            <p class="text-xs text-slate-400" data-i18n="support_box2_desc">Tehnična podpora na voljo med dogodki.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl p-8 bg-slate-900">
+                    <h3 class="text-xl font-semibold text-white mb-4" data-i18n="support_reg_title">Regionalna pokritost in partnerji</h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-cyan-400 text-lg"></i> <span data-i18n="support_reg_si">Slovenija (Ljubljana, Maribor, Celje, Koper)</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-cyan-400 text-lg"></i> <span data-i18n="support_reg_hr">Hrvaška (Zagreb, Split, Rijeka, Istra)</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-cyan-400 text-lg"></i> <span data-i18n="support_reg_at">Avstrija & Nemčija (Gradec, Dunaj, München)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ SECTION (Pogosta vprašanja) -->
-    <section id="faq" class="py-24 bg-slate-900/30 border-b border-slate-900">
+    <section id="faq" class="py-24 border-b border-slate-900">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="faq_heading">Pogosto zastavljena vprašanja</h2>
@@ -384,7 +436,8 @@
             si: {
                 top_construction: "Stran je v izdelavi",
                 nav_services: "Storitve partnerjev",
-                nav_about: "O posredništvu",
+                nav_guide: "Tehnični vodnik",
+                nav_support: "Servis & Garancija",
                 nav_faq: "FAQ",
                 nav_contact: "Povpraševanje",
                 nav_cta: "Oddaj povpraševanje",
@@ -401,15 +454,27 @@
                 service_2_desc: "Nakup ali najem visoko zmogljivih velikih zaslonov (od 10 do 100+ kvadratnih metrov) za koncerte, festivale, kulturne in korporativne dogodke.",
                 service_3_title: "Tehnična logistika in operativa",
                 service_3_desc: "Zanesljiva ekipa partnerjev poskrbi za transport, strokovno postavitev, demontažo ter tehnično podporo in upravljanje vsebin med samim dogodkom.",
-                about_heading: "Kako deluje naše posredništvo?",
-                about_text_1: "Kot posrednik vam prihranimo dragocen čas pri iskanju prave opreme in preverjenih izvajalcev. Vaše povpraševanje analiziramo in ga usmerimo k najustreznejšemu tehničnemu partnerju v naši mreži.",
-                about_text_2: "Zagotavljamo gladko koordinacijo, preglednost in podporo pri realizaciji projektov, ne glede na to, ali gre za nakup opreme ali kratkoročni najem.",
-                about_bullet_1: "Hitra in neobvezujoča ponudba",
-                about_bullet_2: "Preverjeni ponudniki z izkušnjami",
-                about_bullet_3: "Prilagojene rešitve za nakup ali najem",
-                about_box_title: "Imate vprašanje ali projekt?",
-                about_box_desc: "Uporabite naš pametni klepetalnik spodaj desno za hiter vnos podatkov ali pa nam pošljite povpraševanje.",
-                about_box_btn: "Stopite v stik",
+                guide_heading: "Tehnični vodnik: Kako izbrati pravi LED zaslon?",
+                guide_subheading: "Kratki napotki za lažjo določitev specifikacij vašega projekta.",
+                guide_outdoor_title: "Zunanji zasloni (Outdoor & Športni panoji)",
+                guide_outdoor_desc: "Zasloni za zunanjo uporabo morajo zagotavljati visoko svetilnost (od 5000 do 8000+ nitov) za odlično vidljivost na soncu ter visoko stopnjo zaščite (IP65) proti dežju in vlagi.",
+                guide_outdoor_b1: "Visoka odpornost na vremenske vplive",
+                guide_outdoor_b2: "Primerno za stadione, koncerte na prostem in sejme",
+                guide_indoor_title: "Notranji zasloni (Indoor & Odri)",
+                guide_indoor_desc: "Notranji ekrani odlikujejo manjši razmiki med pikami (Pixel Pitch P2 do P4) za izjemno ostro sliko in visoko frekvenco osveževanja, kar je ključno za snemanje s kamerami.",
+                guide_indoor_b1: "Visoka ločljivost in ostra slika od blizu",
+                guide_indoor_b2: "Primerno za dvorane, TV studie in konference",
+                support_heading: "Zanesljiva garancija in servisna podpora",
+                support_text_1: "Pri nakupu ali najemu opreme preko našega posredništva vam naši partnerji zagotavljajo celovito tehnično podporo, originalne rezervne dele in hitro odzivnost na terenu.",
+                support_text_2: "V primeru najema je vključena tudi dežurna tehnična ekipa med samim potekom dogodka, kar zagotavlja nemoteno in brezskrbno delovanje celotnega sistema.",
+                support_box1_title: "Garancija kakovosti",
+                support_box1_desc: "Preverjeni proizvajalci in certifikati EU standardov.",
+                support_box2_title: "24/7 Dežurna služba",
+                support_box2_desc: "Tehnična podpora na voljo med dogodki.",
+                support_reg_title: "Regionalna pokritost in partnerji",
+                support_reg_si: "Slovenija (Ljubljana, Maribor, Celje, Koper)",
+                support_reg_hr: "Hrvaška (Zagreb, Split, Rijeka, Istra)",
+                support_reg_at: "Avstrija & Nemčija (Gradec, Dunaj, München)",
                 faq_heading: "Pogosto zastavljena vprašanja",
                 faq_subheading: "Vse, kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.",
                 faq_q1: "Kako poteka postopek povpraševanja?",
@@ -464,7 +529,8 @@
             en: {
                 top_construction: "Website under construction",
                 nav_services: "Partner Services",
-                nav_about: "About Brokerage",
+                nav_guide: "Tech Guide",
+                nav_support: "Service & Warranty",
                 nav_faq: "FAQ",
                 nav_contact: "Inquiry",
                 nav_cta: "Submit Inquiry",
@@ -481,15 +547,27 @@
                 service_2_desc: "High-performance large displays (from 10 to 100+ square meters) for concerts, festivals, cultural, and corporate events.",
                 service_3_title: "Technical Logistics & Operations",
                 service_3_desc: "Reliable partner teams handle transport, expert installation, dismantling, technical support, and content management during events.",
-                about_heading: "How Does Our Brokerage Work?",
-                about_text_1: "As a broker, we save you valuable time finding the right equipment and verified providers. We analyze your inquiry and direct it to the most suitable technical partner in our network.",
-                about_text_2: "We ensure smooth coordination, transparency, and support throughout project implementation, whether for equipment purchase or short-term rental.",
-                about_bullet_1: "Fast and non-binding offer",
-                about_bullet_2: "Verified providers with experience",
-                about_bullet_3: "Tailored solutions for purchase or rental",
-                about_box_title: "Have a Question or Project?",
-                about_box_desc: "Use our smart chatbot on the bottom right for quick data submission or send us a direct inquiry.",
-                about_box_btn: "Get in Touch",
+                guide_heading: "Technical Guide: How to Choose the Right LED Screen?",
+                guide_subheading: "Brief tips to easily determine your project specifications.",
+                guide_outdoor_title: "Outdoor Displays (Outdoor & Sports Boards)",
+                guide_outdoor_desc: "Outdoor screens must provide high brightness (5,000 to 8,000+ nits) for clear sunlight visibility and high protection ratings (IP65) against rain and moisture.",
+                guide_outdoor_b1: "High weather resistance",
+                guide_outdoor_b2: "Suitable for stadiums, outdoor concerts, and exhibitions",
+                guide_indoor_title: "Indoor Displays (Indoor & Stages)",
+                guide_indoor_desc: "Indoor screens feature smaller pixel pitches (Pixel Pitch P2 to P4) for exceptionally sharp images and high refresh rates, essential for camera broadcasting.",
+                guide_indoor_b1: "High resolution and sharp close-up image",
+                guide_indoor_b2: "Suitable for halls, TV studios, and conferences",
+                support_heading: "Reliable Warranty and Service Support",
+                support_text_1: "When purchasing or renting equipment through our brokerage, our partners provide comprehensive technical support, original spare parts, and fast on-site responsiveness.",
+                support_text_2: "For rentals, an on-call technical team is included during the event itself, ensuring smooth and worry-free operation of the entire system.",
+                support_box1_title: "Quality Warranty",
+                support_box1_desc: "Verified manufacturers and EU standard certifications.",
+                support_box2_title: "24/7 On-Call Service",
+                support_box2_desc: "Technical support available during events.",
+                support_reg_title: "Regional Coverage & Partners",
+                support_reg_si: "Slovenia (Ljubljana, Maribor, Celje, Koper)",
+                support_reg_hr: "Croatia (Zagreb, Split, Rijeka, Istria)",
+                support_reg_at: "Austria & Germany (Graz, Vienna, Munich)",
                 faq_heading: "Frequently Asked Questions",
                 faq_subheading: "Everything you need to know about cooperation, rental, and purchasing LED equipment.",
                 faq_q1: "How does the inquiry process work?",
@@ -544,7 +622,8 @@
             hr: {
                 top_construction: "Stranica je u izradi",
                 nav_services: "Usluge partnera",
-                nav_about: "O posredništvu",
+                nav_guide: "Tehnički vodič",
+                nav_support: "Servis i jamstvo",
                 nav_faq: "FAQ",
                 nav_contact: "Upit",
                 nav_cta: "Pošalji upit",
@@ -561,15 +640,27 @@
                 service_2_desc: "Kupnja ili najam visokoučinkovitih velikih zaslona (od 10 do 100+ četvornih metara) za koncerte, festivale, kulturna i korporativna događanja.",
                 service_3_title: "Tehnička logistika i operativa",
                 service_3_desc: "Pouzdana ekipa partnera brine se za transport, stručnu montažu, demontažu te tehničku podršku i upravljanje sadržajem tijekom samog događaja.",
-                about_heading: "Kako radi naše posredništvo?",
-                about_text_1: "Kao posrednik štedimo vam dragocjeno vrijeme u traženju pravog dijela opreme i provjerenih izvođača. Analiziramo vaš upit i usmjeravamo ga najprikladnijem tehničkom partneru.",
-                about_text_2: "Jamčimo glatku koordinaciju, transparentnost i podršku u realizaciji projekata, bilo da se radi o kupnji opreme ili kratkoročnom najmu.",
-                about_bullet_1: "Brza i neobvezujuća ponuda",
-                about_bullet_2: "Provjereni ponuđači s iskustvom",
-                about_bullet_3: "Prilagođena rješenja za kupnju ili najam",
-                about_box_title: "Imate pitanje ili projekt?",
-                about_box_desc: "Upotrijebite naš pametni chatbot dolje desno za brz unos podataka ili nam pošaljite upit.",
-                about_box_btn: "Stupite u kontakt",
+                guide_heading: "Tehnički vodič: Kako odabrati pravi LED zaslon?",
+                guide_subheading: "Kratki savjeti za lakše određivanje specifikacija vašeg projekta.",
+                guide_outdoor_title: "Vanjski zasloni (Outdoor i sportski panoi)",
+                guide_outdoor_desc: "Vanjski zasloni moraju osiguravati visoku svjetlinu (5000 do 8000+ nita) za izvrsnu vidljivost na suncu te visoki stupanj zaštite (IP65) od kiše i vlage.",
+                guide_outdoor_b1: "Visoka otpornost na vremenske uvjete",
+                guide_outdoor_b2: "Prikladno za stadione, vanjske koncerte i sajmove",
+                guide_indoor_title: "Unutarnji zasloni (Indoor i pozornice)",
+                guide_indoor_desc: "Unutarnji ekrani odlikuju se manjim razmacima između piksela (Pixel Pitch P2 do P4) za iznimno oštru sliku i visoku stopu osvježavanja, što je ključno za snimanje kamerama.",
+                guide_indoor_b1: "Visoka rezolucija i oštra slika izbliza",
+                guide_indoor_b2: "Prikladno za dvorane, TV studije i konferencije",
+                support_heading: "Pouzdano jamstvo i servisna podrška",
+                support_text_1: "Prilikom kupnje ili najma opreme putem našeg posredništva, naši vam partneri osiguravaju sveobuhvatnu tehničku podršku, originalne rezervne dijelove i brzu odzivnost na terenu.",
+                support_text_2: "U slučaju najma uključena je i dežurna tehnička ekipa tijekom samog trajanja događaja, što jamči nesmetan i bezbrižan rad cijelog sustava.",
+                support_box1_title: "Jamstvo kvalitete",
+                support_box1_desc: "Provjereni proizvođači i certifikati EU standarda.",
+                support_box2_title: "24/7 Dežurna služba",
+                support_box2_desc: "Tehnička podrška dostupna tijekom događaja.",
+                support_reg_title: "Regionalna pokrivenost i partneri",
+                support_reg_si: "Slovenija (Ljubljana, Maribor, Celje, Koper)",
+                support_reg_hr: "Hrvatska (Zagreb, Split, Rijeka, Istra)",
+                support_reg_at: "Austrija i Njemačka (Graz, Beč, München)",
                 faq_heading: "Često postavljana pitanja",
                 faq_subheading: "Sve što trebate znati o suradnji, najmu i kupnji LED opreme.",
                 faq_q1: "Kako izgleda postupak slanja upita?",
@@ -624,7 +715,8 @@
             de: {
                 top_construction: "Website im Aufbau",
                 nav_services: "Partnerservices",
-                nav_about: "Über das Brokerage",
+                nav_guide: "Technischer Leitfaden",
+                nav_support: "Service & Garantie",
                 nav_faq: "FAQ",
                 nav_contact: "Anfrage",
                 nav_cta: "Anfrage senden",
@@ -641,15 +733,27 @@
                 service_2_desc: "Hochleistungsfähige Großdisplays (von 10 bis 100+ qm) für Konzerte, Festivals, Kultur- und Firmenveranstaltungen.",
                 service_3_title: "Technische Logistik und Betrieb",
                 service_3_desc: "Zuverlässige Partnerteams kümmern sich um Transport, fachgerechte Installation, Demontage, technischen Support und Content-Management während der Veranstaltung.",
-                about_heading: "Wie funktioniert unsere Vermittlung?",
-                about_text_1: "Als Vermittler sparen wir Ihnen wertvolle Zeit bei der Suche nach der richtigen Ausrüstung und verifizierten Anbietern. Wir analysieren Ihre Anfrage und leiten sie an den passenden technischen Partner weiter.",
-                about_text_2: "Wir garantieren reibungslose Koordination, Transparenz und Unterstützung bei der Projektabwicklung, egal ob Gerätekauf oder kurzfristige Miete.",
-                about_bullet_1: "Schnelles und unverbindliches Angebot",
-                about_bullet_2: "Verifizierte Anbieter mit Erfahrung",
-                about_bullet_3: "Maßgeschneiderte Lösungen für Kauf oder Miete",
-                about_box_title: "Haben Sie eine Frage oder ein Projekt?",
-                about_box_desc: "Nutzen Sie unseren intelligenten Chatbot unten rechts für eine schnelle Dateneingabe oder senden Sie uns eine direkte Anfrage.",
-                about_box_btn: "Kontakt aufnehmen",
+                guide_heading: "Technischer Leitfaden: Wie wählt man den richtigen LED-Bildschirm?",
+                guide_subheading: "Kurze Tipps zur einfachen Bestimmung Ihrer Projektspezifikationen.",
+                guide_outdoor_title: "Outdoor-Displays (Outdoor & Sportbanden)",
+                guide_outdoor_desc: "Bildschirme für den Außenbereich müssen eine hohe Helligkeit (5.000 bis 8.000+ Nits) für Sonnensichtbarkeit und eine hohe Schutzart (IP65) gegen Regen und Feuchtigkeit bieten.",
+                guide_outdoor_b1: "Hohe Wetterbeständigkeit",
+                guide_outdoor_b2: "Geeignet für Stadien, Open-Air-Konzerte und Messen",
+                guide_indoor_title: "Indoor-Displays (Indoor & Bühnen)",
+                guide_indoor_desc: "Indoor-Bildschirme zeichnen sich durch kleinere Pixelabstände (Pixel Pitch P2 bis P4) für extrem scharfe Bilder und hohe Bildwiederholraten aus, ideal für Kameraaufnahmen.",
+                guide_indoor_b1: "Hohe Auflösung und scharfes Nahbild",
+                guide_indoor_b2: "Geeignet für Hallen, TV-Studios und Konferenzen",
+                support_heading: "Zuverlässige Garantie und Serviceunterstützung",
+                support_text_1: "Beim Kauf oder der Miete von Equipment über unser Brokerage stellen Ihnen unsere Partner umfassenden technischen Support, originale Ersatzteile und schnelle Reaktionszeiten vor Ort zur Verfügung.",
+                support_text_2: "Bei Vermietungen ist ein technisches Bereitschaftsteam während der Veranstaltung inklusive, was einen reibungslosen und sorgenfreien Betrieb des Gesamtsystems garantiert.",
+                support_box1_title: "Qualitätsgarantie",
+                support_box1_desc: "Verifizierte Hersteller und EU-Normzertifizierungen.",
+                support_box2_title: "24/7 Bereitschaftsdienst",
+                support_box2_desc: "Technischer Support während der Veranstaltungen.",
+                support_reg_title: "Regionale Abdeckung & Partner",
+                support_reg_si: "Slowenien (Ljubljana, Maribor, Celje, Koper)",
+                support_reg_hr: "Kroatien (Zagreb, Split, Rijeka, Istrien)",
+                support_reg_at: "Österreich & Deutschland (Graz, Wien, München)",
                 faq_heading: "Häufig gestellte Fragen",
                 faq_subheading: "Alles, was Sie über die Zusammenarbeit, Miete und den Kauf von LED-Equipment wissen müssen.",
                 faq_q1: "Wie läuft der Anfrageprozess ab?",

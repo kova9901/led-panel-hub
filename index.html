@@ -41,6 +41,24 @@
         <span data-i18n="top_construction">Stran je v izdelavi</span>
     </div>
 
+    <!-- INDIKATOR DELOVNEGA ČASA IN ODZIVNOSTI -->
+    <div class="bg-slate-900 text-slate-200 py-2 px-4 text-xs sm:text-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="font-medium text-white" data-i18n="ind_status_title">Servisna točka Ljubljana:</span>
+                <span class="text-emerald-400 font-semibold" data-i18n="ind_status_val">Odprto / Ekipe na voljo</span>
+            </div>
+            <div class="flex items-center space-x-6 text-slate-400">
+                <span data-i18n="ind_response">⏱️ Odziv na povpraševanje: <strong class="text-white">&lt; 2 uri</strong></span>
+                <span class="hidden md:inline" data-i18n="ind_hours">📅 Pon - Pet: 8:00 - 16:00 CET</span>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -56,6 +74,7 @@
                 <a href="#services" class="hover:text-cyan-400 transition" data-i18n="nav_services">Storitve partnerjev</a>
                 <a href="#guide" class="hover:text-cyan-400 transition" data-i18n="nav_guide">Tehnični vodnik</a>
                 <a href="#support" class="hover:text-cyan-400 transition" data-i18n="nav_support">Servis & Garancija</a>
+                <a href="#reference" class="hover:text-cyan-400 transition" data-i18n="nav_reference">Reference</a>
                 <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav_faq">FAQ</a>
                 <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Povpraševanje</a>
             </nav>
@@ -256,8 +275,70 @@
         </div>
     </section>
 
+    <!-- REFERENCE & GALERIJA PROJEKTOV (SOCIAL PROOF) -->
+    <section id="reference" class="py-24 border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-400 font-semibold tracking-wider uppercase text-xs bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20" data-i18n="ref_badge">Social Proof & Reference</span>
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mt-3 mb-4" data-i18n="ref_heading">Naši LED sistemi na delu</h2>
+                <p class="text-slate-400 text-base" data-i18n="ref_subheading">Oglejte si izbrane projekte postavitve LED zaslonov, športnih panojev in zunanjih medijskih fasad, ki jih posredujemo našim strankam.</p>
+            </div>
+
+            <!-- Mreža projektov -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projekt 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=800&q=80" alt="Stadium screen" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_outdoor">Zunanji pano</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p1_title">Glavni športni stadion</h3>
+                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p1_desc">Visokosvetilni obodni LED zaslon za prikaz rezultatov in oglaševanje v realnem času.</p>
+                        <div class="flex justify-between items-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+                            <span>📍 Ljubljana, SI</span>
+                            <span class="text-cyan-400 font-medium">P6 zunanji modul</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Indoor arena" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_sport">Športna dvorana</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p2_title">Večnamenska športna dvorana</h3>
+                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p2_desc">Kocke in obodni zasloni visoke ločljivosti za tekme, koncerte in dogodke.</p>
+                        <div class="flex justify-between items-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+                            <span>📍 Zagreb, HR</span>
+                            <span class="text-cyan-400 font-medium">P3.9 notranji zaslon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Stage event" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_indoor">Odrski element</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p3_title">Poslovni kongresni center</h3>
+                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p3_desc">Modularni LED zasloni visoke frekvence za vrhunske predstavitve in nastope.</p>
+                        <div class="flex justify-between items-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+                            <span>📍 München, DE</span>
+                            <span class="text-cyan-400 font-medium">P2.6 rental panel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ SECTION (Pogosta vprašanja) -->
-    <section id="faq" class="py-24 border-b border-slate-900">
+    <section id="faq" class="py-24 bg-slate-900/30 border-b border-slate-900">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="faq_heading">Pogosto zastavljena vprašanja</h2>
@@ -433,9 +514,14 @@
         const translations = {
             si: {
                 top_construction: "Stran je v izdelavi",
+                ind_status_title: "Servisna točka Ljubljana:",
+                ind_status_val: "Odprto / Ekipe na voljo",
+                ind_response: "⏱️ Odziv na povpraševanje: <strong class='text-white'>&lt; 2 uri</strong>",
+                ind_hours: "📅 Pon - Pet: 8:00 - 16:00 CET",
                 nav_services: "Storitve partnerjev",
                 nav_guide: "Tehnični vodnik",
                 nav_support: "Servis & Garancija",
+                nav_reference: "Reference",
                 nav_faq: "FAQ",
                 nav_contact: "Povpraševanje",
                 nav_cta: "Oddaj povpraševanje",
@@ -471,6 +557,18 @@
                 support_box2_desc: "Tehnična podpora na voljo med dogodki.",
                 support_reg_title: "Servisni center",
                 support_reg_ljubljana: "Ljubljana (Osrednji servis in logistična točka)",
+                ref_badge: "Social Proof & Reference",
+                ref_heading: "Naši LED sistemi na delu",
+                ref_subheading: "Oglejte si izbrane projekte postavitve LED zaslonov, športnih panojev in zunanjih medijskih fasad, ki jih posredujemo našim strankam.",
+                ref_tag_outdoor: "Zunanji pano",
+                ref_p1_title: "Glavni športni stadion",
+                ref_p1_desc: "Visokosvetilni obodni LED zaslon za prikaz rezultatov in oglaševanje v realnem času.",
+                ref_tag_sport: "Športna dvorana",
+                ref_p2_title: "Večnamenska športna dvorana",
+                ref_p2_desc: "Kocke in obodni zasloni visoke ločljivosti za tekme, koncerte in dogodke.",
+                ref_tag_indoor: "Odrski element",
+                ref_p3_title: "Poslovni kongresni center",
+                ref_p3_desc: "Modularni LED zasloni visoke frekvence za vrhunske predstavitve in nastope.",
                 faq_heading: "Pogosto zastavljena vprašanja",
                 faq_subheading: "Vse, kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.",
                 faq_q1: "Kako poteka postopek povpraševanja?",
@@ -524,9 +622,14 @@
             },
             en: {
                 top_construction: "Website under construction",
+                ind_status_title: "Ljubljana Service Point:",
+                ind_status_val: "Open / Teams Available",
+                ind_response: "⏱️ Inquiry response: <strong class='text-white'>&lt; 2 hours</strong>",
+                ind_hours: "📅 Mon - Fri: 8:00 - 16:00 CET",
                 nav_services: "Partner Services",
                 nav_guide: "Tech Guide",
                 nav_support: "Service & Warranty",
+                nav_reference: "References",
                 nav_faq: "FAQ",
                 nav_contact: "Inquiry",
                 nav_cta: "Submit Inquiry",
@@ -562,6 +665,18 @@
                 support_box2_desc: "Technical support available during events.",
                 support_reg_title: "Service Center",
                 support_reg_ljubljana: "Ljubljana (Central service and logistics hub)",
+                ref_badge: "Social Proof & References",
+                ref_heading: "Our LED Systems in Action",
+                ref_subheading: "Explore selected projects featuring LED screens, sports boards, and exterior media facades facilitated through our network.",
+                ref_tag_outdoor: "Outdoor Board",
+                ref_p1_title: "Main Sports Stadium",
+                ref_p1_desc: "High-brightness perimeter LED screen for real-time score updates and sponsor advertising.",
+                ref_tag_sport: "Indoor Arena",
+                ref_p2_title: "Multipurpose Sports Hall",
+                ref_p2_desc: "High-resolution center hung cubes and perimeter screens for matches and major events.",
+                ref_tag_indoor: "Stage Element",
+                ref_p3_title: "Business Congress Center",
+                ref_p3_desc: "High-refresh modular LED screens for premium presentations and live performances.",
                 faq_heading: "Frequently Asked Questions",
                 faq_subheading: "Everything you need to know about cooperation, rental, and purchasing LED equipment.",
                 faq_q1: "How does the inquiry process work?",
@@ -615,9 +730,14 @@
             },
             hr: {
                 top_construction: "Stranica je u izradi",
+                ind_status_title: "Servisna točka Ljubljana:",
+                ind_status_val: "Otvoreno / Ekipe dostupne",
+                ind_response: "⏱️ Odgovor na upit: <strong class='text-white'>&lt; 2 sata</strong>",
+                ind_hours: "📅 Pon - Pet: 8:00 - 16:00 CET",
                 nav_services: "Usluge partnera",
                 nav_guide: "Tehnički vodič",
                 nav_support: "Servis i jamstvo",
+                nav_reference: "Reference",
                 nav_faq: "FAQ",
                 nav_contact: "Upit",
                 nav_cta: "Pošalji upit",
@@ -653,6 +773,18 @@
                 support_box2_desc: "Tehnička podrška dostupna tijekom događaja.",
                 support_reg_title: "Servisni centar",
                 support_reg_ljubljana: "Ljubljana (Središnji servis i logistička točka)",
+                ref_badge: "Social Proof i reference",
+                ref_heading: "Naši LED sustavi na djelu",
+                ref_subheading: "Pregledajte odabrane projekte postavljanja LED zaslona, sportskih panoa i vanjskih medijskih fasada koje posredujemo.",
+                ref_tag_outdoor: "Vanjski panoi",
+                ref_p1_title: "Glavni sportski stadion",
+                ref_p1_desc: "Visokosvjetleći obodni LED zaslon za prikaz rezultata i oglašavanje u stvarnom vremenu.",
+                ref_tag_sport: "Sportska dvorana",
+                ref_p2_title: "Višenamjenska sportska dvorana",
+                ref_p2_desc: "Središnje kocke i obodni zasloni visoke rezolucije za utakmice i događanja.",
+                ref_tag_indoor: "Pozornica",
+                ref_p3_title: "Poslovni kongresni centar",
+                ref_p3_desc: "Modularni LED zasloni visoke frekvencije za vrhunske prezentacije i nastupe.",
                 faq_heading: "Često postavljana pitanja",
                 faq_subheading: "Sve što trebate znati o suradnji, najmu i kupnji LED opreme.",
                 faq_q1: "Kako izgleda postupak slanja upita?",
@@ -706,9 +838,14 @@
             },
             de: {
                 top_construction: "Website im Aufbau",
+                ind_status_title: "Servicepunkt Ljubljana:",
+                ind_status_val: "Geöffnet / Teams verfügbar",
+                ind_response: "⏱️ Antwort auf Anfrage: <strong class='text-white'>&lt; 2 Stunden</strong>",
+                ind_hours: "📅 Mo - Fr: 8:00 - 16:00 CET",
                 nav_services: "Partnerservices",
                 nav_guide: "Technischer Leitfaden",
                 nav_support: "Service & Garantie",
+                nav_reference: "Referenzen",
                 nav_faq: "FAQ",
                 nav_contact: "Anfrage",
                 nav_cta: "Anfrage senden",
@@ -744,6 +881,18 @@
                 support_box2_desc: "Technischer Support während der Veranstaltungen.",
                 support_reg_title: "Servicecenter",
                 support_reg_ljubljana: "Ljubljana (Zentraler Service- und Logistikstandort)",
+                ref_badge: "Social Proof & Referenzen",
+                ref_heading: "Unsere LED-Systeme im Einsatz",
+                ref_subheading: "Entdecken Sie ausgewählte Projekte von LED-Bildschirmen, Sportbanden und Medienfassaden aus unserem Netzwerk.",
+                ref_tag_outdoor: "Outdoor-Bande",
+                ref_p1_title: "Hauptsportstadion",
+                ref_p1_desc: "Helle LED-Umlaufbanden für Echtzeit-Spielstandsanzeigen und Sponsorenwerbung.",
+                ref_tag_sport: "Sporthalle",
+                ref_p2_title: "Mehrzweck-Sporthalle",
+                ref_p2_desc: "Hochauflösende LED-Würfel und Umlaufbildschirme für Spiele und Events.",
+                ref_tag_indoor: "Bühnenelement",
+                ref_p3_title: "Business-Kongresszentrum",
+                ref_p3_desc: "Modulare High-Refresh-LED-Bildschirme für erstklassige Präsentationen und Shows.",
                 faq_heading: "Häufig gestellte Fragen",
                 faq_subheading: "Alles, was Sie über die Zusammenarbeit, Miete und den Kauf von LED-Equipment wissen müssen.",
                 faq_q1: "Wie läuft der Anfrageprozess ab?",
@@ -811,7 +960,7 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) {
-                    el.textContent = translations[lang][key];
+                    el.innerHTML = translations[lang][key];
                 }
             });
 

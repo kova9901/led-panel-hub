@@ -64,7 +64,7 @@
             <!-- Language Switcher, CTA & Social Icons -->
             <div class="flex items-center gap-4">
                 <div class="flex bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs font-medium">
-                    <button onclick="setLanguage('si')" id="btn-si" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition">SI</button>
+                    <button onclick="setLanguage('si')" id="btn-si" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition font-bold">SI</button>
                     <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">EN</button>
                     <button onclick="setLanguage('hr')" id="btn-hr" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">HR</button>
                     <button onclick="setLanguage('de')" id="btn-de" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">DE</button>
@@ -474,7 +474,7 @@
             </div>
             <div>
                 <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_contact_title">Kontakt in podpora</h4>
-                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:info@ledpanelhub.com" class="text-cyan-400 hover:underline">info@ledpanelhub.com</a></p>
+                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:Ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">Ledpanelhub.info@gmail.com</a></p>
                 <p class="text-xs text-slate-400" data-i18n="footer_region">Regija: SI, HR, AT, DE</p>
             </div>
             <div>
@@ -1110,7 +1110,7 @@
             const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
             const body = encodeURIComponent(`Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`);
 
-            window.location.href = `mailto:info@ledpanelhub.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:Ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
         }
 
         const legalTexts = {
@@ -1150,4 +1150,4 @@
         }
     </script>
 </body>
-</html>        
+</html>

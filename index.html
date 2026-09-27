@@ -239,7 +239,13 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_file">Priložite skico, tloris ali načrt (opcijski dokument)</label>
-                    <input type="file" name="attachment" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-cyan-500 file:text-slate-950 hover:file:bg-cyan-400 transition">
+                    <div class="flex items-center gap-4">
+                        <label class="cursor-pointer bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs px-4 py-2.5 rounded-lg transition shadow-md">
+                            <span data-i18n="form_file_btn">Izberite datoteko</span>
+                            <input type="file" name="attachment" onchange="updateFileName(this)" class="hidden">
+                        </label>
+                        <span id="file-chosen-text" class="text-slate-400 text-sm" data-i18n="form_no_file">Nobena datoteka ni izbrana</span>
+                    </div>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
@@ -366,6 +372,8 @@
                 form_email_ph: "vas@email.com",
                 form_service: "Vrsta storitve in oprema",
                 form_file: "Priložite skico, tloris ali načrt (opcijski dokument)",
+                form_file_btn: "Izberite datoteko",
+                form_no_file: "Nobena datoteka ni izbrana",
                 form_message: "Podrobnosti in dodatna vprašanja",
                 form_message_ph: "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj...",
                 form_missing_hint: "V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.",
@@ -433,6 +441,8 @@
                 form_email_ph: "you@email.com",
                 form_service: "Service Type & Equipment",
                 form_file: "Attach sketch, floor plan or blueprint (optional)",
+                form_file_btn: "Choose File",
+                form_no_file: "No file chosen",
                 form_message: "Details & Additional Questions",
                 form_message_ph: "If you have any additional questions or special requirements, please write them here...",
                 form_missing_hint: "If you forgot to mention anything, you can add it here.",
@@ -500,6 +510,8 @@
                 form_email_ph: "vas@email.com",
                 form_service: "Vrsta usluge i oprema",
                 form_file: "Priložite skicu, tlocrt ili nacrt (opcionalni dokument)",
+                form_file_btn: "Odaberi datoteku",
+                form_no_file: "Nema odabrane datoteke",
                 form_message: "Detalji i dodatna pitanja",
                 form_message_ph: "Ako imate dodatnih pitanja ili posebnih zahtjeva, molimo upišite ih ovdje...",
                 form_missing_hint: "Ukoliko ste nešto zaboravili napisati, možete dopisati ovdje.",
@@ -567,6 +579,8 @@
                 form_email_ph: "sie@email.com",
                 form_service: "Art der Dienstleistung & Ausrüstung",
                 form_file: "Skizze, Grundriss oder Plan anhängen (optional)",
+                form_file_btn: "Datei auswählen",
+                form_no_file: "Keine Datei ausgewählt",
                 form_message: "Details & zusätzliche Fragen",
                 form_message_ph: "Wenn Sie zusätzliche Fragen oder spezielle Anforderungen haben, schreiben Sie diese bitte hier...",
                 form_missing_hint: "Falls Sie etwas vergessen haben, können Sie es hier ergänzen.",
@@ -624,6 +638,15 @@
                     el.placeholder = translations[lang][key];
                 }
             });
+        }
+
+        function updateFileName(input) {
+            const fileText = document.getElementById('file-chosen-text');
+            if (input.files && input.files.length > 0) {
+                fileText.textContent = input.files[0].name;
+            } else {
+                fileText.textContent = translations[currentLang].form_no_file;
+            }
         }
 
         // Chatbot logika

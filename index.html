@@ -396,7 +396,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_date">Datum dogodka / postavitve</label>
-                        <input type="date" id="form-date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="text" id="form-date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="npr. 1.10.2026">
                     </div>
                 </div>
 
@@ -1083,7 +1083,7 @@
                 userLeadData.meters = val;
                 chatState = 'ASK_DATE';
                 updateStepper(7);
-                appendMessage('bot', currentLang === 'si' ? "Kakšen je predviden datum dogodka / postavitve (npr. DD.MM.YYYY ali opombe glede termina)?" : "What is the expected date of the event / setup?");
+                appendMessage('bot', currentLang === 'si' ? "Kakšen je predviden datum dogodka / postavitve (npr. 1.10.2026)?" : "What is the expected date of the event / setup?");
                 setQuickReplies([]);
             } else if(chatState === 'ASK_DATE') {
                 userLeadData.date = val;
@@ -1100,6 +1100,7 @@
             document.getElementById('form-name').value = userLeadData.name;
             document.getElementById('form-email').value = userLeadData.email;
             document.getElementById('form-dimensions').value = userLeadData.meters;
+            document.getElementById('form-date').value = userLeadData.date;
 
             // Nastavitev vrste storitve glede na izbiro v asistentu
             const serviceSelect = document.getElementById('form-service');
@@ -1111,19 +1112,7 @@
                 }
             }
 
-            // Pretvorba datuma (npr. "2.10.2026" ali "2. 10. 2026" v "2026-10-02" za HTML input[type=date])
-            const dateStr = userLeadData.date.trim();
-            const dateParts = dateStr.match(/^(\d{1,2})[\.\/\s]+(\d{1,2})[\.\/\s]+(\d{4})$/);
-            if (dateParts) {
-                const day = dateParts[1].padStart(2, '0');
-                const month = dateParts[2].padStart(2, '0');
-                const year = dateParts[3];
-                document.getElementById('form-date').value = `${year}-${month}-${day}`;
-            } else if (dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
-                document.getElementById('form-date').value = dateStr;
-            }
-
-            // V sporočilo zapišemo samo osnovne podatke o stranki (brez podvajanja mer in datuma, ki sta že zgoraj)
+            // V sporočilo zapišemo samo osnovne podatke o stranki
             document.getElementById('form-message').value = `[Oddano preko klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}`;
             
             toggleChat();

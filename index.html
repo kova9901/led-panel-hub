@@ -178,20 +178,20 @@
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="contact_heading">Oddajte povpraševanje</h2>
                 <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.</p>
             </div>
-            <form onsubmit="handleSubmit(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+            <form onsubmit="handleMailtoSubmit(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Podjetje</label>
-                        <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="text" id="form-name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                        <input type="email" id="form-email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve</label>
-                    <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                    <select id="form-service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
                         <option data-i18n="opt_1">Športni LED panoji / Oglasne linije</option>
                         <option data-i18n="opt_2">Veliki LED ekrani za prireditve</option>
                         <option data-i18n="opt_3">Celovita tehnična izvedba in logistika</option>
@@ -199,7 +199,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti dogodka / Lokacija</label>
-                    <textarea rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume in vaše zahteve..."></textarea>
+                    <textarea id="form-message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Opišite lokacijo, okvirne datume in vaše zahteve..."></textarea>
                 </div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20" data-i18n="form_submit">Pošlji povpraševanje</button>
             </form>
@@ -439,7 +439,7 @@
                 form_submit: "Anfrage senden",
                 opt_1: "Sport-LED-Banden / Werbelinien",
                 opt_2: "Grosse Event-LED-Bildschirme",
-                opt_3: "Komplette technische Umsetzung & Logistik",
+                opt_3: "Komplette technische Umsetzung & Logistika",
                 chat_title: "LEDpanelHub Assistent",
                 footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern von Sport-LED-Banden und Eventequipment.",
                 footer_contact_title: "Kontakt & Support",
@@ -501,10 +501,17 @@
             if (e.key === 'Enter') sendChatMessage();
         }
 
-        function handleSubmit(e) {
+        function handleMailtoSubmit(e) {
             e.preventDefault();
-            alert('Povpraševanje je bilo uspešno poslano! Naši partnerji vas bodo kontaktirali v najkrajšem možnem času.');
-            e.target.reset();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const service = document.getElementById('form-service').value;
+            const message = document.getElementById('form-message').value;
+
+            const subject = encodeURIComponent(`Novo povpraševanje: ${service} (${name})`);
+            const body = encodeURIComponent(`Ime in priimek / Podjetje: ${name}\nE-pošta stranke: ${email}\nIzbrana storitev: ${service}\n\nPodrobnosti dogodka / Lokacija:\n${message}`);
+
+            window.location.href = `mailto:ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
 </body>

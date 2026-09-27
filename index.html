@@ -58,8 +58,14 @@
                 <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Povpraševanje</a>
             </nav>
 
-            <!-- Language Switcher & CTA -->
+            <!-- Social Icons, Language Switcher & CTA -->
             <div class="flex items-center gap-4">
+                <!-- Social Media Links -->
+                <div class="hidden sm:flex items-center gap-3 text-slate-400">
+                    <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="hover:text-cyan-400 transition text-lg" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="hover:text-cyan-400 transition text-lg" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+
                 <div class="flex bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs font-medium">
                     <button onclick="setLanguage('si')" id="btn-si" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition">SI</button>
                     <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">EN</button>
@@ -257,9 +263,14 @@
                     </div>
                     <span class="text-lg font-bold text-white">LEDpanelHub.com</span>
                 </div>
-                <p class="text-xs text-slate-500 leading-relaxed" data-i18n="footer_about">
+                <p class="text-xs text-slate-500 leading-relaxed mb-4" data-i18n="footer_about">
                     Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.
                 </p>
+                <!-- Social Icons in Footer -->
+                <div class="flex items-center gap-4 text-slate-300">
+                    <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-cyan-500 hover:text-cyan-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-cyan-500 hover:text-cyan-400 transition"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
             </div>
             <div>
                 <h4 class="font-semibold text-white mb-3 text-xs uppercase tracking-wider" data-i18n="footer_contact_title">Kontakt in podpora</h4>
@@ -280,12 +291,8 @@
         </div>
     </footer>
 
-    <!-- WHATSAPP QUICK BUTTON & CHATBOT WIDGET -->
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <a href="https://wa.me/" target="_blank" id="whatsapp-btn" class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xl hover:scale-105 transition" title="WhatsApp">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-        </a>
-
+    <!-- CHATBOT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50">
         <div>
             <button onclick="toggleChat()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center shadow-2xl hover:scale-105 transition">
                 <i class="fa-solid fa-comment-dots text-2xl"></i>
@@ -517,7 +524,7 @@
                 footer_cookies: "Kolačići",
                 footer_terms: "Uvjeti posredništva",
                 footer_rights: "© 2026 LEDpanelHub.com. Sva prava pridržana.",
-                btn_physical: "👤 Fizička osoba",
+                btn_physical: "👤 Fizična osoba",
                 btn_company: "🏢 Tvrtka",
                 btn_buy: "🛒 Kupnja",
                 btn_rent: "⏱️ Najem",

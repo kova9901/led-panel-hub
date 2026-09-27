@@ -1100,13 +1100,31 @@
             document.getElementById('form-name').value = userLeadData.name;
             document.getElementById('form-email').value = userLeadData.email;
             document.getElementById('form-dimensions').value = userLeadData.meters;
-            
-            // Poskusi pretvoriti vnos datuma v ustrezen YYYY-MM-DD format za HTML date input, če je mogoče, sicer zapiši v sporočilo
-            if(userLeadData.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
-                document.getElementById('form-date').value = userLeadData.date;
+
+            // Nastavitev vrste storitve glede na izbiro v asistentu
+            const serviceSelect = document.getElementById('form-service');
+            for (let i = 0; i < serviceSelect.options.length; i++) {
+                if (serviceSelect.options[i].text.toLowerCase().includes(userLeadData.equipment.toLowerCase()) || 
+                    userLeadData.equipment.toLowerCase().includes(serviceSelect.options[i].text.toLowerCase())) {
+                    serviceSelect.selectedIndex = i;
+                    break;
+                }
             }
 
-            document.getElementById('form-message').value = `[Preko asistenta]\nTip: ${userLeadData.entityType}\nNakup/Najem: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nMere/Količina: ${userLeadData.meters}\nDatum dogodka: ${userLeadData.date}`;
+            // Pretvorba datuma (npr. "2.10.2026" ali "2. 10. 2026" v "2026-10-02" za HTML input[type=date])
+            const dateStr = userLeadData.date.trim();
+            const dateParts = dateStr.match(/^(\d{1,2})[\.\/\s]+(\d{1,2})[\.\/\s]+(\d{4})$/);
+            if (dateParts) {
+                const day = dateParts[1].padStart(2, '0');
+                const month = dateParts[2].padStart(2, '0');
+                const year = dateParts[3];
+                document.getElementById('form-date').value = `${year}-${month}-${day}`;
+            } else if (dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                document.getElementById('form-date').value = dateStr;
+            }
+
+            // V sporočilo zapišemo samo osnovne podatke o stranki (brez podvajanja mer in datuma, ki sta že zgoraj)
+            document.getElementById('form-message').value = `[Oddano preko klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}`;
             
             toggleChat();
             window.location.href = '#contact';

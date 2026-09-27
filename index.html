@@ -16,7 +16,7 @@
     <!-- TOAST NOTIFICATION -->
     <div id="toast-notification" class="fixed top-20 right-6 z-50 transform translate-x-full transition-transform duration-300 bg-emerald-500 text-slate-950 px-6 py-3 rounded-xl shadow-2xl font-bold flex items-center gap-3 text-sm">
         <i class="fa-solid fa-circle-check text-base"></i>
-        <span id="toast-text">Podatki so bili uspešno preneseni v obrazec!</span>
+        <span id="toast-text" data-i18n="toast_success">Podatki so bili uspešno preneseni v obrazec!</span>
     </div>
 
     <!-- TOP NOTICE: UNDER CONSTRUCTION -->
@@ -196,11 +196,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Naziv podjetja</label>
-                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="npr. Janez Novak ali Podjetje d.o.o.">
+                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_name_ph" placeholder="npr. Janez Novak ali Podjetje d.o.o.">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="vas@email.com">
+                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_email_ph" placeholder="vas@email.com">
                     </div>
                 </div>
                 <div>
@@ -215,7 +215,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
-                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..."></textarea>
+                    <textarea id="form-message" name="message" rows="5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_message_ph" placeholder="Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..."></textarea>
                     <p class="mt-2 text-xs text-cyan-400 font-medium italic" data-i18n="form_missing_hint">V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.</p>
                 </div>
                 
@@ -244,7 +244,7 @@
             <div>
                 <h4 class="font-semibold text-white mb-3 text-xs uppercase tracking-wider" data-i18n="footer_contact_title">Kontakt in podpora</h4>
                 <p class="text-xs text-slate-400 mb-1"><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> ledpanelhub.info@gmail.com</p>
-                <p class="text-xs text-slate-400"><i class="fa-solid fa-globe text-cyan-400 mr-2"></i> Regija: SI, HR, AT, DE</p>
+                <p class="text-xs text-slate-400"><i class="fa-solid fa-globe text-cyan-400 mr-2"></i> <span data-i18n="footer_region">Regija: SI, HR, AT, DE</span></p>
             </div>
             <div>
                 <h4 class="font-semibold text-white mb-3 text-xs uppercase tracking-wider" data-i18n="footer_legal_title">Pravna obvestila</h4>
@@ -255,7 +255,7 @@
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900/80 pt-6 text-center text-xs text-slate-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900/80 pt-6 text-center text-xs text-slate-600" data-i18n="footer_rights">
             &copy; 2026 LEDpanelHub.com. Vse pravice pridržane.
         </div>
     </footer>
@@ -334,9 +334,12 @@
                 contact_heading: "Oddajte povpraševanje",
                 contact_subheading: "Izpolnite spodnji obrazec in posredovali ga bomo našim tehničnim partnerjem.",
                 form_name: "Ime in priimek / Naziv podjetja",
+                form_name_ph: "npr. Janez Novak ali Podjetje d.o.o.",
                 form_email: "E-poštni naslov",
+                form_email_ph: "vas@email.com",
                 form_service: "Vrsta storitve in oprema",
                 form_message: "Podrobnosti in dodatna vprašanja",
+                form_message_ph: "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj...",
                 form_missing_hint: "V kolikor ste kaj pozabili napisati, lahko dopišete tukaj.",
                 form_submit: "Pošlji povpraševanje",
                 opt_buy_sports: "Nakup športnih LED panojev",
@@ -349,10 +352,12 @@
                 chat_placeholder: "Vpišite sporočilo...",
                 footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
                 footer_contact_title: "Kontakt in podpora",
+                footer_region: "Regija: SI, HR, AT, DE",
                 footer_legal_title: "Pravna obvestila",
                 footer_privacy: "Politika zasebnosti (GDPR)",
                 footer_cookies: "Piškotki",
                 footer_terms: "Pogoji posredništva",
+                footer_rights: "© 2026 LEDpanelHub.com. Vse pravice pridržane.",
                 btn_physical: "👤 Fizična oseba",
                 btn_company: "🏢 Podjetje",
                 btn_buy: "🛒 Nakup",
@@ -394,9 +399,12 @@
                 contact_heading: "Submit an Inquiry",
                 contact_subheading: "Fill out the form below and we will forward it to our expert technical partners.",
                 form_name: "Full Name / Company Name",
+                form_name_ph: "e.g. John Doe or Company Ltd.",
                 form_email: "Email Address",
+                form_email_ph: "you@email.com",
                 form_service: "Service Type & Equipment",
-                form_message: "Details and additional questions",
+                form_message: "Details and Additional Questions",
+                form_message_ph: "If you have any additional questions or special requests, please write them here...",
                 form_missing_hint: "If you forgot to mention anything, you can add it here.",
                 form_submit: "Send Inquiry",
                 opt_buy_sports: "Purchase of Sports LED Boards",
@@ -409,10 +417,12 @@
                 chat_placeholder: "Type a message...",
                 footer_about: "Independent international brokerage connecting clients with verified providers of LED purchase, rental, and event equipment.",
                 footer_contact_title: "Contact & Support",
+                footer_region: "Region: SI, HR, AT, DE",
                 footer_legal_title: "Legal Information",
                 footer_privacy: "Privacy Policy (GDPR)",
                 footer_cookies: "Cookies",
                 footer_terms: "Brokerage Terms",
+                footer_rights: "© 2026 LEDpanelHub.com. All rights reserved.",
                 btn_physical: "👤 Individual",
                 btn_company: "🏢 Company",
                 btn_buy: "🛒 Purchase",
@@ -454,9 +464,12 @@
                 contact_heading: "Pošaljite upit",
                 contact_subheading: "Ispunite donji obrazac i proslijedit ćemo ga našim tehničnim partnerima.",
                 form_name: "Ime i prezime / Naziv tvrtke",
+                form_name_ph: "npr. Ivan Horvat ili Tvrtka d.o.o.",
                 form_email: "E-mail adresa",
+                form_email_ph: "vas@email.com",
                 form_service: "Vrsta usluge i oprema",
                 form_message: "Detalji i dodatna pitanja",
+                form_message_ph: "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje...",
                 form_missing_hint: "Ukoliko ste nešto zaboravili napisati, možete dopisati ovdje.",
                 form_submit: "Pošalji upit",
                 opt_buy_sports: "Kupnja sportskih LED panoa",
@@ -469,10 +482,12 @@
                 chat_placeholder: "Upišite poruku...",
                 footer_about: "Neovisno međunarodno posredništvo za povezivanje klijenata i provjerenih pružalaca kupnje, najma LED panoa i opreme.",
                 footer_contact_title: "Kontakt i podrška",
+                footer_region: "Regija: SI, HR, AT, DE",
                 footer_legal_title: "Pravne obavijesti",
                 footer_privacy: "Politika privatnosti (GDPR)",
                 footer_cookies: "Kolačići",
                 footer_terms: "Uvjeti posredništva",
+                footer_rights: "© 2026 LEDpanelHub.com. Sva prava pridržana.",
                 btn_physical: "👤 Fizična osoba",
                 btn_company: "🏢 Tvrtka",
                 btn_buy: "🛒 Kupnja",
@@ -514,9 +529,12 @@
                 contact_heading: "Anfrage senden",
                 contact_subheading: "Füllen Sie das Formular aus und wir leiten es an unsere technischen Partner weiter.",
                 form_name: "Name / Firmenname",
+                form_name_ph: "z.B. Max Mustermann oder Firma GmbH",
                 form_email: "E-Mail-Adresse",
+                form_email_ph: "ihre@email.com",
                 form_service: "Dienstleistungsart & Ausrüstung",
                 form_message: "Details und zusätzliche Fragen",
+                form_message_ph: "Wenn Sie weitere Fragen oder Sonderwünsche haben, schreiben Sie diese bitte hier...",
                 form_missing_hint: "Falls Sie etwas vergessen haben, können Sie es hier ergänzen.",
                 form_submit: "Anfrage senden",
                 opt_buy_sports: "Kauf von Sport-LED-Banden",
@@ -529,10 +547,12 @@
                 chat_placeholder: "Nachricht eingeben...",
                 footer_about: "Unabhängige internationale Vermittlung zur Verbindung von Kunden mit verifizierten Anbietern für Kauf, Miete von LED-Banden und Equipment.",
                 footer_contact_title: "Kontakt & Support",
+                footer_region: "Region: SI, HR, AT, DE",
                 footer_legal_title: "Rechtliches",
                 footer_privacy: "Datenschutz (DSGVO)",
                 footer_cookies: "Cookies",
                 footer_terms: "Vermittlungsbedingungen",
+                footer_rights: "© 2026 LEDpanelHub.com. Alle Rechte vorbehalten.",
                 btn_physical: "👤 Privatperson",
                 btn_company: "🏢 Unternehmen",
                 btn_buy: "🛒 Kauf",
@@ -697,14 +717,10 @@
                     }
                 }
 
-                let defaultExtraPrompt = currentLang === 'si' ? "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..." :
-                                         currentLang === 'en' ? "If you have any additional questions or special requests, please write them here..." :
-                                         currentLang === 'hr' ? "Ako imate kakva dodatna pitanja ili posebne zahtjeve, molimo dopišite ih ovdje..." :
-                                         "Wenn Sie weitere Fragen oder Sonderwünsche haben, schreiben Sie diese bitte hier...";
-
+                let defaultExtraPrompt = translations[currentLang].form_message_ph;
                 let userExtraText = (userLeadData.extra && userLeadData.extra !== defaultExtraPrompt) ? userLeadData.extra : "";
 
-                document.getElementById('form-message').value = `Status naročnika: ${userLeadData.entityType}\nDržava dogodka: ${userLeadData.country}\nKraj in ulica: ${userLeadData.address}\nZahtevani metri / dimenzije: ${userLeadData.meters}\n\nDodatna vprašanja / zahteve stranke:\n${userExtraText || defaultExtraPrompt}`;
+                document.getElementById('form-message').value = `Status: ${userLeadData.entityType}\nDržava: ${userLeadData.country}\nKraj in ulica: ${userLeadData.address}\nMetri / dimenzije: ${userLeadData.meters}\n\nDodatna vprašanja / zahteve stranke:\n${userExtraText || defaultExtraPrompt}`;
                 
                 document.getElementById('chat-window').classList.add('hidden');
                 showToast(translations[currentLang].toast_success);

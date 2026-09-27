@@ -382,16 +382,29 @@
                         <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_email_ph" placeholder="vas@email.com">
                     </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve in oprema</label>
-                    <select id="form-service" name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
-                        <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
-                        <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
-                        <option value="Nakup velikih LED ekranov" data-i18n="opt_buy_screens">Nakup velikih LED ekranov</option>
-                        <option value="Najem velikih LED ekranov" data-i18n="opt_rent_screens">Najem velikih LED ekranov</option>
-                        <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_logistics">Celovita tehnična izvedba in logistika</option>
-                    </select>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve in oprema</label>
+                        <select id="form-service" name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                            <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
+                            <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
+                            <option value="Nakup velikih LED ekranov" data-i18n="opt_buy_screens">Nakup velikih LED ekranov</option>
+                            <option value="Najem velikih LED ekranov" data-i18n="opt_rent_screens">Najem velikih LED ekranov</option>
+                            <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_logistics">Celovita tehnična izvedba in logistika</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_date">Datum dogodka / postavitve</label>
+                        <input type="date" id="form-date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
+                    </div>
                 </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_dimensions">Okvirne mere (širina x višina v metrih ali skupna površina m2)</label>
+                    <input type="text" id="form-dimensions" name="dimensions" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_dimensions_ph" placeholder="npr. dolžina 20m ali 6x4m (24 m2)">
+                </div>
+
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_file">Priložite skico, tloris ali načrt (opcijski dokument)</label>
                     <div class="flex items-center gap-4">
@@ -488,7 +501,7 @@
     <script>
         let currentLang = 'si';
         let chatState = 'ASK_ENTITY';
-        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', country: '', address: '', extra: '' };
+        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', date: '', extra: '' };
 
         const translations = {
             si: {
@@ -561,6 +574,9 @@
                 form_email: "E-poštni naslov",
                 form_email_ph: "vas@email.com",
                 form_service: "Vrsta storitve in oprema",
+                form_date: "Datum dogodka / postavitve",
+                form_dimensions: "Okvirne mere (širina x višina v metrih ali skupna površina m2)",
+                form_dimensions_ph: "npr. dolžina 20m ali 6x4m (24 m2)",
                 form_file: "Priložite skico, tloris ali načrt (opcijski dokument)",
                 form_file_btn: "Izberite datoteko",
                 form_no_file: "Nobena datoteka ni izbrana",
@@ -665,6 +681,9 @@
                 form_email: "Email Address",
                 form_email_ph: "you@email.com",
                 form_service: "Service Type & Equipment",
+                form_date: "Event / Setup Date",
+                form_dimensions: "Approximate Dimensions (width x height in meters or total area m2)",
+                form_dimensions_ph: "e.g. length 20m or 6x4m (24 m2)",
                 form_file: "Attach sketch, floor plan or blueprint (optional)",
                 form_file_btn: "Choose File",
                 form_no_file: "No file chosen",
@@ -769,6 +788,9 @@
                 form_email: "E-mail adresa",
                 form_email_ph: "vas@email.com",
                 form_service: "Vrsta usluge i oprema",
+                form_date: "Datum događaja / postavljanja",
+                form_dimensions: "Okvirne dimenzije (širina x visina u metrima ili ukupna površina m2)",
+                form_dimensions_ph: "npr. duljina 20m ili 6x4m (24 m2)",
                 form_file: "Priložite skicu, tlocrt ili nacrt (opcionalni dokument)",
                 form_file_btn: "Odaberi datoteku",
                 form_no_file: "Nema odabrane datoteke",
@@ -873,6 +895,9 @@
                 form_email: "E-Mail-Adresse",
                 form_email_ph: "sie@email.com",
                 form_service: "Art der Dienstleistung & Ausrüstung",
+                form_date: "Veranstaltungs- / Aufbau-Datum",
+                form_dimensions: "Ungefähre Maße (Breite x Höhe in Metern oder Gesamtfläche m2)",
+                form_dimensions_ph: "z.B. Länge 20m oder 6x4m (24 m2)",
                 form_file: "Skizze, Grundriss oder Plan anhängen (optional)",
                 form_file_btn: "Datei auswählen",
                 form_no_file: "Keine Datei ausgewählt",
@@ -961,7 +986,7 @@
 
         function resetChat() {
             chatState = 'ASK_ENTITY';
-            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', country: '', address: '', extra: '' };
+            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', date: '', extra: '' };
             document.getElementById('chat-messages').innerHTML = '';
             initChat();
         }
@@ -1056,12 +1081,12 @@
                 setQuickReplies([]);
             } else if(chatState === 'ASK_METERS') {
                 userLeadData.meters = val;
-                chatState = 'ASK_EXTRA';
+                chatState = 'ASK_DATE';
                 updateStepper(7);
-                appendMessage('bot', currentLang === 'si' ? "Ali imate še kakšno dodatno opombo ali specifikacijo?" : "Do you have any additional notes or specifications?");
+                appendMessage('bot', currentLang === 'si' ? "Kakšen je predviden datum dogodka / postavitve (npr. DD.MM.YYYY ali opombe glede termina)?" : "What is the expected date of the event / setup?");
                 setQuickReplies([]);
-            } else if(chatState === 'ASK_EXTRA') {
-                userLeadData.extra = val;
+            } else if(chatState === 'ASK_DATE') {
+                userLeadData.date = val;
                 chatState = 'DONE';
                 document.getElementById('chat-stepper').textContent = "Zaključeno";
                 appendMessage('bot', currentLang === 'si' ? "Hvala! Zbrali smo vse podatke. Podatke lahko sedaj neposredno prenesete v uradni kontaktni obrazec." : "Thank you! We have collected all details. You can now transfer data directly to the official contact form.");
@@ -1074,7 +1099,14 @@
         function transferChatToForm() {
             document.getElementById('form-name').value = userLeadData.name;
             document.getElementById('form-email').value = userLeadData.email;
-            document.getElementById('form-message').value = `[Preko asistenta]\nTip: ${userLeadData.entityType}\nNakup/Najem: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nKoličina/Metri: ${userLeadData.meters}\nOpomba: ${userLeadData.extra}`;
+            document.getElementById('form-dimensions').value = userLeadData.meters;
+            
+            // Poskusi pretvoriti vnos datuma v ustrezen YYYY-MM-DD format za HTML date input, če je mogoče, sicer zapiši v sporočilo
+            if(userLeadData.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                document.getElementById('form-date').value = userLeadData.date;
+            }
+
+            document.getElementById('form-message').value = `[Preko asistenta]\nTip: ${userLeadData.entityType}\nNakup/Najem: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nMere/Količina: ${userLeadData.meters}\nDatum dogodka: ${userLeadData.date}`;
             
             toggleChat();
             window.location.href = '#contact';

@@ -348,12 +348,12 @@
         </div>
     </section>
 
-    <!-- CONTACT FORM SECTION (MAILTO) -->
+    <!-- CONTACT FORM SECTION (MAILTO + WEB-GMAIL FALLBACK) -->
     <section id="contact" class="py-24 bg-slate-900/40">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="contact_heading">Oddajte povpraševanje</h2>
-                <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program, kjer lahko po želji priložite tudi sliko ali skico.</p>
+                <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program.</p>
             </div>
             
             <div id="inquiry-form" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
@@ -395,7 +395,7 @@
                     <i class="fa-solid fa-paperclip text-cyan-400 mt-0.5 text-base"></i>
                     <div>
                         <span class="font-semibold text-white" data-i18n="form_file_notice_title">Priložitev slik ali skic:</span>
-                        <p class="mt-1 text-slate-300" data-i18n="form_file_notice_desc">Ko boste kliknili gumb za oddajo povpraševanja, se vam bo odprl vaš e-poštni odjemalec, v katerem boste lahko enostavno priložili poljubne slike, tlorise ali skice.</p>
+                        <p class="mt-1 text-slate-300" data-i18n="form_file_notice_desc">Ob kliku se vam odpre e-pošta, kjer lahko priložite poljubne slike ali skice.</p>
                     </div>
                 </div>
 
@@ -414,6 +414,14 @@
                 <button type="button" onclick="sendMailtoForm()" class="w-full py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition shadow-xl shadow-cyan-500/20 text-center text-base cursor-pointer" data-i18n="form_submit">
                     Oddaj povpraševanje prek e-pošte
                 </button>
+
+                <!-- REŠITEV ZA RAČUNALNIKE (Če se mailto ne odpre) -->
+                <div id="fallback-box" class="hidden mt-4 p-4 bg-slate-950 border border-slate-800 rounded-xl text-center text-xs text-slate-300">
+                    <p class="mb-2">Se e-poštni program na računalniku ni odprl? Kliknite spodnji gumb za direktno pošiljanje prek spletnega Gmaila:</p>
+                    <a id="fallback-gmail-link" href="#" target="_blank" class="inline-block px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-semibold rounded-lg transition">
+                        <i class="fa-solid fa-envelope mr-1.5"></i> Odpri v spletnem Gmailu
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -562,7 +570,7 @@
                 faq_q4: "V katerih državah nudite posredništvo?",
                 faq_a4: "Aktivno povezujemo stranke s partnerji v regiji: Slovenija, Hrvaška, Avstrija in Nemčija.",
                 contact_heading: "Oddajte povpraševanje",
-                contact_subheading: "Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program, kjer lahko po želji priložite tudi sliko ali skico.",
+                contact_subheading: "Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program.",
                 form_name: "Ime in priimek / Naziv podjetja",
                 form_name_ph: "npr. Janez Novak ali Podjetje d.o.o.",
                 form_email: "E-poštni naslov",
@@ -572,7 +580,7 @@
                 form_dimensions: "Okvirne mere (širina x višina v metrih ali skupna površina m2)",
                 form_dimensions_ph: "npr. dolžina 20m ali 6x4m (24 m2)",
                 form_file_notice_title: "Priložitev slik ali skic:",
-                form_file_notice_desc: "Ko boste kliknili gumb za oddajo povpraševanja, se vam bo odprl vaš e-poštni odjemalec, v katerem boste lahko enostavno priložili poljubne slike, tlorise ali skice.",
+                form_file_notice_desc: "Ob kliku se vam odpre e-pošta, kjer lahko priložite poljubne slike ali skice.",
                 form_message: "Podrobnosti in dodatna vprašanja",
                 form_message_ph: "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj...",
                 form_consent: "Strinjam se s politiko zasebnosti in obdelavo podatkov za namen priprave ponudbe.",
@@ -671,7 +679,7 @@
                 faq_q4: "In which countries do you operate?",
                 faq_a4: "We actively connect clients with partners in the region: Slovenia, Croatia, Austria, and Germany.",
                 contact_heading: "Submit Your Inquiry",
-                contact_subheading: "Fill out the form below - upon submission, your email program will open where you can optionally attach an image or sketch.",
+                contact_subheading: "Fill out the form below - upon submission, your email program will open.",
                 form_name: "Full Name / Company Name",
                 form_name_ph: "e.g. John Doe or Company Ltd.",
                 form_email: "Email Address",
@@ -681,7 +689,7 @@
                 form_dimensions: "Approximate Dimensions (width x height in meters or total area m2)",
                 form_dimensions_ph: "e.g. length 20m or 6x4m (24 m2)",
                 form_file_notice_title: "Attaching images or sketches:",
-                form_file_notice_desc: "When you click the submit inquiry button, your email client will open where you can easily attach any images, floor plans, or sketches.",
+                form_file_notice_desc: "Upon clicking, your email will open where you can attach images or sketches.",
                 form_message: "Details & Additional Questions",
                 form_message_ph: "If you have any additional questions or special requirements, please write them here...",
                 form_consent: "I agree to the privacy policy and data processing for the purpose of preparing an offer.",
@@ -780,7 +788,7 @@
                 faq_q4: "U kojim državama nudite posredništvo?",
                 faq_a4: "Aktivno povezujemo klijente s partnerima u regiji: Slovenija, Hrvatska, Austrija i Njemačka.",
                 contact_heading: "Pošaljite upit",
-                contact_subheading: "Ispunite obrazac - pri slanju otvorit će se vaš e-mail program gdje po želji možete priložiti sliku ili skicu.",
+                contact_subheading: "Ispunite obrazac – pri slanju otvorit će se vaš e-mail program.",
                 form_name: "Ime i prezime / Naziv tvrtke",
                 form_name_ph: "npr. Ivan Horvat ili Tvrtka d.o.o.",
                 form_email: "E-mail adresa",
@@ -790,7 +798,7 @@
                 form_dimensions: "Okvirne dimenzije (širina x visina u metrima ili ukupna površina m2)",
                 form_dimensions_ph: "npr. duljina 20m ili 6x4m (24 m2)",
                 form_file_notice_title: "Prilaganje slika ili skica:",
-                form_file_notice_desc: "Kada kliknete gumb za slanje upita, otvorit će se vaš e-mail program u kojem ćete moći jednostavno priložiti bilo koje slike, tlocrte ili skice.",
+                form_file_notice_desc: "Kada kliknete, otvorit će se e-mail gdje možete priložiti slike ili skice.",
                 form_message: "Detalji i dodatna pitanja",
                 form_message_ph: "Ako imate dodatnih pitanja ili posebnih zahtjeva, molimo upišite ih ovdje...",
                 form_consent: "Slažem se s politikom privatnosti i obradom podataka u svrhu pripreme ponude.",
@@ -889,7 +897,7 @@
                 faq_q4: "In welchen Ländern sind Sie tätig?",
                 faq_a4: "Wir verbinden Kunden aktiv mit Partnern in der Region: Slowenien, Kroatien, Österreich und Deutschland.",
                 contact_heading: "Anfrage senden",
-                contact_subheading: "Füllen Sie das Formular aus – beim Absenden öffnet sich Ihr E-Mail-Programm, wo Sie optional ein Bild oder eine Skizze anhängen können.",
+                contact_subheading: "Füllen Sie das Formular aus – beim Absenden öffnet sich Ihr E-Mail-Programm.",
                 form_name: "Vollständiger Name / Firmenname",
                 form_name_ph: "z.B. Max Mustermann oder Firma GmbH",
                 form_email: "E-Mail-Adresse",
@@ -899,7 +907,7 @@
                 form_dimensions: "Ungefähre Maße (Breite x Höhe in Metern oder Gesamtfläche m2)",
                 form_dimensions_ph: "z.B. Länge 20m oder 6x4m (24 m2)",
                 form_file_notice_title: "Bilder oder Skizzen anhängen:",
-                form_file_notice_desc: "Wenn Sie auf die Schaltfläche zum Absenden der Anfrage klicken, öffnet sich Ihr E-Mail-Programm, in dem Sie ganz einfach Bilder, Grundrisse oder Skizzen anhängen können.",
+                form_file_notice_desc: "Beim Klick öffnet sich Ihre E-Mail, wo Sie Bilder oder Skizzen anhängen können.",
                 form_message: "Details & zusätzliche Fragen",
                 form_message_ph: "Wenn Sie zusätzliche Fragen oder spezielle Wünsche haben, schreiben Sie diese bitte hier...",
                 form_consent: "Ich stimme der Datenschutzrichtlinie und der Datenverarbeitung zum Zwecke der Angebotserstellung zu.",
@@ -1173,7 +1181,7 @@
             }, 4000);
         }
 
-        // Popravljena in zanesljiva funkcija za odpiranje maila
+        // Zanesljiva mailto funkcija z Gmail rezervno možnostjo za računalnike
         function sendMailtoForm() {
             const name = document.getElementById('form-name').value.trim();
             const email = document.getElementById('form-email').value.trim();
@@ -1193,18 +1201,25 @@
                 return;
             }
 
-            const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
-            const body = encodeURIComponent(
+            const subject = `Nova poizvedba - LEDpanelHub: ${service} (${name})`;
+            const body = 
                 `Ime / Podjetje: ${name}\n` +
                 `E-pošta: ${email}\n` +
                 `Storitev: ${service}\n` +
                 `Datum dogodka: ${date}\n` +
                 `Mere: ${dims}\n\n` +
                 `Sporočilo / opombe:\n${msg}\n\n` +
-                `[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`
-            );
+                `[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`;
 
-            window.location.href = `mailto:Ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
+            const mailtoUrl = `mailto:Ledpanelhub.info@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Ledpanelhub.info@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Prikaži gumb za spletni Gmail v vsakem primeru na računalniku
+            document.getElementById('fallback-gmail-link').href = gmailUrl;
+            document.getElementById('fallback-box').classList.remove('hidden');
+
+            // Poskusi odpreti privzeti mail program
+            window.location.href = mailtoUrl;
         }
 
         const legalTexts = {

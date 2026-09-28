@@ -9,6 +9,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .typing-dot { animation: pulse-slow 1.2s infinite ease-in-out; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
@@ -435,7 +437,7 @@
                 </div>
                 <div>
                     <h4 class="text-sm font-bold text-white" data-i18n="chat_title">LEDpanelHub Asistent</h4>
-                    <span id="chat-stepper" class="text-[10px] text-cyan-400 font-medium">Korak 1 od 7</span>
+                    <span id="chat-stepper" class="text-[10px] text-cyan-400 font-medium">Korak 1 od 9</span>
                 </div>
             </div>
             <div class="flex items-center gap-2">
@@ -474,7 +476,7 @@
             </div>
             <div>
                 <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_contact_title">Kontakt in podpora</h4>
-                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">ledpanelhub.info@gmail.com</a></p>
+                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:Ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">Ledpanelhub.info@gmail.com</a></p>
                 <p class="text-xs text-slate-400" data-i18n="footer_region">Regija: SI, HR, AT, DE</p>
             </div>
             <div>
@@ -491,12 +493,12 @@
         </div>
     </footer>
 
-    <!-- SKRIPTE ZA JEZIK, ASISTENTA IN OBRAZEC -->
+    <!-- SKRIPTE ZA JEZIK, NAPREDNEGA ASISTENTA IN OBRAZEC -->
     <script>
         let currentLang = 'si';
         let chatOpen = false;
         let chatState = 'ASK_ENTITY';
-        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', date: '', extra: '' };
+        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', duration: '', supportNeeded: '', date: '' };
 
         const translations = {
             si: {
@@ -600,6 +602,10 @@
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Športni LED panoji",
                 btn_screens: "📺 Veliki LED ekrani",
+                btn_weekend: "⚡ Vikend dogodek (1-3 dni)",
+                btn_longterm: "📅 Dolgoročni najem / Nakup",
+                btn_yes_support: "🛠️ Da, potrebujem tehnično podporo",
+                btn_no_support: "❌ Ne, upravljamo sami",
                 btn_fillform: "✨ Prenesi podatke v obrazec",
                 toast_success: "Podatki so bili uspešno preneseni v obrazec!",
                 modal_close: "Zapri"
@@ -705,6 +711,10 @@
                 btn_rent: "⏱️ Rental",
                 btn_sports: "🏀 Sports LED Boards",
                 btn_screens: "📺 Large LED Screens",
+                btn_weekend: "⚡ Weekend event (1-3 days)",
+                btn_longterm: "📅 Long-term rental / Purchase",
+                btn_yes_support: "🛠️ Yes, I need technical support",
+                btn_no_support: "❌ No, we manage ourselves",
                 btn_fillform: "✨ Transfer data to form",
                 toast_success: "Data successfully transferred to the form!",
                 modal_close: "Close"
@@ -810,6 +820,10 @@
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Sportski LED panoi",
                 btn_screens: "📺 Veliki LED ekrani",
+                btn_weekend: "⚡ Vikend događaj (1-3 dana)",
+                btn_longterm: "📅 Dugoročni najam / Kupnja",
+                btn_yes_support: "🛠️ Da, trebam tehničku podršku",
+                btn_no_support: "❌ Ne, upravljamo sami",
                 btn_fillform: "✨ Prenesi podatke u obrazac",
                 toast_success: "Podaci su uspješno preneseni u obrazac!",
                 modal_close: "Zatvori"
@@ -915,6 +929,10 @@
                 btn_rent: "⏱️ Miete",
                 btn_sports: "🏀 Sport-LED-Banden",
                 btn_screens: "📺 Große LED-Bildschirme",
+                btn_weekend: "⚡ Wochenend-Event (1-3 Tage)",
+                btn_longterm: "📅 Langzeitmiete / Kauf",
+                btn_yes_support: "🛠️ Ja, ich benötige technischen Support",
+                btn_no_support: "❌ Nein, wir verwalten selbst",
                 btn_fillform: "✨ Daten ins Formular übertragen",
                 toast_success: "Daten erfolgreich ins Formular übertragen!",
                 modal_close: "Schließen"
@@ -963,7 +981,7 @@
 
         function resetChat() {
             chatState = 'ASK_ENTITY';
-            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', date: '', extra: '' };
+            userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', duration: '', supportNeeded: '', date: '' };
             document.getElementById('chat-messages').innerHTML = '';
             initChat();
         }
@@ -975,6 +993,27 @@
             div.innerHTML = `<div class="${sender === 'bot' ? 'bg-slate-800 text-slate-200 border border-slate-700' : 'bg-cyan-500 text-slate-950 font-medium'} rounded-2xl px-4 py-2.5 max-w-[85%] text-xs leading-relaxed">${text}</div>`;
             container.appendChild(div);
             container.scrollTop = container.scrollHeight;
+        }
+
+        // Realistični indikator tipkanja
+        function showTypingIndicator(callback) {
+            const container = document.getElementById('chat-messages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'flex justify-start';
+            typingDiv.innerHTML = `<div class="bg-slate-800 text-slate-400 border border-slate-700 rounded-2xl px-4 py-2.5 text-xs flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 typing-dot"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 typing-dot" style="animation-delay: 0.2s"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 typing-dot" style="animation-delay: 0.4s"></span>
+            </div>`;
+            container.appendChild(typingDiv);
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(() => {
+                const el = document.getElementById('typing-indicator');
+                if (el) el.remove();
+                callback();
+            }, 600);
         }
 
         function setQuickReplies(buttons) {
@@ -990,17 +1029,19 @@
         }
 
         function updateStepper(step) {
-            const stepsText = { si: `Korak ${step} od 7`, en: `Step ${step} of 7`, hr: `Korak ${step} od 7`, de: `Schritt ${step} von 7` };
-            document.getElementById('chat-stepper').textContent = stepsText[currentLang] || `Step ${step} of 7`;
+            const stepsText = { si: `Korak ${step} od 9`, en: `Step ${step} of 9`, hr: `Korak ${step} od 9`, de: `Schritt ${step} von 9` };
+            document.getElementById('chat-stepper').textContent = stepsText[currentLang] || `Step ${step} of 9`;
         }
 
         function initChat() {
             updateStepper(1);
-            appendMessage('bot', translations[currentLang].chat_welcome);
-            setQuickReplies([
-                { text: translations[currentLang].btn_physical, action: () => handleChatChoice(translations[currentLang].btn_physical) },
-                { text: translations[currentLang].btn_company, action: () => handleChatChoice(translations[currentLang].btn_company) }
-            ]);
+            showTypingIndicator(() => {
+                appendMessage('bot', translations[currentLang].chat_welcome);
+                setQuickReplies([
+                    { text: translations[currentLang].btn_physical, action: () => handleChatChoice(translations[currentLang].btn_physical) },
+                    { text: translations[currentLang].btn_company, action: () => handleChatChoice(translations[currentLang].btn_company) }
+                ]);
+            });
         }
 
         function handleChatChoice(val) {
@@ -1008,9 +1049,11 @@
             userLeadData.entityType = val;
             chatState = 'ASK_NAME';
             updateStepper(2);
-            const promptName = { si: "Prosim, vpišite vaše ime in priimek ali naziv podjetja:", en: "Please enter your full name or company name:", hr: "Molimo upišite vaše ime i prezime ili naziv tvrtke:", de: "Bitte geben Sie Ihren vollständigen Namen oder Firmennamen ein:" };
-            appendMessage('bot', promptName[currentLang]);
             setQuickReplies([]);
+            showTypingIndicator(() => {
+                const promptName = { si: "Prosim, vpišite vaše ime in priimek ali naziv podjetja:", en: "Please enter your full name or company name:", hr: "Molimo upišite vaše ime i prezime ili naziv tvrtke:", de: "Bitte geben Sie Ihren vollständigen Namen oder Firmennamen ein:" };
+                appendMessage('bot', promptName[currentLang]);
+            });
         }
 
         function sendChatMessage() {
@@ -1033,53 +1076,87 @@
                 userLeadData.name = val;
                 chatState = 'ASK_EMAIL';
                 updateStepper(3);
-                const pEmail = { si: "Odlično. Vpišite vaš e-poštni naslov za kontakt:", en: "Great. Please enter your email address for contact:", hr: "Odlično. Upišite vašu e-mail adresu za kontakt:", de: "Ausgezeichnet. Bitte geben Sie Ihre E-Mail-Adresse für den Kontakt ein:" };
-                appendMessage('bot', pEmail[currentLang]);
+                showTypingIndicator(() => {
+                    const pEmail = { si: "Odlično. Vpišite vaš e-poštni naslov za kontakt:", en: "Great. Please enter your email address for contact:", hr: "Odlično. Upišite vašu e-mail adresu za kontakt:", de: "Ausgezeichnet. Bitte geben Sie Ihre E-Mail-Adresse für den Kontakt ein:" };
+                    appendMessage('bot', pEmail[currentLang]);
+                });
             } else if(chatState === 'ASK_EMAIL') {
                 userLeadData.email = val;
                 chatState = 'ASK_DEAL';
                 updateStepper(4);
-                const pDeal = { si: "Ali vas zanima nakup ali najem opreme?", en: "Are you interested in purchase or rental?", hr: "Zanima li vas kupnja ili najem opreme?", de: "Interessieren Sie sich für Kauf oder Miete von Equipment?" };
-                appendMessage('bot', pDeal[currentLang]);
-                setQuickReplies([
-                    { text: translations[currentLang].btn_buy, action: () => processChatInput(translations[currentLang].btn_buy) },
-                    { text: translations[currentLang].btn_rent, action: () => processChatInput(translations[currentLang].btn_rent) }
-                ]);
+                showTypingIndicator(() => {
+                    const pDeal = { si: "Ali vas zanima nakup ali najem opreme?", en: "Are you interested in purchase or rental?", hr: "Zanima li vas kupnja ili najem opreme?", de: "Interessieren Sie sich für Kauf oder Miete von Equipment?" };
+                    appendMessage('bot', pDeal[currentLang]);
+                    setQuickReplies([
+                        { text: translations[currentLang].btn_buy, action: () => processChatInput(translations[currentLang].btn_buy) },
+                        { text: translations[currentLang].btn_rent, action: () => processChatInput(translations[currentLang].btn_rent) }
+                    ]);
+                });
             } else if(chatState === 'ASK_DEAL') {
                 userLeadData.dealType = val;
                 chatState = 'ASK_EQUIPMENT';
                 updateStepper(5);
-                const pEq = { si: "Katera vrsta opreme vas zanima?", en: "What type of equipment are you interested in?", hr: "Koja vas vrsta opreme zanima?", de: "Welche Art von Equipment interessiert Sie?" };
-                appendMessage('bot', pEq[currentLang]);
-                setQuickReplies([
-                    { text: translations[currentLang].btn_sports, action: () => processChatInput(translations[currentLang].btn_sports) },
-                    { text: translations[currentLang].btn_screens, action: () => processChatInput(translations[currentLang].btn_screens) }
-                ]);
+                showTypingIndicator(() => {
+                    const pEq = { si: "Katera vrsta opreme vas zanima?", en: "What type of equipment are you interested in?", hr: "Koja vas vrsta opreme zanima?", de: "Welche Art von Equipment interessiert Sie?" };
+                    appendMessage('bot', pEq[currentLang]);
+                    setQuickReplies([
+                        { text: translations[currentLang].btn_sports, action: () => processChatInput(translations[currentLang].btn_sports) },
+                        { text: translations[currentLang].btn_screens, action: () => processChatInput(translations[currentLang].btn_screens) }
+                    ]);
+                });
             } else if(chatState === 'ASK_EQUIPMENT') {
                 userLeadData.equipment = val;
                 chatState = 'ASK_METERS';
                 updateStepper(6);
-                const pMet = { si: "Kakšna je okvirna površina v m2 ali dolžina v metrih?", en: "What is the approximate surface area in m2 or length in meters?", hr: "Koja je okvirna površina u m2 ili duljina u metrima?", de: "Was ist die ungefähre Fläche in m2 oder Länge in Metern?" };
-                appendMessage('bot', pMet[currentLang]);
                 setQuickReplies([]);
+                showTypingIndicator(() => {
+                    const pMet = { si: "Kakšna je okvirna površina v m2 ali dolžina v metrih?", en: "What is the approximate surface area in m2 or length in meters?", hr: "Koja je okvirna površina u m2 ili duljina u metrima?", de: "Was ist die ungefähre Fläche in m2 oder Länge in Metern?" };
+                    appendMessage('bot', pMet[currentLang]);
+                });
             } else if(chatState === 'ASK_METERS') {
                 userLeadData.meters = val;
-                chatState = 'ASK_DATE';
+                chatState = 'ASK_DURATION';
                 updateStepper(7);
-                const pDate = { si: "Kakšen je predviden datum dogodka / postavitve (npr. 1.10.2026)?", en: "What is the expected date of the event / setup?", hr: "Koji je predviđeni datum događaja / postavljanja?", de: "Was ist das voraussichtliche Datum der Veranstaltung / des Aufbaus?" };
-                appendMessage('bot', pDate[currentLang]);
-    // ... (prejšnji del vaše skripte ostane nespremenjen, tu se nadaljuje vaš posredovani del) ...
-
-            setQuickReplies([]);
+                showTypingIndicator(() => {
+                    const pDur = { si: "Za kakšno obdobje oz. trajanje potrebujete opremo?", en: "What is the intended duration or period?", hr: "Za kakšno razdoblje trebate opremu?", de: "Für welchen Zeitraum bzw. Dauer benötigen Sie das Equipment?" };
+                    appendMessage('bot', pDur[currentLang]);
+                    setQuickReplies([
+                        { text: translations[currentLang].btn_weekend, action: () => processChatInput(translations[currentLang].btn_weekend) },
+                        { text: translations[currentLang].btn_longterm, action: () => processChatInput(translations[currentLang].btn_longterm) }
+                    ]);
+                });
+            } else if(chatState === 'ASK_DURATION') {
+                userLeadData.duration = val;
+                chatState = 'ASK_SUPPORT';
+                updateStepper(8);
+                showTypingIndicator(() => {
+                    const pSup = { si: "Ali boste potrebovali dežurno tehnično ekipo na dogodku?", en: "Will you need an on-call technical team at the event?", hr: "Trebate li dežurnu tehničku ekipu na događaju?", de: "Benötigen Sie ein technisches Bereitschaftsteam vor Ort?" };
+                    appendMessage('bot', pSup[currentLang]);
+                    setQuickReplies([
+                        { text: translations[currentLang].btn_yes_support, action: () => processChatInput(translations[currentLang].btn_yes_support) },
+                        { text: translations[currentLang].btn_no_support, action: () => processChatInput(translations[currentLang].btn_no_support) }
+                    ]);
+                });
+            } else if(chatState === 'ASK_SUPPORT') {
+                userLeadData.supportNeeded = val;
+                chatState = 'ASK_DATE';
+                updateStepper(9);
+                setQuickReplies([]);
+                showTypingIndicator(() => {
+                    const pDate = { si: "Kakšen je predviden datum dogodka / postavitve (npr. 1.10.2026)?", en: "What is the expected date of the event / setup?", hr: "Koji je predviđeni datum događaja / postavljanja?", de: "Was ist das voraussichtliche Datum der Veranstaltung / des Aufbaus?" };
+                    appendMessage('bot', pDate[currentLang]);
+                });
             } else if(chatState === 'ASK_DATE') {
                 userLeadData.date = val;
                 chatState = 'DONE';
                 document.getElementById('chat-stepper').textContent = { si: "Zaključeno", en: "Completed", hr: "Završeno", de: "Abgeschlossen" }[currentLang];
-                const pDone = { si: "Hvala! Zbrali smo vse podatke. Podatke lahko sedaj neposredno prenesete v uradni kontaktni obrazec.", en: "Thank you! We have collected all details. You can now transfer data directly to the official contact form.", hr: "Hvala! Prikupili smo sve podatke. Podatke sada možete izravno prenijeti u službeni obrazac.", de: "Vielen Dank! Wir haben alle Daten erfasst. Sie können die Daten nun direkt in das offizielle Kontaktformular übertragen." };
-                appendMessage('bot', pDone[currentLang]);
-                setQuickReplies([
-                    { text: translations[currentLang].btn_fillform, action: () => transferChatToForm() }
-                ]);
+                showTypingIndicator(() => {
+                    const pDone = { si: "Hvala! Zbrali smo vse podrobnosti. Podatke lahko sedaj neposredno prenesete v uradni kontaktni obrazec.", en: "Thank you! We have collected all details. You can now transfer data directly to the official contact form.", hr: "Hvala! Prikupili smo sve podatke. Podatke sada možete izravno prenijeti u službeni obrazac.", de: "Vielen Dank! Wir haben alle Details erfasst. Sie können die Daten nun direkt in das offizielle Kontaktformular übertragen." };
+                    appendMessage('bot', pDone[currentLang]);
+                    setQuickReplies([
+                        { text: translations[currentLang].btn_fillform, action: () => transferChatToForm() }
+                    ]);
+                });
             }
         }
 
@@ -1088,7 +1165,7 @@
             document.getElementById('form-email').value = userLeadData.email;
             document.getElementById('form-dimensions').value = userLeadData.meters;
             document.getElementById('form-date').value = userLeadData.date;
-            document.getElementById('form-message').value = `[Oddano preko klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}`;
+            document.getElementById('form-message').value = `[Oddano preko naprednega klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nTrajanje: ${userLeadData.duration}\nTehnična podpora: ${userLeadData.supportNeeded}`;
             
             toggleChat();
             window.location.href = '#contact';
@@ -1109,37 +1186,10 @@
             const dims = document.getElementById('form-dimensions').value;
             const msg = document.getElementById('form-message').value;
 
-            const recipient = "ledpanelhub.info@gmail.com";
-            const emailBody = `Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`;
-            
-            const subject = `Nova poizvedba - LEDpanelHub: ${service} (${name})`;
+            const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
+            const body = encodeURIComponent(`Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`);
 
-            // Preverimo, ali je uporabnik na mobilni napravi ali računalniku
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // Na mobilnih napravah odpremo mailto povezavo
-                window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            } else {
-                // Na računalniku odpremo Gmail v novem zavihku
-                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-                window.open(gmailUrl, '_blank');
-            }
-
-            // Hkrati kopiramo varnostno kopijo v odložišče
-            navigator.clipboard.writeText(`Za: ${recipient}\nZadeva: ${subject}\n\n${emailBody}`).then(() => {
-                const toast = document.getElementById('toast-notification');
-                const toastText = document.getElementById('toast-text');
-                if (toastText) {
-                    toastText.textContent = "Podatki so pripravljeni za pošiljanje / kopirani v odložišče!";
-                }
-                toast.classList.remove('translate-x-full');
-                setTimeout(() => {
-                    toast.classList.add('translate-x-full');
-                }, 6000);
-            }).catch(err => {
-                console.error('Napaka pri kopiranju: ', err);
-            });
+            window.location.href = `mailto:Ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
         }
 
         const legalTexts = {

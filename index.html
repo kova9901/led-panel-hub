@@ -441,7 +441,7 @@
                     <i class="fa-solid fa-robot"></i>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold text-white" data-i18n="chat_title">LEDpanelHub Asistent</h4>
+                    <h4 class="text-sm font-bold text-white" data-i18n="chat_title">LEDpanelHub Pametni AI Asistent</h4>
                     <span id="chat-stepper" class="text-[10px] text-cyan-400 font-medium">Korak 1 od 9</span>
                 </div>
             </div>
@@ -460,7 +460,7 @@
         </div>
 
         <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2">
-            <input type="text" id="chat-input" onkeypress="handleChatKey(event)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500" data-i18n-placeholder="chat_placeholder" placeholder="Vpišite sporočilo...">
+            <input type="text" id="chat-input" onkeypress="handleChatKey(event)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500" data-i18n-placeholder="chat_placeholder" placeholder="Vprašajte AI karkoli o LED zaslonih...">
             <button onclick="sendChatMessage()" class="w-9 h-9 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center transition"><i class="fa-solid fa-paper-plane text-xs"></i></button>
         </div>
     </div>
@@ -590,9 +590,9 @@
                 opt_buy_screens: "Nakup velikih LED ekranov",
                 opt_rent_screens: "Najem velikih LED ekranov",
                 opt_logistics: "Celovita tehnična izvedba in logistika",
-                chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdravljeni! Z veseljem vam pomagam pripraviti povpraševanje za naše tehnične partnerje. Ali povpraševanje oddajate kot fizična oseba ali podjetje?",
-                chat_placeholder: "Vpišite sporočilo...",
+                chat_title: "LEDpanelHub Pametni AI Asistent",
+                chat_welcome: "Pozdravljeni! Sem vaš AI asistent za LED zaslone in športne panoje. Ali povpraševanje oddajate kot fizična oseba ali podjetje? (Lahko mi postavite tudi kakršno koli vprašanje o opremi!)",
+                chat_placeholder: "Vprašajte AI karkoli o LED zaslonih...",
                 footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
                 footer_contact_title: "Kontakt in podpora",
                 footer_region: "Regija: SI, HR, AT, DE",
@@ -699,9 +699,9 @@
                 opt_buy_screens: "Purchase Large LED Screens",
                 opt_rent_screens: "Rent Large LED Screens",
                 opt_logistics: "Complete Technical Execution & Logistics",
-                chat_title: "LEDpanelHub Assistant",
-                chat_welcome: "Hello! I'm happy to help you prepare an inquiry for our technical partners. Are you submitting as an individual or a company?",
-                chat_placeholder: "Type a message...",
+                chat_title: "LEDpanelHub Smart AI Assistant",
+                chat_welcome: "Hello! I'm your AI assistant for LED displays and sports boards. Are you submitting as an individual or a company? (You can also ask me any technical questions!)",
+                chat_placeholder: "Ask AI anything about LED screens...",
                 footer_about: "Independent international brokerage connecting clients and verified providers for LED panels and equipment purchase/rental.",
                 footer_contact_title: "Contact & Support",
                 footer_region: "Region: SI, HR, AT, DE",
@@ -808,9 +808,9 @@
                 opt_buy_screens: "Kupnja velikih LED ekrana",
                 opt_rent_screens: "Najam velikih LED ekrana",
                 opt_logistics: "Cjelovita tehnička izvedba i logistika",
-                chat_title: "LEDpanelHub Asistent",
-                chat_welcome: "Pozdrav! Rado ću vam pomoći pripremiti upit za naše tehničke partnere. Podnosite li upit kao fizička osoba ili tvrtka?",
-                chat_placeholder: "Upišite poruku...",
+                chat_title: "LEDpanelHub Pametni AI Asistent",
+                chat_welcome: "Pozdrav! Ja sam vaš AI asistent za LED zaslone. Podnosite li upit kao fizička osoba ili tvrtka? (Možete me pitati i bilo kakva tehnička pitanja!)",
+                chat_placeholder: "Pitaj AI bilo što o LED zaslonima...",
                 footer_about: "Neovisno međunarodno posredništvo za povezivanje naručitelja i provjerenih ponuđača kupnje i najma LED panoa i opreme.",
                 footer_contact_title: "Kontakt i podrška",
                 footer_region: "Regija: SI, HR, AT, DE",
@@ -917,9 +917,9 @@
                 opt_buy_screens: "Große LED-Bildschirme kaufen",
                 opt_rent_screens: "Große LED-Bildschirme mieten",
                 opt_logistics: "Komplette technische Ausführung & Logistik",
-                chat_title: "LEDpanelHub Assistent",
-                chat_welcome: "Hallo! Gerne helfe ich Ihnen bei der Vorbereitung einer Anfrage für unsere technischen Partner. Reichen Sie die Anfrage als Privatperson oder als Unternehmen ein?",
-                chat_placeholder: "Nachricht eingeben...",
+                chat_title: "LEDpanelHub Smart AI Assistant",
+                chat_welcome: "Hallo! Ich bin Ihr KI-Assistent für LED-Displays. Reichen Sie als Privatperson oder Unternehmen ein? (Sie können mich auch alles fragen!)",
+                chat_placeholder: "Fragen Sie KI alles über LED-Bildschirme...",
                 footer_about: "Unabhängiges internationales Brokerage zur Vermittlung von Kunden und verifizierten Anbietern für Kauf und Miete von LED-Panels und Equipment.",
                 footer_contact_title: "Kontakt & Support",
                 footer_region: "Region: SI, HR, AT, DE",
@@ -1076,6 +1076,22 @@
 
         function processChatInput(val) {
             appendMessage('user', val);
+            
+            // AI PAMETNI ODGOVOR (Če uporabnik vpiše poljubno vprašanje med vodenim postopkom)
+            const lowerVal = val.toLowerCase();
+            if (lowerVal.includes('cena') || lowerVal.includes('price') || lowerVal.includes('cijena') || lowerVal.includes('preis') || lowerVal.includes('koliko') || lowerVal.includes('how much')) {
+                showTypingIndicator(() => {
+                    const aiAnswers = {
+                        si: "Cena je odvisna od kvadrature, izbranega tipa (indoor/outdoor) in trajanja najema. Izpolnite korake do konca, da vam pripravimo točno ponudbo!",
+                        en: "The price depends on square footage, screen type, and rental duration. Complete the steps to get an exact offer!",
+                        hr: "Cijena ovisi o kvadraturi, vrsti zaslona i trajanju najma. Dovršite korake za točnu ponudu!",
+                        de: "Der Preis hängt von der Quadratmeterzahl, dem Typ und der Mietdauer ab. Schließen Sie die Schritte ab, um ein genaues Angebot zu erhalten!"
+                    };
+                    appendMessage('bot', aiAnswers[currentLang]);
+                });
+                return;
+            }
+
             if(chatState === 'ASK_NAME') {
                 userLeadData.name = val;
                 chatState = 'ASK_EMAIL';
@@ -1169,7 +1185,7 @@
             document.getElementById('form-email').value = userLeadData.email;
             document.getElementById('form-dimensions').value = userLeadData.meters;
             document.getElementById('form-date').value = userLeadData.date;
-            document.getElementById('form-message').value = `[Oddano preko naprednega klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nTrajanje: ${userLeadData.duration}\nTehnična podpora: ${userLeadData.supportNeeded}`;
+            document.getElementById('form-message').value = `[Oddano preko pametnega AI klepetalnika]\nTip naročnika: ${userLeadData.entityType}\nVrsta posla: ${userLeadData.dealType}\nOprema: ${userLeadData.equipment}\nTrajanje: ${userLeadData.duration}\nTehnična podpora: ${userLeadData.supportNeeded}`;
             
             toggleChat();
             window.location.href = '#contact';
@@ -1181,7 +1197,6 @@
             }, 4000);
         }
 
-        // Zanesljiva mailto funkcija z Gmail rezervno možnostjo za računalnike
         function sendMailtoForm() {
             const name = document.getElementById('form-name').value.trim();
             const email = document.getElementById('form-email').value.trim();
@@ -1214,11 +1229,9 @@
             const mailtoUrl = `mailto:Ledpanelhub.info@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Ledpanelhub.info@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Prikaži gumb za spletni Gmail v vsakem primeru na računalniku
             document.getElementById('fallback-gmail-link').href = gmailUrl;
             document.getElementById('fallback-box').classList.remove('hidden');
 
-            // Poskusi odpreti privzeti mail program
             window.location.href = mailtoUrl;
         }
 

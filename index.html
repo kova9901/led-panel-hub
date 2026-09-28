@@ -21,7 +21,7 @@
         <span id="toast-text" data-i18n="toast_success">Podatki so bili uspešno preneseni v obrazec!</span>
     </div>
 
-    <!-- MODALno OKNO ZA PRAVNE DOKUMENTE -->
+    <!-- MODALNO OKNO ZA PRAVNE DOKUMENTE -->
     <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
@@ -356,7 +356,7 @@
                 <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program, kjer lahko po želji priložite tudi sliko ali skico.</p>
             </div>
             
-            <form id="inquiry-form" onsubmit="sendMailtoForm(event)" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+            <div id="inquiry-form" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Naziv podjetja</label>
@@ -411,10 +411,10 @@
                     </label>
                 </div>
 
-                <button type="submit" class="w-full py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition shadow-xl shadow-cyan-500/20 text-center text-base" data-i18n="form_submit">
+                <button type="button" onclick="sendMailtoForm()" class="w-full py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition shadow-xl shadow-cyan-500/20 text-center text-base cursor-pointer" data-i18n="form_submit">
                     Oddaj povpraševanje prek e-pošte
                 </button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -1173,17 +1173,36 @@
             }, 4000);
         }
 
-        function sendMailtoForm(e) {
-            e.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
+        // Popravljena in zanesljiva funkcija za odpiranje maila
+        function sendMailtoForm() {
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
             const service = document.getElementById('form-service').value;
-            const date = document.getElementById('form-date').value;
-            const dims = document.getElementById('form-dimensions').value;
-            const msg = document.getElementById('form-message').value;
+            const date = document.getElementById('form-date').value.trim();
+            const dims = document.getElementById('form-dimensions').value.trim();
+            const msg = document.getElementById('form-message').value.trim();
+            const consent = document.getElementById('form-consent').checked;
+
+            if (!name || !email) {
+                alert(currentLang === 'si' ? "Prosim, izpolnite vsaj ime in e-poštni naslov." : "Please fill in at least your name and email address.");
+                return;
+            }
+
+            if (!consent) {
+                alert(currentLang === 'si' ? "Prosim, strinjajte se s politiko zasebnosti." : "Please agree to the privacy policy.");
+                return;
+            }
 
             const subject = encodeURIComponent(`Nova poizvedba - LEDpanelHub: ${service} (${name})`);
-            const body = encodeURIComponent(`Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date}\nMere: ${dims}\n\nSporočilo / opombe:\n${msg}\n\n[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`);
+            const body = encodeURIComponent(
+                `Ime / Podjetje: ${name}\n` +
+                `E-pošta: ${email}\n` +
+                `Storitev: ${service}\n` +
+                `Datum dogodka: ${date}\n` +
+                `Mere: ${dims}\n\n` +
+                `Sporočilo / opombe:\n${msg}\n\n` +
+                `[Opomba: Slike, tlorise ali skice lahko priložite neposredno kot prilogo v tem e-poštnem sporočilu pred pošiljanjem.]`
+            );
 
             window.location.href = `mailto:Ledpanelhub.info@gmail.com?subject=${subject}&body=${body}`;
         }

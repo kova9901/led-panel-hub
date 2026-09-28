@@ -1,109 +1,133 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="sl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEDpanelHub.com | Mednarodno posredništvo LED zaslonov in športnih panojev</title>
+    <title>LEDpanelHub.com | Posredništvo za nakup in najem LED zaslonov</title>
+    <meta name="description" content="Mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        .typing-dot { animation: pulse-slow 1.2s infinite ease-in-out; }
+        /* Modern Glassmorphism Styling */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        /* Typing animation dot */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .typing-dot {
+            animation: pulse-dot 1.4s infinite ease-in-out;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast-notification" class="fixed top-20 right-6 z-50 transform translate-x-full transition-transform duration-300 bg-emerald-500 text-slate-950 px-6 py-3 rounded-xl shadow-2xl font-bold flex items-center gap-3 text-sm">
-        <i class="fa-solid fa-circle-check text-base"></i>
-        <span id="toast-text" data-i18n="toast_success">Podatki so bili uspešno preneseni v obrazec!</span>
+    <!-- TOP NOTICE BAR -->
+    <div class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
+        <span data-i18n="top_construction">Spletna stran je v izdelavi</span> &bull; 
+        <span class="opacity-90">LEDpanelHub.com &copy; 2026</span>
     </div>
 
-    <!-- MODALNO OKNO ZA PRAVNE DOKUMENTE -->
-    <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
-            <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
-                <h3 id="modal-title" class="text-lg font-bold text-white">Politika zasebnosti (GDPR)</h3>
-                <button onclick="closeLegalModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="modal-body" class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300 leading-relaxed">
-                <!-- Dinamična vsebina -->
-            </div>
-            <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
-                <button onclick="closeLegalModal()" class="px-5 py-2 bg-cyan-500 text-slate-950 font-semibold rounded-xl text-xs hover:bg-cyan-400 transition" data-i18n="modal_close">Zapri</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- TOP NOTICE -->
-    <div class="bg-cyan-500 text-slate-950 py-2 px-4 text-center text-xs font-bold tracking-wide uppercase flex items-center justify-center gap-2 shadow-sm">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span data-i18n="top_construction">Stran je v izdelavi</span>
-    </div>
-
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                    <i class="fa-solid fa-display text-white text-lg"></i>
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">
+                    LED
                 </div>
-                <span class="text-xl font-bold tracking-tight text-white">LEDpanel<span class="text-cyan-400">Hub</span></span>
+                <div class="flex flex-col">
+                    <span class="font-black text-lg sm:text-xl tracking-tight text-white group-hover:text-cyan-400 transition">
+                        LEDpanel<span class="text-cyan-400">Hub</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">B2B Brokerage Network</span>
+                </div>
             </a>
 
-            <!-- Desktop Nav -->
+            <!-- DESKTOP NAV -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#services" class="hover:text-cyan-400 transition" data-i18n="nav_services">Storitve partnerjev</a>
+                <a href="#calculator" class="hover:text-cyan-400 transition">Kalkulator</a>
                 <a href="#guide" class="hover:text-cyan-400 transition" data-i18n="nav_guide">Tehnični vodnik</a>
-                <a href="#support" class="hover:text-cyan-400 transition" data-i18n="nav_support">Servis & Garancija</a>
-                <a href="#reference" class="hover:text-cyan-400 transition" data-i18n="nav_reference">Reference</a>
-                <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav_faq">FAQ</a>
-                <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Povpraševanje</a>
+                <a href="#support" class="hover:text-cyan-400 transition" data-i18n="nav_support">Servis in Garancija</a>
+                <a href="#references" class="hover:text-cyan-400 transition" data-i18n="nav_reference">Reference</a>
+                <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav_faq">Pogosta vprašanja</a>
             </nav>
 
-            <!-- Language Switcher, CTA & Social Icons -->
+            <!-- RIGHT CONTROLS & LANG SELECTOR -->
             <div class="flex items-center gap-4">
-                <div class="flex bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs font-medium">
-                    <button onclick="setLanguage('si')" id="btn-si" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition font-bold">SI</button>
-                    <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">EN</button>
-                    <button onclick="setLanguage('hr')" id="btn-hr" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">HR</button>
-                    <button onclick="setLanguage('de')" id="btn-de" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">DE</button>
+                <!-- Language Selector -->
+                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs">
+                    <button id="btn-si" onclick="setLanguage('si')" class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 transition font-bold">SI</button>
+                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-medium">EN</button>
+                    <button id="btn-hr" onclick="setLanguage('hr')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-medium">HR</button>
+                    <button id="btn-de" onclick="setLanguage('de')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-medium">DE</button>
                 </div>
 
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/10" data-i18n="nav_cta">Oddaj povpraševanje</a>
-
-                <div class="hidden sm:flex items-center gap-2.5 text-slate-300 text-lg border-l border-slate-800 pl-4">
-                    <a href="https://www.instagram.com/ledpanelhub" target="_blank" class="hover:text-cyan-400 transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@led.panel.hub" target="_blank" class="hover:text-cyan-400 transition" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
+                <!-- CTA Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold rounded-lg bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition shadow-lg shadow-cyan-500/20" data-i18n="nav_cta">
+                    Pošlji povpraševanje
+                </a>
             </div>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-24 pb-28 overflow-hidden border-b border-slate-900">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=2000&q=80" alt="Concert LED screen stage" class="w-full h-full object-cover object-center opacity-25">
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
-        </div>
+    <section class="relative py-24 md:py-32 overflow-hidden border-b border-slate-800/50">
+        <!-- Background decorative glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 w-[400px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
-                <i class="fa-solid fa-network-wired"></i> <span data-i18n="hero_badge">Vrhunska mreža preverjenih ponudnikov</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-cyan-400 text-xs font-semibold mb-8 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span data-i18n="hero_badge">Vrhunska mreža preverjenih ponudnikov</span>
             </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight" data-i18n="hero_title">
+
+            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6" data-i18n="hero_title">
                 Zanesljivo posredništvo za nakup in najem LED zaslonov ter športnih panojev
             </h1>
-            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="hero_desc">
-                Povezujemo vas s preverjenimi tehničnimi partnerji za oglasne LED linije na igriščih, velike ekrane za prireditve ter popolno tehnično logistiko v regiji.
+
+            <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-normal leading-relaxed" data-i18n="hero_desc">
+                Povezujemo vas s preverjenimi tehničnimi partnerji za LED obrobne panoje, velike zaslone ter celostno tehnično logistiko v regiji.
             </p>
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-xl shadow-cyan-500/20" data-i18n="hero_btn_primary">
-                    Pridobi ponudbo partnerja
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyan-400 text-slate-950 font-bold hover:bg-cyan-300 transition shadow-xl shadow-cyan-500/25 text-center" data-i18n="hero_btn_primary">
+                    Pridobi ponudbo partnerjev
                 </a>
-                <a href="#services" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-slate-900/80 backdrop-blur border border-slate-700 text-white hover:bg-slate-800 transition" data-i18n="hero_btn_secondary">
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:border-slate-700 hover:text-white transition text-center" data-i18n="hero_btn_secondary">
                     Preglej ponudbo
                 </a>
             </div>
@@ -111,193 +135,251 @@
     </section>
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-slate-900/40 border-b border-slate-900">
+    <section id="services" class="py-24 border-b border-slate-800/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="services_heading">Kaj ponujajo naši preverjeni partnerji?</h2>
-                <p class="mt-4 text-slate-400 text-lg" data-i18n="services_subheading">Celovite rešitve za nakup in najem za športne dogodke, koncerte, sejme in prireditve.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4" data-i18n="services_heading">Kaj ponujajo naši preverjeni partnerji?</h2>
+                <p class="text-slate-400 text-base" data-i18n="services_subheading">Celovite rešitve nakupa in najema za športne dogodke, koncerte, sejme in prireditve.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Sports LED boards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-rectangle-ad"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_1_title">Nakup in najem športnih LED panojev</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_1_desc">
-                                Nakup ali najem dinamičnih oglasnih LED linij ob igriščih za največjo vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih tekmah.
-                            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition duration-300">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="trophy" class="w-6 h-6"></i>
                         </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="service_1_title">Nakup in najem športnih LED panojev</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_1_desc">Dinamični obrobni LED panoji za maksimalno vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih prireditvah.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Large LED screens" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-tv"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_2_title">Nakup in najem velikih LED ekranov</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_2_desc">
-                                Nakup ali najem visoko zmogljivih velikih zaslonov (od 10 do 100+ kvadratnih metrov) za koncerte, festivale, kulturne in korporativne dogodke.
-                            </p>
+                <!-- Service 2 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition duration-300">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="tv" class="w-6 h-6"></i>
                         </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="service_2_title">Nakup in najem velikih LED zaslonov</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_2_desc">Visokozmogljivi velika platna (od 10 do 100+ m2) za koncerte, festivale, kulturne ter poslovne dogodke.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                <!-- Service 3 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition duration-300">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="truck" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="service_3_title">Tehnična logistika in upravljanje</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_3_desc">Zanesljive partnerske ekipe poskrbljejo za prevoz, strokovno montažo, demontažo, tehnično podporo in upravljanje vsebin med dogodkom.</p>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fa-solid fa-truck-fast"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="service_3_title">Tehnična logistika in operativa</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed" data-i18n="service_3_desc">
-                                Zanesljiva ekipa partnerjev poskrbi za transport, strokovno postavitev, demontažo ter tehnično podporo in upravljanje vsebin med samim dogodkom.
-                            </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE LED CALCULATOR SECTION -->
+    <section id="calculator" class="py-20 border-b border-slate-800/50 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Interaktivno orodje</span>
+                <h2 class="text-3xl font-bold text-white mt-1 mb-3">Kalkulator LED Zaslona</h2>
+                <p class="text-slate-400 text-sm">Hitro izračunajte površino, ločljivost in ocenjeno porabo energije za vaš projekt.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 sm:p-10 grid md:grid-cols-2 gap-8 items-center border border-slate-800">
+                <!-- Controls -->
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Širina (metri)</label>
+                        <input type="number" id="calc-width" value="4" min="1" max="50" step="0.5" oninput="calculateLED()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Višina (metri)</label>
+                        <input type="number" id="calc-height" value="2.5" min="1" max="30" step="0.5" oninput="calculateLED()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Okolje / Tip zaslona</label>
+                        <select id="calc-env" onchange="calculateLED()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500">
+                            <option value="outdoor">Zunanji (Outdoor - visoka svetilnost)</option>
+                            <option value="indoor">Notranji (Indoor - visoka ločljivost)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Gostota pik (Pixel Pitch mm)</label>
+                        <select id="calc-pitch" onchange="calculateLED()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500">
+                            <option value="2.5">P2.5 (Super ostrina, indoor)</option>
+                            <option value="3.9" selected>P3.9 (Vsestranski, event/outdoor)</option>
+                            <option value="4.8">P4.8 (Zunanji zasloni)</option>
+                            <option value="10">P10 (Veliki zunanji panoji)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results display -->
+                <div class="bg-slate-950/80 rounded-xl p-6 border border-slate-800/80 space-y-4">
+                    <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <span>Ocena specifikacij</span>
+                        <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-slate-900/50 p-3 rounded-lg">
+                            <span class="text-xs text-slate-400 block mb-1">Skupna Površina</span>
+                            <span id="calc-area" class="text-xl font-bold text-cyan-400">10.00 m²</span>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-lg">
+                            <span class="text-xs text-slate-400 block mb-1">Ocena Ločljivosti</span>
+                            <span id="calc-res" class="text-xl font-bold text-white">1025 x 641 px</span>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-lg">
+                            <span class="text-xs text-slate-400 block mb-1">Optimalna Razdalja</span>
+                            <span id="calc-distance" class="text-xl font-bold text-white">3.9m - 11.7m</span>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-lg">
+                            <span class="text-xs text-slate-400 block mb-1">Max Povprečna Moč</span>
+                            <span id="calc-power" class="text-xl font-bold text-emerald-400">~ 3.5 kW</span>
                         </div>
                     </div>
+
+                    <button onclick="applyCalcToForm()" class="w-full mt-2 py-3 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-semibold text-xs hover:bg-cyan-500/30 transition flex items-center justify-center gap-2">
+                        <span>Prenesi v obrazec za ponudbo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TECHNICAL GUIDE SECTION -->
-    <section id="guide" class="py-24 border-b border-slate-900">
+    <section id="guide" class="py-24 border-b border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="guide_heading">Tehnični vodnik: Kako izbrati pravi LED zaslon?</h2>
-                <p class="mt-4 text-slate-400 text-lg" data-i18n="guide_subheading">Kratki napotki za lažjo določitev specifikacij vašega projekta.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4" data-i18n="guide_heading">Tehnični vodnik: Kako izbrati pravi LED zaslon?</h2>
+                <p class="text-slate-400 text-base" data-i18n="guide_subheading">Kratki nasveti za enostavno določitev specifikacij vašega projekta.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6">
-                            <i class="fa-solid fa-sun"></i>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Guide item 1 -->
+                <div class="glass-card rounded-2xl p-8 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="guide_outdoor_title">Zunanji zasloni (Outdoor & Športni panoji)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="guide_outdoor_desc">
-                            Zasloni za zunanjo uporabo morajo zagotavljati visoko svetilnost (od 5000 do 8000+ nitov) za odlično vidljivost na soncu ter visoko stopnjo zaščite (IP65) proti dežju in vlagi.
-                        </p>
-                        <ul class="space-y-2 text-xs text-slate-300">
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_outdoor_b1">Visoka odpornost na vremenske vplive</span></li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_outdoor_b2">Primerno za stadione, koncerte na prostem in sejme</span></li>
-                        </ul>
+                        <h3 class="text-xl font-bold text-white" data-i18n="guide_outdoor_title">Zunanji zasloni (Outdoor & Športni panoji)</h3>
                     </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="guide_outdoor_desc">Zunanji zasloni morajo imeti visoko svetilnost (5.000 do 8.000+ nits) za vidnost na soncu ter visoko stopnjo zaščite (IP65) pred dežjem in vlago.</p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="guide_outdoor_b1">Visoka odpornost na vremenske vplive</span></li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="guide_outdoor_b2">Primerno za stadione, koncerte na prostem in sejme</span></li>
+                    </ul>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6">
-                            <i class="fa-solid fa-laptop"></i>
+                <!-- Guide item 2 -->
+                <div class="glass-card rounded-2xl p-8 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                            <i data-lucide="building" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="guide_indoor_title">Notranji zasloni (Indoor & Odri)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="guide_indoor_desc">
-                            Notranji ekrani odlikujejo manjši razmiki med pikami (Pixel Pitch P2 do P4) za izjemno ostro sliko in visoko frekvenco osveževanja, kar je ključno za snemanje s kamerami.
-                        </p>
-                        <ul class="space-y-2 text-xs text-slate-300">
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_indoor_b1">Visoka ločljivost in ostra slika od blizu</span></li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> <span data-i18n="guide_indoor_b2">Primerno za dvorane, TV studie in konference</span></li>
-                        </ul>
+                        <h3 class="text-xl font-bold text-white" data-i18n="guide_indoor_title">Notranji zasloni (Indoor & Odri)</h3>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUPPORT & WARRANTY SECTION -->
-    <section id="support" class="py-24 bg-slate-900/30 border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6" data-i18n="support_heading">Zanesljiva garancija in servisna podpora</h2>
-                    <p class="text-slate-400 leading-relaxed mb-4" data-i18n="support_text_1">
-                        Pri nakupu ali najemu opreme preko našega posredništva vam naši partnerji zagotavljajo celovito tehnično podporo, originalne rezervne dele in hitro odzivnost na terenu.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed mb-6" data-i18n="support_text_2">
-                        V primeru najema je vključena tudi dežurna tehnična ekipa med samim potekom dogodka, kar zagotavlja nemoteno in brezskrbno delovanje celotnega sistema.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <i class="fa-solid fa-shield-halved text-cyan-400 text-xl mb-2"></i>
-                            <h4 class="font-semibold text-white text-sm mb-1" data-i18n="support_box1_title">Garancija kakovosti</h4>
-                            <p class="text-xs text-slate-400" data-i18n="support_box1_desc">Preverjeni proizvajalci in certifikati EU standardov.</p>
-                        </div>
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <i class="fa-solid fa-headset text-cyan-400 text-xl mb-2"></i>
-                            <h4 class="font-semibold text-white text-sm mb-1" data-i18n="support_box2_title">24/7 Dežurna služba</h4>
-                            <p class="text-xs text-slate-400" data-i18n="support_box2_desc">Tehnična podpora na voljo med dogodki.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl p-8 bg-slate-900">
-                    <h3 class="text-xl font-semibold text-white mb-4" data-i18n="support_reg_title">Servisni center</h3>
-                    <ul class="space-y-4 text-sm text-slate-300">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-cyan-400 text-lg"></i> <span data-i18n="support_reg_ljubljana">Ljubljana (Osrednji servis in logistična točka)</span></li>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="guide_indoor_desc">Notranji zasloni se odlikujejo z manjšim razmikom pik (Pixel Pitch P2 do P4) za izjemno ostro sliko ter visoko osveževalno hitrostjo, idealno za snemanje s kamerami.</p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="guide_indoor_b1">Visoka ločljivost in ostra slika iz bližine</span></li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="guide_indoor_b2">Primerno za dvorane, TV studie in konference</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REFERENCE SECTION -->
-    <section id="reference" class="py-24 border-b border-slate-900">
+    <!-- SUPPORT & WARRANTY SECTION -->
+    <section id="support" class="py-24 border-b border-slate-800/50 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Zanesljivost & Podpora</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-6" data-i18n="support_heading">Zanesljiva garancija in servisna podpora</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="support_text_1">Ob nakupu ali najemu opreme preko našega posredništva vam partnerji zagotavljajo celostno tehnično podporo, originalne nadomestne dele ter hiter odziv na terenu.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8" data-i18n="support_text_2">Pri najemih je vključena dežurna tehnična ekipa med potekom dogodka, kar jamči brezhibno delovanje celotnega sistema.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-sm mb-1" data-i18n="support_box1_title">Garancija kakovosti</h4>
+                            <p class="text-xs text-slate-400" data-i18n="support_box1_desc">Preverjeni proizvajalci ter certifikati ustreznosti po EU standardih.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-sm mb-1" data-i18n="support_box2_title">24/7 Dežurna služba</h4>
+                            <p class="text-xs text-slate-400" data-i18n="support_box2_desc">Tehnična podpora na terenu med potekom prireditev.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regional center badge box -->
+                <div class="glass-panel p-8 rounded-2xl border border-slate-800 relative">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2" data-i18n="support_reg_title">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400"></i>
+                        Servisna središča
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80 flex items-center justify-between">
+                            <span data-i18n="support_reg_ljubljana">Ljubljana (Osrednje servisno in logistično vozlišče)</span>
+                            <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Aktivno</span>
+                        </li>
+                        <li class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80 flex items-center justify-between">
+                            <span>Zagreb / Dunaj / München (Partnerska mreža)</span>
+                            <span class="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-bold">Mreža</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERENCES SECTION -->
+    <section id="references" class="py-24 border-b border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-cyan-400 font-semibold tracking-wider uppercase text-xs bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20" data-i18n="ref_badge">Social Proof & Reference</span>
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mt-3 mb-4" data-i18n="ref_heading">Naši LED sistemi na delu</h2>
-                <p class="text-slate-400 text-base" data-i18n="ref_subheading">Oglejte si izbrane projekte postavitve LED zaslonov, športnih panojev in zunanjih medijskih fasad, ki jih posredujemo našim strankam.</p>
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider" data-i18n="ref_badge">Social Proof & Reference</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 mb-4" data-i18n="ref_heading">Naši LED sistemi v akciji</h2>
+                <p class="text-slate-400 text-base" data-i18n="ref_subheading">Preglejte izbrane projekte postavljene preko naše mreže partnerskih izvajalcev.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=800&q=80" alt="Stadium LED display" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_outdoor">Zunanji pano</span>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Ref 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center">
+                        <i data-lucide="trophy" class="w-16 h-16 text-slate-700"></i>
+                        <span class="absolute top-3 left-3 bg-cyan-500/90 text-slate-950 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase" data-i18n="ref_tag_outdoor">Zunanji Pano</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p1_title">Glavni športni stadion</h3>
-                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p1_desc">Visokosvetilni obodni LED zaslon za prikaz rezultatov in oglaševanje v realnem času.</p>
-                        <div class="text-xs text-cyan-400 font-medium border-t border-slate-800 pt-4">P6 zunanji modul</div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="ref_p1_title">Glavni športni stadion</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="ref_p1_desc">Visokosvetlobni LED obrobni panoji za prikazovanje rezultatov in sponzorskih sporočil v realnem času.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" alt="Indoor arena LED screen" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_sport">Športna dvorana</span>
+                <!-- Ref 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center">
+                        <i data-lucide="activity" class="w-16 h-16 text-slate-700"></i>
+                        <span class="absolute top-3 left-3 bg-cyan-500/90 text-slate-950 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase" data-i18n="ref_tag_sport">Športna Dvorana</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p2_title">Večnamenska športna dvorana</h3>
-                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p2_desc">Kocke in obodni zasloni visoke ločljivosti za tekme, koncerte in dogodke.</p>
-                        <div class="text-xs text-cyan-400 font-medium border-t border-slate-800 pt-4">P3.9 notranji zaslon</div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="ref_p2_title">Večnamenska športna dvorana</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="ref_p2_desc">LED kocke z visoko ločljivostjo ter obrobni zasloni za tekme in prireditve.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Stage concert LED panels" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-semibold text-xs px-2.5 py-1 rounded-md" data-i18n="ref_tag_indoor">Odrski element</span>
+                <!-- Ref 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center">
+                        <i data-lucide="music" class="w-16 h-16 text-slate-700"></i>
+                        <span class="absolute top-3 left-3 bg-cyan-500/90 text-slate-950 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase" data-i18n="ref_tag_indoor">Oder / Koncert</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="ref_p3_title">Poslovni kongresni center</h3>
-                        <p class="text-slate-400 text-sm mb-4" data-i18n="ref_p3_desc">Modularni LED zasloni visoke frekvence za vrhunske predstavitve in nastope.</p>
-                        <div class="text-xs text-cyan-400 font-medium border-t border-slate-800 pt-4">P2.6 rental panel</div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="ref_p3_title">Poslovno kongresno središče</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="ref_p3_desc">Modularni LED zasloni z visoko osveževalno hitrostjo za vrhunske predstavitve.</p>
                     </div>
                 </div>
             </div>
@@ -305,294 +387,337 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-24 bg-slate-900/30 border-b border-slate-900">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" class="py-24 border-b border-slate-800/50 bg-slate-900/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="faq_heading">Pogosto zastavljena vprašanja</h2>
-                <p class="mt-4 text-slate-400" data-i18n="faq_subheading">Vse, kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.</p>
+                <h2 class="text-3xl font-bold text-white mb-4" data-i18n="faq_heading">Pogosta vprašanja</h2>
+                <p class="text-slate-400 text-sm" data-i18n="faq_subheading">Vse kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question text-cyan-400"></i>
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="glass-card rounded-xl p-5 group border border-slate-800 cursor-pointer">
+                    <summary class="font-semibold text-white flex items-center justify-between list-none">
                         <span data-i18n="faq_q1">Kako poteka postopek povpraševanja?</span>
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="faq_a1">Po oddaji povpraševanja prek obrazca ali asistenta vaše zahteve analiziramo in jih posredujemo najustreznejšemu preverjenemu tehničnemu partnerju, ki vam v najkrajšem času pripravi ponudbo.</p>
-                </div>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed" data-i18n="faq_a1">Po oddaji povpraševanja preko obrazca ali klepetalnika preučimo vaše zahteve ter jih posredujemo najprimernejšemu preverjenemu partnerju, ki pripravi ponudbo.</p>
+                </details>
 
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question text-cyan-400"></i>
-                        <span data-i18n="faq_q2">Ali je najem možen za krajše dogodke?</span>
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="faq_a2">Seveda. Naši partnerji nudijo prilagodljiv kratkoročni najem (za vikend dogodke, koncerte, tekme) kot tudi dolgoročni najem ali nakup opreme.</p>
-                </div>
+                <!-- FAQ Item 2 -->
+                <details class="glass-card rounded-xl p-5 group border border-slate-800 cursor-pointer">
+                    <summary class="font-semibold text-white flex items-center justify-between list-none">
+                        <span data-i18n="faq_q2">Ali je možen najem za kratke dogodke?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed" data-i18n="faq_a2">Seveda. Naši partnerji omogočajo prilagodljive kratkoročne najeme (za vikend dogodke, koncerte, tekme) kot tudi dolgoročni najem ali nakup.</p>
+                </details>
 
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question text-cyan-400"></i>
-                        <span data-i18n="faq_q3">Kaj vse vključuje storitev najema?</span>
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="faq_a3">Najem običajno vključuje dostavo, strokovno postavitev in demontažo zaslonov, po dogovoru pa tudi tehnično podporo in upravljanje vsebine med samim dogodkom.</p>
-                </div>
+                <!-- FAQ Item 3 -->
+                <details class="glass-card rounded-xl p-5 group border border-slate-800 cursor-pointer">
+                    <summary class="font-semibold text-white flex items-center justify-between list-none">
+                        <span data-i18n="faq_q3">Kaj vključuje storitev najema?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed" data-i18n="faq_a3">Najem običajno vključuje dostavo, strokovno montažo in demontažo zaslonov ter po dogovoru tudi tehnično podporo in upravljanje vsebin.</p>
+                </details>
 
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question text-cyan-400"></i>
-                        <span data-i18n="faq_q4">V katerih državah nudite posredništvo?</span>
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="faq_a4">Aktivno povezujemo stranke s partnerji v regiji: Slovenija, Hrvaška, Avstrija in Nemčija.</p>
-                </div>
+                <!-- FAQ Item 4 -->
+                <details class="glass-card rounded-xl p-5 group border border-slate-800 cursor-pointer">
+                    <summary class="font-semibold text-white flex items-center justify-between list-none">
+                        <span data-i18n="faq_q4">V katerih državah delujete?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed" data-i18n="faq_a4">Aktivno povezujemo stranke s partnerji v regiji: Slovenija, Hrvaška, Avstrija in Nemčija.</p>
+                </details>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT FORM SECTION (MAILTO + WEB-GMAIL FALLBACK) -->
-    <section id="contact" class="py-24 bg-slate-900/40">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" data-i18n="contact_heading">Oddajte povpraševanje</h2>
-                <p class="mt-4 text-slate-400" data-i18n="contact_subheading">Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program.</p>
-            </div>
-            
-            <div id="inquiry-form" class="space-y-6 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_name">Ime in priimek / Naziv podjetja</label>
-                        <input type="text" id="form-name" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_name_ph" placeholder="npr. Janez Novak ali Podjetje d.o.o.">
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800">
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-white mb-2" data-i18n="contact_heading">Pošljite povpraševanje</h2>
+                    <p class="text-slate-400 text-xs" data-i18n="contact_subheading">Izpolnite obrazec – ob pošiljanju se bo odprl vaš e-poštni program.</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); sendMailtoForm();" class="space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_name">Ime in priimek / Podjetje</label>
+                            <input type="text" id="form-name" required data-i18n-placeholder="form-name-ph" placeholder="npr. Janez Novak ali Moje Podjetje d.o.o." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_email">E-poštni naslov</label>
+                            <input type="email" id="form-email" required data-i18n-placeholder="form-email-ph" placeholder="vas@email.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_email">E-poštni naslov</label>
-                        <input type="email" id="form-email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_email_ph" placeholder="vas@email.com">
+
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_service">Vrsta storitve & opreme</label>
+                            <select id="form-service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+                                <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
+                                <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
+                                <option value="Nakup velikih LED zaslonov" data-i18n="opt_buy_screens">Nakup velikih LED zaslonov</option>
+                                <option value="Najem velikih LED zaslonov" data-i18n="opt_rent_screens">Najem velikih LED zaslonov</option>
+                                <option value="Celostna tehnična izvedba" data-i18n="opt_logistics">Celostna tehnična izvedba in logistika</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_date">Datum dogodka / postavitve</label>
+                            <input type="text" id="form-date" placeholder="npr. 15.10.2026 Ali Čim prej" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+                        </div>
                     </div>
-                </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_service">Vrsta storitve in oprema</label>
-                        <select id="form-service" name="service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition">
-                            <option value="Nakup športnih LED panojev" data-i18n="opt_buy_sports">Nakup športnih LED panojev</option>
-                            <option value="Najem športnih LED panojev" data-i18n="opt_rent_sports">Najem športnih LED panojev</option>
-                            <option value="Nakup velikih LED ekranov" data-i18n="opt_buy_screens">Nakup velikih LED ekranov</option>
-                            <option value="Najem velikih LED ekranov" data-i18n="opt_rent_screens">Najem velikih LED ekranov</option>
-                            <option value="Celovita tehnična izvedba in logistika" data-i18n="opt_logistics">Celovita tehnična izvedba in logistika</option>
-                        </select>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_dimensions">Okvirne dimenzije (Širina x Višina v metrih ali skupna kvadratura m2)</label>
+                        <input type="text" id="form-dimensions" data-i18n-placeholder="form_dimensions_ph" placeholder="npr. Dolžina 20m Ali 6x4m (24 m2)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
                     </div>
+
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_date">Datum dogodka / postavitve</label>
-                        <input type="text" id="form-date" name="event_date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" placeholder="npr. 1.10.2026">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
+                        <textarea id="form-message" rows="4" data-i18n-placeholder="form_message_ph" placeholder="Če imate dodatna vprašanja ali posebne zahteve, jih prosimo vpišite sem..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500"></textarea>
                     </div>
-                </div>
 
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_dimensions">Okvirne mere (širina x višina v metrih ali skupna površina m2)</label>
-                    <input type="text" id="form-dimensions" name="dimensions" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_dimensions_ph" placeholder="npr. dolžina 20m ali 6x4m (24 m2)">
-                </div>
-
-                <!-- OPOZORILO ZA PRILOGE -->
-                <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4 text-xs text-cyan-300 flex items-start gap-3">
-                    <i class="fa-solid fa-paperclip text-cyan-400 mt-0.5 text-base"></i>
-                    <div>
-                        <span class="font-semibold text-white" data-i18n="form_file_notice_title">Priložitev slik ali skic:</span>
-                        <p class="mt-1 text-slate-300" data-i18n="form_file_notice_desc">Ob kliku se vam odpre e-pošta, kjer lahko priložite poljubne slike ali skice.</p>
+                    <!-- Notice about file attachment -->
+                    <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 flex items-center gap-3">
+                        <i data-lucide="paperclip" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                        <div>
+                            <span class="font-semibold text-white" data-i18n="form_file_notice_title">Priložitev slik ali skic:</span>
+                            <span data-i18n="form_file_notice_desc">Ob kliku se bo odprla vaša e-pošta, kjer lahko priložite slike ali skice.</span>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" data-i18n="form_message">Podrobnosti in dodatna vprašanja</label>
-                    <textarea id="form-message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_message_ph" placeholder="Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj..."></textarea>
-                </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="form-consent" required class="rounded border-slate-800 text-cyan-500 focus:ring-0">
+                        <label for="form-consent" class="text-xs text-slate-400" data-i18n="form_consent">Strinjam se s politiko zasebnosti in obdelavo podatkov za namen priprave ponudbe.</label>
+                    </div>
 
-                <div class="flex items-center gap-3">
-                    <input type="checkbox" id="form-consent" required class="w-4 h-4 bg-slate-950 border border-slate-800 rounded text-cyan-500 focus:ring-0">
-                    <label for="form-consent" class="text-xs text-slate-400" data-i18n="form_consent">
-                        Strinjam se s <a href="#" onclick="openLegal('privacy')" class="text-cyan-400 underline">politiko zasebnosti</a> in obdelavo podatkov za namen priprave ponudbe.
-                    </label>
-                </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 font-bold hover:from-cyan-300 hover:to-blue-400 transition shadow-xl shadow-cyan-500/20 text-sm" data-i18n="form_submit">
+                        Pošljite povpraševanje preko e-pošte
+                    </button>
+                </form>
 
-                <button type="button" onclick="sendMailtoForm()" class="w-full py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition shadow-xl shadow-cyan-500/20 text-center text-base cursor-pointer" data-i18n="form_submit">
-                    Oddaj povpraševanje prek e-pošte
-                </button>
-
-                <!-- REŠITEV ZA RAČUNALNIKE (Če se mailto ne odpre) -->
-                <div id="fallback-box" class="hidden mt-4 p-4 bg-slate-950 border border-slate-800 rounded-xl text-center text-xs text-slate-300">
-                    <p class="mb-2">Se e-poštni program na računalniku ni odprl? Kliknite spodnji gumb za direktno pošiljanje prek spletnega Gmaila:</p>
-                    <a id="fallback-gmail-link" href="#" target="_blank" class="inline-block px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-semibold rounded-lg transition">
-                        <i class="fa-solid fa-envelope mr-1.5"></i> Odpri v spletnem Gmailu
-                    </a>
+                <!-- Fallback Gmail direct link notice -->
+                <div id="fallback-box" class="hidden mt-6 p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-center text-slate-300">
+                    Se vam e-poštni program ni samodejno odprl? 
+                    <a id="fallback-gmail-link" href="#" target="_blank" class="text-cyan-400 underline font-bold ml-1">Kliknite tukaj za pošiljanje preko Gmail-a</a> ali pišite neposredno na <b>Ledpanelhub.info@gmail.com</b>.
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- FLOATING CHAT ASSISTANT BUTTON -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center shadow-2xl transition transform hover:scale-105">
-            <i class="fa-solid fa-comments text-xl"></i>
-        </button>
-    </div>
-
-    <!-- CHAT ASSISTANT MODAL / WINDOW -->
-    <div id="chat-window" class="hidden fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[550px]">
-        <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-sm">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div>
-                    <h4 class="text-sm font-bold text-white" data-i18n="chat_title">LEDpanelHub Pametni AI Asistent</h4>
-                    <span id="chat-stepper" class="text-[10px] text-cyan-400 font-medium">Korak 1 od 9</span>
-                </div>
-            </div>
-            <div class="flex items-center gap-2">
-                <button onclick="resetChat()" class="text-slate-400 hover:text-white text-xs px-2 py-1 bg-slate-800 rounded" title="Znova"><i class="fa-solid fa-rotate-right"></i></button>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-base"></i></button>
-            </div>
-        </div>
-
-        <div id="chat-messages" class="p-4 flex-1 overflow-y-auto space-y-3 text-xs text-slate-300">
-            <!-- Dinamična vsebina klepeta -->
-        </div>
-
-        <div id="chat-quick-replies" class="p-2 bg-slate-950/50 border-t border-slate-800 flex flex-wrap gap-1.5">
-            <!-- Gumbi za hitre odgovore -->
-        </div>
-
-        <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2">
-            <input type="text" id="chat-input" onkeypress="handleChatKey(event)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500" data-i18n-placeholder="chat_placeholder" placeholder="Vprašajte AI karkoli o LED zaslonih...">
-            <button onclick="sendChatMessage()" class="w-9 h-9 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center transition"><i class="fa-solid fa-paper-plane text-xs"></i></button>
-        </div>
-    </div>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer class="border-t border-slate-800 bg-slate-950 py-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 mb-8">
             <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-cyan-500 flex items-center justify-center text-slate-950 font-bold">
-                        <i class="fa-solid fa-display"></i>
-                    </div>
-                    <span class="text-white font-bold">LEDpanel<span class="text-cyan-400">Hub</span>.com</span>
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-6 h-6 rounded bg-cyan-400 text-slate-950 font-black text-xs flex items-center justify-center">L</div>
+                    <span class="font-bold text-white text-sm">LEDpanelHub.com</span>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed" data-i18n="footer_about">
-                    Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.
-                </p>
+                <p class="leading-relaxed" data-i18n="footer_about">Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.</p>
             </div>
+
             <div>
-                <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_contact_title">Kontakt in podpora</h4>
-                <p class="text-xs text-slate-400 mb-2">E-pošta: <a href="mailto:Ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">Ledpanelhub.info@gmail.com</a></p>
-                <p class="text-xs text-slate-400" data-i18n="footer_region">Regija: SI, HR, AT, DE</p>
+                <h4 class="font-bold text-white text-sm mb-3" data-i18n="footer_contact_title">Kontakt in podpora</h4>
+                <p class="mb-1">E-pošta: <a href="mailto:Ledpanelhub.info@gmail.com" class="text-cyan-400 hover:underline">Ledpanelhub.info@gmail.com</a></p>
+                <p data-i18n="footer_region">Regija: SI, HR, AT, DE</p>
             </div>
+
             <div>
-                <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_legal_title">Pravna obvestila</h4>
-                <ul class="space-y-2 text-xs">
+                <h4 class="font-bold text-white text-sm mb-3" data-i18n="footer_legal_title">Pravna obvestila</h4>
+                <ul class="space-y-1.5">
                     <li><button onclick="openLegal('privacy')" class="hover:text-cyan-400 transition" data-i18n="footer_privacy">Politika zasebnosti (GDPR)</button></li>
                     <li><button onclick="openLegal('cookies')" class="hover:text-cyan-400 transition" data-i18n="footer_cookies">Piškotki</button></li>
                     <li><button onclick="openLegal('terms')" class="hover:text-cyan-400 transition" data-i18n="footer_terms">Pogoji posredništva</button></li>
                 </ul>
             </div>
+
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">LEDpanelHub</h4>
+                <p class="leading-relaxed">Vaš zanesljiv partnerski posrednik za vse vrste LED tehnologije in vizualne logistike.</p>
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-900 text-center text-xs text-slate-500" data-i18n="footer_rights">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900 pt-6 text-center text-slate-500" data-i18n="footer_rights">
             &copy; 2026 LEDpanelHub.com. Vse pravice pridržane.
         </div>
     </footer>
 
-    <!-- SKRIPTE -->
+    <!-- WIDGET CHATBOT BUTTON & WINDOW -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Floating Chat Button -->
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-cyan-400 text-slate-950 shadow-2xl shadow-cyan-500/50 flex items-center justify-center hover:scale-110 transition duration-300">
+            <i data-lucide="bot" class="w-7 h-7"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden absolute bottom-16 right-0 w-[90vw] sm:w-[380px] h-[520px] glass-panel border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <!-- Chat Header -->
+            <div class="p-4 border-b border-slate-800/80 bg-slate-900/90 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-xs" data-i18n="chat_title">LEDpanelHub Pametni AI Asistent</h4>
+                        <span id="chat-stepper" class="text-[10px] text-cyan-400 font-semibold">Korak 1 od 9</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1">
+                    <button onclick="resetChat()" title="Ponastavi klepet" class="p-1 rounded text-slate-400 hover:text-white"><i data-lucide="refresh-cw" class="w-4 h-4"></i></button>
+                    <button onclick="toggleChat()" class="p-1 rounded text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+                </div>
+            </div>
+
+            <!-- Chat Messages Container -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3">
+                <!-- Messages injected dynamically -->
+            </div>
+
+            <!-- Quick Reply Buttons Container -->
+            <div id="chat-quick-replies" class="px-4 py-2 flex flex-wrap gap-1.5 border-t border-slate-800/40">
+                <!-- Buttons injected dynamically -->
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="p-3 border-t border-slate-800 bg-slate-900/80 flex items-center gap-2">
+                <input type="text" id="chat-input" onkeydown="handleChatKey(event)" data-i18n-placeholder="chat_placeholder" placeholder="Pitaj AI bilo šta o LED zaslonima..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500">
+                <button onclick="sendChatMessage()" class="p-2.5 rounded-xl bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FOR LEGAL DOCUMENTS -->
+    <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-panel border border-slate-800 rounded-2xl max-w-lg w-full p-6 relative">
+            <h3 id="modal-title" class="text-lg font-bold text-white mb-3"></h3>
+            <div id="modal-body" class="text-xs text-slate-300 leading-relaxed mb-6"></div>
+            <button onclick="closeLegalModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition" data-i18n="modal_close">Zaprta</button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-notification" class="fixed top-24 right-6 z-50 transform translate-x-full transition-transform duration-300 glass-panel border border-cyan-500/30 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400"></i>
+        <span class="text-xs font-semibold" data-i18n="toast_success">Podatki uspešno preneseni v obrazec!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
+        // Inicializacija Lucide ikon
+        lucide.createIcons();
+
+        // Stanje aplikacije
         let currentLang = 'si';
         let chatOpen = false;
         let chatState = 'ASK_ENTITY';
-        let userLeadData = { entityType: '', name: '', email: '', dealType: '', equipment: '', meters: '', duration: '', supportNeeded: '', date: '' };
+        let userLeadData = {
+            entityType: '',
+            name: '',
+            email: '',
+            dealType: '',
+            equipment: '',
+            meters: '',
+            duration: '',
+            supportNeeded: '',
+            date: ''
+        };
 
+        // Prevodne baze
         const translations = {
             si: {
-                top_construction: "Stran je v izdelavi",
+                top_construction: "Spletna stran je v izdelavi",
                 nav_services: "Storitve partnerjev",
                 nav_guide: "Tehnični vodnik",
-                nav_support: "Servis & Garancija",
+                nav_support: "Servis in Garancija",
                 nav_reference: "Reference",
-                nav_faq: "FAQ",
+                nav_faq: "Pogosta vprašanja",
                 nav_contact: "Povpraševanje",
-                nav_cta: "Oddaj povpraševanje",
+                nav_cta: "Pošlji povpraševanje",
                 hero_badge: "Vrhunska mreža preverjenih ponudnikov",
                 hero_title: "Zanesljivo posredništvo za nakup in najem LED zaslonov ter športnih panojev",
-                hero_desc: "Povezujemo vas s preverjenimi tehničnimi partnerji za oglasne LED linije na igriščih, velike ekrane za prireditve ter popolno tehnično logistiko v regiji.",
-                hero_btn_primary: "Pridobi ponudbo partnerja",
+                hero_desc: "Povezujemo vas s preverjenimi tehničnimi partnerji za LED obrobne panoje, velike zaslone ter celostno tehnično logistiko v regiji.",
+                hero_btn_primary: "Pridobi ponudbo partnerjev",
                 hero_btn_secondary: "Preglej ponudbo",
                 services_heading: "Kaj ponujajo naši preverjeni partnerji?",
-                services_subheading: "Celovite rešitve za nakup in najem za športne dogodke, koncerte, sejme in prireditve.",
+                services_subheading: "Celovite rešitve nakupa in najema za športne dogodke, koncerte, sejme in prireditve.",
                 service_1_title: "Nakup in najem športnih LED panojev",
-                service_1_desc: "Nakup ali najem dinamičnih oglasnih LED linij ob igriščih za največjo vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih tekmah.",
-                service_2_title: "Nakup in najem velikih LED ekranov",
-                service_2_desc: "Nakup ali najem visoko zmogljivih velikih zaslonov (od 10 do 100+ kvadratnih metrov) za koncerte, festivale, kulturne in korporativne dogodke.",
-                service_3_title: "Tehnična logistika in operativa",
-                service_3_desc: "Zanesljiva ekipa partnerjev poskrbi za transport, strokovno postavitev, demontažo ter tehnično podporo in upravljanje vsebin med samim dogodkom.",
+                service_1_desc: "Dinamični obrobni LED panoji za maksimalno vidnost sponzorjev na nogometnih, košarkarskih in drugih športnih prireditvah.",
+                service_2_title: "Nakup in najem velikih LED zaslonov",
+                service_2_desc: "Visokozmogljivi velika platna (od 10 do 100+ m2) za koncerte, festivale, kulturne ter poslovne dogodke.",
+                service_3_title: "Tehnična logistika in upravljanje",
+                service_3_desc: "Zanesljive partnerske ekipe poskrbljejo za prevoz, strokovno montažo, demontažo, tehnično podporo in upravljanje vsebin med dogodkom.",
                 guide_heading: "Tehnični vodnik: Kako izbrati pravi LED zaslon?",
-                guide_subheading: "Kratki napotki za lažjo določitev specifikacij vašega projekta.",
+                guide_subheading: "Kratki nasveti za enostavno določitev specifikacij vašega projekta.",
                 guide_outdoor_title: "Zunanji zasloni (Outdoor & Športni panoji)",
-                guide_outdoor_desc: "Zasloni za zunanjo uporabo morajo zagotavljati visoko svetilnost (od 5000 do 8000+ nitov) za odlično vidljivost na soncu ter visoko stopnjo zaščite (IP65) proti dežju in vlagi.",
+                guide_outdoor_desc: "Zunanji zasloni morajo imeti visoko svetilnost (5.000 do 8.000+ nits) za vidnost na soncu ter visoko stopnjo zaščite (IP65) pred dežjem in vlago.",
                 guide_outdoor_b1: "Visoka odpornost na vremenske vplive",
                 guide_outdoor_b2: "Primerno za stadione, koncerte na prostem in sejme",
                 guide_indoor_title: "Notranji zasloni (Indoor & Odri)",
-                guide_indoor_desc: "Notranji ekrani odlikujejo manjši razmiki med pikami (Pixel Pitch P2 do P4) za izjemno ostro sliko in visoko frekvenco osveževanja, kar je ključno za snemanje s kamerami.",
-                guide_indoor_b1: "Visoka ločljivost in ostra slika od blizu",
+                guide_indoor_desc: "Notranji zasloni se odlikujejo z manjšim razmikom pik (Pixel Pitch P2 do P4) za izjemno ostro sliko ter visoko osveževalno hitrostjo, idealno za snemanje s kamerami.",
+                guide_indoor_b1: "Visoka ločljivost in ostra slika iz bližine",
                 guide_indoor_b2: "Primerno za dvorane, TV studie in konference",
                 support_heading: "Zanesljiva garancija in servisna podpora",
-                support_text_1: "Pri nakupu ali najemu opreme preko našega posredništva vam naši partnerji zagotavljajo celovito tehnično podporo, originalne rezervne dele in hitro odzivnost na terenu.",
-                support_text_2: "V primeru najema je vključena tudi dežurna tehnična ekipa med samim potekom dogodka, kar zagotavlja nemoteno in brezskrbno delovanje celotnega sistema.",
+                support_text_1: "Ob nakupu ali najemu opreme preko našega posredništva vam partnerji zagotavljajo celostno tehnično podporo, originalne nadomestne dele ter hiter odziv na terenu.",
+                support_text_2: "Pri najemih je vključena dežurna tehnična ekipa med potekom dogodka, kar jamči brezhibno delovanje celotnega sistema.",
                 support_box1_title: "Garancija kakovosti",
-                support_box1_desc: "Preverjeni proizvajalci in certifikati EU standardov.",
+                support_box1_desc: "Preverjeni proizvajalci ter certifikati ustreznosti po EU standardih.",
                 support_box2_title: "24/7 Dežurna služba",
-                support_box2_desc: "Tehnična podpora na voljo med dogodki.",
-                support_reg_title: "Servisni center",
-                support_reg_ljubljana: "Ljubljana (Osrednji servis in logistična točka)",
+                support_box2_desc: "Tehnična podpora na terenu med potekom prireditev.",
+                support_reg_title: "Servisna središča",
+                support_reg_ljubljana: "Ljubljana (Osrednje servisno in logistično vozlišče)",
                 ref_badge: "Social Proof & Reference",
-                ref_heading: "Naši LED sistemi na delu",
-                ref_subheading: "Oglejte si izbrane projekte postavitve LED zaslonov, športnih panojev in zunanjih medijskih fasad, ki jih posredujemo našim strankam.",
-                ref_tag_outdoor: "Zunanji pano",
+                ref_heading: "Naši LED sistemi v akciji",
+                ref_subheading: "Preglejte izbrane projekte postavljene preko naše mreže partnerskih izvajalcev.",
+                ref_tag_outdoor: "Zunanji Pano",
                 ref_p1_title: "Glavni športni stadion",
-                ref_p1_desc: "Visokosvetilni obodni LED zaslon za prikaz rezultatov in oglaševanje v realnem času.",
-                ref_tag_sport: "Športna dvorana",
+                ref_p1_desc: "Visokosvetlobni LED obrobni panoji za prikazovanje rezultatov in sponzorskih sporočil v realnem času.",
+                ref_tag_sport: "Športna Dvorana",
                 ref_p2_title: "Večnamenska športna dvorana",
-                ref_p2_desc: "Kocke in obodni zasloni visoke ločljivosti za tekme, koncerte in dogodke.",
-                ref_tag_indoor: "Odrski element",
-                ref_p3_title: "Poslovni kongresni center",
-                ref_p3_desc: "Modularni LED zasloni visoke frekvence za vrhunske predstavitve in nastope.",
-                faq_heading: "Pogosto zastavljena vprašanja",
-                faq_subheading: "Vse, kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.",
+                ref_p2_desc: "LED kocke z visoko ločljivostjo ter obrobni zasloni za tekme in prireditve.",
+                ref_tag_indoor: "Oder / Koncert",
+                ref_p3_title: "Poslovno kongresno središče",
+                ref_p3_desc: "Modularni LED zasloni z visoko osveževalno hitrostjo za vrhunske predstavitve.",
+                faq_heading: "Pogosta vprašanja",
+                faq_subheading: "Vse kar morate vedeti o sodelovanju, najemu in nakupu LED opreme.",
                 faq_q1: "Kako poteka postopek povpraševanja?",
-                faq_a1: "Po oddaji povpraševanja prek obrazca ali asistenta vaše zahteve analiziramo in jih posredujemo najustreznejšemu preverjenemu tehničnemu partnerju, ki vam v najkrajšem času pripravi ponudbo.",
-                faq_q2: "Ali je najem možen za krajše dogodke?",
-                faq_a2: "Seveda. Naši partnerji nudijo prilagodljiv kratkoročni najem (za vikend dogodke, koncerte, tekme) kot tudi dolgoročni najem ali nakup opreme.",
-                faq_q3: "Kaj vse vključuje storitev najema?",
-                faq_a3: "Najem običajno vključuje dostavo, strokovno postavitev in demontažo zaslonov, po dogovoru pa tudi tehnično podporo in upravljanje vsebine med samim dogodkom.",
-                faq_q4: "V katerih državah nudite posredništvo?",
+                faq_a1: "Po oddaji povpraševanja preko obrazca ali klepetalnika preučimo vaše zahteve ter jih posredujemo najprimernejšemu preverjenemu partnerju, ki pripravi ponudbo.",
+                faq_q2: "Ali je možen najem za kratke dogodke?",
+                faq_a2: "Seveda. Naši partnerji omogočajo prilagodljive kratkoročne najeme (za vikend dogodke, koncerte, tekme) kot tudi dolgoročni najem ali nakup.",
+                faq_q3: "Kaj vključuje storitev najema?",
+                faq_a3: "Najem običajno vključuje dostavo, strokovno montažo in demontažo zaslonov ter po dogovoru tudi tehnično podporo in upravljanje vsebin.",
+                faq_q4: "V katerih državah delujete?",
                 faq_a4: "Aktivno povezujemo stranke s partnerji v regiji: Slovenija, Hrvaška, Avstrija in Nemčija.",
-                contact_heading: "Oddajte povpraševanje",
-                contact_subheading: "Izpolnite spodnji obrazec – ob oddaji se vam bo odprl vaš e-poštni program.",
-                form_name: "Ime in priimek / Naziv podjetja",
-                form_name_ph: "npr. Janez Novak ali Podjetje d.o.o.",
+                contact_heading: "Pošljite povpraševanje",
+                contact_subheading: "Izpolnite obrazec – ob pošiljanju se bo odprl vaš e-poštni program.",
+                form_name: "Ime in priimek / Podjetje",
+                form_name_ph: "npr. Janez Novak ali Moje Podjetje d.o.o.",
                 form_email: "E-poštni naslov",
                 form_email_ph: "vas@email.com",
-                form_service: "Vrsta storitve in oprema",
+                form_service: "Vrsta storitve & opreme",
                 form_date: "Datum dogodka / postavitve",
-                form_dimensions: "Okvirne mere (širina x višina v metrih ali skupna površina m2)",
-                form_dimensions_ph: "npr. dolžina 20m ali 6x4m (24 m2)",
+                form_dimensions: "Okvirne dimenzije (Širina x Višina v metrih ali skupna kvadratura m2)",
+                form_dimensions_ph: "npr. Dolžina 20m Ali 6x4m (24 m2)",
                 form_file_notice_title: "Priložitev slik ali skic:",
-                form_file_notice_desc: "Ob kliku se vam odpre e-pošta, kjer lahko priložite poljubne slike ali skice.",
+                form_file_notice_desc: "Ob kliku se bo odprla vaša e-pošta, kjer lahko priložite slike ali skice.",
                 form_message: "Podrobnosti in dodatna vprašanja",
-                form_message_ph: "Če imate kakšna dodatna vprašanja ali posebne zahteve, jih prosimo dopišite tukaj...",
+                form_message_ph: "Če imate dodatna vprašanja ali posebne zahteve, jih prosimo vpišite sem...",
                 form_consent: "Strinjam se s politiko zasebnosti in obdelavo podatkov za namen priprave ponudbe.",
-                form_submit: "Oddaj povpraševanje prek e-pošte",
+                form_submit: "Pošljite povpraševanje preko e-pošte",
                 opt_buy_sports: "Nakup športnih LED panojev",
                 opt_rent_sports: "Najem športnih LED panojev",
-                opt_buy_screens: "Nakup velikih LED ekranov",
-                opt_rent_screens: "Najem velikih LED ekranov",
-                opt_logistics: "Celovita tehnična izvedba in logistika",
+                opt_buy_screens: "Nakup velikih LED zaslonov",
+                opt_rent_screens: "Najem velikih LED zaslonov",
+                opt_logistics: "Celostna tehnična izvedba in logistika",
                 chat_title: "LEDpanelHub Pametni AI Asistent",
-                chat_welcome: "Pozdravljeni! Sem vaš AI asistent za LED zaslone in športne panoje. Ali povpraševanje oddajate kot fizična oseba ali podjetje? (Lahko mi postavite tudi kakršno koli vprašanje o opremi!)",
-                chat_placeholder: "Vprašajte AI karkoli o LED zaslonih...",
+                chat_welcome: "Pozdravljeni! Sem vaš pametni pomočnik za LED zaslone. Ali povpraševanje oddajate kot fizična oseba ali podjetje? (Vprašate me lahko tudi karkoli tehničnega!)",
+                chat_placeholder: "Vprašajte carkoli o LED zaslonih...",
                 footer_about: "Neodvisno mednarodno posredništvo za povezovanje naročnikov in preverjenih ponudnikov nakupa in najema LED panojev ter opreme.",
                 footer_contact_title: "Kontakt in podpora",
                 footer_region: "Regija: SI, HR, AT, DE",
@@ -606,197 +731,197 @@
                 btn_buy: "🛒 Nakup",
                 btn_rent: "⏱️ Najem",
                 btn_sports: "🏀 Športni LED panoji",
-                btn_screens: "📺 Veliki LED ekrani",
+                btn_screens: "📺 Veliki LED zasloni",
                 btn_weekend: "⚡ Vikend dogodek (1-3 dni)",
                 btn_longterm: "📅 Dolgoročni najem / Nakup",
                 btn_yes_support: "🛠️ Da, potrebujem tehnično podporo",
                 btn_no_support: "❌ Ne, upravljamo sami",
                 btn_fillform: "✨ Prenesi podatke v obrazec",
-                toast_success: "Podatki so bili uspešno preneseni v obrazec!",
+                toast_success: "Podatki uspešno preneseni v obrazec!",
                 modal_close: "Zapri"
             },
             en: {
                 top_construction: "Website under construction",
                 nav_services: "Partner Services",
-                nav_guide: "Tech Guide",
-                nav_support: "Service & Warranty",
+                nav_guide: "Technical Guide",
+                nav_support: "Support & Warranty",
                 nav_reference: "References",
                 nav_faq: "FAQ",
                 nav_contact: "Inquiry",
-                nav_cta: "Submit Inquiry",
-                hero_badge: "Top Network of Verified Providers",
-                hero_title: "Reliable Brokerage for Purchase and Rental of LED Displays & Sports Boards",
-                hero_desc: "We connect you with verified technical partners for perimeter LED lines, large event screens, and complete technical logistics in the region.",
+                nav_cta: "Send Inquiry",
+                hero_badge: "Premium Network of Verified Providers",
+                hero_title: "Reliable Brokerage for LED Screens & Sports Perimeter Display Purchase & Rental",
+                hero_desc: "We connect you with verified technical partners for perimeter LED banners, large screens, and complete event logistics.",
                 hero_btn_primary: "Get Partner Offer",
-                hero_btn_secondary: "View Offers",
+                hero_btn_secondary: "View Services",
                 services_heading: "What Do Our Verified Partners Offer?",
-                services_subheading: "Comprehensive purchase and rental solutions for sports events, concerts, exhibitions, and gatherings.",
-                service_1_title: "Purchase & Rental of Sports LED Boards",
-                service_1_desc: "Dynamic pitch-side LED advertising lines for maximum sponsor visibility at football, basketball, and other sporting events.",
+                services_subheading: "Comprehensive purchase and rental solutions for sports events, concerts, expos, and shows.",
+                service_1_title: "Purchase & Rental of Sports LED Banners",
+                service_1_desc: "Dynamic LED perimeter boards for maximum sponsor visibility at football, basketball, and other sporting events.",
                 service_2_title: "Purchase & Rental of Large LED Screens",
-                service_2_desc: "High-performance large displays (from 10 to 100+ square meters) for concerts, festivals, cultural, and corporate events.",
-                service_3_title: "Technical Logistics & Operations",
-                service_3_desc: "Reliable partner teams handle transport, expert installation, dismantling, technical support, and content management during events.",
+                service_2_desc: "High-performance large displays (from 10 to 100+ m2) for concerts, festivals, cultural, and corporate events.",
+                service_3_title: "Technical Logistics & Management",
+                service_3_desc: "Reliable partner teams handle transportation, professional assembly, disassembly, tech support, and content management.",
                 guide_heading: "Technical Guide: How to Choose the Right LED Screen?",
-                guide_subheading: "Brief tips to easily determine your project specifications.",
-                guide_outdoor_title: "Outdoor Displays (Outdoor & Sports Boards)",
-                guide_outdoor_desc: "Outdoor screens must provide high brightness (5,000 to 8,000+ nits) for clear sunlight visibility and high protection ratings (IP65) against rain and moisture.",
+                guide_subheading: "Quick tips to easily determine your project requirements.",
+                guide_outdoor_title: "Outdoor Screens (Outdoor & Sports Perimeter)",
+                guide_outdoor_desc: "Outdoor screens require high brightness (5,000 to 8,000+ nits) for sunlight readability and IP65 weather protection.",
                 guide_outdoor_b1: "High weather resistance",
-                guide_outdoor_b2: "Suitable for stadiums, outdoor concerts, and exhibitions",
-                guide_indoor_title: "Indoor Displays (Indoor & Stages)",
-                guide_indoor_desc: "Indoor screens feature smaller pixel pitches (Pixel Pitch P2 to P4) for exceptionally sharp images and high refresh rates, essential for camera broadcasting.",
-                guide_indoor_b1: "High resolution and sharp close-up image",
+                guide_outdoor_b2: "Ideal for stadiums, outdoor concerts, and fairs",
+                guide_indoor_title: "Indoor Screens (Indoor & Stages)",
+                guide_indoor_desc: "Indoor screens feature smaller pixel pitches (P2 to P4) for razor-sharp imagery and high refresh rates suited for camera recording.",
+                guide_indoor_b1: "High resolution for close viewing",
                 guide_indoor_b2: "Suitable for halls, TV studios, and conferences",
-                support_heading: "Reliable Warranty and Service Support",
-                support_text_1: "When purchasing or renting equipment through our brokerage, our partners provide comprehensive technical support, original spare parts, and fast on-site responsiveness.",
-                support_text_2: "For rentals, an on-call technical team is included during the event itself, ensuring smooth and worry-free operation of the entire system.",
-                support_box1_title: "Quality Warranty",
-                support_box1_desc: "Verified manufacturers and EU standard certifications.",
-                support_box2_title: "24/7 On-Call Service",
-                support_box2_desc: "Technical support available during events.",
-                support_reg_title: "Service Center",
-                support_reg_ljubljana: "Ljubljana (Central service and logistics hub)",
+                support_heading: "Reliable Warranty & Service Support",
+                support_text_1: "When purchasing or renting equipment through our brokerage, our partners provide full technical support, genuine spare parts, and fast field response.",
+                support_text_2: "Rental agreements include an on-call technical team during the event, guaranteeing smooth and uninterrupted operation.",
+                support_box1_title: "Quality Guarantee",
+                support_box1_desc: "Verified manufacturers and EU compliance certifications.",
+                support_box2_title: "24/7 On-Call Support",
+                support_box2_desc: "On-site technical support during live events.",
+                support_reg_title: "Service Centers",
+                support_reg_ljubljana: "Ljubljana (Central Service & Logistics Hub)",
                 ref_badge: "Social Proof & References",
                 ref_heading: "Our LED Systems in Action",
-                ref_subheading: "Explore selected projects featuring LED screens, sports boards, and exterior media facades facilitated through our network.",
-                ref_tag_outdoor: "Outdoor Board",
+                ref_subheading: "Explore selected projects installed by our network of partner contractors.",
+                ref_tag_outdoor: "Outdoor Banner",
                 ref_p1_title: "Main Sports Stadium",
-                ref_p1_desc: "High-brightness perimeter LED screen for real-time score updates and sponsor advertising.",
-                ref_tag_sport: "Indoor Arena",
+                ref_p1_desc: "High-brightness LED perimeter boards for real-time score display and sponsor ads.",
+                ref_tag_sport: "Sports Arena",
                 ref_p2_title: "Multipurpose Sports Hall",
-                ref_p2_desc: "High-resolution center hung cubes and perimeter screens for matches and major events.",
+                ref_p2_desc: "High-resolution LED cubes and perimeter displays for matches and events.",
                 ref_tag_indoor: "Stage Element",
-                ref_p3_title: "Business Congress Center",
-                ref_p3_desc: "High-refresh modular LED screens for premium presentations and live performances.",
+                ref_p3_title: "Business Convention Center",
+                ref_p3_desc: "Modular high-refresh LED screens for high-end corporate presentations.",
                 faq_heading: "Frequently Asked Questions",
-                faq_subheading: "Everything you need to know about cooperation, rental, and purchasing LED equipment.",
+                faq_subheading: "Everything you need to know about collaboration, rental, and purchase.",
                 faq_q1: "How does the inquiry process work?",
-                faq_a1: "After submitting your inquiry via the form or assistant, we analyze your requirements and forward them to the most suitable verified technical partner, who will prepare an offer for you promptly.",
+                faq_a1: "After submitting your inquiry, we review your specifications and match you with the best verified partner who provides an offer.",
                 faq_q2: "Is rental available for short events?",
-                faq_a2: "Of course. Our partners offer flexible short-term rental (for weekend events, concerts, matches) as well as long-term rental or equipment purchase.",
-                faq_q3: "What does the rental service include?",
-                faq_a3: "Rental usually includes delivery, professional installation, and dismantling of screens, and upon agreement, technical support and content management during the event.",
-                faq_q4: "In which countries do you operate?",
-                faq_a4: "We actively connect clients with partners in the region: Slovenia, Croatia, Austria, and Germany.",
-                contact_heading: "Submit Your Inquiry",
-                contact_subheading: "Fill out the form below - upon submission, your email program will open.",
+                faq_a2: "Yes. Our partners offer flexible short-term rentals (weekend events, concerts, matches) as well as long-term lease or purchase.",
+                faq_q3: "What is included in the rental service?",
+                faq_a3: "Rental typically includes delivery, professional setup, teardown, and optional on-site technical management.",
+                faq_q4: "Which countries do you operate in?",
+                faq_a4: "We connect clients with partners in Slovenia, Croatia, Austria, and Germany.",
+                contact_heading: "Send Inquiry",
+                contact_subheading: "Fill out the form – clicking submit will open your email client.",
                 form_name: "Full Name / Company Name",
-                form_name_ph: "e.g. John Doe or Company Ltd.",
+                form_name_ph: "e.g., John Doe or Company Ltd.",
                 form_email: "Email Address",
-                form_email_ph: "you@email.com",
-                form_service: "Service Type & Equipment",
-                form_date: "Event / Setup Date",
-                form_dimensions: "Approximate Dimensions (width x height in meters or total area m2)",
-                form_dimensions_ph: "e.g. length 20m or 6x4m (24 m2)",
-                form_file_notice_title: "Attaching images or sketches:",
-                form_file_notice_desc: "Upon clicking, your email will open where you can attach images or sketches.",
+                form_email_ph: "you@example.com",
+                form_service: "Type of Service & Equipment",
+                form_date: "Event / Installation Date",
+                form_dimensions: "Approx. Dimensions (Width x Height or Total m2)",
+                form_dimensions_ph: "e.g., 20m length or 6x4m (24 m2)",
+                form_file_notice_title: "Attach photos or sketches:",
+                form_file_notice_desc: "When you click submit, your email app will open where you can attach files.",
                 form_message: "Details & Additional Questions",
-                form_message_ph: "If you have any additional questions or special requirements, please write them here...",
-                form_consent: "I agree to the privacy policy and data processing for the purpose of preparing an offer.",
-                form_submit: "Submit Inquiry via Email",
-                opt_buy_sports: "Purchase Sports LED Boards",
-                opt_rent_sports: "Rent Sports LED Boards",
+                form_message_ph: "Type any specific requirements or questions here...",
+                form_consent: "I agree to the privacy policy and data processing for quote preparation.",
+                form_submit: "Send Inquiry via Email",
+                opt_buy_sports: "Purchase Sports LED Banners",
+                opt_rent_sports: "Rent Sports LED Banners",
                 opt_buy_screens: "Purchase Large LED Screens",
                 opt_rent_screens: "Rent Large LED Screens",
-                opt_logistics: "Complete Technical Execution & Logistics",
+                opt_logistics: "Full Technical Execution & Logistics",
                 chat_title: "LEDpanelHub Smart AI Assistant",
-                chat_welcome: "Hello! I'm your AI assistant for LED displays and sports boards. Are you submitting as an individual or a company? (You can also ask me any technical questions!)",
+                chat_welcome: "Hello! I am your AI assistant. Are you submitting an inquiry as an individual or a company? (Feel free to ask technical questions too!)",
                 chat_placeholder: "Ask AI anything about LED screens...",
-                footer_about: "Independent international brokerage connecting clients and verified providers for LED panels and equipment purchase/rental.",
+                footer_about: "Independent international brokerage connecting clients with verified providers for LED display purchases and rentals.",
                 footer_contact_title: "Contact & Support",
                 footer_region: "Region: SI, HR, AT, DE",
-                footer_legal_title: "Legal Notices",
+                footer_legal_title: "Legal Information",
                 footer_privacy: "Privacy Policy (GDPR)",
-                footer_cookies: "Cookies",
+                footer_cookies: "Cookie Policy",
                 footer_terms: "Brokerage Terms",
                 footer_rights: "© 2026 LEDpanelHub.com. All rights reserved.",
                 btn_physical: "👤 Individual",
                 btn_company: "🏢 Company",
                 btn_buy: "🛒 Purchase",
                 btn_rent: "⏱️ Rental",
-                btn_sports: "🏀 Sports LED Boards",
+                btn_sports: "🏀 Sports LED Banners",
                 btn_screens: "📺 Large LED Screens",
-                btn_weekend: "⚡ Weekend event (1-3 days)",
-                btn_longterm: "📅 Long-term rental / Purchase",
-                btn_yes_support: "🛠️ Yes, I need technical support",
-                btn_no_support: "❌ No, we manage ourselves",
-                btn_fillform: "✨ Transfer data to form",
-                toast_success: "Data successfully transferred to the form!",
+                btn_weekend: "⚡ Weekend Event (1-3 days)",
+                btn_longterm: "📅 Long-term / Purchase",
+                btn_yes_support: "🛠️ Yes, need tech support",
+                btn_no_support: "❌ No, self-managed",
+                btn_fillform: "✨ Transfer Data to Form",
+                toast_success: "Data transferred to form successfully!",
                 modal_close: "Close"
             },
             hr: {
-                top_construction: "Stranica je u izradi",
+                top_construction: "Web stranica je u izradi",
                 nav_services: "Usluge partnera",
                 nav_guide: "Tehnički vodič",
-                nav_support: "Servis i jamstvo",
+                nav_support: "Servis i Jamstvo",
                 nav_reference: "Reference",
-                nav_faq: "FAQ",
+                nav_faq: "Česta pitanja",
                 nav_contact: "Upit",
-                nav_cta: "Pošalji upit",
+                nav_cta: "Pošaljite upit",
                 hero_badge: "Vrhunska mreža provjerenih ponuđača",
                 hero_title: "Pouzdano posredništvo za kupnju i najam LED zaslona i sportskih panoa",
-                hero_desc: "Povezujemo vas s provjerenim tehničkim partnerima za oglasne LED linije na terenima, velike ekrane za događaje i potpunu tehničku logistiku u regiji.",
-                hero_btn_primary: "Zatraži ponudu partnera",
-                hero_btn_secondary: "Pregledaj ponudu",
+                hero_desc: "Povezujemo vas s provjerenim tehničkim partnerima za sportske LED panoe, velike ekrane i cjelovitu logistiku u regiji.",
+                hero_btn_primary: "Zatražite ponudu",
+                hero_btn_secondary: "Pregledajte usluge",
                 services_heading: "Što nude naši provjereni partneri?",
-                services_subheading: "Sveobuhvatna rješenja za kupnju i najam za sportske događaje, koncerte, sajmove i manifestacije.",
+                services_subheading: "Cjelovita rješenja kupnje i najma za sportska događanja, koncerte, sajmove i priredbe.",
                 service_1_title: "Kupnja i najam sportskih LED panoa",
-                service_1_desc: "Kupnja ili najam dinamičnih oglasnih LED linija uz terene za maksimalnu vidljivost sponzora na nogometnim, košarkaškim i drugim sportskim utakmicama.",
+                service_1_desc: "Dinamični LED panoi za maksimalnu vidljivost sponzora na nogometnim, košarkaškim i drugim sportskim natjecanjima.",
                 service_2_title: "Kupnja i najam velikih LED ekrana",
-                service_2_desc: "Kupnja ili najam visokoučinkovitih velikih zaslona (od 10 do 100+ četvornih metara) za koncerte, festivale, kulturna i korporativna događanja.",
-                service_3_title: "Tehnička logistika i operativa",
-                service_3_desc: "Pouzdana ekipa partnera brine se za transport, stručnu montažu, demontažu te tehničku podršku i upravljanje sadržajem tijekom samog događaja.",
-                guide_heading: "Tehnički vodič: Kako odabrati pravi LED zaslon?",
-                guide_subheading: "Kratki savjeti za lakše određivanje specifikacija vašeg projekta.",
-                guide_outdoor_title: "Vanjski zasloni (Outdoor i sportski panoi)",
-                guide_outdoor_desc: "Vanjski zasloni moraju osiguravati visoku svjetlinu (5000 do 8000+ nita) za izvrsnu vidljivost na suncu te visoki stupanj zaštite (IP65) od kiše i vlage.",
+                service_2_desc: "Veliki ekrani visoke performanse (od 10 do 100+ m2) za koncerte, festivale, kulturne i poslovne događaje.",
+                service_3_title: "Tehnička logistika i upravljanje",
+                service_3_desc: "Pouzdani timovi partnera brinu o prijevozu, montaži, demontaži, tehničkoj podršci i upravljanju sadržajem.",
+                guide_heading: "Tehnički vodič: Kako odabrati pravilni LED ekran?",
+                guide_subheading: "Kratki savjeti za jednostavno definiranje specifikacija vašeg projekta.",
+                guide_outdoor_title: "Vanjski ekrani (Outdoor & Sportski panoi)",
+                guide_outdoor_desc: "Vanjski ekrani moraju imati visoku svjetlinu (5.000 do 8.000+ nita) za vidljivost na suncu te visoku zaštitu (IP65) od kiše.",
                 guide_outdoor_b1: "Visoka otpornost na vremenske uvjete",
-                guide_outdoor_b2: "Prikladno za stadione, vanjske koncerte i sajmove",
-                guide_indoor_title: "Unutarnji zasloni (Indoor i pozornice)",
-                guide_indoor_desc: "Unutarnji ekrani odlikuju se manjim razmacima između piksela (Pixel Pitch P2 do P4) za iznimno oštru sliku i visoku stopu osvježavanja, što je ključno za snimanje kamerama.",
-                guide_indoor_b1: "Visoka rezolucija i oštra slika izbliza",
+                guide_outdoor_b2: "Prikladno za stadione, koncerte na otvorenom i sajmove",
+                guide_indoor_title: "Unutarnji ekrani (Indoor & Pozornice)",
+                guide_indoor_desc: "Unutarnji ekrani odlikuju se manjim razmakom piksela (P2 do P4) za iznimno oštru sliku i visoku brzinu osvježavanja.",
+                guide_indoor_b1: "Visoka rezolucija i oštra slika iz blizine",
                 guide_indoor_b2: "Prikladno za dvorane, TV studije i konferencije",
                 support_heading: "Pouzdano jamstvo i servisna podrška",
-                support_text_1: "Prilikom kupnje ili najma opreme putem našeg posredništva, naši vam partneri osiguravaju sveobuhvatnu tehničku podršku, originalne rezervne dijelove i brzu odzivnost na terenu.",
-                support_text_2: "U slučaju najma uključena je i dežurna tehnička ekipa tijekom samog trajanja događaja, što jamči nesmetan i bezbrižan rad cijelog sustava.",
+                support_text_1: "Prilikom kupnje ili najma opreme putem našeg posredništva, naši partneri pružaju cjelovitu tehničku podršku i originalne rezervne dijelove.",
+                support_text_2: "Kod najma je uključena dežurna tehnička ekipa tijekom događaja, što jamči besprijekoran rad sustava.",
                 support_box1_title: "Jamstvo kvalitete",
-                support_box1_desc: "Provjereni proizvođači i certifikati EU standarda.",
+                support_box1_desc: "Provjereni proizvođači i EU certifikati.",
                 support_box2_title: "24/7 Dežurna služba",
-                support_box2_desc: "Tehnička podrška dostupna tijekom događaja.",
-                support_reg_title: "Servisni centar",
-                support_reg_ljubljana: "Ljubljana (Središnji servis i logistička točka)",
-                ref_badge: "Social Proof i reference",
-                ref_heading: "Naši LED sustavi na djelu",
-                ref_subheading: "Pregledajte odabrane projekte postavljanja LED zaslona, sportskih panoa i vanjskih medijskih fasada koje posredujemo.",
-                ref_tag_outdoor: "Vanjski panoi",
+                support_box2_desc: "Tehnička podrška na terenu tijekom događaja.",
+                support_reg_title: "Servisni centri",
+                support_reg_ljubljana: "Ljubljana (Središnje servisno i logističko čvorište)",
+                ref_badge: "Social Proof & Reference",
+                ref_heading: "Naši LED sustavi u akciji",
+                ref_subheading: "Pregledajte odabrane projekte izvedene preko naše partnerske mreže.",
+                ref_tag_outdoor: "Vanjski Pano",
                 ref_p1_title: "Glavni sportski stadion",
-                ref_p1_desc: "Visokosvjetleći obodni LED zaslon za prikaz rezultata i oglašavanje u stvarnom vremenu.",
-                ref_tag_sport: "Sportska dvorana",
+                ref_p1_desc: "LED obrubni panoi visoke svjetline za prikaz rezultata i sponzorskih poruka.",
+                ref_tag_sport: "Sportska Dvorana",
                 ref_p2_title: "Višenamjenska sportska dvorana",
-                ref_p2_desc: "Središnje kocke i obodni zasloni visoke rezolucije za utakmice i događanja.",
-                ref_tag_indoor: "Pozornica",
+                ref_p2_desc: "LED kocke visoke rezolucije i panoi za utakmice i priredbe.",
+                ref_tag_indoor: "Pozornica / Koncert",
                 ref_p3_title: "Poslovni kongresni centar",
-                ref_p3_desc: "Modularni LED zasloni visoke frekvencije za vrhunske prezentacije i nastupe.",
+                ref_p3_desc: "Modularni LED ekrani za vrhunske prezentacije.",
                 faq_heading: "Često postavljana pitanja",
                 faq_subheading: "Sve što trebate znati o suradnji, najmu i kupnji LED opreme.",
-                faq_q1: "Kako izgleda postupak slanja upita?",
-                faq_a1: "Nakon slanja upita putem obrasca ili asistenta, analiziramo vaše zahtjeve i prosljeđujemo ih najprikladnijem provjerenom tehničkom partneru koji će vam pripremiti ponudu.",
-                faq_q2: "Je li najam moguć za kraće događaje?",
-                faq_a2: "Naravno. Naši partneri nude fleksibilan kratkoročni najam (za vikend događaje, koncerte, utakmice) kao i dugoročni najam ili kupnju opreme.",
-                faq_q3: "Što sve uključuje usluga najma?",
-                faq_a3: "Najam obično uključuje dostavu, stručnu montažu i demontažu zaslona, a po dogovoru i tehničku podršku te upravljanje sadržajem tijekom događaja.",
-                faq_q4: "U kojim državama nudite posredništvo?",
-                faq_a4: "Aktivno povezujemo klijente s partnerima u regiji: Slovenija, Hrvatska, Austrija i Njemačka.",
+                faq_q1: "Kako potiče postupak upita?",
+                faq_a1: "Nakon slanja upita analiziramo vaše zahtjeve i prosljeđujemo ih najprikladnijem provjerenom partneru koji priprema ponudu.",
+                faq_q2: "Je li moguć najam za kratke događaje?",
+                faq_a2: "Naravno. Naši partneri nude kratkoročni najem (vikend događaji, koncerti) kao i dugoročni najam ili kupnju.",
+                faq_q3: "Što uključuje usluga najma?",
+                faq_a3: "Najam uključuje dostavu, montažu, demontažu i po dogovoru tehničku podršku na terenu.",
+                faq_q4: "U kojim državama djelujete?",
+                faq_a4: "Aktivno povezujemo klijente s partnerima u Sloveniji, Hrvatskoj, Austriji i Njemačkoj.",
                 contact_heading: "Pošaljite upit",
-                contact_subheading: "Ispunite obrazac – pri slanju otvorit će se vaš e-mail program.",
-                form_name: "Ime i prezime / Naziv tvrtke",
+                contact_subheading: "Ispunite obrazac – klikom na slanje otvorit će se vaš e-mail program.",
+                form_name: "Ime i prezime / Tvrtka",
                 form_name_ph: "npr. Ivan Horvat ili Tvrtka d.o.o.",
                 form_email: "E-mail adresa",
-                form_email_ph: "vas@email.com",
-                form_service: "Vrsta usluge i oprema",
+                form_email_ph: "vi@email.com",
+                form_service: "Vrsta usluge & opreme",
                 form_date: "Datum događaja / postavljanja",
-                form_dimensions: "Okvirne dimenzije (širina x visina u metrima ili ukupna površina m2)",
-                form_dimensions_ph: "npr. duljina 20m ili 6x4m (24 m2)",
+                form_dimensions: "Okvirne dimenzije (Širina x Visina u metrima ili m2)",
+                form_dimensions_ph: "npr. Dužina 20m ili 6x4m (24 m2)",
                 form_file_notice_title: "Prilaganje slika ili skica:",
                 form_file_notice_desc: "Kada kliknete, otvorit će se e-mail gdje možete priložiti slike ili skice.",
                 form_message: "Detalji i dodatna pitanja",
@@ -1191,10 +1316,12 @@
             window.location.href = '#contact';
             
             const toast = document.getElementById('toast-notification');
-            toast.classList.remove('translate-x-full');
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 4000);
+            if (toast) {
+                toast.classList.remove('translate-x-full');
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                }, 4000);
+            }
         }
 
         function sendMailtoForm() {
@@ -1270,6 +1397,65 @@
         function closeLegalModal() {
             document.getElementById('legal-modal').classList.add('hidden');
         }
+
+        function calculateLED() {
+            const width = parseFloat(document.getElementById('calc-width').value) || 0;
+            const height = parseFloat(document.getElementById('calc-height').value) || 0;
+            const env = document.getElementById('calc-env').value;
+            const pitch = parseFloat(document.getElementById('calc-pitch').value) || 2.5;
+
+            const area = (width * height).toFixed(2);
+            document.getElementById('calc-area').textContent = `${area} m²`;
+
+            if (width > 0 && height > 0) {
+                // Izračun resolucije glede na pixel pitch
+                const resW = Math.round((width * 1000) / pitch);
+                const resH = Math.round((height * 1000) / pitch);
+                document.getElementById('calc-res').textContent = `${resW} x ${resH} px`;
+
+                // Priporočeno minimalna razdalja gledanja (1m na mm pitcha)
+                const minDist = pitch.toFixed(1);
+                const maxDist = (pitch * 3).toFixed(1);
+                document.getElementById('calc-distance').textContent = `${minDist}m - ${maxDist}m`;
+
+                // Okvirna ocena porabe energije (povprečno 250W/m2 outdoor, 180W/m2 indoor)
+                const basePower = env === 'outdoor' ? 0.35 : 0.20;
+                const power = (area * basePower).toFixed(1);
+                document.getElementById('calc-power').textContent = `~ ${power} kW`;
+            } else {
+                document.getElementById('calc-res').textContent = "0 x 0 px";
+                document.getElementById('calc-distance').textContent = "0m";
+                document.getElementById('calc-power').textContent = "0 kW";
+            }
+        }
+
+        // Prenos izračuna iz kalkulatorja neposredno v obrazec
+        function applyCalcToForm() {
+            const width = document.getElementById('calc-width').value;
+            const height = document.getElementById('calc-height').value;
+            const area = document.getElementById('calc-area').textContent;
+
+            if (width && height) {
+                document.getElementById('form-dimensions').value = `${width}m x ${height}m (${area})`;
+                window.location.href = '#contact';
+                
+                const toast = document.getElementById('toast-notification');
+                if (toast) {
+                    toast.classList.remove('translate-x-full');
+                    setTimeout(() => {
+                        toast.classList.add('translate-x-full');
+                    }, 4000);
+                }
+            } else {
+                alert(currentLang === 'si' ? "Prosim, vnesite širino in višino v kalkulator." : "Please enter width and height in the calculator.");
+            }
+        }
+
+        // Inicializacija ob nalaganju strani
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('si');
+            calculateLED();
+        });
     </script>
 </body>
 </html>

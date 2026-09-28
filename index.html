@@ -21,7 +21,7 @@
         <span id="toast-text" data-i18n="toast_success">Podatki so bili uspešno preneseni v obrazec!</span>
     </div>
 
-    <!-- MODALNO OKNO ZA PRAVNE DOKUMENTE (GDPR / PIŠKOTKI / POGOJI) -->
+    <!-- MODALno OKNO ZA PRAVNE DOKUMENTE -->
     <div id="legal-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
@@ -29,7 +29,7 @@
                 <button onclick="closeLegalModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div id="modal-body" class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300 leading-relaxed">
-                <!-- Dinamična vsebina pravnih dokumentov -->
+                <!-- Dinamična vsebina -->
             </div>
             <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
                 <button onclick="closeLegalModal()" class="px-5 py-2 bg-cyan-500 text-slate-950 font-semibold rounded-xl text-xs hover:bg-cyan-400 transition" data-i18n="modal_close">Zapri</button>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <!-- TOP NOTICE: UNDER CONSTRUCTION -->
+    <!-- TOP NOTICE -->
     <div class="bg-cyan-500 text-slate-950 py-2 px-4 text-center text-xs font-bold tracking-wide uppercase flex items-center justify-center gap-2 shadow-sm">
         <i class="fa-solid fa-triangle-exclamation"></i>
         <span data-i18n="top_construction">Stran je v izdelavi</span>
@@ -119,7 +119,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Sports LED boards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -138,7 +137,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Large LED screens" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -157,7 +155,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition flex flex-col group">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -393,7 +390,7 @@
                     <input type="text" id="form-dimensions" name="dimensions" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition" data-i18n-placeholder="form_dimensions_ph" placeholder="npr. dolžina 20m ali 6x4m (24 m2)">
                 </div>
 
-                <!-- OPOZORILO NAMESTO POLJA ZA DATOTEKE -->
+                <!-- OPOZORILO ZA PRILOGE -->
                 <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4 text-xs text-cyan-300 flex items-start gap-3">
                     <i class="fa-solid fa-paperclip text-cyan-400 mt-0.5 text-base"></i>
                     <div>
@@ -493,7 +490,7 @@
         </div>
     </footer>
 
-    <!-- SKRIPTE ZA JEZIK, NAPREDNEGA ASISTENTA IN OBRAZEC -->
+    <!-- SKRIPTE -->
     <script>
         let currentLang = 'si';
         let chatOpen = false;
@@ -995,7 +992,6 @@
             container.scrollTop = container.scrollHeight;
         }
 
-        // Realistični indikator tipkanja
         function showTypingIndicator(callback) {
             const container = document.getElementById('chat-messages');
             const typingDiv = document.createElement('div');

@@ -147,6 +147,31 @@ body.lp-light .v9field label{color:#425466!important}
 body.lp-light .v9field input,body.lp-light .v9field select,body.lp-light .v9field textarea{background:#ffffff!important;color:#10202d!important;border-color:#c7d4df!important}
 body.lp-light .v9field input::placeholder,body.lp-light .v9field textarea::placeholder{color:#718092!important;opacity:1}
 </style>
+
+<style id="v23-light-chat-theme">
+/* Light theme: keep the LED consultant visually consistent with the rest of the site. */
+body.lp-light #chat-window{background:#fff!important;color:#10202d!important;border-color:#d7e0ea!important;box-shadow:0 24px 70px rgba(15,23,42,.16)!important}
+body.lp-light #chat-window .bg-slate-950{background:#f7fafc!important}
+body.lp-light #chat-window .bg-slate-950\/50{background:rgba(247,250,252,.96)!important}
+body.lp-light #chat-window .bg-slate-950\/60{background:rgba(247,250,252,.96)!important}
+body.lp-light #chat-window .bg-slate-900{background:#fff!important}
+body.lp-light #chat-window .bg-slate-800{background:#e8eef5!important}
+body.lp-light #chat-window .border-slate-800{border-color:#d7e0ea!important}
+body.lp-light #chat-window .border-slate-700{border-color:#c9d5e1!important}
+body.lp-light #chat-window .text-white{color:#10202d!important}
+body.lp-light #chat-window .text-slate-100{color:#172635!important}
+body.lp-light #chat-window .text-slate-200{color:#263747!important}
+body.lp-light #chat-window .text-slate-300{color:#526273!important}
+body.lp-light #chat-window .text-slate-400{color:#687889!important}
+body.lp-light #chat-window .text-slate-500{color:#738396!important}
+body.lp-light #chat-window input{background:#fff!important;color:#10202d!important;border-color:#cbd7e3!important}
+body.lp-light #chat-window input::placeholder{color:#7a8998!important}
+body.lp-light #chat-window button.bg-slate-800{color:#526273!important}
+body.lp-light #chat-window button.bg-slate-800:hover{background:#dce6ef!important;color:#087ea4!important}
+body.lp-light #chat-window .bg-slate-800.text-slate-400{background:#e8eef5!important;color:#526273!important}
+body.lp-light #chat-window aside{background:#f7fafc!important;border-color:#d7e0ea!important}
+body.lp-light #chat-window #consultant-memory{background:#fff!important;border-color:#d7e0ea!important}
+</style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
 <a class="skip-link" href="#main-content">Preskoči na glavno vsebino</a>
@@ -1673,17 +1698,30 @@ body.lp-light .v9field input::placeholder,body.lp-light .v9field textarea::place
             appendMessage('user',text); aiBusy=true; setQuickReplies([]);
             parseProject(text); rememberPendingAnswer(text); updateProjectPanel();
             if(await sendToRealAI(text)){aiBusy=false;return;}
-            // AI is the primary consultant. Do not fall back to canned FAQ-style answers,
-            // because that makes the assistant feel like a scripted chatbot.
-            // If the server is unavailable, be transparent instead of pretending to advise.
-            botSay(langText({
-                si:'Trenutno ne morem vzpostaviti povezave s svetovalcem. Poskusite še enkrat čez trenutek — vašega vprašanja ne želim nadomestiti s splošnim kopiranim odgovorom.',
-                en:'I cannot reach the consultant right now. Please try again in a moment — I do not want to replace your question with a generic copied answer.',
-                hr:'Trenutno ne mogu uspostaviti vezu sa savjetnikom. Pokušajte ponovno za trenutak — ne želim vaše pitanje zamijeniti generičkim kopiranim odgovorom.',
-                de:'Der Berater ist momentan nicht erreichbar. Bitte versuchen Sie es gleich noch einmal — ich möchte Ihre Frage nicht durch eine allgemeine Standardantwort ersetzen.'
-            }),[{text:'↻ Poskusi znova',value:'Poskusi znova'}]);
+            // If the API is not deployed, keep the assistant useful with the built-in LED consultant.
+            let localReply = null;
+            const lower = text.toLowerCase();
+            if(/hokej|nogomet|košark|odbojka|tenis|stadion|tribun/.test(lower)){
+                localReply = scenarioAdviceAnswer(text);
+            } else if(/pixel|pitch|p[ij]xel|svetilnost|brightness|refresh|ip6|ip65|ip67|napajanj|poraba|signal|novastar|montaž|konstrukc|teža|vrem/.test(lower)){
+                localReply = technicalAdviceAnswer(text);
+            } else if(/koliko|velik|šir|višin|m2|kvadrat|razdalj|oddaljen|notran|zunan|outdoor|indoor|nakup|najem|cena|proračun|budget|projekt|zaslon|display|led/.test(lower)){
+                localReply = situationalConsultantAnswer(text);
+            }
+            if(localReply){ botSay(localReply); aiBusy=false; return; }
+            const nq=nextQuestion();
+            if(nq){ botSay(nq.q,nq.buttons); }
+            else {
+                botSay(langText({
+                    si:'Seveda. Opišite mi, kaj želite doseči z LED zaslonom, jaz pa vas bom vodil naprej.',
+                    en:'Of course. Tell me what you want to achieve with the LED display and I will guide you from there.',
+                    hr:'Naravno. Opišite što želite postići LED zaslonom i vodit ću vas dalje.',
+                    de:'Gerne. Beschreiben Sie, was Sie mit der LED-Anzeige erreichen möchten, und ich führe Sie weiter.'
+                }));
+            }
             aiBusy=false; return;
         }
+
         function sendChatMessage(){const i=document.getElementById('chat-input');const v=i.value.trim();if(!v)return;i.value='';sendConsultantInput(v);}
         function handleChatKey(e){if(e.key==='Enter'){e.preventDefault();sendChatMessage();}}
 

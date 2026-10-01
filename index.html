@@ -353,6 +353,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
  function save(){localStorage.setItem(key,JSON.stringify(p));}
  function id(){return 'LPH-'+(Object.keys(p).join('').length%9000+1000)+'-'+new Date().getFullYear();}
  function applyLang(){document.querySelectorAll('[data-hub-key]').forEach(e=>e.innerHTML=t(e.dataset.hubKey));document.querySelectorAll('.v9tab').forEach((e,i)=>e.innerHTML=(i+1)+' · '+t('tabs')[i]);if(document.getElementById('projectIdLabel'))document.getElementById('projectIdLabel').textContent=t('project')+' '+id()}
+ window.refreshProjectHubLanguage=function(){applyLang();const active=document.querySelector('.v9tab.active');if(active){render(active.dataset.view||'project')}};
  function chip(label,val,field){return '<button class="v9chip '+(p[field]===val?'active':'')+'" data-field="'+field+'" data-val="'+val+'">'+label+'</button>'}
  function render(name){applyLang();if(name==='project') view.innerHTML='<h2>'+t('projectTitle')+'</h2><p class="v9muted">'+t('projectHint')+'</p><div class="v9chips">'+t('apps').map(x=>chip(x[1],x[0],'application')).join('')+'</div><div class="v9formgrid" style="margin-top:22px"><div class="v9field"><label>'+t('goalLabel')+'</label><textarea id="hubGoal" placeholder="'+t('goalPlaceholder')+'">'+(p.goal||'')+'</textarea></div><div class="v9field"><label>'+t('locationLabel')+'</label><input id="hubLocation" value="'+(p.location||'')+'" placeholder="'+t('locationPlaceholder')+'"></div><div class="v9field"><label>'+t('ioLabel')+'</label><div class="v9seg" id="hubIOChoices"><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Outdoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Outdoor">☀️ '+t('outdoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Indoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Indoor">🏢 '+t('indoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Both'?'active':'')+'" data-field="indoorOutdoor" data-val="Both">↔️ '+t('both')+'</button></div></div><div class="v9field"><label>'+t('purchaseLabel')+'</label><div class="v9seg" id="hubPurchaseChoices"><button type="button" class="v9segbtn '+(p.purchase==='Rental'?'active':'')+'" data-field="purchase" data-val="Rental">📅 '+t('rental')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Purchase'?'active':'')+'" data-field="purchase" data-val="Purchase">🛒 '+t('purchase')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Not sure'?'active':'')+'" data-field="purchase" data-val="Not sure">❓ '+t('notSure')+'</button></div></div><div class="v9field" style="grid-column:1/-1;">'+(p.purchase==='Rental' ? '<label>'+t('durationLabel')+'</label><div class="v9chips" style="margin-top:10px;"><button type="button" class="v9segbtn '+(p.duration==='1 day'?'active':'')+'" data-field="duration" data-val="1 day">'+t('dur1')+'</button><button type="button" class="v9segbtn '+(p.duration==='2-3 days'?'active':'')+'" data-field="duration" data-val="2-3 days">'+t('dur2')+'</button><button type="button" class="v9segbtn '+(p.duration==='1-4 weeks'?'active':'')+'" data-field="duration" data-val="1-4 weeks">'+t('durWeeks')+'</button><button type="button" class="v9segbtn '+(p.duration==='long-term'?'active':'')+'" data-field="duration" data-val="long-term">'+t('durLong')+'</button></div>' : '')+'</div></div><div class="v9footeractions"><button class="v9btn" data-next="visual">'+t('continue')+'</button><button class="v9btn secondary" data-action="unknown">'+t('idea')+'</button></div>';
  else if(name==='visual') view.innerHTML='<h2>'+t('visualiseTitle')+'</h2><p class="v9muted">'+t('visualiseHint')+'</p><label class="v9upload">'+t('upload')+'<input type="file" id="spaceImage" accept="image/*"></label><canvas id="spaceCanvas" class="v9canvas" style="display:'+(p.image?'block':'none')+'"></canvas><div class="v9formgrid" style="margin-top:18px"><div class="v9field"><label>'+t('ledWidth')+'</label><input type="number" id="hubW" min="0.5" step="0.1" value="'+p.width+'"></div><div class="v9field"><label>'+t('ledHeight')+'</label><input type="number" id="hubH" min="0.5" step="0.1" value="'+p.height+'"></div></div><h3 style="margin-top:25px">'+t('previewTitle')+'</h3><div class="v9preview"><div class="v9ledwall"><div class="v9ledcontent"><small>LEDPANELHUB PREVIEW</small><h2 id="previewText">'+(p.application||t('yourEvent')).toUpperCase()+'</h2><strong>'+p.width+'m × '+p.height+'m</strong></div></div></div><div class="v9footeractions"><button class="v9btn secondary" data-next="project">'+t('back')+'</button><button class="v9btn" data-next="tech">'+t('techNext')+'</button></div>';
@@ -1307,10 +1308,34 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 if (dict[key]) el.placeholder = dict[key];
             });
 
-            if (chatOpen && chatState === 'ASK_ENTITY') {
+            // Keep the entire interface in the selected language, including dynamic consultant UI.
+            const seo = {
+                si: {title:'LEDpanelHub | LED zasloni, športni panoji in tehnično posredništvo', desc:'LEDpanelHub povezuje naročnike s ponudniki za nakup in najem LED zaslonov, športnih LED panojev ter tehnično izvedbo projektov.'},
+                en: {title:'LEDpanelHub | LED Displays, Sports Boards & Technical Brokerage', desc:'LEDpanelHub connects clients with providers for LED display purchase and rental, sports LED boards and technical project support.'},
+                hr: {title:'LEDpanelHub | LED zasloni, sportski displeji i tehničko posredovanje', desc:'LEDpanelHub povezuje klijente s ponudnicima za kupnju i najam LED zaslona, sportskih LED panela i tehničku podršku projektima.'},
+                de: {title:'LEDpanelHub | LED-Displays, Sportanzeigen & technische Vermittlung', desc:'LEDpanelHub verbindet Kunden mit Anbietern für Kauf und Miete von LED-Displays, Sportanzeigen und technische Projektunterstützung.'}
+            };
+            const seoData = seo[lang] || seo.si;
+            document.title = seoData.title;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', seoData.desc);
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute('content', seoData.title);
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute('content', seoData.desc);
+
+            window.refreshProjectHubLanguage?.();
+            updateProjectPanel?.();
+            if (chatOpen) {
                 document.getElementById('chat-messages').innerHTML = '';
+                conversationHistory = [];
+                consultantStarted = false;
                 initChat();
             }
+
+            // Keep Project Hub in sync with the global language selector.
+            window.dispatchEvent(new Event('ledpanelhub:languagechange'));
+            window.LEDpanelHubProject?.sync?.();
         }
 
         function toggleChat() {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="sl">
+<html lang="sl" data-site-version="v35">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -188,7 +188,229 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
   body.lp-light #chat-window{background:#fff!important}
 }
 </style>
+
+<style id="ledpanelhub-v30-design-system">
+:root{--v30-bg:#06101b;--v30-surface:#0b1725;--v30-surface-2:#101f30;--v30-line:rgba(148,177,201,.17);--v30-text:#f2f7fb;--v30-muted:#a7b7c6;--v30-cyan:#5be4f4;--v30-blue:#5b8cff;--v30-radius:22px;--v30-shadow:0 22px 65px rgba(0,0,0,.22)}
+html{scroll-padding-top:100px;scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 50% -15%,rgba(23,91,125,.18),transparent 42%),var(--lp-bg);letter-spacing:-.008em}
+body:not(.lp-light) header{background:rgba(5,14,24,.88)!important;border-bottom-color:rgba(125,170,196,.18)!important;box-shadow:0 8px 32px rgba(0,0,0,.10)}
+header{transition:background .2s,border-color .2s;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important}
+header>div:first-child{min-height:76px}
+header nav a{position:relative;text-decoration:none!important;white-space:nowrap}
+header nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-9px;height:2px;background:var(--v30-cyan);transition:right .2s}
+header nav a:hover:after,header nav a:focus-visible:after{right:0}
+header .lp-nav-project{padding:10px 13px;border:1px solid rgba(91,228,244,.32);border-radius:12px;color:var(--v30-cyan)!important;background:rgba(91,228,244,.06)}
+header .lp-nav-project:after{display:none}
+header .lp-nav-project:hover{background:rgba(91,228,244,.12);border-color:rgba(91,228,244,.6)}
+main>section:first-of-type{min-height:530px;display:flex;align-items:center;padding-top:76px!important;padding-bottom:82px!important;border-bottom-color:var(--v30-line)!important}
+main>section:first-of-type>div:first-child img{filter:saturate(.82);transform:scale(1.015)}
+main>section:first-of-type h1{max-width:940px;text-wrap:balance;font-size:clamp(2.45rem,5.2vw,4.65rem);line-height:1.055;letter-spacing:-.055em}
+main>section:first-of-type p{line-height:1.75;color:#c3d0db!important}
+main>section:first-of-type .inline-flex.rounded-full{border-radius:999px;padding:9px 15px;letter-spacing:.04em}
+main>section:first-of-type a[data-i18n="hero_btn_primary"]{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:14px;box-shadow:0 10px 30px rgba(34,211,238,.17);transition:transform .2s,box-shadow .2s}
+main>section:first-of-type a[data-i18n="hero_btn_primary"]:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(34,211,238,.25)}
+main>section:nth-of-type(2){border-bottom-color:var(--v30-line)!important}
+main>section:not(:first-of-type):not(#project-hub){position:relative}
+main>section:not(:first-of-type):not(#project-hub)>div.max-w-7xl{max-width:1240px}
+main>section:not(:first-of-type):not(#project-hub) h2{letter-spacing:-.035em;text-wrap:balance}
+main>section:not(:first-of-type):not(#project-hub) h3{letter-spacing:-.02em}
+main>section:not(:first-of-type):not(#project-hub) p{line-height:1.7}
+main>section:not(:first-of-type):not(#project-hub) .rounded-2xl.border{border-color:var(--v30-line)!important;box-shadow:0 10px 32px rgba(0,0,0,.08);transition:transform .22s,border-color .22s,box-shadow .22s}
+main>section:not(:first-of-type):not(#project-hub) .rounded-2xl.border:hover{transform:translateY(-3px);border-color:rgba(91,228,244,.42)!important;box-shadow:var(--v30-shadow)}
+#project-hub{scroll-margin-top:92px;border-top:1px solid var(--v30-line);border-bottom:1px solid var(--v30-line)}
+#project-hub .v9wrap{max-width:1240px}
+#project-hub .v9head h2{letter-spacing:-.045em;line-height:1.08}
+#project-hub .v9card{box-shadow:0 18px 48px rgba(0,0,0,.16)}
+#project-hub .v9card:hover{box-shadow:0 24px 56px rgba(0,0,0,.24)}
+#contact{scroll-margin-top:100px}
+#contact input,#contact select,#contact textarea{border-radius:12px;min-height:46px}
+#contact textarea{min-height:120px}
+#contact button[type=submit],#contact input[type=submit]{min-height:50px;border-radius:13px;font-weight:750}
+footer{border-top-color:var(--v30-line)!important}
+.lp-mobile-nav{border-top:1px solid var(--v30-line);background:rgba(5,14,24,.98)!important;padding:8px 16px 16px}
+.lp-mobile-nav a{padding:13px 12px;border-radius:10px}
+.lp-mobile-nav a:hover{background:rgba(91,228,244,.08)}
+:focus-visible{outline:3px solid var(--v30-cyan)!important;outline-offset:3px!important}
+body.lp-light{background:radial-gradient(ellipse at 50% -15%,rgba(8,126,164,.08),transparent 42%),var(--lp-bg)}
+body.lp-light main>section:first-of-type>div:first-child .bg-gradient-to-b{background:linear-gradient(to bottom,rgba(245,248,252,.83),rgba(245,248,252,.93),#f5f8fc)!important}
+body.lp-light main>section:first-of-type h1{color:#10202d!important}
+body.lp-light main>section:first-of-type p{color:#34485a!important}
+body.lp-light main>section:first-of-type .text-slate-400{color:#526273!important}
+body.lp-light header .lp-nav-project{color:#087ea4!important;background:rgba(8,126,164,.06)!important}
+body.lp-light .lp-mobile-nav{background:rgba(255,255,255,.98)!important}
+body.lp-light .lp-mobile-nav a{color:#10202d!important}
+body.lp-light #project-hub{border-color:#d7e0ea}
+@media(max-width:767px){
+ main>section:first-of-type{min-height:unset;padding-top:58px!important;padding-bottom:62px!important}
+ main>section:first-of-type h1{font-size:clamp(2.15rem,10vw,3.15rem);line-height:1.07}
+ main>section:first-of-type p{font-size:1.02rem!important}
+ main>section:nth-of-type(2){padding-top:54px!important;padding-bottom:58px!important}
+ main>section:not(:first-of-type):not(#project-hub){padding-top:58px!important;padding-bottom:58px!important}
+ #project-hub{padding-top:56px!important;padding-bottom:56px!important}
+ #project-hub .v9wrap{padding-left:16px;padding-right:16px}
+ #project-hub .v9head{align-items:flex-start}
+ header>div:first-child{min-height:68px;gap:8px}
+ header .flex.items-center.gap-4{gap:8px}
+ header .lp-theme-toggle{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+
+
+<!-- V31 PREMIUM VISUAL REFRESH: presentation-only layer; existing app logic preserved -->
+<style id="v31-premium-visual-refresh">
+:root{--v31-bg:#050b16;--v31-panel:rgba(12,23,42,.82);--v31-line:rgba(148,190,220,.16);--v31-cyan:#50e4f2;--v31-blue:#5588ff;--v31-muted:#9aabc0;--v31-radius:24px}
+html{scroll-padding-top:100px}
+body{background:var(--v31-bg)!important;background-image:radial-gradient(ellipse at 12% 5%,rgba(16,111,161,.16),transparent 34%),radial-gradient(ellipse at 88% 24%,rgba(49,74,180,.13),transparent 30%)!important;color:#edf6ff;letter-spacing:-.012em}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.13;background-image:linear-gradient(rgba(139,188,224,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(139,188,224,.10) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
+::selection{background:rgba(80,228,242,.35);color:#fff}
+a,button,input,select,textarea{transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+header.sticky{background:rgba(5,11,22,.78)!important;border-color:rgba(148,190,220,.13)!important;box-shadow:0 10px 40px rgba(0,0,0,.12);backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}
+header .max-w-7xl{min-height:76px}
+header a[href="#"]>div:first-child{background:linear-gradient(140deg,#4de7f3,#3c78f4)!important;box-shadow:0 0 0 6px rgba(80,228,242,.07),0 10px 35px rgba(45,174,235,.24)!important;border-radius:14px!important}
+header a[href="#"] span{letter-spacing:-.045em}
+header nav a{position:relative;text-decoration:none!important}
+header nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-9px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--v31-cyan),var(--v31-blue));transition:right .22s ease}
+header nav a:hover:after,header nav a:focus-visible:after{right:0}
+.lp-theme-toggle{border-radius:12px!important;border-color:var(--v31-line)!important;background:rgba(17,30,51,.8)!important}
+#main-content>section:first-child{isolation:isolate;min-height:570px;display:flex;align-items:center;padding-top:100px!important;padding-bottom:108px!important;border-bottom-color:rgba(148,190,220,.12)!important;background:radial-gradient(ellipse at 50% 0%,rgba(40,173,214,.10),transparent 52%)}
+#main-content>section:first-child>div:first-child img{filter:saturate(.88) contrast(1.08);opacity:.36!important;transform:scale(1.025)}
+#main-content>section:first-child>div:first-child>div{background:linear-gradient(180deg,rgba(4,10,21,.60),rgba(4,10,21,.82) 54%,#050b16)!important}
+#main-content>section:first-child:after{content:"";position:absolute;z-index:1;pointer-events:none;right:clamp(2%,calc((100% - 1280px)/2),10%);top:18%;width:clamp(140px,20vw,280px);height:clamp(170px,25vw,340px);border:1px solid rgba(80,228,242,.18);border-radius:24px;background:linear-gradient(145deg,rgba(80,228,242,.10),rgba(44,88,190,.05) 55%,rgba(255,255,255,.015));box-shadow:inset 0 0 50px rgba(80,228,242,.05),0 25px 90px rgba(0,0,0,.20);transform:perspective(700px) rotateY(-14deg) rotateZ(2deg);opacity:.65;mask-image:linear-gradient(90deg,transparent,black 30%,black)}
+#main-content>section:first-child:before{content:"";position:absolute;z-index:2;pointer-events:none;right:clamp(3%,calc((100% - 1250px)/2),11%);top:23%;width:clamp(125px,18vw,245px);height:clamp(150px,22vw,290px);border-radius:16px;background:radial-gradient(circle,rgba(80,228,242,.78) 1px,transparent 1.7px);background-size:12px 12px;opacity:.17;transform:perspective(700px) rotateY(-14deg) rotateZ(2deg);mask-image:linear-gradient(135deg,black,transparent 85%)}
+#main-content>section:first-child>.max-w-7xl{z-index:3}
+#main-content>section:first-child h1{font-size:clamp(2.5rem,5.2vw,4.65rem)!important;line-height:1.035!important;letter-spacing:-.065em!important;text-wrap:balance;max-width:980px!important;text-shadow:0 5px 40px rgba(0,0,0,.35)}
+#main-content>section:first-child h1::selection{background:rgba(80,228,242,.35)}
+#main-content>section:first-child p{line-height:1.75;max-width:740px!important;color:#c0cede!important;font-size:clamp(1rem,1.6vw,1.2rem)!important}
+#main-content>section:first-child .inline-flex.rounded-full{border-radius:999px!important;background:rgba(21,176,199,.10)!important;border-color:rgba(80,228,242,.32)!important;box-shadow:0 0 35px rgba(80,228,242,.07);padding:9px 15px!important;letter-spacing:.035em}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]{border-radius:14px!important;padding:16px 25px!important;background:linear-gradient(110deg,#56e8f1,#5a9cff)!important;box-shadow:0 12px 35px rgba(51,190,230,.22),inset 0 1px rgba(255,255,255,.45)!important;display:inline-flex;align-items:center;justify-content:center;gap:12px;color:#04111d!important}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(51,190,230,.32)!important}
+#main-content>section:first-child .text-xs.sm\:text-sm{letter-spacing:.01em}
+/* Make the next hero section feel like a designed product experience */
+#main-content>section:nth-child(2){background:linear-gradient(180deg,rgba(9,19,36,.75),rgba(5,11,22,.5))!important;border-bottom-color:rgba(148,190,220,.12)!important}
+#main-content section{scroll-margin-top:100px}
+#main-content section h2{letter-spacing:-.045em;text-wrap:balance}
+#main-content section p{line-height:1.72}
+#main-content .grid a.group.rounded-2xl,#main-content .grid>a.rounded-2xl{position:relative;overflow:hidden;border-radius:20px!important;border-color:rgba(148,190,220,.15)!important;background:linear-gradient(145deg,rgba(16,29,49,.92),rgba(8,17,31,.94))!important;box-shadow:0 12px 35px rgba(0,0,0,.10)}
+#main-content .grid a.group.rounded-2xl:before,#main-content .grid>a.rounded-2xl:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(80,228,242,.55),transparent);opacity:.65}
+#main-content .grid a.group.rounded-2xl:hover,#main-content .grid>a.rounded-2xl:hover{border-color:rgba(80,228,242,.48)!important;box-shadow:0 22px 55px rgba(0,0,0,.23),0 0 0 1px rgba(80,228,242,.06);transform:translateY(-4px)}
+#main-content .grid a.group.rounded-2xl>div:first-child{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:15px;background:rgba(80,228,242,.09);border:1px solid rgba(80,228,242,.16)}
+.v8-grid,.v9hub{isolation:isolate}
+.v9hub{background:radial-gradient(ellipse at 50% 0%,rgba(41,143,207,.11),transparent 48%)!important}
+.v9card{border-radius:22px!important;border-color:rgba(148,190,220,.15)!important;background:linear-gradient(145deg,rgba(16,29,49,.92),rgba(8,17,31,.96))!important;box-shadow:0 15px 45px rgba(0,0,0,.13);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important}
+.v9card:hover{transform:translateY(-4px);border-color:rgba(80,228,242,.42)!important;box-shadow:0 22px 55px rgba(0,0,0,.2)}
+.v9icon{border-radius:16px!important;box-shadow:inset 0 0 0 1px rgba(80,228,242,.12)}
+button:not(.lp-theme-toggle button),input,select,textarea{border-radius:12px}
+input:focus,select:focus,textarea:focus{outline:none!important;border-color:rgba(80,228,242,.7)!important;box-shadow:0 0 0 4px rgba(80,228,242,.09)!important}
+#inquiry-form{border-radius:24px!important;border-color:rgba(148,190,220,.16)!important;background:linear-gradient(145deg,rgba(15,28,48,.96),rgba(8,17,31,.98))!important;box-shadow:0 25px 80px rgba(0,0,0,.22)!important}
+#inquiry-form input,#inquiry-form select,#inquiry-form textarea{background:rgba(4,11,22,.72)!important;border-color:rgba(148,190,220,.18)!important;min-height:48px}
+#inquiry-form label{letter-spacing:.08em}
+footer{background:#030812!important;border-top-color:rgba(148,190,220,.14)!important}
+:focus-visible{outline:2px solid var(--v31-cyan)!important;outline-offset:4px!important}
+body.lp-light{--v31-bg:#f3f7fc;--v31-panel:#fff;--v31-line:rgba(55,83,112,.16);--v31-muted:#53677c;background:#f3f7fc!important;background-image:radial-gradient(ellipse at 12% 5%,rgba(31,151,192,.09),transparent 34%),radial-gradient(ellipse at 88% 24%,rgba(73,105,213,.07),transparent 30%)!important;color:#142235!important}
+body.lp-light:before{opacity:.07}
+body.lp-light header.sticky{background:rgba(248,251,255,.88)!important;border-color:rgba(55,83,112,.14)!important;box-shadow:0 10px 35px rgba(30,50,75,.07)}
+body.lp-light #main-content>section:first-child>div:first-child>div{background:linear-gradient(180deg,rgba(7,20,37,.42),rgba(7,20,37,.62) 55%,#f3f7fc)!important}
+body.lp-light #main-content>section:first-child{background:radial-gradient(ellipse at 50% 0%,rgba(40,173,214,.09),transparent 52%);border-bottom-color:rgba(55,83,112,.12)!important}
+body.lp-light #main-content>section:nth-child(2){background:linear-gradient(180deg,rgba(230,239,249,.85),rgba(243,247,252,.9))!important}
+body.lp-light #main-content .grid a.group.rounded-2xl,body.lp-light #main-content .grid>a.rounded-2xl,body.lp-light .v9card{background:linear-gradient(145deg,#fff,#f6f9fd)!important;border-color:rgba(55,83,112,.15)!important;box-shadow:0 14px 38px rgba(30,50,75,.07)}
+body.lp-light #main-content .grid a.group.rounded-2xl h3,body.lp-light #main-content .grid>a.rounded-2xl h3{color:#142235!important}
+body.lp-light #main-content .grid a.group.rounded-2xl p,body.lp-light #main-content .grid>a.rounded-2xl p{color:#5a6b7e!important}
+body.lp-light #inquiry-form{background:linear-gradient(145deg,#fff,#f7faff)!important;border-color:rgba(55,83,112,.16)!important;box-shadow:0 25px 70px rgba(30,50,75,.09)!important}
+body.lp-light #inquiry-form input,body.lp-light #inquiry-form select,body.lp-light #inquiry-form textarea{background:#fff!important;color:#142235!important;border-color:rgba(55,83,112,.2)!important}
+body.lp-light footer{background:#e8eff7!important}
+@media(max-width:767px){
+ #main-content>section:first-child{min-height:unset;padding-top:82px!important;padding-bottom:76px!important}
+ #main-content>section:first-child:after{right:-38px;top:12%;width:150px;height:180px;opacity:.35}
+ #main-content>section:first-child:before{right:-25px;top:15%;width:130px;height:155px;opacity:.12}
+ #main-content>section:first-child h1{font-size:clamp(2.25rem,10vw,3.25rem)!important;line-height:1.06!important;letter-spacing:-.055em!important}
+ #main-content>section:first-child p{font-size:1rem!important;line-height:1.7}
+ #main-content>section:first-child .max-w-7xl{padding-left:22px;padding-right:22px}
+ #main-content .grid a.group.rounded-2xl,#main-content .grid>a.rounded-2xl{padding:21px!important}
+ #inquiry-form{padding:22px!important;border-radius:20px!important}
+ header .max-w-7xl{min-height:68px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+
+
+<style id="v32-modern-visual-pass">
+:root{--v32-ink:#07111f;--v32-cyan:#58edf4;--v32-blue:#6688ff;--v32-stroke:rgba(145,190,220,.18);--v32-glow:0 20px 70px rgba(22,178,221,.13)}
+body{background-color:#050b15!important;background-image:radial-gradient(ellipse at 14% 12%,rgba(13,132,172,.20),transparent 34%),radial-gradient(ellipse at 88% 34%,rgba(73,78,210,.15),transparent 30%),linear-gradient(180deg,#050b15 0%,#07111e 48%,#050b15 100%)!important}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background:radial-gradient(circle at 1px 1px,rgba(100,221,240,.22) 1px,transparent 1.4px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 62%)}
+header.sticky{border-bottom:1px solid rgba(111,190,220,.17)!important;background:rgba(4,10,20,.78)!important;box-shadow:0 12px 48px rgba(0,0,0,.16)!important}
+header nav a{font-weight:550;transition:color .2s ease}
+header nav a:hover{color:#71f0f5!important}
+header .lp-nav-project{box-shadow:inset 0 0 20px rgba(80,228,242,.045),0 0 24px rgba(80,228,242,.06)}
+#main-content>section:first-child{min-height:620px!important;padding-top:112px!important;padding-bottom:116px!important;overflow:hidden;background:radial-gradient(ellipse at 75% 48%,rgba(30,156,204,.14),transparent 34%),linear-gradient(180deg,rgba(5,11,22,.12),rgba(5,11,22,.16))!important;border-bottom:1px solid rgba(113,201,226,.15)!important}
+#main-content>section:first-child>div:first-child img{opacity:.46!important;filter:saturate(1.16) contrast(1.12)!important;transform:scale(1.045)!important;mask-image:linear-gradient(to right,black 0%,black 48%,transparent 100%)}
+#main-content>section:first-child>div:first-child>div{background:linear-gradient(90deg,rgba(4,10,21,.96) 0%,rgba(4,10,21,.78) 46%,rgba(4,10,21,.30) 100%),linear-gradient(180deg,rgba(4,10,21,.1),#050b16 100%)!important}
+#main-content>section:first-child:after{right:clamp(3%,calc((100% - 1250px)/2),9%)!important;top:17%!important;width:clamp(170px,23vw,320px)!important;height:clamp(220px,31vw,410px)!important;border-color:rgba(88,237,244,.25)!important;border-radius:30px!important;background:linear-gradient(145deg,rgba(88,237,244,.13),rgba(78,110,255,.08) 58%,rgba(255,255,255,.015))!important;box-shadow:inset 0 0 65px rgba(88,237,244,.09),0 35px 100px rgba(0,0,0,.30),0 0 55px rgba(39,190,230,.07)!important;opacity:.82!important}
+#main-content>section:first-child:before{right:clamp(4%,calc((100% - 1240px)/2),10%)!important;top:22%!important;width:clamp(150px,20vw,280px)!important;height:clamp(190px,27vw,355px)!important;background:radial-gradient(circle,rgba(110,244,250,.95) 1px,transparent 1.8px)!important;background-size:10px 10px!important;opacity:.25!important}
+#main-content>section:first-child h1{max-width:850px!important;font-size:clamp(2.8rem,5.5vw,5.2rem)!important;line-height:1.015!important;letter-spacing:-.072em!important;text-shadow:0 10px 60px rgba(0,0,0,.5),0 0 40px rgba(44,180,220,.09)!important}
+#main-content>section:first-child h1 strong,#main-content>section:first-child h1 span{background:linear-gradient(100deg,#f7fcff 10%,#a8f6fa 56%,#8eaaff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+#main-content>section:first-child p{max-width:690px!important;color:#d0dce8!important;font-size:clamp(1.04rem,1.5vw,1.2rem)!important}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]{position:relative;overflow:hidden;min-height:56px!important;border-radius:15px!important;padding:17px 27px!important;background:linear-gradient(105deg,#67f1f3 0%,#68b8ff 53%,#7b8cff 100%)!important;box-shadow:0 14px 42px rgba(56,190,226,.25),inset 0 1px rgba(255,255,255,.65)!important;font-weight:800!important;letter-spacing:-.015em}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]:before{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.38) 48%,transparent 70%);transition:transform .65s ease}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]:hover:before{transform:translateX(120%)}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]:hover{transform:translateY(-3px) scale(1.015)!important;box-shadow:0 20px 52px rgba(56,190,226,.34)!important}
+#main-content>section:nth-child(2){background:linear-gradient(180deg,rgba(10,23,40,.92),rgba(6,13,25,.88))!important;border-bottom:1px solid var(--v32-stroke)!important}
+#main-content section h2{font-size:clamp(1.85rem,3.5vw,3.05rem)!important;line-height:1.09!important;letter-spacing:-.055em!important}
+#main-content section h3{letter-spacing:-.035em}
+#main-content .grid a.group.rounded-2xl,#main-content .grid>a.rounded-2xl{border-radius:23px!important;padding:clamp(20px,2.2vw,29px)!important;background:linear-gradient(145deg,rgba(16,32,53,.96),rgba(7,16,30,.98))!important;border:1px solid rgba(139,183,212,.17)!important;box-shadow:0 15px 42px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.025)!important}
+#main-content .grid a.group.rounded-2xl:after,#main-content .grid>a.rounded-2xl:after{content:"";position:absolute;inset:auto 18% 0;height:1px;background:linear-gradient(90deg,transparent,rgba(88,237,244,.48),transparent);opacity:.7}
+#main-content .grid a.group.rounded-2xl:hover,#main-content .grid>a.rounded-2xl:hover{transform:translateY(-5px)!important;border-color:rgba(88,237,244,.46)!important;box-shadow:0 25px 65px rgba(0,0,0,.24),var(--v32-glow)!important}
+#main-content .grid a.group.rounded-2xl>div:first-child,#main-content .grid>a.rounded-2xl>div:first-child{width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,rgba(88,237,244,.15),rgba(95,132,255,.10));border:1px solid rgba(88,237,244,.22);box-shadow:inset 0 1px rgba(255,255,255,.06)}
+#project-hub{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(39,145,210,.13),transparent 46%)!important}
+#project-hub:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(88,237,244,.42),transparent)}
+#project-hub .v9wrap{position:relative;z-index:1}
+#project-hub .v9card{border-radius:23px!important;box-shadow:0 18px 50px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.025)!important}
+#project-hub .v9card:hover{transform:translateY(-3px);border-color:rgba(88,237,244,.4)!important}
+#inquiry-form{border-radius:28px!important;padding:clamp(22px,4vw,42px)!important;border-color:rgba(125,190,222,.22)!important;box-shadow:0 30px 90px rgba(0,0,0,.27),inset 0 1px rgba(255,255,255,.035)!important}
+#inquiry-form input,#inquiry-form select,#inquiry-form textarea{border-radius:13px!important;min-height:50px!important}
+#inquiry-form button[type=submit],#inquiry-form input[type=submit]{background:linear-gradient(105deg,#67edf2,#72a7ff)!important;color:#04111e!important;box-shadow:0 10px 30px rgba(65,185,225,.18)!important}
+footer{background:linear-gradient(180deg,#050c17,#030710)!important}
+body.lp-light{background-color:#f4f8fc!important;background-image:radial-gradient(ellipse at 14% 12%,rgba(13,132,172,.08),transparent 34%),radial-gradient(ellipse at 88% 34%,rgba(73,78,210,.055),transparent 30%),linear-gradient(180deg,#f7faff,#edf3fa 55%,#f6f9fd)!important;color:#15263b!important}
+body.lp-light:after{opacity:.07}
+body.lp-light header.sticky{background:rgba(248,251,255,.86)!important;box-shadow:0 12px 40px rgba(34,57,83,.08)!important}
+body.lp-light #main-content>section:first-child{background:radial-gradient(ellipse at 75% 48%,rgba(30,156,204,.09),transparent 34%),linear-gradient(180deg,rgba(247,250,255,.15),rgba(247,250,255,.4))!important}
+body.lp-light #main-content>section:first-child>div:first-child>div{background:linear-gradient(90deg,rgba(245,249,255,.97),rgba(245,249,255,.86) 48%,rgba(245,249,255,.48)),linear-gradient(180deg,rgba(245,249,255,.05),#f3f7fc)!important}
+body.lp-light #main-content>section:first-child h1{color:#102238!important;text-shadow:none!important}
+body.lp-light #main-content>section:first-child h1 strong,body.lp-light #main-content>section:first-child h1 span{background:linear-gradient(100deg,#102238,#087ea4 60%,#4d69c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.lp-light #main-content>section:first-child p{color:#40546b!important}
+body.lp-light #main-content>section:nth-child(2){background:linear-gradient(180deg,#e8f0f8,#f4f8fc)!important}
+body.lp-light #main-content .grid a.group.rounded-2xl,body.lp-light #main-content .grid>a.rounded-2xl,body.lp-light .v9card{background:linear-gradient(145deg,#fff,#f5f9fd)!important;border-color:rgba(64,97,130,.16)!important;box-shadow:0 15px 40px rgba(33,58,88,.075)!important}
+body.lp-light #main-content .grid a.group.rounded-2xl h3,body.lp-light #main-content .grid>a.rounded-2xl h3{color:#15263b!important}
+body.lp-light #main-content .grid a.group.rounded-2xl p,body.lp-light #main-content .grid>a.rounded-2xl p{color:#566a80!important}
+body.lp-light #project-hub{background:radial-gradient(ellipse at 50% 0%,rgba(39,145,210,.07),transparent 46%)!important}
+body.lp-light #inquiry-form{background:linear-gradient(145deg,#fff,#f6f9fd)!important;border-color:rgba(64,97,130,.17)!important;box-shadow:0 25px 70px rgba(33,58,88,.10)!important}
+body.lp-light #inquiry-form input,body.lp-light #inquiry-form select,body.lp-light #inquiry-form textarea{background:#fff!important;color:#15263b!important}
+body.lp-light footer{background:linear-gradient(180deg,#e9f0f7,#e3ebf4)!important}
+@media(max-width:767px){
+ #main-content>section:first-child{padding-top:78px!important;padding-bottom:70px!important;min-height:unset!important}
+ #main-content>section:first-child>div:first-child img{opacity:.24!important;mask-image:linear-gradient(to right,black,transparent 100%)}
+ #main-content>section:first-child:after{right:-60px!important;top:13%!important;width:145px!important;height:195px!important;opacity:.42!important}
+ #main-content>section:first-child:before{right:-40px!important;top:17%!important;width:125px!important;height:165px!important;opacity:.14!important}
+ #main-content>section:first-child h1{font-size:clamp(2.3rem,10.2vw,3.4rem)!important;max-width:100%!important}
+ #main-content>section:first-child .max-w-7xl{padding-left:20px!important;padding-right:20px!important}
+ #main-content .grid a.group.rounded-2xl,#main-content .grid>a.rounded-2xl{border-radius:19px!important;padding:21px!important}
+ #project-hub .v9card{border-radius:19px!important}
+ #inquiry-form{border-radius:22px!important;padding:22px!important}
+}
+@media(prefers-reduced-motion:reduce){#main-content>section:first-child a[data-i18n="hero_btn_primary"]:before{display:none}}
+</style>
+
+
+<style id="v34-quality-pass">
+/* V34 quality pass: keyboard focus, clearer file-input focus and safer long translations. */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #65cfff;outline-offset:3px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+[data-i18n], [data-hub-key]{overflow-wrap:anywhere}
+.v9hubmodal[aria-hidden="true"]{pointer-events:none}
+</style>
 </head>
+<!-- LEDpanelHub V32: modern visual refinement layered over V31; existing functionality retained. -->
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
 <a class="skip-link" href="#main-content">Preskoči na glavno vsebino</a>
 <!-- TOAST NOTIFICATION -->
@@ -227,6 +449,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
 </a>
 <!-- Desktop Nav -->
 <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+   <a class="lp-nav-project" data-i18n="nav_project_hub" href="#project-hub">Project Hub</a>
 <a class="hover:text-cyan-400 transition" data-i18n="nav_guide" href="#guide">Tehnični vodnik</a>
 <a class="hover:text-cyan-400 transition" data-i18n="nav_support" href="#support">Servis &amp; Garancija</a>
 <a class="hover:text-cyan-400 transition" data-i18n="nav_reference" href="#reference">Primeri projektov</a>
@@ -248,7 +471,8 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
 <div class="lp-theme-toggle" aria-label="Izbira teme"><button id="theme-dark" class="active" onclick="setTheme('dark')" type="button" title="Temna">☾ <span class="theme-label">Temna</span></button><button id="theme-light" onclick="setTheme('light')" type="button" title="Svetla">☀ <span class="theme-label">Svetla</span></button></div>
 <button class="lp-mobile-menu px-2 py-2 rounded-lg border border-slate-700 text-slate-300" id="mobile-menu-button" onclick="toggleMobileNav()" type="button" aria-label="Odpri meni" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
 </div>
-<div class="lp-mobile-nav" id="mobile-nav"><a data-i18n="nav_guide" href="#guide">Tehnični vodnik</a><a data-i18n="nav_support" href="#support">Servis &amp; Garancija</a><a data-i18n="nav_reference" href="#reference">Primeri projektov</a><a data-i18n="nav_faq" href="#faq">FAQ</a></div>
+<div class="lp-mobile-nav" id="mobile-nav">
+  <a data-i18n="nav_project_hub" href="#project-hub">Project Hub</a><a data-i18n="nav_guide" href="#guide">Tehnični vodnik</a><a data-i18n="nav_support" href="#support">Servis &amp; Garancija</a><a data-i18n="nav_reference" href="#reference">Primeri projektov</a><a data-i18n="nav_faq" href="#faq">FAQ</a></div>
 </div>
 </header>
 <main id="main-content">
@@ -274,8 +498,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
 <span><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="hero_point_3">SI • HR • AT • DE</span></span>
 </div>
 <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-<a class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-xl shadow-cyan-500/20" data-i18n="hero_btn_primary" href="#contact">Začni projekt <i class="fa-solid fa-arrow-right"></i></a>
-<a class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-slate-900/80 backdrop-blur border border-slate-700 text-white hover:bg-slate-800 transition" data-i18n="hero_btn_secondary" href="#v8-solutions">Oglej si rešitve <i class="fa-solid fa-arrow-right"></i></a>
+<a class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition shadow-xl shadow-cyan-500/20" data-i18n="hero_btn_primary" href="#project-hub">Začni projekt <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 </section>
@@ -341,7 +564,9 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
  if(!modal||!view)return;
  const key='ledpanelhub_project_v11';
  const defaults={application:'',goal:'',indoorOutdoor:'',width:6,height:3,distance:20,purchase:'',duration:'',date:'',location:'',budget:'',notes:'',power:'',access:'',mounting:'',install:false,dismantle:false,content:'SPORT',image:'',marker:null};
- let p=Object.assign({},defaults,JSON.parse(localStorage.getItem(key)||'{}'));
+ let savedProject={};
+ try { const raw=localStorage.getItem(key); if(raw) savedProject=JSON.parse(raw)||{}; } catch(e) { savedProject={}; }
+ let p=Object.assign({},defaults,savedProject);
  const tr={
   si:{eyebrow:'LEDpanelHub Project Hub',heroTitle:'Od ideje do konkretne LED rešitve.',heroText:'Izberi namen projekta, preveri tehnične zahteve, pripravi vizualizacijo in ustvari profesionalno povpraševanje — na telefonu ali računalniku.',start:'Začni projekt',appTitle:'Izberi namen projekta',appText:'Šport, koncert, festival, trgovina, poslovni dogodek, oglaševanje ali TV/produkcija.',visualTitle:'Vizualizacija prostora',visualText:'Naloži fotografijo prostora in označi predvideno lokacijo LED zaslona.',contentTitle:'Predogled vsebine',contentText:'Prikaži, kako bi lahko vsebina izgledala na LED steni.',techTitle:'Tehnični pregled',techText:'Orientacijska električna ocena, logistika in priprava na montažo.',modalTitle:'LED Project Hub',newProject:'Nov projekt',tabs:['Projekt','Vizualizacija','Tehnika','Logistika','Primerjava','Povpraševanje'],projectTitle:'Kaj želiš postaviti?',projectHint:'Če ne veš, kaj potrebuješ, izberi <b>Še ne vem</b> — projekt bomo sestavili iz tvojega cilja.',apps:[['Šport','🏟️ Šport'],['Koncert','🎵 Koncert'],['Festival','🎪 Festival'],['Trgovina','🏪 Trgovina'],['Poslovni dogodek','🏢 Poslovni dogodek'],['Sejem / razstava','🎪 Sejem / razstava'],['Oglaševanje','📈 Oglaševanje'],['TV / produkcija','📺 TV / produkcija'],['Unknown','❓ Še ne vem']],goalLabel:'Kaj naj zaslon omogoča?',goalPlaceholder:'Npr. LED za hokejsko tekmo, rezultatno tablo in sponzorske oglase …',locationLabel:'Lokacija / prizorišče',locationPlaceholder:'Mesto / prizorišče',ioLabel:'Notranja / zunanja uporaba',outdoor:'Zunaj',indoor:'Znotraj',both:'Oboje / še ni odločeno',purchaseLabel:'Nakup / najem',rental:'Najem',purchase:'Nakup',notSure:'Nisem prepričan/a',durationLabel:'Trajanje najema',dur1:'1 dan',dur2:'2–3 dni',durWeeks:'1–4 tedne',durLong:'Daljši / dolgoročni najem',continue:'Nadaljuj →',idea:'Začni z mojo idejo',visualiseTitle:'Vizualiziraj projekt',visualiseHint:'Naloži fotografijo prostora. Nato klikni na sliko, kjer želiš LED zaslon.',upload:'📷 Klikni za nalaganje JPG/PNG slike',ledWidth:'Širina LED zaslona (m)',ledHeight:'Višina LED zaslona (m)',previewTitle:'Predogled vsebine',yourEvent:'VAŠ DOGODEK',back:'← Nazaj',techNext:'Tehnični pregled →',technicalTitle:'Tehnični pregled',surface:'Površina',power:'Orientacijska moč',powerNotice:'Ocena porabe je samo orientacijska. Dejanska največja in običajna poraba je odvisna od izbranega LED sistema, svetilnosti, vsebine, procesorja in pogojev uporabe. Končno električno zasnovo mora potrditi dobavitelj oziroma tehnik.',distance:'Razdalja gledanja (m)',powerAvail:'Razpoložljivo električno napajanje',powerPlaceholder:'Npr. 3×32 A / neznano',budget:'Proračun (neobvezno)',budgetPlaceholder:'Razpon ali še ni določen',readiness:'Pripravljenost projekta',missing:'Manjkajoče podatke lahko dopolniš pozneje. Hub ne izmišljuje tehničnih specifikacij ali cen.',technicalPartner:'Pixel pitch, svetilnost, osveževanje in zaščito zaslona glede na projekt predlaga izbrani partner.',logistics:'Logistika →',logisticsTitle:'Logistika in montaža',access:'Dostop / opombe za dostavo',accessPlaceholder:'Širina vrat, dostavna cona, stopnice, dvigalo, parkiranje …',mounting:'Montaža / konstrukcija',mountingPlaceholder:'Ground support, truss, stenska montaža, obstoječa konstrukcija …',checkTitle:'Kontrolni seznam montaže',checks:['Električno napajanje je na voljo','Dostava in razklad sta potrjena','Načrt konstrukcije/montaže je potrjen','Termin montaže je potrjen','Termin demontaže je potrjen'],logisticsNotice:'Na končno rešitev lahko pomembno vplivajo transportna pot, razklad, konstrukcija, čas montaže, napajanje in demontaža. Pred končno ponudbo je treba te točke uskladiti.',compare:'Primerjava →',compareTitle:'LED vs LCD vs projektor',compareHint:'Nevtralna tehnična primerjava — ustrezna tehnologija je odvisna od prostora, svetlobe, velikosti, razdalje in vsebine.',factor:'Dejavnik',projector:'Projektor',large:'Velika brezšivna slika',daylight:'Močna dnevna svetloba',outdoorUse:'Zunanji dogodki',modular:'Modularna velikost',contrast:'Črna / kontrast',temporary:'Začasen najem',excellent:'Odlično',limited:'Omejeno',possible:'Možno',veryStrong:'Zelo dobro pri ustrezni svetilnosti',good:'Dobro',challenging:'Pogosto zahtevno',suitable:'Primerno z outdoor sistemom',usuallyLimited:'Običajno omejeno',weather:'Odvisno od vremena/okolja',scalable:'Zelo prilagodljivo',panelLimited:'Omejeno s paneli',setup:'Prilagodljivo z ustrezno postavitvijo',depends:'Odvisno od sistema',environment:'Odvisno od okolja',common:'Pogosto',lessCommon:'Manj pogosto',createRfq:'Ustvari povpraševanje →',addToForm:'Dodaj v obrazec spodaj →',projectAdded:'Projektni podatki so bili dodani v obrazec spodaj.',projectAddedHint:'Osnovni podatki iz Project Huba so predizpolnjeni. Po potrebi jih lahko še spremeniš.',removeProject:'Odstrani podatke projekta',rfqTitle:'Povpraševanje / projektni povzetek',rfqHint:'To je profesionalen povzetek, ki ga lahko pošlješ partnerju ali svetovalcu.',copy:'Kopiraj povpraševanje',download:'Prenesi TXT',share:'Deli projekt',handoff:'👨‍💼 Predaj svetovalcu',saved:'Projekt je shranjen kot',save:'⭐ Shrani projekt',savedLocal:'Podatki projekta so shranjeni lokalno v tem brskalniku. Deljenje ustvari ID projekta; za pravo deljenje med napravami je potreben backend/CRM.',project:'Projekt',application:'Namen',goal:'Cilj',io:'Notranja/zunanja uporaba',location:'Lokacija',size:'Velikost LED',viewing:'Razdalja gledanja',powerInfo:'Podatki o napajanju',mountInfo:'Montaža',date:'Datum',notes:'Opombe',next:'NASLEDNJI KORAK: Potrdite tehnično konfiguracijo, napajanje, konstrukcijo, logistiko in komercialno ponudbo z dobaviteljem.',notSpecified:'Ni določeno',alertCopied:'Povpraševanje je kopirano.',alertShare:'Povezava projekta je kopirana. Za pravo deljenje med napravami povežite ID projekta z backendom/CRM.',alertSaved:'Projekt je shranjen v tem brskalniku.',humanSubject:'LED projekt'},
   en:{eyebrow:'LEDpanelHub Project Hub',heroTitle:'From idea to a concrete LED solution.',heroText:'Choose your project application, check technical requirements, prepare a visualisation and create a professional request — on phone or desktop.',start:'Start project',appTitle:'Choose your application',appText:'Sport, concert, festival, retail, corporate, advertising or TV/production.',visualTitle:'Space visualizer',visualText:'Upload a photo of the space and mark the planned LED screen location.',contentTitle:'Content preview',contentText:'Preview how your content could look on the LED wall.',techTitle:'Technical check',techText:'Orientation power estimate, logistics and installation preparation.',modalTitle:'LED Project Hub',newProject:'New project',tabs:['Project','Visualisation','Technical','Logistics','Compare','RFQ'],projectTitle:'What are you building?',projectHint:'If you are not sure what you need, choose <b>I don’t know yet</b> — we will build the project around your goal.',apps:[['Sport','🏟️ Sport'],['Concert','🎵 Concert'],['Festival','🎪 Festival'],['Retail','🏪 Retail'],['Corporate','🏢 Corporate'],['Fair / exhibition','🎪 Fair / exhibition'],['Advertising','📈 Advertising'],['TV / Production','📺 TV / Production'],['Unknown','❓ I don’t know yet']],goalLabel:'What should the screen achieve?',goalPlaceholder:'E.g. LED for an ice hockey match, scoreboard and sponsor advertising …',locationLabel:'Location / venue',locationPlaceholder:'City / venue',ioLabel:'Indoor / outdoor',outdoor:'Outdoor',indoor:'Indoor',both:'Both / not decided',purchaseLabel:'Purchase / rental',rental:'Rental',purchase:'Purchase',notSure:'Not sure',durationLabel:'Rental duration',dur1:'1 day',dur2:'2–3 days',durWeeks:'1–4 weeks',durLong:'Longer / long-term rental',continue:'Continue →',idea:'Start with my idea',visualiseTitle:'Visualise the project',visualiseHint:'Upload a photo of the space. Then click on the image where you want the LED screen.',upload:'📷 Click to upload a JPG/PNG image',ledWidth:'LED width (m)',ledHeight:'LED height (m)',previewTitle:'Content preview',yourEvent:'YOUR EVENT',back:'← Back',techNext:'Technical check →',technicalTitle:'Technical check',surface:'Surface area',power:'Orientation power',powerNotice:'The power estimate is for orientation only. Actual maximum and typical consumption depends on the selected LED system, brightness, content, processor and operating conditions. Final electrical design must be confirmed by the supplier/technician.',distance:'Viewing distance (m)',powerAvail:'Known power availability',powerPlaceholder:'E.g. 3×32 A / unknown',budget:'Budget (optional)',budgetPlaceholder:'Range or not decided',readiness:'Project readiness',missing:'Missing items can be completed later. The hub never invents technical specifications or prices.',technicalPartner:'The selected partner will recommend pixel pitch, brightness, refresh rate and protection based on the project.',logistics:'Logistics →',logisticsTitle:'Logistics & installation',access:'Access / delivery notes',accessPlaceholder:'Door width, loading zone, stairs, crane, parking …',mounting:'Mounting / structure',mountingPlaceholder:'Ground support, truss, wall mount, existing structure …',checkTitle:'Installation checklist',checks:['Electrical power available','Delivery and unloading access confirmed','Mounting/structure plan confirmed','Installation window confirmed','Dismantling window confirmed'],logisticsNotice:'Transport route, unloading, structure, installation time, power and dismantling can materially affect the final solution. These points should be confirmed before a final offer.',compare:'Compare →',compareTitle:'LED vs LCD vs projector',compareHint:'Neutral technical comparison — the appropriate technology depends on venue, light, size, distance and content.',factor:'Factor',projector:'Projector',large:'Large seamless image',daylight:'Strong daylight',outdoorUse:'Outdoor events',modular:'Modular size',contrast:'Black level / contrast',temporary:'Temporary rental',excellent:'Excellent',limited:'Limited',possible:'Possible',veryStrong:'Very strong with suitable brightness',good:'Good',challenging:'Often challenging',suitable:'Suitable with outdoor-rated system',usuallyLimited:'Usually limited',weather:'Weather/environment dependent',scalable:'Highly scalable',panelLimited:'Panel-limited',setup:'Scalable with setup',depends:'Depends on LED system',environment:'Environment dependent',common:'Common',lessCommon:'Less common',createRfq:'Create RFQ →',addToForm:'Add to form below →',projectAdded:'Project data has been added to the form below.',projectAddedHint:'The main Project Hub data has been prefilled. You can still edit it before sending.',removeProject:'Remove project data',rfqTitle:'RFQ / Project brief',rfqHint:'This is a professional summary you can send to a partner or consultant.',copy:'Copy RFQ',download:'Download TXT',share:'Share project',handoff:'👨‍💼 Human handoff',saved:'Saved project',save:'⭐ Save project',savedLocal:'Project data is stored locally in this browser. Sharing creates a project ID; true cross-device sharing requires a backend/CRM.',project:'Project',application:'Application',goal:'Goal',io:'Indoor/Outdoor',location:'Location',size:'LED size',viewing:'Viewing distance',powerInfo:'Power information',mountInfo:'Mounting',date:'Date',notes:'Notes',next:'NEXT: Confirm technical configuration, power, structure, logistics and commercial offer with the supplier.',notSpecified:'Not specified',alertCopied:'RFQ copied.',alertShare:'Project link copied. For true cross-device sharing, connect the project ID to your backend/CRM.',alertSaved:'Project saved in this browser.',humanSubject:'LED Project'},
@@ -350,15 +575,16 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
  };
  function lang(){return typeof currentLang!=='undefined'&&tr[currentLang]?currentLang:'si'}
  function t(k){return tr[lang()][k]??tr.si[k]??k}
- function save(){localStorage.setItem(key,JSON.stringify(p));}
+ function save(){try{localStorage.setItem(key,JSON.stringify(p));return true;}catch(e){return false;}}
+ function esc(value){return String(value??'').replace(/[&<>\"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]));}
  function id(){return 'LPH-'+(Object.keys(p).join('').length%9000+1000)+'-'+new Date().getFullYear();}
  function applyLang(){document.querySelectorAll('[data-hub-key]').forEach(e=>e.innerHTML=t(e.dataset.hubKey));document.querySelectorAll('.v9tab').forEach((e,i)=>e.innerHTML=(i+1)+' · '+t('tabs')[i]);if(document.getElementById('projectIdLabel'))document.getElementById('projectIdLabel').textContent=t('project')+' '+id()}
  window.refreshProjectHubLanguage=function(){applyLang();const active=document.querySelector('.v9tab.active');if(active){render(active.dataset.view||'project')}};
  function chip(label,val,field){return '<button class="v9chip '+(p[field]===val?'active':'')+'" data-field="'+field+'" data-val="'+val+'">'+label+'</button>'}
- function render(name){applyLang();if(name==='project') view.innerHTML='<h2>'+t('projectTitle')+'</h2><p class="v9muted">'+t('projectHint')+'</p><div class="v9chips">'+t('apps').map(x=>chip(x[1],x[0],'application')).join('')+'</div><div class="v9formgrid" style="margin-top:22px"><div class="v9field"><label>'+t('goalLabel')+'</label><textarea id="hubGoal" placeholder="'+t('goalPlaceholder')+'">'+(p.goal||'')+'</textarea></div><div class="v9field"><label>'+t('locationLabel')+'</label><input id="hubLocation" value="'+(p.location||'')+'" placeholder="'+t('locationPlaceholder')+'"></div><div class="v9field"><label>'+t('ioLabel')+'</label><div class="v9seg" id="hubIOChoices"><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Outdoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Outdoor">☀️ '+t('outdoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Indoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Indoor">🏢 '+t('indoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Both'?'active':'')+'" data-field="indoorOutdoor" data-val="Both">↔️ '+t('both')+'</button></div></div><div class="v9field"><label>'+t('purchaseLabel')+'</label><div class="v9seg" id="hubPurchaseChoices"><button type="button" class="v9segbtn '+(p.purchase==='Rental'?'active':'')+'" data-field="purchase" data-val="Rental">📅 '+t('rental')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Purchase'?'active':'')+'" data-field="purchase" data-val="Purchase">🛒 '+t('purchase')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Not sure'?'active':'')+'" data-field="purchase" data-val="Not sure">❓ '+t('notSure')+'</button></div></div><div class="v9field" style="grid-column:1/-1;">'+(p.purchase==='Rental' ? '<label>'+t('durationLabel')+'</label><div class="v9chips" style="margin-top:10px;"><button type="button" class="v9segbtn '+(p.duration==='1 day'?'active':'')+'" data-field="duration" data-val="1 day">'+t('dur1')+'</button><button type="button" class="v9segbtn '+(p.duration==='2-3 days'?'active':'')+'" data-field="duration" data-val="2-3 days">'+t('dur2')+'</button><button type="button" class="v9segbtn '+(p.duration==='1-4 weeks'?'active':'')+'" data-field="duration" data-val="1-4 weeks">'+t('durWeeks')+'</button><button type="button" class="v9segbtn '+(p.duration==='long-term'?'active':'')+'" data-field="duration" data-val="long-term">'+t('durLong')+'</button></div>' : '')+'</div></div><div class="v9footeractions"><button class="v9btn" data-next="visual">'+t('continue')+'</button><button class="v9btn secondary" data-action="unknown">'+t('idea')+'</button></div>';
- else if(name==='visual') view.innerHTML='<h2>'+t('visualiseTitle')+'</h2><p class="v9muted">'+t('visualiseHint')+'</p><label class="v9upload">'+t('upload')+'<input type="file" id="spaceImage" accept="image/*"></label><canvas id="spaceCanvas" class="v9canvas" style="display:'+(p.image?'block':'none')+'"></canvas><div class="v9formgrid" style="margin-top:18px"><div class="v9field"><label>'+t('ledWidth')+'</label><input type="number" id="hubW" min="0.5" step="0.1" value="'+p.width+'"></div><div class="v9field"><label>'+t('ledHeight')+'</label><input type="number" id="hubH" min="0.5" step="0.1" value="'+p.height+'"></div></div><h3 style="margin-top:25px">'+t('previewTitle')+'</h3><div class="v9preview"><div class="v9ledwall"><div class="v9ledcontent"><small>LEDPANELHUB PREVIEW</small><h2 id="previewText">'+(p.application||t('yourEvent')).toUpperCase()+'</h2><strong>'+p.width+'m × '+p.height+'m</strong></div></div></div><div class="v9footeractions"><button class="v9btn secondary" data-next="project">'+t('back')+'</button><button class="v9btn" data-next="tech">'+t('techNext')+'</button></div>';
- else if(name==='tech'){let area=(Number(p.width)||0)*(Number(p.height)||0);let kw=area*(p.indoorOutdoor==='Outdoor'?0.42:p.indoorOutdoor==='Both'?0.38:0.32);let score=[p.application,p.location,p.goal,p.width,p.height,p.distance,p.purchase,p.power,p.access].filter(Boolean).length;view.innerHTML='<h2>'+t('technicalTitle')+'</h2><div class="v9statgrid"><div class="v9stat">'+t('surface')+'<strong>'+area.toFixed(1)+' m²</strong></div><div class="v9stat">'+t('power')+'<strong>'+kw.toFixed(1)+' kW</strong></div></div><div class="v9notice">'+t('powerNotice')+'</div><div class="v9notice">'+t('technicalPartner')+'</div><div class="v9formgrid"><div class="v9field"><label>'+t('distance')+'</label><input type="number" id="hubDistance" value="'+p.distance+'" min="1"></div><div class="v9field"><label>'+t('powerAvail')+'</label><input id="hubPower" value="'+(p.power||'')+'" placeholder="'+t('powerPlaceholder')+'"></div><div class="v9field"><label>'+t('budget')+'</label><input id="hubBudget" value="'+(p.budget||'')+'" placeholder="'+t('budgetPlaceholder')+'"></div></div><h3 style="margin-top:24px">'+t('readiness')+'</h3><div class="v9score" id="hubScore">'+Math.min(100,score*10)+'%</div><div class="v9progress"><span style="width:'+Math.min(100,score*10)+'%"></span></div><p class="v9muted">'+t('missing')+'</p><div class="v9footeractions"><button class="v9btn secondary" data-next="visual">'+t('back')+'</button><button class="v9btn" data-next="logistics">'+t('logistics')+'</button></div>'}
- else if(name==='logistics') view.innerHTML='<h2>'+t('logisticsTitle')+'</h2><div class="v9formgrid"><div class="v9field"><label>'+t('access')+'</label><textarea id="hubAccess" placeholder="'+t('accessPlaceholder')+'">'+(p.access||'')+'</textarea></div><div class="v9field"><label>'+t('mounting')+'</label><textarea id="hubMounting" placeholder="'+t('mountingPlaceholder')+'">'+(p.mounting||'')+'</textarea></div></div><h3>'+t('checkTitle')+'</h3>'+[['power',t('checks')[0]],['access',t('checks')[1]],['mount',t('checks')[2]],['install',t('checks')[3]],['dismantle',t('checks')[4]]].map(x=>'<label class="v9check"><input type="checkbox" data-check="'+x[0]+'" '+((x[0]==='install'?p.install:x[0]==='dismantle'?p.dismantle:(x[0]==='power'?!!p.power:x[0]==='access'?!!p.access:!!p.mounting))?'checked':'')+'> '+x[1]+'</label>').join('')+'<div class="v9notice">'+t('logisticsNotice')+'</div><div class="v9footeractions"><button class="v9btn secondary" data-next="tech">'+t('back')+'</button><button class="v9btn" data-next="compare">'+t('compare')+'</button></div>';
+ function render(name){applyLang();if(name==='project') view.innerHTML='<h2>'+t('projectTitle')+'</h2><p class="v9muted">'+t('projectHint')+'</p><div class="v9chips">'+t('apps').map(x=>chip(x[1],x[0],'application')).join('')+'</div><div class="v9formgrid" style="margin-top:22px"><div class="v9field"><label>'+t('goalLabel')+'</label><textarea id="hubGoal" placeholder="'+t('goalPlaceholder')+'">'+esc(p.goal||'')+'</textarea></div><div class="v9field"><label>'+t('locationLabel')+'</label><input id="hubLocation" value="'+esc(p.location||'')+'" placeholder="'+t('locationPlaceholder')+'"></div><div class="v9field"><label>'+t('ioLabel')+'</label><div class="v9seg" id="hubIOChoices"><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Outdoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Outdoor">☀️ '+t('outdoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Indoor'?'active':'')+'" data-field="indoorOutdoor" data-val="Indoor">🏢 '+t('indoor')+'</button><button type="button" class="v9segbtn '+(p.indoorOutdoor==='Both'?'active':'')+'" data-field="indoorOutdoor" data-val="Both">↔️ '+t('both')+'</button></div></div><div class="v9field"><label>'+t('purchaseLabel')+'</label><div class="v9seg" id="hubPurchaseChoices"><button type="button" class="v9segbtn '+(p.purchase==='Rental'?'active':'')+'" data-field="purchase" data-val="Rental">📅 '+t('rental')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Purchase'?'active':'')+'" data-field="purchase" data-val="Purchase">🛒 '+t('purchase')+'</button><button type="button" class="v9segbtn '+(p.purchase==='Not sure'?'active':'')+'" data-field="purchase" data-val="Not sure">❓ '+t('notSure')+'</button></div></div><div class="v9field" style="grid-column:1/-1;">'+(p.purchase==='Rental' ? '<label>'+t('durationLabel')+'</label><div class="v9chips" style="margin-top:10px;"><button type="button" class="v9segbtn '+(p.duration==='1 day'?'active':'')+'" data-field="duration" data-val="1 day">'+t('dur1')+'</button><button type="button" class="v9segbtn '+(p.duration==='2-3 days'?'active':'')+'" data-field="duration" data-val="2-3 days">'+t('dur2')+'</button><button type="button" class="v9segbtn '+(p.duration==='1-4 weeks'?'active':'')+'" data-field="duration" data-val="1-4 weeks">'+t('durWeeks')+'</button><button type="button" class="v9segbtn '+(p.duration==='long-term'?'active':'')+'" data-field="duration" data-val="long-term">'+t('durLong')+'</button></div>' : '')+'</div></div><div class="v9footeractions"><button class="v9btn" data-next="visual">'+t('continue')+'</button><button class="v9btn secondary" data-action="unknown">'+t('idea')+'</button></div>';
+ else if(name==='visual') view.innerHTML='<h2>'+t('visualiseTitle')+'</h2><p class="v9muted">'+t('visualiseHint')+'</p><label class="v9upload">'+t('upload')+'<input type="file" id="spaceImage" accept="image/*"></label><canvas id="spaceCanvas" class="v9canvas" style="display:'+(p.image?'block':'none')+'"></canvas><div class="v9formgrid" style="margin-top:18px"><div class="v9field"><label>'+t('ledWidth')+'</label><input type="number" id="hubW" min="0.5" step="0.1" value="'+p.width+'"></div><div class="v9field"><label>'+t('ledHeight')+'</label><input type="number" id="hubH" min="0.5" step="0.1" value="'+p.height+'"></div></div><h3 style="margin-top:25px">'+t('previewTitle')+'</h3><div class="v9preview"><div class="v9ledwall"><div class="v9ledcontent"><small>LEDPANELHUB PREVIEW</small><h2 id="previewText">'+esc(p.application||t('yourEvent')).toUpperCase()+'</h2><strong>'+p.width+'m × '+p.height+'m</strong></div></div></div><div class="v9footeractions"><button class="v9btn secondary" data-next="project">'+t('back')+'</button><button class="v9btn" data-next="tech">'+t('techNext')+'</button></div>';
+ else if(name==='tech'){let area=(Number(p.width)||0)*(Number(p.height)||0);let kw=area*(p.indoorOutdoor==='Outdoor'?0.42:p.indoorOutdoor==='Both'?0.38:0.32);let score=[p.application,p.location,p.goal,p.width,p.height,p.distance,p.purchase,p.power,p.access].filter(Boolean).length;view.innerHTML='<h2>'+t('technicalTitle')+'</h2><div class="v9statgrid"><div class="v9stat">'+t('surface')+'<strong>'+area.toFixed(1)+' m²</strong></div><div class="v9stat">'+t('power')+'<strong>'+kw.toFixed(1)+' kW</strong></div></div><div class="v9notice">'+t('powerNotice')+'</div><div class="v9notice">'+t('technicalPartner')+'</div><div class="v9formgrid"><div class="v9field"><label>'+t('distance')+'</label><input type="number" id="hubDistance" value="'+p.distance+'" min="1"></div><div class="v9field"><label>'+t('powerAvail')+'</label><input id="hubPower" value="'+esc(p.power||'')+'" placeholder="'+t('powerPlaceholder')+'"></div><div class="v9field"><label>'+t('budget')+'</label><input id="hubBudget" value="'+esc(p.budget||'')+'" placeholder="'+t('budgetPlaceholder')+'"></div></div><h3 style="margin-top:24px">'+t('readiness')+'</h3><div class="v9score" id="hubScore">'+Math.min(100,score*10)+'%</div><div class="v9progress"><span style="width:'+Math.min(100,score*10)+'%"></span></div><p class="v9muted">'+t('missing')+'</p><div class="v9footeractions"><button class="v9btn secondary" data-next="visual">'+t('back')+'</button><button class="v9btn" data-next="logistics">'+t('logistics')+'</button></div>'}
+ else if(name==='logistics') view.innerHTML='<h2>'+t('logisticsTitle')+'</h2><div class="v9formgrid"><div class="v9field"><label>'+t('access')+'</label><textarea id="hubAccess" placeholder="'+t('accessPlaceholder')+'">'+esc(p.access||'')+'</textarea></div><div class="v9field"><label>'+t('mounting')+'</label><textarea id="hubMounting" placeholder="'+t('mountingPlaceholder')+'">'+esc(p.mounting||'')+'</textarea></div></div><h3>'+t('checkTitle')+'</h3>'+[['power',t('checks')[0]],['access',t('checks')[1]],['mount',t('checks')[2]],['install',t('checks')[3]],['dismantle',t('checks')[4]]].map(x=>'<label class="v9check"><input type="checkbox" data-check="'+x[0]+'" '+((x[0]==='install'?p.install:x[0]==='dismantle'?p.dismantle:(x[0]==='power'?!!p.power:x[0]==='access'?!!p.access:!!p.mounting))?'checked':'')+'> '+x[1]+'</label>').join('')+'<div class="v9notice">'+t('logisticsNotice')+'</div><div class="v9footeractions"><button class="v9btn secondary" data-next="tech">'+t('back')+'</button><button class="v9btn" data-next="compare">'+t('compare')+'</button></div>';
  else if(name==='compare') view.innerHTML='<h2>'+t('compareTitle')+'</h2><p class="v9muted">'+t('compareHint')+'</p><div class="v9compare"><table><thead><tr><th>'+t('factor')+'</th><th>LED</th><th>LCD</th><th>'+t('projector')+'</th></tr></thead><tbody>'+[[t('large'),t('excellent'),t('limited'),t('possible')],[t('daylight'),t('veryStrong'),t('good'),t('challenging')],[t('outdoorUse'),t('suitable'),t('usuallyLimited'),t('weather')],[t('modular'),t('scalable'),t('panelLimited'),t('setup')],[t('contrast'),t('depends'),t('good'),t('environment')],[t('temporary'),t('common'),t('lessCommon'),t('common')]].map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>').join('')+'</tbody></table></div><div class="v9footeractions"><button class="v9btn secondary" data-next="logistics">'+t('back')+'</button><button class="v9btn" data-next="rfq">'+t('createRfq')+'</button></div>';
  else if(name==='rfq'){let brief=buildBrief();view.innerHTML='<h2>'+t('rfqTitle')+'</h2><p class="v9muted">'+t('rfqHint')+'</p><textarea id="rfqText" style="width:100%;min-height:360px;box-sizing:border-box;border:1px solid var(--hub-line);background:rgba(255,255,255,.04);color:var(--hub-text);border-radius:14px;padding:15px">'+brief+'</textarea><div class="v9actions"><button class="v9btn" data-action="addToForm">'+t('addToForm')+'</button><button class="v9btn" data-action="copy">'+t('copy')+'</button><button class="v9btn secondary" data-action="download">'+t('download')+'</button><button class="v9btn secondary" data-action="share">'+t('share')+'</button><button class="v9btn" data-action="human">'+t('handoff')+'</button></div><div class="v9notice">'+t('saved')+': <b>'+id()+'</b>. '+t('savedLocal')+'</div><div class="v9footeractions"><button class="v9btn secondary" data-next="compare">'+t('back')+'</button><button class="v9btn" data-action="save">'+t('save')+'</button></div>'}
  bind(name);applyLang();
@@ -406,14 +632,14 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
 <section>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
-<div><div class="text-cyan-400 text-xs font-bold uppercase tracking-[.18em] mb-3">Rešitve po namenu</div><h2 class="text-3xl sm:text-4xl font-bold text-white">LED za različne situacije</h2></div>
-<p class="text-slate-400 max-w-xl">Ista tehnologija ne pomeni iste konfiguracije. Pri športu, koncertu ali oglaševanju so prioritete lahko popolnoma drugačne.</p>
+<div><div class="text-cyan-400 text-xs font-bold uppercase tracking-[.18em] mb-3" data-i18n="app_kicker">Rešitve po namenu</div><h2 class="text-3xl sm:text-4xl font-bold text-white" data-i18n="app_heading">LED za različne situacije</h2></div>
+<p class="text-slate-400 max-w-xl" data-i18n="app_desc">Ista tehnologija ne pomeni iste konfiguracije. Pri športu, koncertu ali oglaševanju so prioritete lahko popolnoma drugačne.</p>
 </div>
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#contact"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-futbol"></i></div><h3 class="mt-5 text-lg font-bold text-white">Šport</h3><p class="mt-2 text-sm text-slate-500">Rezultatne table, oglasne linije, stadion in dvorana.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400">Načrtuj projekt →</span></a>
-<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#contact"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-music"></i></div><h3 class="mt-5 text-lg font-bold text-white">Koncerti</h3><p class="mt-2 text-sm text-slate-500">Stage LED, velika ozadja, kamera, signal in produkcija.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400">Načrtuj projekt →</span></a>
-<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#contact"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-bullhorn"></i></div><h3 class="mt-5 text-lg font-bold text-white">Oglaševanje</h3><p class="mt-2 text-sm text-slate-500">Stalni ali začasni zasloni z vsebino, ki mora biti vidna.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400">Načrtuj projekt →</span></a>
-<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#contact"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-building"></i></div><h3 class="mt-5 text-lg font-bold text-white">Poslovni dogodki</h3><p class="mt-2 text-sm text-slate-500">Sejmi, konference, predstavitve in korporativne postavitve.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400">Načrtuj projekt →</span></a>
+<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#project-hub"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-futbol"></i></div><h3 class="mt-5 text-lg font-bold text-white" data-i18n="app_sport_title">Šport</h3><p class="mt-2 text-sm text-slate-500" data-i18n="app_sport_desc">Rezultatne table, oglasne linije, stadion in dvorana.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400" data-i18n="app_cta">Načrtuj projekt →</span></a>
+<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#project-hub"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-music"></i></div><h3 class="mt-5 text-lg font-bold text-white" data-i18n="app_concert_title">Koncerti</h3><p class="mt-2 text-sm text-slate-500" data-i18n="app_concert_desc">Stage LED, velika ozadja, kamera, signal in produkcija.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400" data-i18n="app_cta">Načrtuj projekt →</span></a>
+<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#project-hub"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-bullhorn"></i></div><h3 class="mt-5 text-lg font-bold text-white" data-i18n="app_ad_title">Oglaševanje</h3><p class="mt-2 text-sm text-slate-500" data-i18n="app_ad_desc">Stalni ali začasni zasloni z vsebino, ki mora biti vidna.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400" data-i18n="app_cta">Načrtuj projekt →</span></a>
+<a class="group rounded-2xl border border-slate-800 bg-slate-950 p-6 hover:border-cyan-500/50 hover:-translate-y-1 transition" href="#project-hub"><div class="text-2xl text-cyan-400"><i class="fa-solid fa-building"></i></div><h3 class="mt-5 text-lg font-bold text-white" data-i18n="app_business_title">Poslovni dogodki</h3><p class="mt-2 text-sm text-slate-500" data-i18n="app_business_desc">Sejmi, konference, predstavitve in korporativne postavitve.</p><span class="mt-5 inline-flex text-xs font-bold text-cyan-400" data-i18n="app_cta">Načrtuj projekt →</span></a>
 </div>
 </div>
 </section>
@@ -645,12 +871,14 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
 <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-5">
 <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2" for="form-attachments">
 <i class="fa-solid fa-paperclip mr-1.5 text-cyan-400"></i>
-                        Slike, skice ali tlorisi <span class="text-slate-500 normal-case tracking-normal">(neobvezno)</span>
+                        <span data-i18n="attachments_label">Slike, skice ali tlorisi</span> <span class="text-slate-500 normal-case tracking-normal" data-i18n="optional_label">(neobvezno)</span>
 </label>
-<input accept="image/jpeg,image/png,image/webp,image/gif,application/pdf" aria-describedby="attachment-help attachment-list" class="block w-full text-sm text-slate-300 file:mr-4 file:rounded-lg file:border-0 file:bg-cyan-500 file:px-4 file:py-2.5 file:font-semibold file:text-slate-950 hover:file:bg-cyan-400 cursor-pointer" id="form-attachments" multiple="" name="attachment" type="file"/>
-<p class="mt-2 text-xs text-slate-500" id="attachment-help">
-                        Dodate lahko več slik ali PDF skico. Skupna velikost vseh prilog je največ 10 MB.
-                    </p>
+<div class="flex flex-wrap items-center gap-3">
+  <label for="form-attachments" class="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-4 py-2.5 font-semibold text-slate-950 hover:bg-cyan-400 cursor-pointer" data-i18n="choose_files">Izberi datoteke</label>
+  <span id="attachment-filenames" class="text-sm text-slate-300" aria-live="polite" data-i18n="no_files">Nobena datoteka ni izbrana</span>
+</div>
+<input accept="image/jpeg,image/png,image/webp,image/gif,application/pdf" aria-describedby="attachment-help attachment-list" class="sr-only" id="form-attachments" multiple="" name="attachment" type="file"/>
+<p class="mt-3 text-xs text-slate-500" id="attachment-help" data-i18n="attachments_help">Dodate lahko več slik ali PDF skico. Skupna velikost vseh prilog je največ 10 MB.</p>
 <div aria-live="polite" class="mt-3 space-y-2 text-xs text-slate-400" id="attachment-list"></div>
 </div>
 <div>
@@ -794,7 +1022,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
         const translations = {
             si: {
                 top_construction: "Stran je v izdelavi",
-                nav_services: "Storitve partnerjev",
+                nav_services: "Storitve partnerjev", nav_project_hub: "Project Hub",
                 nav_guide: "Tehnični vodnik",
                 nav_support: "Servis & Garancija",
                 nav_reference: "Primeri uporabe",
@@ -830,7 +1058,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 support_text_2: "Pri najemu je morebitna tehnična podpora med dogodkom odvisna od dogovora z izbranim partnerjem in obsega projekta.",
                 support_box1_title: "Garancija kakovosti",
                 support_box1_desc: "Izbor opreme in certifikati se preverijo pri izbranem partnerju glede na projekt.",
-                support_box2_title: "Tehnička podrška na događaju",
+                support_box2_title: "Tehnična podpora med dogodkom",
                 support_box2_desc: "Tehnična podpora na voljo med dogodki.",
                 support_reg_title: "Servis in logistika",
                 support_reg_ljubljana: "Lokacija in obseg podpore se uskladita z izbranim partnerjem.",
@@ -890,6 +1118,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 footer_rights: "© 2026 LEDpanelHub.com. Vse pravice pridržane.",
                 top_construction: "Stran je v izdelavi",
                 hero_point_1: "Nakup in najem", hero_point_2: "Šport in dogodki", hero_point_3: "SI • HR • AT • DE",
+                app_kicker: "Rešitve po namenu", app_heading: "LED za različne situacije", app_desc: "Ista tehnologija ne pomeni iste konfiguracije. Pri športu, koncertu ali oglaševanju so prioritete lahko popolnoma drugačne.", app_sport_title: "Šport", app_sport_desc: "Rezultatne table, oglasne linije, stadion in dvorana.", app_concert_title: "Koncerti", app_concert_desc: "Stage LED, velika ozadja, kamera, signal in produkcija.", app_ad_title: "Oglaševanje", app_ad_desc: "Stalni ali začasni zasloni z vsebino, ki mora biti vidna.", app_business_title: "Poslovni dogodki", app_business_desc: "Sejmi, konference, predstavitve in korporativne postavitve.", app_cta: "Načrtuj projekt →",
                 process_kicker: "Preprost postopek", process_heading: "Od prvega povpraševanja do ustrezne ponudbe", process_desc: "Vi opišete projekt, mi zberemo ključne podatke in jih usmerimo k ustreznemu partnerju. Končna tehnična ponudba, cena in izvedbeni pogoji so odvisni od izbranega partnerja in projekta.",
                 process_1_title: "Opišete potrebe", process_1_desc: "Vrsta opreme, približne mere, datum in osnovne tehnične zahteve.", process_2_title: "Poiščemo ustreznega partnerja", process_2_desc: "Povpraševanje usmerimo glede na vrsto projekta, lokacijo in zahtevano opremo.", process_3_title: "Primerjate in uskladite izvedbo", process_3_desc: "S partnerjem uskladite ponudbo, tehnične podrobnosti, termin in logistiko.",
                 why_kicker: "Zakaj posredništvo?", why_heading: "Manj iskanja, bolj jasen začetek projekta", why_1_title: "Usmerjeno iskanje", why_1_desc: "Povpraševanje usmerimo glede na projektne potrebe.", why_2_title: "Tehnične zahteve", why_2_desc: "Pomagamo strukturirati osnovne specifikacije projekta.", why_3_title: "Regijska usmeritev", why_3_desc: "Delovanje je usmerjeno na Slovenijo, Hrvaško, Avstrijo in Nemčijo.", why_4_title: "Neodvisno posredovanje", why_4_desc: "Končne pogoje in izvedbo določi izbrani partner skupaj z naročnikom.",
@@ -911,7 +1140,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             },
             en: {
                 top_construction: "Website under construction",
-                nav_services: "Partner Services",
+                nav_services: "Partner Services", nav_project_hub: "Project Hub",
                 nav_guide: "Tech Guide",
                 nav_support: "Service & Warranty",
                 nav_reference: "Project Examples",
@@ -1007,6 +1236,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 footer_rights: "© 2026 LEDpanelHub.com. All rights reserved.",
                 top_construction: "Purchase • Rental • Technical delivery | SI • HR • AT • DE",
                 hero_point_1: "Purchase & rental", hero_point_2: "Sports & events", hero_point_3: "SI • HR • AT • DE",
+                app_kicker: "Solutions by application", app_heading: "LED for different situations", app_desc: "The same technology does not mean the same configuration. Priorities can be completely different for sports, concerts, or advertising.", app_sport_title: "Sports", app_sport_desc: "Scoreboards, perimeter advertising, stadiums and arenas.", app_concert_title: "Concerts", app_concert_desc: "Stage LED, large backdrops, cameras, signal and production.", app_ad_title: "Advertising", app_ad_desc: "Permanent or temporary displays with content that needs to be visible.", app_business_title: "Business Events", app_business_desc: "Trade fairs, conferences, presentations and corporate setups.", app_cta: "Plan your project →",
                 process_kicker: "Simple process", process_heading: "From first inquiry to a suitable offer", process_desc: "You describe the project, we collect the key details and route the inquiry to a suitable partner. Final technical specifications, pricing and delivery terms depend on the selected partner and project.",
                 process_1_title: "Describe your needs", process_1_desc: "Equipment type, approximate dimensions, date and basic technical requirements.", process_2_title: "We route the inquiry", process_2_desc: "The request is directed based on project type, location and required equipment.", process_3_title: "Align the delivery", process_3_desc: "You coordinate the offer, technical details, schedule and logistics with the partner.",
                 why_kicker: "Why brokerage?", why_heading: "Less searching, a clearer project starting point", why_1_title: "Focused sourcing", why_1_desc: "We route the inquiry according to the project requirements.", why_2_title: "Technical requirements", why_2_desc: "We help structure the basic project specifications.", why_3_title: "Regional focus", why_3_desc: "Our stated region covers Slovenia, Croatia, Austria and Germany.", why_4_title: "Independent brokerage", why_4_desc: "Final terms and delivery are agreed between the selected partner and the client.",
@@ -1028,7 +1258,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             },
             hr: {
                 top_construction: "Stranica je u izradi",
-                nav_services: "Usluge partnera",
+                nav_services: "Usluge partnera", nav_project_hub: "Project Hub",
                 nav_guide: "Tehnički vodič",
                 nav_support: "Servis i jamstvo",
                 nav_reference: "Primeri uporabe",
@@ -1124,6 +1354,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 footer_rights: "© 2026 LEDpanelHub.com. Sva prava pridržana.",
                 top_construction: "Kupnja • Najam • Tehnička izvedba | SI • HR • AT • DE",
                 hero_point_1: "Kupnja i najam", hero_point_2: "Sport i događaji", hero_point_3: "SI • HR • AT • DE",
+                app_kicker: "Rješenja prema namjeni", app_heading: "LED za različite situacije", app_desc: "Ista tehnologija ne znači istu konfiguraciju. Kod sporta, koncerata ili oglašavanja prioriteti mogu biti potpuno različiti.", app_sport_title: "Sport", app_sport_desc: "Semafori, reklamne linije, stadioni i dvorane.", app_concert_title: "Koncerti", app_concert_desc: "Stage LED, velika pozadinska platna, kamere, signal i produkcija.", app_ad_title: "Oglašavanje", app_ad_desc: "Stalni ili privremeni zasloni sa sadržajem koji mora biti vidljiv.", app_business_title: "Poslovni događaji", app_business_desc: "Sajmovi, konferencije, prezentacije i korporativne postave.", app_cta: "Planirajte projekt →",
                 process_kicker: "Jednostavan postupak", process_heading: "Od prvog upita do odgovarajuće ponude", process_desc: "Opišete projekt, mi prikupimo ključne podatke i usmjerimo upit odgovarajućem partneru. Konačne tehničke specifikacije, cijena i uvjeti izvedbe ovise o odabranom partneru i projektu.",
                 process_1_title: "Opišite potrebe", process_1_desc: "Vrsta opreme, približne dimenzije, datum i osnovni tehnički zahtjevi.", process_2_title: "Usmjeravamo upit", process_2_desc: "Upit se usmjerava prema vrsti projekta, lokaciji i potrebnoj opremi.", process_3_title: "Uskladite izvedbu", process_3_desc: "S partnerom usklađujete ponudu, tehničke detalje, termin i logistiku.",
                 why_kicker: "Zašto posredovanje?", why_heading: "Manje traženja, jasniji početak projekta", why_1_title: "Usmjereno traženje", why_1_desc: "Upit usmjeravamo prema potrebama projekta.", why_2_title: "Tehnički zahtjevi", why_2_desc: "Pomažemo strukturirati osnovne specifikacije projekta.", why_3_title: "Regionalni fokus", why_3_desc: "Područje djelovanja obuhvaća Sloveniju, Hrvatsku, Austriju i Njemačku.", why_4_title: "Neovisno posredovanje", why_4_desc: "Konačne uvjete i izvedbu dogovaraju odabrani partner i naručitelj.",
@@ -1145,7 +1376,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             },
             de: {
                 top_construction: "Website im Aufbau",
-                nav_services: "Partnerservices",
+                nav_services: "Partnerservices", nav_project_hub: "Project Hub",
                 nav_guide: "Technischer Leitfaden",
                 nav_support: "Service & Garantie",
                 nav_reference: "Projektbeispiele",
@@ -1241,6 +1472,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 footer_rights: "© 2026 LEDpanelHub.com. Alle Rechte vorbehalten.",
                 top_construction: "Kauf • Miete • Technische Umsetzung | SI • HR • AT • DE",
                 hero_point_1: "Kauf & Miete", hero_point_2: "Sport & Events", hero_point_3: "SI • HR • AT • DE",
+                app_kicker: "Lösungen nach Einsatzbereich", app_heading: "LED für unterschiedliche Situationen", app_desc: "Die gleiche Technologie bedeutet nicht die gleiche Konfiguration. Bei Sport, Konzerten oder Werbung können die Prioritäten völlig unterschiedlich sein.", app_sport_title: "Sport", app_sport_desc: "Anzeigetafeln, Werbelinien, Stadien und Hallen.", app_concert_title: "Konzerte", app_concert_desc: "Stage-LED, große Hintergründe, Kameras, Signal und Produktion.", app_ad_title: "Werbung", app_ad_desc: "Dauerhafte oder temporäre Displays mit Inhalten, die sichtbar sein müssen.", app_business_title: "Business-Events", app_business_desc: "Messen, Konferenzen, Präsentationen und Unternehmensveranstaltungen.", app_cta: "Projekt planen →",
                 process_kicker: "Einfacher Ablauf", process_heading: "Von der Anfrage zum passenden Angebot", process_desc: "Sie beschreiben das Projekt, wir erfassen die wichtigsten Angaben und leiten die Anfrage an einen passenden Partner weiter. Technische Details, Preise und Ausführungsbedingungen hängen vom ausgewählten Partner und Projekt ab.",
                 process_1_title: "Bedarf beschreiben", process_1_desc: "Geräteart, ungefähre Maße, Termin und grundlegende technische Anforderungen.", process_2_title: "Anfrage weiterleiten", process_2_desc: "Die Anfrage wird nach Projektart, Standort und benötigter Ausstattung zugeordnet.", process_3_title: "Umsetzung abstimmen", process_3_desc: "Angebot, technische Details, Termin und Logistik werden mit dem Partner abgestimmt.",
                 why_kicker: "Warum Vermittlung?", why_heading: "Weniger Suche, klarerer Projektstart", why_1_title: "Gezielte Vermittlung", why_1_desc: "Wir leiten die Anfrage entsprechend den Projektanforderungen weiter.", why_2_title: "Technische Anforderungen", why_2_desc: "Wir helfen dabei, die grundlegenden Projektspezifikationen zu strukturieren.", why_3_title: "Regionaler Fokus", why_3_desc: "Der angegebene Tätigkeitsbereich umfasst Slowenien, Kroatien, Österreich und Deutschland.", why_4_title: "Unabhängige Vermittlung", why_4_desc: "Endgültige Bedingungen und Umsetzung werden zwischen Partner und Auftraggeber vereinbart.",
@@ -1299,10 +1531,36 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             });
 
             const dict = translations[lang] || translations['si'];
+            const attachmentTranslations = {
+                si: {attachments_label:'Slike, skice ali tlorisi', optional_label:'(neobvezno)', choose_files:'Izberi datoteke', no_files:'Nobena datoteka ni izbrana', attachments_help:'Dodate lahko več slik ali PDF skico. Skupna velikost vseh prilog je največ 10 MB.'},
+                en: {attachments_label:'Images, sketches or floor plans', optional_label:'(optional)', choose_files:'Choose files', no_files:'No file selected', attachments_help:'You can add multiple images or a PDF sketch. The total size of all attachments must not exceed 10 MB.'},
+                hr: {attachments_label:'Slike, skice ili tlocrti', optional_label:'(nije obavezno)', choose_files:'Odaberi datoteke', no_files:'Nijedna datoteka nije odabrana', attachments_help:'Možete dodati više slika ili PDF skicu. Ukupna veličina svih privitaka ne smije biti veća od 10 MB.'},
+                de: {attachments_label:'Bilder, Skizzen oder Grundrisse', optional_label:'(optional)', choose_files:'Dateien auswählen', no_files:'Keine Datei ausgewählt', attachments_help:'Sie können mehrere Bilder oder eine PDF-Skizze hinzufügen. Alle Anhänge zusammen dürfen höchstens 10 MB groß sein.'}
+            };
+            const attachmentDict = attachmentTranslations[lang] || attachmentTranslations.si;
+            Object.entries(attachmentDict).forEach(([key, value]) => {
+                const el = document.querySelector(`[data-i18n="${key}"]`);
+                if (el) el.textContent = value;
+            });
+            const setTranslatedText = (el, value) => {
+                if (!el || value == null) return;
+                const textNodes = Array.from(el.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+                if (textNodes.length) {
+                    textNodes[0].nodeValue = value + (el.querySelector('i,svg') ? ' ' : '');
+                    textNodes.slice(1).forEach(node => node.nodeValue = '');
+                } else if (el.children.length) {
+                    el.insertBefore(document.createTextNode(value + ' '), el.firstChild);
+                } else {
+                    el.textContent = value;
+                }
+            };
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (dict[key]) el.textContent = dict[key];
+                if (dict[key]) setTranslatedText(el, dict[key]);
             });
+            const chatSubtitle = {si:'• Vprašaj karkoli',en:'• Ask anything',hr:'• Pitajte bilo što',de:'• Fragen Sie alles'};
+            const chatSubtitleEl = document.querySelector('[data-i18n="chat_title"] span');
+            if (chatSubtitleEl) chatSubtitleEl.textContent = chatSubtitle[lang] || chatSubtitle.si;
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
                 if (dict[key]) el.placeholder = dict[key];
@@ -1350,12 +1608,12 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
         }
 
         /* ==========================================================
-           LEDpanelHub SALES CONSULTANT V6
+           LEDpanelHub SALES CONSULTANT V7
            - Free text first; quick replies are optional shortcuts.
            - Keeps a structured project state during the conversation.
            - Does not invent prices, partner names or specifications.
-           - Optional real-AI endpoint can be connected later without
-             exposing a secret API key in this HTML file.
+           - Real-AI endpoint returns a reply plus optional structured project updates.
+             API credentials remain server-side, never in this HTML file.
         ========================================================== */
         const REAL_AI_ENDPOINT = (window.location.protocol === 'file:' ? 'http://localhost:3000/api/ai-chat' : '/api/ai-chat');
         const ENABLE_REAL_AI = true;
@@ -1722,11 +1980,22 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             if(!ENABLE_REAL_AI)return false;
             try{
                 const attachments=await readChatFilesForAI();
-                const res=await fetch(REAL_AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:userText,project,history:conversationHistory.slice(-12),language:currentLang,attachments})});
+                const res=await fetch(REAL_AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:userText,project,history:conversationHistory.slice(0,-1).slice(-12),language:currentLang,attachments})});
                 if(!res.ok)throw new Error('AI endpoint failed');
                 const data=await res.json();
-                if(data.project && typeof data.project==='object') Object.assign(project,data.project);
-                if(data.reply){botSay(data.reply,data.quickReplies||[]);return true;}
+                if(data.project && typeof data.project==='object'){
+                    const allowed=['scenario','goal','application','purchaseMode','location','environment','eventDate','duration','width','height','area','viewingDistance','audience','content','pixelPitch','brightness','ipProtection','refreshRate','mounting','structure','power','logistics','transport','technicalSupport','budget','name','company','email','phone','notes','uncertainties'];
+                    for(const key of allowed){
+                        const value=data.project[key];
+                        if(key==='uncertainties' && Array.isArray(value)) project[key]=value.filter(v=>typeof v==='string').slice(0,8);
+                        else if(typeof value==='string' && value.trim()) project[key]=value.trim().slice(0,500);
+                    }
+                    updateProjectPanel();
+                }
+                if(typeof data.reply==='string' && data.reply.trim()){
+                    const quickReplies=Array.isArray(data.quickReplies)?data.quickReplies.filter(v=>typeof v==='string').slice(0,3).map(text=>({text,value:text})):[];
+                    botSay(data.reply,quickReplies);return true;
+                }
             }catch(e){ console.warn('Real AI endpoint unavailable; using local consultant.',e); }
             return false;
         }
@@ -1816,14 +2085,18 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             const totalMB = (total / (1024 * 1024)).toFixed(2);
             if (!files.length) {
                 list.innerHTML = '';
+                const names = document.getElementById('attachment-filenames');
+                if (names) names.textContent = currentLang==='en'?'No file selected':currentLang==='hr'?'Nijedna datoteka nije odabrana':currentLang==='de'?'Keine Datei ausgewählt':'Nobena datoteka ni izbrana';
                 return;
             }
+            const names = document.getElementById('attachment-filenames');
+            if (names) names.textContent = files.length ? files.map(file => file.name).join(', ') : (currentLang==='en'?'No file selected':currentLang==='hr'?'Nijedna datoteka nije odabrana':currentLang==='de'?'Keine Datei ausgewählt':'Nobena datoteka ni izbrana');
             list.innerHTML = files.map(file => `
                 <div class="flex items-center justify-between gap-3 bg-slate-900 rounded-lg px-3 py-2">
                     <span class="truncate"><i class="fa-regular fa-file-image mr-2 text-cyan-400"></i>${escapeHtml(file.name)}</span>
                     <span class="shrink-0 text-slate-500">${(file.size / (1024 * 1024)).toFixed(2)} MB</span>
                 </div>
-            `).join('') + `<div class="text-slate-500 pt-1">Skupaj: ${totalMB} MB / 10 MB</div>`;
+            `).join('') + `<div class="text-slate-500 pt-1">${currentLang==='en'?'Total':currentLang==='hr'?'Ukupno':currentLang==='de'?'Gesamt':'Skupaj'}: ${totalMB} MB / 10 MB</div>`;
         });
 
         function escapeHtml(value) {
@@ -1842,7 +2115,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             const submitButton = form.querySelector('button[type="submit"]');
             const name = document.getElementById('form-name').value.trim();
             const email = document.getElementById('form-email').value.trim();
-            const service = document.getElementById('form-service').value;
+            const service = document.getElementById('form-service')?.selectedOptions?.[0]?.textContent?.trim() || '';
             const date = document.getElementById('form-date').value;
             const dims = document.getElementById('form-dimensions').value.trim();
             const budget = document.getElementById('form-budget')?.selectedOptions[0]?.text || '-';
@@ -1861,7 +2134,7 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
                 return;
             }
 
-            const subject = `Nova poizvedba - LEDpanelHub: ${service} (${name})`;            const attachmentInput = document.getElementById('form-attachments');
+            const subject = langText({si:`Novo povpraševanje – LEDpanelHub: ${service} (${name})`,en:`New inquiry – LEDpanelHub: ${service} (${name})`,hr:`Novi upit – LEDpanelHub: ${service} (${name})`,de:`Neue Anfrage – LEDpanelHub: ${service} (${name})`});            const attachmentInput = document.getElementById('form-attachments');
             const attachments = attachmentInput?.files ? Array.from(attachmentInput.files) : [];
             const totalBytes = attachments.reduce((sum, file) => sum + file.size, 0);
             const maxBytes = 10 * 1024 * 1024;
@@ -1886,7 +2159,8 @@ body.lp-light #chat-window #consultant-memory{background:#fff!important;border-c
             formData.append('_honey', '');
             attachments.forEach(file => formData.append('attachment', file, file.name));
 
-            const body = `Ime / Podjetje: ${name}\nE-pošta: ${email}\nStoritev: ${service}\nDatum dogodka: ${date || '-'}\nMere: ${dims || '-'}\nOkvirni proračun: ${budget}\n\nSporočilo / opombe:\n${msg || '-'}`;
+            const bodyLabels = langText({si:{name:'Ime / podjetje',email:'E-pošta',service:'Storitev',date:'Datum dogodka',dims:'Mere',budget:'Okvirni proračun',message:'Sporočilo / opombe'},en:{name:'Name / company',email:'Email',service:'Service',date:'Event date',dims:'Dimensions',budget:'Approximate budget',message:'Message / notes'},hr:{name:'Ime / tvrtka',email:'E-pošta',service:'Usluga',date:'Datum događaja',dims:'Dimenzije',budget:'Okvirni proračun',message:'Poruka / napomene'},de:{name:'Name / Unternehmen',email:'E-Mail',service:'Leistung',date:'Veranstaltungsdatum',dims:'Abmessungen',budget:'Ungefähres Budget',message:'Nachricht / Hinweise'}});
+            const body = `${bodyLabels.name}: ${name}\n${bodyLabels.email}: ${email}\n${bodyLabels.service}: ${service}\n${bodyLabels.date}: ${date || '-'}\n${bodyLabels.dims}: ${dims || '-'}\n${bodyLabels.budget}: ${budget}\n\n${bodyLabels.message}:\n${msg || '-'}`;
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ledpanelhub.info@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             submitButton.disabled = true;
@@ -1994,5 +2268,40 @@ document.addEventListener('input',updateProjectReadiness); document.addEventList
   document.addEventListener('DOMContentLoaded',()=>{setTheme(localStorage.getItem('ledpanelhub-theme')==='light'?'light':'dark');document.querySelectorAll('#mobile-nav a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('mobile-nav')?.classList.remove('open');document.getElementById('mobile-menu-button')?.setAttribute('aria-expanded','false');}));});
 })();
 </script>
+
+<style id="v33-graphite-orange-palette">
+:root{--v33-ink:#101820;--v33-blue:#4da3ff;--v33-orange:#ff9d42;--v33-stroke:rgba(158,177,194,.19);--v33-glow:0 20px 70px rgba(255,157,66,.10)}
+body{background-color:#0c1219!important;background-image:radial-gradient(ellipse at 14% 12%,rgba(77,163,255,.12),transparent 34%),radial-gradient(ellipse at 88% 34%,rgba(255,157,66,.085),transparent 30%),linear-gradient(180deg,#0c1219 0%,#111a23 48%,#0b1118 100%)!important}
+body:after{background:radial-gradient(circle at 1px 1px,rgba(161,184,203,.16) 1px,transparent 1.4px)!important;opacity:.18!important}
+header.sticky{border-bottom-color:rgba(158,177,194,.17)!important;background:rgba(10,16,23,.86)!important}
+header nav a:hover{color:#ffb46e!important}
+header .lp-nav-project{box-shadow:inset 0 0 20px rgba(255,157,66,.035),0 0 24px rgba(255,157,66,.045)!important}
+#main-content>section:first-child{background:radial-gradient(ellipse at 75% 48%,rgba(77,163,255,.11),transparent 34%),linear-gradient(180deg,rgba(10,16,23,.12),rgba(10,16,23,.20))!important;border-bottom-color:rgba(158,177,194,.16)!important}
+#main-content>section:first-child>div:first-child>div{background:linear-gradient(90deg,rgba(10,16,23,.96) 0%,rgba(10,16,23,.80) 46%,rgba(10,16,23,.30) 100%),linear-gradient(180deg,rgba(10,16,23,.1),#0c1219 100%)!important}
+#main-content>section:first-child:after{border-color:rgba(77,163,255,.26)!important;background:linear-gradient(145deg,rgba(77,163,255,.12),rgba(255,157,66,.08) 58%,rgba(255,255,255,.015))!important;box-shadow:inset 0 0 65px rgba(77,163,255,.07),0 35px 100px rgba(0,0,0,.30),0 0 55px rgba(255,157,66,.045)!important}
+#main-content>section:first-child:before{background:radial-gradient(circle,rgba(117,190,255,.95) 1px,transparent 1.8px)!important}
+#main-content>section:first-child h1 strong,#main-content>section:first-child h1 span{background:linear-gradient(100deg,#fff 10%,#c6e3ff 57%,#ffbd7b 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]{background:linear-gradient(105deg,#ffb15e 0%,#ff963c 58%,#f47b2b 100%)!important;color:#20150c!important;box-shadow:0 14px 42px rgba(255,145,55,.22),inset 0 1px rgba(255,255,255,.62)!important}
+#main-content>section:first-child a[data-i18n="hero_btn_primary"]:hover{box-shadow:0 20px 52px rgba(255,145,55,.30)!important}
+#main-content>section:nth-child(2){background:linear-gradient(180deg,rgba(22,32,43,.96),rgba(12,18,25,.93))!important;border-bottom-color:var(--v33-stroke)!important}
+#main-content .grid a.group.rounded-2xl,#main-content .grid>a.rounded-2xl{background:linear-gradient(145deg,rgba(27,39,51,.97),rgba(14,21,29,.99))!important;border-color:rgba(158,177,194,.17)!important}
+#main-content .grid a.group.rounded-2xl:after,#main-content .grid>a.rounded-2xl:after{background:linear-gradient(90deg,transparent,rgba(255,157,66,.55),transparent)!important}
+#main-content .grid a.group.rounded-2xl:hover,#main-content .grid>a.rounded-2xl:hover{border-color:rgba(255,157,66,.43)!important;box-shadow:0 25px 65px rgba(0,0,0,.24),var(--v33-glow)!important}
+#main-content .grid a.group.rounded-2xl>div:first-child,#main-content .grid>a.rounded-2xl>div:first-child{background:linear-gradient(145deg,rgba(77,163,255,.13),rgba(255,157,66,.10))!important;border-color:rgba(255,157,66,.20)!important}
+#project-hub{background:radial-gradient(ellipse at 50% 0%,rgba(77,163,255,.10),transparent 46%)!important}
+#project-hub:before{background:linear-gradient(90deg,transparent,rgba(255,157,66,.52),transparent)!important}
+#project-hub .v9card:hover{border-color:rgba(255,157,66,.36)!important}
+#inquiry-form{border-color:rgba(158,177,194,.22)!important}
+#inquiry-form button[type=submit],#inquiry-form input[type=submit]{background:linear-gradient(105deg,#ffb15e,#ff963c)!important;color:#20150c!important;box-shadow:0 10px 30px rgba(255,145,55,.18)!important}
+footer{background:linear-gradient(180deg,#0c1219,#070b10)!important}
+body.lp-light{background-color:#f5f7fa!important;background-image:radial-gradient(ellipse at 14% 12%,rgba(77,163,255,.07),transparent 34%),radial-gradient(ellipse at 88% 34%,rgba(255,157,66,.055),transparent 30%),linear-gradient(180deg,#f8fafc,#edf1f5 55%,#f7f9fb)!important}
+body.lp-light header.sticky{background:rgba(250,252,254,.90)!important}
+body.lp-light #main-content>section:first-child{background:radial-gradient(ellipse at 75% 48%,rgba(77,163,255,.075),transparent 34%),linear-gradient(180deg,rgba(248,250,252,.15),rgba(248,250,252,.4))!important}
+body.lp-light #main-content>section:first-child>div:first-child>div{background:linear-gradient(90deg,rgba(247,249,252,.97),rgba(247,249,252,.86) 48%,rgba(247,249,252,.48)),linear-gradient(180deg,rgba(247,249,252,.05),#f4f6f8)!important}
+body.lp-light #main-content>section:first-child h1 strong,body.lp-light #main-content>section:first-child h1 span{background:linear-gradient(100deg,#182b3d,#276ca8 58%,#c66b24)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+body.lp-light #main-content>section:nth-child(2){background:linear-gradient(180deg,#e9eef3,#f5f7fa)!important}
+@media(max-width:640px){#main-content>section:first-child a[data-i18n="hero_btn_primary"]{box-shadow:0 10px 28px rgba(255,145,55,.20)!important}}
+</style>
+
 </body>
 </html>
